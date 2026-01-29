@@ -262,9 +262,9 @@ class NyrakaiTranslator:
         return apply_interfix(nyrakai, suffix)
     
     def apply_aspect(self, verb: str, aspect: str = 'ongoing') -> str:
-        """Apply aspect suffix to a verb."""
+        """Apply aspect suffix to a verb with interfix if needed."""
         suffix = ASPECTS.get(aspect, ASPECTS['ongoing'])
-        return verb + suffix
+        return apply_interfix(verb, suffix)
     
     def apply_negation(self, verb: str) -> str:
         """Apply za- negation prefix to verb."""
@@ -514,7 +514,7 @@ class NyrakaiTranslator:
             
             if verb_idx is not None:
                 aspect_suffix = ASPECTS.get(parsed['aspect'], ASPECTS['ongoing'])
-                final_parts[verb_idx] = verb_form + aspect_suffix
+                final_parts[verb_idx] = apply_interfix(verb_form, aspect_suffix)
         
         # Add question particle at end
         if parsed['question'] and 'ka' not in final_parts:

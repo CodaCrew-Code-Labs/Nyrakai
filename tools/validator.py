@@ -63,7 +63,39 @@ VALID_CLUSTERS = {
     'ț': {'r'},  # th + r (for țræn etc.)
 }
 
-DICT_PATH = Path(__file__).parent.parent / "memory" / "nyrakai-dictionary.json"
+DICT_PATH = Path(__file__).parent / "nyrakai-dictionary.json"
+
+def load_dictionary_words() -> dict:
+    """Load dictionary and return lookup dicts."""
+    if not DICT_PATH.exists():
+        return {}, {}
+    try:
+        with open(DICT_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        nyr_to_eng = {}
+        eng_to_nyr = {}
+        for entry in data.get('words', []):
+            nyr = entry.get('nyrakai', '')
+            eng = entry.get('english', '')
+            if nyr:
+                nyr_to_eng[nyr] = eng
+                nyr_to_eng[nyr.lower()] = eng
+            if eng:
+                eng_to_nyr[eng.lower()] = nyr
+        return nyr_to_eng, eng_to_nyr
+    except:
+        return {}, {}
+
+# Load dictionary at module level for quick lookups
+_NYR_TO_ENG, _ENG_TO_NYR = load_dictionary_words()
+
+def word_exists_in_dictionary(nyrakai: str) -> tuple:
+    """Check if a Nyrakai word exists in dictionary. Returns (exists, english_meaning)."""
+    if nyrakai in _NYR_TO_ENG:
+        return True, _NYR_TO_ENG[nyrakai]
+    if nyrakai.lower() in _NYR_TO_ENG:
+        return True, _NYR_TO_ENG[nyrakai.lower()]
+    return False, None
 
 # Diphthong conversion map (digraph → single letter)
 DIPHTHONG_MAP = {
@@ -409,6 +441,15 @@ def validate_word(word: str, auto_normalize: bool = True) -> dict:
         result["onset"] = onset
         result["primary_domain"] = primary
         result["secondary_domain"] = secondary
+    
+    # Check if word already exists in dictionary
+    exists, eng_meaning = word_exists_in_dictionary(normalized)
+    if exists:
+        result["exists_in_dictionary"] = True
+        result["existing_meaning"] = eng_meaning
+        result["warnings"].append(f"⚠️  Word already exists: '{normalized}' = '{eng_meaning}'")
+    else:
+        result["exists_in_dictionary"] = False
     
     return result
 

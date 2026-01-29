@@ -12,7 +12,7 @@ import sys
 import urllib.request
 import urllib.error
 from pathlib import Path
-from validator import validate_word, normalize
+from validator import validate_word, normalize, word_exists_in_dictionary
 
 # Import sound map for domain-aware generation
 try:
@@ -264,6 +264,13 @@ def validate_suggestions(suggestions: list) -> list:
             primary, secondary = get_domain(validation["normalized"])
             result_entry["onset"] = onset
             result_entry["domain"] = primary or "unmapped"
+        
+        # Check if word already exists in dictionary
+        exists, eng_meaning = word_exists_in_dictionary(validation["normalized"])
+        result_entry["exists_in_dictionary"] = exists
+        if exists:
+            result_entry["existing_meaning"] = eng_meaning
+            result_entry["warnings"].append(f"⚠️  DUPLICATE: already means '{eng_meaning}'")
         
         results.append(result_entry)
     

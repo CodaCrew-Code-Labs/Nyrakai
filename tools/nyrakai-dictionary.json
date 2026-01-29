@@ -4,7 +4,7 @@
     "version": "3.2",
     "created": "2026-01-29",
     "updated": "2026-01-30",
-    "total_words": 140,
+    "total_words": 144,
     "format": "english | nyrakai | pronunciation | IPA | structure | syllables | pos | root",
     "notes": "Sound-map domain compliance update"
   },
@@ -2083,6 +2083,66 @@
       "etymology": "Onomatopoeia - animal growl",
       "validated": true,
       "inherent_gender": "masculine"
+    },
+    {
+      "english": "like/love",
+      "nyrakai": "t'ōni",
+      "pronunciation": "tuh-oh-ni",
+      "ipa": "/təʔoːni/",
+      "structure": "CV.CV",
+      "syllables": "t'ō (CV) + ni (CV)",
+      "syllable_count": 2,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "notes": "t'- onset with glottal; to like, to love, to be fond of",
+      "inherent_gender": null
+    },
+    {
+      "english": "yes",
+      "nyrakai": "n'æk",
+      "pronunciation": "nuh-aik",
+      "ipa": "/nəʔaik/",
+      "structure": "CVC",
+      "syllables": "n'æk (CVC)",
+      "syllable_count": 1,
+      "pos": "particle",
+      "is_root": true,
+      "etymology": "Related to n'æ (true)",
+      "validated": true,
+      "notes": "n'- truth domain; affirmation particle",
+      "inherent_gender": null
+    },
+    {
+      "english": "no",
+      "nyrakai": "zān",
+      "pronunciation": "zaan",
+      "ipa": "/zaːn/",
+      "structure": "CVC",
+      "syllables": "zān (CVC)",
+      "syllable_count": 1,
+      "pos": "particle",
+      "is_root": true,
+      "etymology": "Related to zæ (not)",
+      "validated": true,
+      "notes": "z- negation domain; rejection particle (different from zæ 'not')",
+      "inherent_gender": null
+    },
+    {
+      "english": "or",
+      "nyrakai": "wɒ",
+      "pronunciation": "wau",
+      "ipa": "/wau/",
+      "structure": "CV",
+      "syllables": "wɒ (CV)",
+      "syllable_count": 1,
+      "pos": "conj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "notes": "w- connective; disjunctive conjunction",
+      "inherent_gender": null
     }
   ]
 }
