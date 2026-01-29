@@ -4,7 +4,7 @@
     "version": "1.0",
     "created": "2026-01-30",
     "updated": "2026-01-30",
-    "total_sentences": 2,
+    "total_sentences": 3,
     "categories": [
       "motto",
       "greeting",
@@ -77,6 +77,57 @@
       "category": "dialogue",
       "register": "everyday",
       "notes": "",
+      "validated": true,
+      "added": "2026-01-30"
+    },
+    {
+      "id": 3,
+      "english": "Do you like dogs, yes or no?",
+      "nyrakai": "gwōraš t'ōniwiræn gæ ka, n'æk wɒ zān?",
+      "ipa": "/gwoːraʃ təʔoːniwirain gai ka, nəʔaik wau zaːn/",
+      "literal": "dogs like-ongoing you ?, yes or no",
+      "breakdown": [
+        {
+          "word": "gwōraš",
+          "gloss": "dogs",
+          "role": "object (accusative)"
+        },
+        {
+          "word": "t'ōniwiræn",
+          "gloss": "like-ongoing",
+          "role": "verb + interfix + aspect"
+        },
+        {
+          "word": "gæ",
+          "gloss": "you",
+          "role": "subject"
+        },
+        {
+          "word": "ka",
+          "gloss": "?",
+          "role": "question particle"
+        },
+        {
+          "word": "n'æk",
+          "gloss": "yes",
+          "role": "option 1"
+        },
+        {
+          "word": "wɒ",
+          "gloss": "or",
+          "role": "conjunction"
+        },
+        {
+          "word": "zān",
+          "gloss": "no",
+          "role": "option 2"
+        }
+      ],
+      "word_order": "OVSV + choice tag: [O] [V-INT-ASP] [S] [Q], [OPT1] [CONJ] [OPT2]",
+      "context": "Yes/no question with explicit choice options",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "Demonstrates -w- interfix (t'ōni + iræn → t'ōniwiræn) and choice phrase structure",
       "validated": true,
       "added": "2026-01-30"
     }
