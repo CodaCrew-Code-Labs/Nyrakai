@@ -40,9 +40,9 @@ The language features ejective consonants, a verb final word order, and a strict
    - [Possession](chapters/02-nominal-systems/possession.md) — Ownership marking
    - [Case](chapters/02-nominal-systems/case.md) — Grammatical roles *(in progress)*
 
-### 3. [Verbal Systems](chapters/03-verbal-systems/) — Verbs, Tense & Aspect
-   - Verbs — Roots and conjugation *(coming soon)*
-   - Aspect Markers — The split-verb system *(coming soon)*
+### 3. [Verbal Systems](chapters/03-verbal-systems/) — Aspect & Mood
+   - [Aspect](chapters/03-verbal-systems/aspect.md) — Completed, ongoing, habitual, potential
+   - [Mood](chapters/03-verbal-systems/mood.md) — Declarative, interrogative, imperative, optative, conditional
 
 ### 4. [Syntax](chapters/04-syntax/) — Sentence Structure
    - Word Order — OVSV explained *(coming soon)*

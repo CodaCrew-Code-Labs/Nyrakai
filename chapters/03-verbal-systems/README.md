@@ -1,25 +1,51 @@
 # Verbal Systems
 
-The verbal system of Nyrakai governs how verbs express action, tense, aspect, and mood.
+The verbal system of Nyrakai governs how verbs express action through aspect and mood. The language uses a unique split-verb construction within its OVSV word order.
 
 ## Contents
 
-• [Verbs](verbs.md) — Verb roots, conjugation, and tense *(coming soon)*
-• [Aspect Markers](aspect-markers.md) — The split-verb OVSV system *(coming soon)*
+• [Aspect](aspect.md) — Completed, ongoing, habitual, potential
+• [Mood](mood.md) — Declarative, interrogative, imperative, optative, conditional
 
 ---
 
 ## Overview
 
-Nyrakai features a unique **split-verb construction** where the verb stem and aspect marker are separated by the subject:
+Nyrakai verbs are built by attaching **aspect** and **mood** suffixes to the verb root:
 
 ```
-Object + VerbStem + Subject + VerbAspect
+[VERB ROOT] + [ASPECT] + [MOOD]
+
+tal + arek + ka = talarekka
+(say) (completed) (question) = "Did [someone] say?"
 ```
 
-This creates a distinctive sentence rhythm and adds complexity for outsiders trying to parse the language — fitting for a secret tongue.
+### Aspect (4 types)
+Indicates how an action unfolds in time:
+| Aspect | Suffix | Meaning |
+|--------|--------|---------|
+| Completed | -arek | Finished, sealed |
+| Ongoing | -iræn | Continuous, flowing |
+| Habitual | -aneț | Cyclical, eternal |
+| Potential | -ațar | Possible, forbidden |
 
-Key features:
-• **Verb stems** carry the core meaning (action)
-• **Aspect markers** indicate completion, duration, or intention
-• **Tense** may be marked on the aspect portion or through context
+### Mood (5 types)
+Indicates the speaker's attitude:
+| Mood | Suffix | Meaning |
+|------|--------|---------|
+| Declarative | ∅ | Statement |
+| Interrogative | -ka | Question |
+| Imperative | -țiræ | Command |
+| Optative | -hāli | Wish/blessing |
+| Conditional | -wɒț | Hypothetical |
+
+---
+
+## No Explicit Tense
+
+Nyrakai does not mark past/present/future explicitly. Temporal meaning comes from:
+- Aspect choice (completed → past, ongoing → present)
+- Context and time words
+- Ritual framing (sacred speech transcends time)
+
+This reflects the Ŧɒñœrek worldview: truth is eternal.
