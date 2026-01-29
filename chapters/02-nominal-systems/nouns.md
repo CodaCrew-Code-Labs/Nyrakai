@@ -110,8 +110,16 @@ Some nouns have inherent gender based on cultural/natural associations:
 |------|-----------------|--------|
 | na'ēr (water) | Feminine | Life-giving, flowing |
 | fœra (earth) | Masculine | Solid, foundational |
-| hīra (sun) | Masculine | Powerful, direct |
-| lūn (moon) | Feminine | Reflective, cyclical |
+| hīra (sun) | Sacred | Celestial body |
+| lūn (moon) | Sacred | Celestial body |
+| hīn (star) | Sacred | Celestial body |
+
+### Sacred Categories
+The following are always sacred (no gender marking):
+• **Celestial bodies:** sun, moon, stars
+• **Body parts:** all parts of the human body
+• **Abstract concepts:** truth, death, names, time (night)
+• **The Order:** Ŧɒñœrek and related terms
 
 ---
 
