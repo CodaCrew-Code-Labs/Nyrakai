@@ -19,28 +19,28 @@ Nyrakai pronouns follow a base + suffix pattern for number and gender.
 Plural is formed by adding gender suffixes to the singular base:
 
 **Masculine plural → suffix -ri**
-**Feminine plural → suffix -ra**
+**Feminine plural → suffix -rā**
 
 ### First Person Plural (we)
 
 | Pronoun | Meaning |
 |---------|---------|
 | **fāri** | we (masculine / mixed group) |
-| **fāra** | we (feminine / all-female group) |
+| **fārā** | we (feminine / all-female group) |
 
 ### Second Person Plural (you all)
 
 | Pronoun | Meaning |
 |---------|---------|
 | **gæri** | you all (masculine / mixed group) |
-| **gæra** | you all (feminine / all-female group) |
+| **gærā** | you all (feminine / all-female group) |
 
 ### Third Person Plural (they)
 
 | Pronoun | Meaning |
 |---------|---------|
 | **šāri** | they (masculine / mixed group) |
-| **šāra** | they (feminine / all-female group) |
+| **šārā** | they (feminine / all-female group) |
 
 ---
 
@@ -48,9 +48,9 @@ Plural is formed by adding gender suffixes to the singular base:
 
 | Person | Singular | Plural (m.) | Plural (f.) |
 |--------|----------|-------------|-------------|
-| 1st | fā | fāri | fāra |
-| 2nd | gæ | gæri | gæra |
-| 3rd | šā | šāri | šāra |
+| 1st | fā | fāri | fārā |
+| 2nd | gæ | gæri | gærā |
+| 3rd | šā | šāri | šārā |
 
 ---
 
@@ -71,4 +71,4 @@ The š- pattern links demonstratives to the 3rd person pronoun šā.
 
 • Masculine plural forms are also used for mixed-gender groups
 • The 3rd person singular šā is gender-neutral; context determines the referent
-• Pronoun plural suffixes (-ri/-ra) differ from noun plural suffixes (-œ/-ā): this is intentional, distinguishing pronominal from nominal morphology
+• Pronoun plural suffixes (-ri/-rā) differ from noun plural suffixes (-œ/-ā): this is intentional, distinguishing pronominal from nominal morphology

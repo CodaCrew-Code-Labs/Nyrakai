@@ -18,7 +18,7 @@ Derived from singular pronouns (long vowels preserved for clarity):
 
 ## Collective Possession (Plural Prefixes)
 
-Derived from plural pronouns. Gender suffixes (-ri masculine, -ra feminine) reflect the gender of the **possessors**:
+Derived from plural pronouns. Gender suffixes (-ri masculine, -rā feminine) reflect the gender of the **possessors**:
 
 ### Masculine / Mixed Groups
 
@@ -32,9 +32,9 @@ Derived from plural pronouns. Gender suffixes (-ri masculine, -ra feminine) refl
 
 | Prefix | Meaning | Source Pronoun |
 |--------|---------|----------------|
-| **fāra-** | our (feminine / all-female) | fāra (we f.) |
-| **gæra-** | your (plural, feminine / all-female) | gæra (you all f.) |
-| **šāra-** | their (feminine / all-female) | šāra (they f.) |
+| **fārā-** | our (feminine / all-female) | fārā (we f.) |
+| **gærā-** | your (plural, feminine / all-female) | gærā (you all f.) |
+| **šārā-** | their (feminine / all-female) | šārā (they f.) |
 
 ---
 
@@ -63,10 +63,10 @@ A root that takes both masculine and feminine forms.
 **Collective Possession (Feminine):**
 | Form | Meaning |
 |------|---------|
-| fārațrænañī | our woman |
-| fārațrænañīā | our women |
-| šārațrænañī | their woman |
-| šārațrænañīā | their women |
+| fārāțrænañī | our woman |
+| fārāțrænañīā | our women |
+| šārāțrænañī | their woman |
+| šārāțrænañīā | their women |
 
 ---
 
@@ -77,7 +77,7 @@ An inherently feminine noun (life-giving, flowing). No masculine form exists.
 | Form | Meaning |
 |------|---------|
 | gæna'ērñī | your water |
-| gærana'ērñīā | your (pl. f.) waters |
+| gærāna'ērñīā | your (pl. f.) waters |
 
 ---
 
@@ -102,7 +102,7 @@ A sacred word that takes no gender or plural marking.
 | gæn'æra | your truth |
 | šān'æra | his/her truth |
 | fārin'æra | our (m.) truth |
-| fāran'æra | our (f.) truth |
+| fārān'æra | our (f.) truth |
 
 ---
 
@@ -136,9 +136,9 @@ fāri    +  țræn   +  æn         +  œ
 
 | Possession | Singular | Plural (m.) | Plural (f.) |
 |------------|----------|-------------|-------------|
-| 1st person | fā- | fāri- | fāra- |
-| 2nd person | gæ- | gæri- | gæra- |
-| 3rd person | šā- | šāri- | šāra- |
+| 1st person | fā- | fāri- | fārā- |
+| 2nd person | gæ- | gæri- | gærā- |
+| 3rd person | šā- | šāri- | šārā- |
 
 ---
 

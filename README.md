@@ -50,9 +50,10 @@ The language features ejective consonants, a verb final word order, and a strict
    - [Questions](chapters/04-syntax/questions.md) — Interrogatives with **ka** particle
    - [Registers](chapters/04-syntax/registers.md) — Speech styles (Everyday, Formal, Sacred, Whispered)
 
-### 5. Morphology — Word Building *(coming soon)*
-   - Derivational affixes
-   - Compounding rules
+### 5. [Morphology](chapters/05-morphology/) — Word Building
+   - [Verbal Derivation](chapters/05-morphology/verbal-derivation.md) — Suffixes for verbs: nominalizer, agentive, resultative, diminutive, augmentative
+   - [Nominal Derivation](chapters/05-morphology/nominal-derivation.md) — Suffixes for nouns: keeper, place, essence, tool, collective, sacred
+   - [Compounding](chapters/05-morphology/compounding.md) — Head-final compound formation
 
 ### 6. Dictionary — Word List *(coming soon)*
 
