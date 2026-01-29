@@ -71,4 +71,4 @@ The š- pattern links demonstratives to the 3rd person pronoun šā.
 
 • Masculine plural forms are also used for mixed-gender groups
 • The 3rd person singular šā is gender-neutral; context determines the referent
-• Plural suffixes -ri (m.) and -ra (f.) mirror the noun plural system (-œ/-ā) but are distinct for pronouns
+• Pronoun plural suffixes (-ri/-ra) differ from noun plural suffixes (-œ/-ā): this is intentional, distinguishing pronominal from nominal morphology
