@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nyrakai — The Language of the Nine Unknown</title>
-    <meta name="description" content="Learn Nyrakai, the ancient constructed language of the Ŧɒñœrek. A phonosemantic conlang with 4000 years of hidden history.">
+    <title>Nyrakai: The Language of the Nine Unknown</title>
+    <meta name="description" content="Complete grammar, dictionary, and phonology of Nyrakai, the ancient constructed language of the Ŧɒñœrek.">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet">
@@ -23,11 +22,7 @@
             --gold: #c9a227;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Crimson Text', Georgia, serif;
@@ -37,265 +32,216 @@
             line-height: 1.7;
         }
 
-        /* Parchment container */
         .manuscript {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             background: 
                 url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"),
                 linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
-            box-shadow: 
-                0 0 60px rgba(0,0,0,0.5),
-                inset 0 0 100px rgba(139, 69, 19, 0.1);
-            position: relative;
+            box-shadow: 0 0 60px rgba(0,0,0,0.5), inset 0 0 100px rgba(139, 69, 19, 0.1);
         }
 
-        .manuscript::before,
-        .manuscript::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                rgba(139, 69, 19, 0.2) 20%, 
-                rgba(139, 69, 19, 0.3) 50%, 
-                rgba(139, 69, 19, 0.2) 80%, 
-                transparent 100%);
-        }
-        .manuscript::before { top: 0; }
-        .manuscript::after { bottom: 0; }
-
-        /* Header */
         header {
             text-align: center;
-            padding: 80px 40px 60px;
+            padding: 60px 40px 40px;
             border-bottom: 2px solid var(--accent);
-            position: relative;
+            background: linear-gradient(180deg, rgba(139, 69, 19, 0.1) 0%, transparent 100%);
         }
 
         .motto {
-            font-family: 'Cinzel', serif;
+            font-family: 'Noto Sans', sans-serif;
             font-size: 2.5rem;
-            font-weight: 700;
             color: var(--sacred);
             letter-spacing: 0.15em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         .motto-translation {
             font-style: italic;
-            font-size: 1.1rem;
             color: var(--ink-light);
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .ornament {
+            color: var(--gold);
+            font-size: 1.5rem;
+            letter-spacing: 0.5em;
+            margin: 15px 0;
         }
 
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: 4rem;
-            font-weight: 400;
+            font-size: 3.5rem;
             color: var(--ink);
-            letter-spacing: 0.3em;
-            margin-bottom: 15px;
+            letter-spacing: 0.2em;
+            margin-bottom: 10px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--ink-light);
             font-style: italic;
         }
 
-        .ornament {
-            font-size: 2rem;
-            color: var(--accent);
-            margin: 30px 0;
-            letter-spacing: 0.5em;
-        }
-
-        /* Navigation */
         nav {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 40px;
-            padding: 25px;
+            gap: 20px;
+            padding: 20px;
             background: rgba(139, 69, 19, 0.08);
             border-bottom: 1px solid rgba(139, 69, 19, 0.2);
-            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav a {
-            font-family: 'Cinzel', serif;
-            font-size: 0.95rem;
             color: var(--ink);
             text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
             letter-spacing: 0.1em;
-            padding: 8px 16px;
+            padding: 8px 15px;
             border-radius: 3px;
             transition: all 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--sacred);
-            background: rgba(139, 69, 19, 0.1);
+            background: var(--accent);
+            color: var(--parchment);
         }
 
-        /* Sections */
         section {
-            padding: 60px 60px;
-            border-bottom: 1px solid rgba(139, 69, 19, 0.15);
-        }
-
-        section:last-child {
-            border-bottom: none;
+            padding: 50px 50px;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.2);
         }
 
         h2 {
             font-family: 'Cinzel', serif;
             font-size: 2rem;
             color: var(--sacred);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             letter-spacing: 0.1em;
-            position: relative;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 10px;
             display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: var(--gold);
         }
 
         h3 {
             font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--ink);
-            margin: 35px 0 15px;
-            letter-spacing: 0.05em;
+            margin: 30px 0 15px;
         }
 
-        p {
-            margin-bottom: 20px;
-            font-size: 1.15rem;
-            text-align: justify;
+        h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin: 20px 0 10px;
         }
 
-        .lead {
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--ink-light);
-            border-left: 3px solid var(--gold);
-            padding-left: 20px;
-            margin: 30px 0;
-        }
+        p { margin-bottom: 15px; font-size: 1.1rem; }
+        .lead { font-size: 1.25rem; line-height: 1.8; margin-bottom: 25px; }
 
-        /* Nyrakai words */
         .nyrakai {
             font-family: 'Noto Sans', sans-serif;
-            font-weight: 500;
             color: var(--sacred);
-            font-style: normal;
+            font-weight: 500;
         }
 
-        .word-example {
-            background: rgba(139, 69, 19, 0.08);
-            border-left: 4px solid var(--gold);
-            padding: 20px 25px;
-            margin: 25px 0;
-            border-radius: 0 5px 5px 0;
-        }
-
-        .word-example .nyrakai {
-            font-size: 1.4rem;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .word-example .translation {
-            color: var(--ink-light);
-            font-style: italic;
-        }
-
-        .word-example .ipa {
-            font-family: 'Noto Sans', sans-serif;
-            font-size: 0.9rem;
-            color: var(--accent);
-        }
-
-        /* Tables */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 25px 0;
+            margin: 20px 0;
             font-size: 1rem;
         }
 
         th, td {
-            padding: 15px 20px;
+            padding: 12px 15px;
             text-align: left;
             border-bottom: 1px solid rgba(139, 69, 19, 0.2);
         }
 
         th {
+            background: rgba(139, 69, 19, 0.1);
             font-family: 'Cinzel', serif;
             font-weight: 600;
-            color: var(--sacred);
-            background: rgba(139, 69, 19, 0.05);
-            letter-spacing: 0.05em;
+            color: var(--ink);
         }
 
-        tr:hover {
-            background: rgba(139, 69, 19, 0.03);
-        }
+        tr:hover { background: rgba(139, 69, 19, 0.05); }
 
         .phoneme {
             font-family: 'Noto Sans', sans-serif;
-            font-weight: 500;
+            font-size: 1.2rem;
+            color: var(--sacred);
+            font-weight: 600;
         }
 
-        /* Dictionary Search */
+        .word-example {
+            background: rgba(139, 69, 19, 0.08);
+            padding: 20px 25px;
+            border-left: 4px solid var(--sacred);
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .word-example .nyrakai {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .word-example .ipa {
+            font-family: monospace;
+            color: var(--ink-light);
+            font-size: 1rem;
+        }
+
+        .word-example .translation {
+            display: block;
+            margin-top: 8px;
+            font-style: italic;
+            color: var(--ink-light);
+        }
+
         .search-container {
-            margin: 30px 0;
+            margin: 20px 0;
         }
 
         #search {
             width: 100%;
-            padding: 18px 25px;
-            font-family: 'Crimson Text', serif;
-            font-size: 1.2rem;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            font-family: 'Noto Sans', sans-serif;
             border: 2px solid var(--accent);
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.5);
             color: var(--ink);
-            outline: none;
-            transition: all 0.3s ease;
         }
 
         #search:focus {
+            outline: none;
             border-color: var(--sacred);
-            box-shadow: 0 0 15px rgba(114, 47, 55, 0.2);
-        }
-
-        #search::placeholder {
-            color: var(--ink-light);
-            font-style: italic;
+            box-shadow: 0 0 10px rgba(114, 47, 55, 0.2);
         }
 
         #results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
             margin-top: 25px;
         }
 
         .word-card {
-            background: rgba(255, 255, 255, 0.4);
-            border: 1px solid rgba(139, 69, 19, 0.2);
+            background: rgba(255, 255, 255, 0.6);
+            padding: 20px;
             border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 20px;
+            border: 1px solid rgba(139, 69, 19, 0.2);
             transition: all 0.3s ease;
         }
 
@@ -312,16 +258,8 @@
             margin-bottom: 5px;
         }
 
-        .word-card .english {
-            font-size: 1.2rem;
-            color: var(--ink);
-            margin-bottom: 10px;
-        }
-
-        .word-card .details {
-            font-size: 0.95rem;
-            color: var(--ink-light);
-        }
+        .word-card .english { font-size: 1.2rem; color: var(--ink); margin-bottom: 10px; }
+        .word-card .details { font-size: 0.95rem; color: var(--ink-light); }
 
         .word-card .pos {
             display: inline-block;
@@ -363,23 +301,34 @@
             letter-spacing: 0.1em;
         }
 
-        /* Footer */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: rgba(139, 69, 19, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .info-box h4 { margin-top: 0; }
+
+        ul { margin: 10px 0 10px 25px; }
+        li { margin-bottom: 8px; }
+
         footer {
             text-align: center;
             padding: 50px 40px;
             background: rgba(139, 69, 19, 0.08);
             color: var(--ink-light);
-            font-size: 0.95rem;
         }
 
-        footer a {
-            color: var(--sacred);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
+        footer a { color: var(--sacred); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
 
         .sacred-text {
             font-family: 'Cinzel', serif;
@@ -388,63 +337,22 @@
             margin-bottom: 15px;
         }
 
-        /* Responsive */
+        .loading { text-align: center; padding: 40px; color: var(--ink-light); font-style: italic; }
+
         @media (max-width: 768px) {
-            section {
-                padding: 40px 30px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-                letter-spacing: 0.15em;
-            }
-
-            .motto {
-                font-size: 1.8rem;
-            }
-
-            nav {
-                gap: 15px;
-            }
-
-            nav a {
-                font-size: 0.85rem;
-            }
-
-            table {
-                font-size: 0.9rem;
-            }
-
-            th, td {
-                padding: 10px 12px;
-            }
+            section { padding: 40px 25px; }
+            h1 { font-size: 2.5rem; letter-spacing: 0.15em; }
+            .motto { font-size: 1.8rem; }
+            nav { gap: 10px; }
+            nav a { font-size: 0.8rem; padding: 6px 10px; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 8px 10px; }
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--sacred);
-        }
-
-        /* Loading animation */
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: var(--ink-light);
-            font-style: italic;
-        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--sacred); }
     </style>
 </head>
 <body>
@@ -460,16 +368,21 @@
         <nav>
             <a href="#introduction">Introduction</a>
             <a href="#phonology">Phonology</a>
-            <a href="#grammar">Grammar</a>
+            <a href="#soundmap">Sound Map</a>
+            <a href="#nominal">Nominal Systems</a>
+            <a href="#verbal">Verbal Systems</a>
+            <a href="#syntax">Syntax</a>
+            <a href="#morphology">Morphology</a>
+            <a href="#lexicon">Lexicon</a>
             <a href="#dictionary">Dictionary</a>
-            <a href="#about">About</a>
         </nav>
 
+        <!-- INTRODUCTION -->
         <section id="introduction">
             <h2>Introduction</h2>
             <p class="lead">
-                Nyrakai is the sacred tongue of the <span class="nyrakai">Ŧɒñœrek</span> — the Nine Unknown Men, 
-                guardians of forbidden knowledge since the time of Emperor Ashoka.
+                Nyrakai is the sacred tongue of the <span class="nyrakai">Ŧɒñœrek</span>, the Nine Unknown Men, 
+                guardians of forbidden knowledge since the time of Emperor Ashoka in 270 BCE.
             </p>
             <p>
                 For over two millennia, this language has been spoken only in whispers, preserved by a secret 
@@ -477,8 +390,8 @@
                 time, its mysteries are revealed.
             </p>
             <p>
-                Nyrakai is not merely a means of communication — it is a phonosemantic system where sound 
-                itself carries meaning. The very shape of a word's beginning tells you its domain: words of 
+                Nyrakai is not merely a means of communication: it is a phonosemantic system where sound 
+                itself carries meaning. The very shape of a word's beginning tells you its domain. Words of 
                 fire crackle with <span class="nyrakai">ƶ-</span>, words of water flow with 
                 <span class="nyrakai">n-</span>, and words of death whisper with <span class="nyrakai">r'-</span>.
             </p>
@@ -486,7 +399,7 @@
             <div class="word-example">
                 <span class="nyrakai">Ŧɒñœrek</span>
                 <span class="ipa">/trau.ŋoi.rek/</span>
-                <span class="translation">"The Nine Unknown" — the order that preserves Nyrakai</span>
+                <span class="translation">"The Nine Unknown": the order that preserves Nyrakai across millennia</span>
             </div>
 
             <div class="stats">
@@ -509,125 +422,520 @@
             </div>
         </section>
 
+        <!-- PHONOLOGY -->
         <section id="phonology">
-            <h2>Phonology</h2>
+            <h2>Chapter 1: Phonology</h2>
             <p>
                 Nyrakai features sounds uncommon in European languages, giving it an ancient, alien quality. 
                 Ejective consonants pop with sacred emphasis, affricates hiss like fire, and the glottal 
-                marker creates catches in the breath — pauses for reverence.
+                marker creates catches in the breath: pauses for reverence.
             </p>
 
-            <h3>Vowels</h3>
+            <h3>Vowels (20 total)</h3>
+            <p>Five base vowels, each with a long counterpart, plus ten diphthongs:</p>
+            
+            <h4>Short Vowels</h4>
             <table>
-                <thead>
-                    <tr>
-                        <th>Letter</th>
-                        <th>IPA</th>
-                        <th>Sound</th>
-                        <th>Example</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Letter</th><th>IPA</th><th>Sound</th><th>Example</th></tr></thead>
                 <tbody>
                     <tr><td class="phoneme">a</td><td>/a/</td><td>"father"</td><td class="nyrakai">tal</td></tr>
-                    <tr><td class="phoneme">ā</td><td>/aː/</td><td>long "ah"</td><td class="nyrakai">fā</td></tr>
-                    <tr><td class="phoneme">æ</td><td>/ai/</td><td>"sky"</td><td class="nyrakai">kæ</td></tr>
                     <tr><td class="phoneme">e</td><td>/e/</td><td>"bed"</td><td class="nyrakai">sem</td></tr>
+                    <tr><td class="phoneme">i</td><td>/i/</td><td>"see"</td><td class="nyrakai">stīr</td></tr>
+                    <tr><td class="phoneme">o</td><td>/o/</td><td>"go"</td><td class="nyrakai">krōk</td></tr>
+                    <tr><td class="phoneme">u</td><td>/u/</td><td>"moon"</td><td class="nyrakai">yun</td></tr>
+                </tbody>
+            </table>
+
+            <h4>Long Vowels</h4>
+            <table>
+                <thead><tr><th>Letter</th><th>IPA</th><th>Sound</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td class="phoneme">ā</td><td>/aː/</td><td>long "ah"</td><td class="nyrakai">fā</td></tr>
                     <tr><td class="phoneme">ē</td><td>/eː/</td><td>long "ay"</td><td class="nyrakai">na'ēr</td></tr>
+                    <tr><td class="phoneme">ī</td><td>/iː/</td><td>long "ee"</td><td class="nyrakai">hīra</td></tr>
+                    <tr><td class="phoneme">ō</td><td>/oː/</td><td>long "oh"</td><td class="nyrakai">ƶōr</td></tr>
+                    <tr><td class="phoneme">ū</td><td>/uː/</td><td>long "oo"</td><td class="nyrakai">zwūr</td></tr>
+                </tbody>
+            </table>
+
+            <h4>Diphthongs</h4>
+            <table>
+                <thead><tr><th>Letter</th><th>IPA</th><th>Sound</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td class="phoneme">æ</td><td>/ai/</td><td>"sky"</td><td class="nyrakai">kæ</td></tr>
+                    <tr><td class="phoneme">ɒ</td><td>/au/</td><td>"cow"</td><td class="nyrakai">mɒn</td></tr>
+                    <tr><td class="phoneme">ɛ</td><td>/ei/</td><td>"day"</td><td class="nyrakai">t^ɛm</td></tr>
+                    <tr><td class="phoneme">ə</td><td>/eu/</td><td>"eh-oo"</td><td class="nyrakai">zəna</td></tr>
                     <tr><td class="phoneme">œ</td><td>/oi/</td><td>"boy"</td><td class="nyrakai">fœra</td></tr>
                 </tbody>
             </table>
 
-            <h3>Special Consonants</h3>
+            <h3>Consonants (24 total)</h3>
+            
+            <h4>Basic Consonants (15)</h4>
             <table>
-                <thead>
-                    <tr>
-                        <th>Letter</th>
-                        <th>IPA</th>
-                        <th>Description</th>
-                        <th>Example</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Letter</th><th>IPA</th><th>Sound</th><th>Example</th></tr></thead>
                 <tbody>
-                    <tr><td class="phoneme">k^</td><td>/k'/</td><td>Ejective (sharp pop)</td><td class="nyrakai">k^æl</td></tr>
-                    <tr><td class="phoneme">ƶ</td><td>/dz/</td><td>Affricate "adze"</td><td class="nyrakai">ƶōrra</td></tr>
-                    <tr><td class="phoneme">ŧ</td><td>/tr/</td><td>Affricate "tree"</td><td class="nyrakai">ŧōn</td></tr>
-                    <tr><td class="phoneme">ț</td><td>/θ/</td><td>"think"</td><td class="nyrakai">țræn</td></tr>
-                    <tr><td class="phoneme">ñ</td><td>/ŋ/</td><td>"sing" (word-initial!)</td><td class="nyrakai">ñœr</td></tr>
-                    <tr><td class="phoneme">'</td><td>/əʔ/</td><td>Glottal catch</td><td class="nyrakai">n'æra</td></tr>
+                    <tr><td class="phoneme">d</td><td>/d/</td><td>"dog"</td><td class="nyrakai">dōn, dem</td></tr>
+                    <tr><td class="phoneme">f</td><td>/f/</td><td>"fox"</td><td class="nyrakai">fā, fœra</td></tr>
+                    <tr><td class="phoneme">g</td><td>/g/</td><td>"go"</td><td class="nyrakai">gæ, gān</td></tr>
+                    <tr><td class="phoneme">h</td><td>/h/</td><td>"hat"</td><td class="nyrakai">hīra, hūn</td></tr>
+                    <tr><td class="phoneme">k</td><td>/k/</td><td>"cat"</td><td class="nyrakai">kōm, kæ</td></tr>
+                    <tr><td class="phoneme">l</td><td>/l/</td><td>"love"</td><td class="nyrakai">lem</td></tr>
+                    <tr><td class="phoneme">m</td><td>/m/</td><td>"moon"</td><td class="nyrakai">mɒn</td></tr>
+                    <tr><td class="phoneme">n</td><td>/n/</td><td>"no"</td><td class="nyrakai">na'ēr</td></tr>
+                    <tr><td class="phoneme">ñ</td><td>/ŋ/</td><td>"sing" (word-initial!)</td><td class="nyrakai">ñœr, ñ'ān</td></tr>
+                    <tr><td class="phoneme">p</td><td>/p/</td><td>"pen"</td><td class="nyrakai">pæl</td></tr>
+                    <tr><td class="phoneme">r</td><td>/r/</td><td>"run" (trilled)</td><td class="nyrakai">raț</td></tr>
+                    <tr><td class="phoneme">s</td><td>/s/</td><td>"sun"</td><td class="nyrakai">sem</td></tr>
+                    <tr><td class="phoneme">t</td><td>/t/</td><td>"top"</td><td class="nyrakai">tal</td></tr>
+                    <tr><td class="phoneme">ț</td><td>/θ/</td><td>"think"</td><td class="nyrakai">țræn, țūn</td></tr>
+                    <tr><td class="phoneme">z</td><td>/z/</td><td>"zoo"</td><td class="nyrakai">zæ</td></tr>
                 </tbody>
             </table>
 
-            <h3>Sound Map</h3>
-            <p>
-                In Nyrakai, the onset (first sound) of a word signals its semantic domain. This 
-                phonosemantic system ensures that related concepts share acoustic kinship.
-            </p>
+            <h4>Glides (2)</h4>
             <table>
-                <thead>
-                    <tr>
-                        <th>Onset</th>
-                        <th>Domain</th>
-                        <th>Examples</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Letter</th><th>IPA</th><th>Sound</th><th>Example</th></tr></thead>
                 <tbody>
-                    <tr><td class="phoneme">ƶ-</td><td>Fire & Heat</td><td class="nyrakai">ƶōrra, ƶæ, ƶōrțal</td></tr>
-                    <tr><td class="phoneme">n-</td><td>Water & Liquids</td><td class="nyrakai">na'ēr, nærŧ, nəl</td></tr>
-                    <tr><td class="phoneme">h-</td><td>Celestial</td><td class="nyrakai">hīra, hūn, hīn</td></tr>
-                    <tr><td class="phoneme">r'-</td><td>Death & Ending</td><td class="nyrakai">r'ōk, raț</td></tr>
-                    <tr><td class="phoneme">n'-</td><td>Sacred Truth</td><td class="nyrakai">n'æ, n'æra</td></tr>
-                    <tr><td class="phoneme">gw-</td><td>Mammals</td><td class="nyrakai">gwōr</td></tr>
-                    <tr><td class="phoneme">zw-</td><td>Stone & Rock</td><td class="nyrakai">zwūr, zwūrk^e</td></tr>
+                    <tr><td class="phoneme">w</td><td>/w/</td><td>"water"</td><td class="nyrakai">wɛlu</td></tr>
+                    <tr><td class="phoneme">y</td><td>/j/</td><td>"yes"</td><td class="nyrakai">yun, yɛn</td></tr>
+                </tbody>
+            </table>
+
+            <h4>Ejectives (3): The Sacred Sounds</h4>
+            <p>Ejective consonants are produced with a sharp burst of air from the glottis. They carry sacred weight in Nyrakai.</p>
+            <table>
+                <thead><tr><th>Letter</th><th>IPA</th><th>Description</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td class="phoneme">k^</td><td>/k'/</td><td>Sharp popping "k"</td><td class="nyrakai">k^æl, k^æn'œ</td></tr>
+                    <tr><td class="phoneme">p^</td><td>/p'/</td><td>Sharp popping "p"</td><td class="nyrakai">p^æñ, p^œr</td></tr>
+                    <tr><td class="phoneme">t^</td><td>/t'/</td><td>Sharp popping "t"</td><td class="nyrakai">t^ūn, t^arak</td></tr>
+                </tbody>
+            </table>
+
+            <h4>Affricates (4)</h4>
+            <table>
+                <thead><tr><th>Letter</th><th>IPA</th><th>Sound</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td class="phoneme">ƨ</td><td>/ts/</td><td>"cats"</td><td class="nyrakai">ƨæ, ƨræk</td></tr>
+                    <tr><td class="phoneme">š</td><td>/tʃ/</td><td>"church"</td><td class="nyrakai">šar, šœ, šōr</td></tr>
+                    <tr><td class="phoneme">ƶ</td><td>/dz/</td><td>"adze"</td><td class="nyrakai">ƶōrra, ƶæ</td></tr>
+                    <tr><td class="phoneme">ŧ</td><td>/tr/</td><td>"tree"</td><td class="nyrakai">ŧōn, ŧ'ōm</td></tr>
+                </tbody>
+            </table>
+
+            <h4>The Glottal Marker: '</h4>
+            <p>The apostrophe represents a schwa followed by a glottal stop (/əʔ/), creating a catch in the breath. It appears between consonants and vowels, adding gravitas to sacred words.</p>
+            <div class="word-example">
+                <span class="nyrakai">n'æra</span>
+                <span class="ipa">/nəʔai.ra/</span>
+                <span class="translation">"truth": n + schwa + glottal + æ + ra</span>
+            </div>
+
+            <h3>Phonotactics</h3>
+            <p>Nyrakai syllables follow the structure: <strong>(C)(C)V(')(C)</strong></p>
+            <ul>
+                <li><strong>Onset:</strong> Up to 2 consonants</li>
+                <li><strong>Nucleus:</strong> Required vowel or diphthong</li>
+                <li><strong>Glottal:</strong> Optional ' marker</li>
+                <li><strong>Coda:</strong> Up to 1 consonant</li>
+            </ul>
+
+            <h4>Valid Onset Clusters</h4>
+            <table>
+                <thead><tr><th>Type</th><th>Examples</th></tr></thead>
+                <tbody>
+                    <tr><td>Stop + Liquid</td><td>dr, gr, kr, pr, tr, pl, kl</td></tr>
+                    <tr><td>Fricative + Liquid/Nasal</td><td>fr, sr, sl, sw, sn, sm, st</td></tr>
+                    <tr><td>Z + Glide/Liquid</td><td>zw, zr</td></tr>
+                    <tr><td>G + W (mammals)</td><td>gw</td></tr>
+                    <tr><td>H + R (light/bright)</td><td>hr</td></tr>
                 </tbody>
             </table>
         </section>
 
-        <section id="grammar">
-            <h2>Grammar</h2>
-            
-            <h3>Word Order: OVSV</h3>
+        <!-- SOUND MAP -->
+        <section id="soundmap">
+            <h2>Chapter 2: Sound Map</h2>
             <p>
-                Nyrakai uses an unusual word order: Object — Verb Stem — Subject — Verb Aspect. 
-                This places focus on what is affected, reflecting a worldview where actions ripple 
-                outward from their targets.
+                The phonosemantic sound map is the soul of Nyrakai. Each onset (the first sound of a word) 
+                signals its semantic domain. This creates acoustic kinship between related concepts.
             </p>
 
+            <h3>Nature Domain</h3>
+            <table>
+                <thead><tr><th>Onset</th><th>Semantic Range</th><th>Examples</th></tr></thead>
+                <tbody>
+                    <tr><td class="phoneme">ƶ-</td><td>Fire, flame, heat, combustion</td><td class="nyrakai">ƶōrra, ƶōr, ƶæ, ƶōrțal</td></tr>
+                    <tr><td class="phoneme">n-</td><td>Water, liquids, rain, rivers</td><td class="nyrakai">na'ēr, nærŧ, nəl, na'ērk^e</td></tr>
+                    <tr><td class="phoneme">f-</td><td>Earth, soil, ground</td><td class="nyrakai">fœra, fīr</td></tr>
+                    <tr><td class="phoneme">ƨ-</td><td>Air, wind, breath</td><td class="nyrakai">ƨæ, ƨæñor</td></tr>
+                    <tr><td class="phoneme">zw-</td><td>Stone, rock, minerals</td><td class="nyrakai">zwūr, zwūrk^e, zwēn</td></tr>
+                    <tr><td class="phoneme">h-</td><td>Celestial bodies, sky</td><td class="nyrakai">hīra, hūn, hīn, hro</td></tr>
+                    <tr><td class="phoneme">g-</td><td>Trees, plants, vegetation</td><td class="nyrakai">gān, gīn, gɒr, gūr</td></tr>
+                    <tr><td class="phoneme">t^-</td><td>Mountains, large landforms</td><td class="nyrakai">t^arak</td></tr>
+                    <tr><td class="phoneme">kr-</td><td>Cold, ice, frost</td><td class="nyrakai">kre'net, krōk</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Body Domain</h3>
+            <table>
+                <thead><tr><th>Onset</th><th>Semantic Range</th><th>Examples</th></tr></thead>
+                <tbody>
+                    <tr><td class="phoneme">ŧ-</td><td>Bone, hard structure</td><td class="nyrakai">ŧōn, ŧɒ̄k</td></tr>
+                    <tr><td class="phoneme">y-</td><td>Vision, eyes, fluids, hair</td><td class="nyrakai">yīr, yūm, yə̄m, yɛn</td></tr>
+                    <tr><td class="phoneme">m-</td><td>Mouth, eating, taste</td><td class="nyrakai">mɒ̄l</td></tr>
+                    <tr><td class="phoneme">š-</td><td>Head, cognition</td><td class="nyrakai">šœ̄k, šœ, šɒ, šā, šōr</td></tr>
+                    <tr><td class="phoneme">h-</td><td>Vital organs (secondary)</td><td class="nyrakai">hɒ̄r, hǣn</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Social Domain</h3>
+            <table>
+                <thead><tr><th>Onset</th><th>Semantic Range</th><th>Examples</th></tr></thead>
+                <tbody>
+                    <tr><td class="phoneme">ț-</td><td>Person, people, kinship</td><td class="nyrakai">țræn</td></tr>
+                    <tr><td class="phoneme">pl-</td><td>Community, village, society</td><td class="nyrakai">plūrek</td></tr>
+                    <tr><td class="phoneme">t-</td><td>Speech, language</td><td class="nyrakai">tal</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Action Domain</h3>
+            <table>
+                <thead><tr><th>Onset</th><th>Semantic Range</th><th>Examples</th></tr></thead>
+                <tbody>
+                    <tr><td class="phoneme">k-</td><td>Movement, coming, going</td><td class="nyrakai">kōm</td></tr>
+                    <tr><td class="phoneme">p-</td><td>Walking, path</td><td class="nyrakai">pæl, p^ān</td></tr>
+                    <tr><td class="phoneme">d-</td><td>Giving, transfer</td><td class="nyrakai">dōn, dem</td></tr>
+                    <tr><td class="phoneme">p^-</td><td>Force, killing</td><td class="nyrakai">p^ōr, p^æñ</td></tr>
+                    <tr><td class="phoneme">k^-</td><td>Creating, making</td><td class="nyrakai">k^el, k^æl</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Mind Domain</h3>
+            <table>
+                <thead><tr><th>Onset</th><th>Semantic Range</th><th>Examples</th></tr></thead>
+                <tbody>
+                    <tr><td class="phoneme">š-</td><td>Cognition, knowing</td><td class="nyrakai">šōr</td></tr>
+                    <tr><td class="phoneme">sl-</td><td>Rest, sleep</td><td class="nyrakai">slōm</td></tr>
+                    <tr><td class="phoneme">k^-</td><td>Dreams (secondary)</td><td class="nyrakai">k^æn'œ</td></tr>
+                    <tr><td class="phoneme">n'-</td><td>Sacred truth</td><td class="nyrakai">n'æ, n'æra</td></tr>
+                    <tr><td class="phoneme">ñ-</td><td>Sacred knowledge, wisdom</td><td class="nyrakai">ñ'ān, ñœrek</td></tr>
+                    <tr><td class="phoneme">r'-</td><td>Death, ending, finality</td><td class="nyrakai">r'ōk, raț</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Animal Domain</h3>
+            <table>
+                <thead><tr><th>Onset</th><th>Semantic Range</th><th>Examples</th></tr></thead>
+                <tbody>
+                    <tr><td class="phoneme">gw-</td><td>Mammals, dogs</td><td class="nyrakai">gwōr</td></tr>
+                    <tr><td class="phoneme">t-</td><td>Birds</td><td class="nyrakai">tūk</td></tr>
+                    <tr><td class="phoneme">n-</td><td>Fish (water creatures)</td><td class="nyrakai">nūl</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- NOMINAL SYSTEMS -->
+        <section id="nominal">
+            <h2>Chapter 3: Nominal Systems</h2>
+
+            <h3>Gender</h3>
+            <p>Nyrakai has four gender categories, including the unique "Sacred" gender for concepts beyond mortal duality:</p>
+
+            <div class="grid-2">
+                <div class="info-box">
+                    <h4>Flexible (takes either suffix)</h4>
+                    <p><span class="nyrakai">-æn</span> (masculine) or <span class="nyrakai">-ñī</span> (feminine)</p>
+                    <p>Examples: țræn (person), gwōr (dog), tūk (bird)</p>
+                </div>
+                <div class="info-box">
+                    <h4>Fixed Masculine</h4>
+                    <p>No suffix needed, inherently masculine</p>
+                    <p>Examples: fœra (earth), ƶōrra (fire), zwūr (stone), t^arak (mountain)</p>
+                </div>
+                <div class="info-box">
+                    <h4>Fixed Feminine</h4>
+                    <p>No suffix needed, inherently feminine</p>
+                    <p>Examples: na'ēr (water), nærŧ (river), ƨæ (air), gān (tree)</p>
+                </div>
+                <div class="info-box">
+                    <h4>Sacred (no gender marking)</h4>
+                    <p>Concepts beyond mortal duality</p>
+                    <p>Examples: n'æra (truth), r'ōk (death), hīra (sun), hūn (moon), kæ (tongue), yūm (blood)</p>
+                </div>
+            </div>
+
+            <h3>Plurality</h3>
+            <table>
+                <thead><tr><th>Category</th><th>Singular</th><th>Masculine Plural</th><th>Feminine Plural</th></tr></thead>
+                <tbody>
+                    <tr><td>Nouns</td><td>base form</td><td class="nyrakai">-œ</td><td class="nyrakai">-ā</td></tr>
+                    <tr><td>Pronouns</td><td>base form</td><td class="nyrakai">-ri</td><td class="nyrakai">-rā</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Pronouns</h3>
+            <table>
+                <thead><tr><th>Person</th><th>Singular</th><th>Plural (M)</th><th>Plural (F)</th></tr></thead>
+                <tbody>
+                    <tr><td>1st</td><td class="nyrakai">fā</td><td class="nyrakai">fāri</td><td class="nyrakai">fārā</td></tr>
+                    <tr><td>2nd</td><td class="nyrakai">gæ</td><td class="nyrakai">gæri</td><td class="nyrakai">gærā</td></tr>
+                    <tr><td>3rd</td><td class="nyrakai">šā</td><td class="nyrakai">šāri</td><td class="nyrakai">šārā</td></tr>
+                </tbody>
+            </table>
+
+            <h4>Demonstratives</h4>
+            <ul>
+                <li><span class="nyrakai">šœ</span> (this, near)</li>
+                <li><span class="nyrakai">šɒ</span> (that, far)</li>
+            </ul>
+
+            <h3>Possession</h3>
+            <p>Possessive prefixes attach to nouns. Long vowels are preserved.</p>
+            <table>
+                <thead><tr><th>Person</th><th>Singular</th><th>Plural (M)</th><th>Plural (F)</th></tr></thead>
+                <tbody>
+                    <tr><td>1st</td><td class="nyrakai">fā-</td><td class="nyrakai">fāri-</td><td class="nyrakai">fārā-</td></tr>
+                    <tr><td>2nd</td><td class="nyrakai">gæ-</td><td class="nyrakai">gæri-</td><td class="nyrakai">gærā-</td></tr>
+                    <tr><td>3rd</td><td class="nyrakai">šā-</td><td class="nyrakai">šāri-</td><td class="nyrakai">šārā-</td></tr>
+                </tbody>
+            </table>
             <div class="word-example">
-                <span class="nyrakai">hīn yɛn fā arek</span>
-                <span class="translation">"I saw the star" (lit. "star see I [completed]")</span>
+                <span class="nyrakai">fāțrænæn</span>
+                <span class="translation">"my man" (fā + țræn + æn)</span>
             </div>
 
             <h3>Case System</h3>
-            <p>Nine cases mark grammatical relationships:</p>
+            <p>Nine cases mark grammatical relationships. The sacred Vocative and Privative are reserved for ritual speech.</p>
             <table>
-                <thead>
-                    <tr>
-                        <th>Case</th>
-                        <th>Suffix</th>
-                        <th>Function</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Case</th><th>Suffix</th><th>Function</th><th>Example</th></tr></thead>
                 <tbody>
-                    <tr><td>Nominative</td><td>∅</td><td>Subject</td></tr>
-                    <tr><td>Accusative</td><td class="nyrakai">-aš</td><td>Direct object</td></tr>
-                    <tr><td>Genitive</td><td class="nyrakai">-šar</td><td>Possession</td></tr>
-                    <tr><td>Dative</td><td class="nyrakai">-iț</td><td>Indirect object</td></tr>
-                    <tr><td>Instrumental</td><td class="nyrakai">-ek</td><td>Tool/means</td></tr>
-                    <tr><td>Locative</td><td class="nyrakai">-ñen</td><td>Location</td></tr>
-                    <tr><td>Ablative</td><td class="nyrakai">-ɒr</td><td>Source/from</td></tr>
-                    <tr><td>Vocative</td><td class="nyrakai">-ți</td><td>Invocation (sacred)</td></tr>
-                    <tr><td>Privative</td><td class="nyrakai">-zɒț</td><td>Absence/lack</td></tr>
+                    <tr><td>Nominative</td><td>∅</td><td>Subject</td><td class="nyrakai">țrænæn</td></tr>
+                    <tr><td>Accusative</td><td class="nyrakai">-aš</td><td>Direct object</td><td class="nyrakai">ƶōrraaš</td></tr>
+                    <tr><td>Genitive</td><td class="nyrakai">-šar</td><td>Possession (noun to noun)</td><td class="nyrakai">hīrašar</td></tr>
+                    <tr><td>Dative</td><td class="nyrakai">-iț</td><td>Indirect object</td><td class="nyrakai">fāwiț</td></tr>
+                    <tr><td>Instrumental</td><td class="nyrakai">-ek</td><td>Tool, means</td><td class="nyrakai">zwūrek</td></tr>
+                    <tr><td>Locative</td><td class="nyrakai">-ñen</td><td>Location</td><td class="nyrakai">plūrekñen</td></tr>
+                    <tr><td>Ablative</td><td class="nyrakai">-ɒr</td><td>Source, from</td><td class="nyrakai">nærŧɒr</td></tr>
+                    <tr><td>Vocative</td><td class="nyrakai">-ți</td><td>Sacred invocation</td><td class="nyrakai">n'ærați</td></tr>
+                    <tr><td>Privative</td><td class="nyrakai">-zɒț</td><td>Absence, without</td><td class="nyrakai">ñ'ānzɒț</td></tr>
                 </tbody>
             </table>
 
-            <h3>Gender</h3>
-            <p>
-                Four gender categories: Flexible (takes either), Masculine (<span class="nyrakai">-æn</span>), 
-                Feminine (<span class="nyrakai">-ñī</span>), and Sacred (no marking). Sacred-gender nouns — 
-                truth, death, sun, moon, tongue, blood, flesh — exist outside the masculine/feminine duality.
-            </p>
+            <h4>Vowel Collision Rule</h4>
+            <p>When a vowel-final word meets a vowel-initial suffix, insert <span class="nyrakai">-w-</span> glide:</p>
+            <div class="word-example">
+                <span class="nyrakai">fā + aš → fāwaš</span>
+                <span class="translation">"me" (accusative)</span>
+            </div>
         </section>
 
+        <!-- VERBAL SYSTEMS -->
+        <section id="verbal">
+            <h2>Chapter 4: Verbal Systems</h2>
+            <p>Nyrakai verbs do not conjugate for person. Instead, aspect and mood suffixes attach to the verb stem.</p>
+
+            <h3>Aspect</h3>
+            <p>Aspect indicates how an action unfolds in time:</p>
+            <table>
+                <thead><tr><th>Aspect</th><th>Suffix</th><th>Meaning</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td>Completed</td><td class="nyrakai">-arek</td><td>Finished, sealed</td><td class="nyrakai">talarek</td></tr>
+                    <tr><td>Ongoing</td><td class="nyrakai">-iræn</td><td>In progress, flowing</td><td class="nyrakai">taliræn</td></tr>
+                    <tr><td>Habitual</td><td class="nyrakai">-aneț</td><td>Repeated, eternal</td><td class="nyrakai">talaneț</td></tr>
+                    <tr><td>Potential</td><td class="nyrakai">-ațar</td><td>Possible, hidden, forbidden</td><td class="nyrakai">talațar</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Mood</h3>
+            <p>Mood indicates the speaker's attitude toward the statement:</p>
+            <table>
+                <thead><tr><th>Mood</th><th>Suffix</th><th>Meaning</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td>Declarative</td><td>∅</td><td>Statement of fact</td><td class="nyrakai">talarek</td></tr>
+                    <tr><td>Interrogative</td><td class="nyrakai">-ka</td><td>Question</td><td class="nyrakai">talarekka</td></tr>
+                    <tr><td>Imperative</td><td class="nyrakai">-țiræ</td><td>Command</td><td class="nyrakai">talțiræ</td></tr>
+                    <tr><td>Optative</td><td class="nyrakai">-hāli</td><td>Wish, hope</td><td class="nyrakai">talarekhāli</td></tr>
+                    <tr><td>Conditional</td><td class="nyrakai">-wɒț</td><td>If, hypothetical</td><td class="nyrakai">talarekwɒț</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Verb Structure</h3>
+            <p>Full verb form: <strong>STEM + ASPECT + MOOD</strong></p>
+            <div class="word-example">
+                <span class="nyrakai">talarekka</span>
+                <span class="translation">"Did [someone] speak?" (tal + arek + ka)</span>
+            </div>
+        </section>
+
+        <!-- SYNTAX -->
+        <section id="syntax">
+            <h2>Chapter 5: Syntax</h2>
+
+            <h3>Word Order: OVSV</h3>
+            <p>
+                Nyrakai uses <strong>Object, Verb Stem, Subject, Verb Aspect</strong> order. 
+                This places focus on what is affected, reflecting the Ŧɒñœrek worldview that 
+                actions ripple outward from their targets.
+            </p>
+            <div class="word-example">
+                <span class="nyrakai">hīn yɛn fā arek</span>
+                <span class="ipa">[Object] [VerbStem] [Subject] [Aspect]</span>
+                <span class="translation">"I saw the star" (lit. "star see I completed")</span>
+            </div>
+
+            <h3>Negation</h3>
+            <p>The prefix <span class="nyrakai">za-</span> negates verbs and adjectives:</p>
+            <div class="word-example">
+                <span class="nyrakai">hīn zayɛn fā arek</span>
+                <span class="translation">"I did not see the star"</span>
+            </div>
+            <p>The standalone word <span class="nyrakai">zæ</span> means "no" or "not".</p>
+
+            <h3>Questions</h3>
+            <p>Add the particle <span class="nyrakai">ka</span> at the end of any sentence to form a question:</p>
+            <div class="word-example">
+                <span class="nyrakai">hīn yɛn gæ arek ka</span>
+                <span class="translation">"Did you see the star?"</span>
+            </div>
+
+            <h4>Question Words</h4>
+            <ul>
+                <li><span class="nyrakai">kwæ</span>: what</li>
+                <li><span class="nyrakai">hœr</span>: who</li>
+            </ul>
+
+            <h3>Registers</h3>
+            <p>Nyrakai has four speech registers, each with distinct phonological features:</p>
+
+            <div class="grid-2">
+                <div class="info-box">
+                    <h4>Everyday (Tælran)</h4>
+                    <p>Soft consonants, simple syllables. Daily conversation, trade.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Formal (Šālran)</h4>
+                    <p>Ejectives for authority. Ceremonies, oaths, respect.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Sacred (R'ōkran)</h4>
+                    <p>Schwa-glottal patterns, sacred vocabulary. Rituals, cosmic matters.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Whispered (Ñœrekran)</h4>
+                    <p>Secret speech of the Nine. Identity confirmation, passing secrets.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MORPHOLOGY -->
+        <section id="morphology">
+            <h2>Chapter 6: Morphology</h2>
+
+            <h3>Verbal Derivation</h3>
+            <p>Suffixes that attach to verbs to create new words:</p>
+            <table>
+                <thead><tr><th>Suffix</th><th>Function</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td class="nyrakai">-ra</td><td>Nominalizer (action → thing)</td><td>ƶōr → ƶōrra (burn → fire)</td></tr>
+                    <tr><td class="nyrakai">-ƨu</td><td>Agentive (doer)</td><td>ƶōr → ƶōrƨu (burn → burner)</td></tr>
+                    <tr><td class="nyrakai">-țal</td><td>Resultative (result)</td><td>ƶōr → ƶōrțal (burn → ash)</td></tr>
+                    <tr><td class="nyrakai">-k^e</td><td>Diminutive</td><td>ƶōr → ƶōrk^e (burn → ember)</td></tr>
+                    <tr><td class="nyrakai">-ñor</td><td>Augmentative</td><td>ƶōr → ƶōrñor (burn → inferno)</td></tr>
+                    <tr><td class="nyrakai">-ɛm</td><td>Adjectivizer</td><td>raț → rațɛm (night → nightly)</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Nominal Derivation</h3>
+            <p>Suffixes that attach to nouns to create new words:</p>
+            <table>
+                <thead><tr><th>Suffix</th><th>Function</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td class="nyrakai">-raš</td><td>Keeper, guardian</td><td>na'ēr → na'ēr-raš (water-keeper)</td></tr>
+                    <tr><td class="nyrakai">-bren</td><td>Place, domain</td><td>fœra → fœra-bren (earth-place)</td></tr>
+                    <tr><td class="nyrakai">-țæl</td><td>Abstract essence</td><td>țræn → țræn-țæl (personhood)</td></tr>
+                    <tr><td class="nyrakai">-šek</td><td>Tool, instrument</td><td>r'ōk → r'ōk-šek (death-tool)</td></tr>
+                    <tr><td class="nyrakai">-raun</td><td>Collective, lineage</td><td>țræn → țræn-raun (tribe)</td></tr>
+                    <tr><td class="nyrakai">-k^æț</td><td>Sacred intensifier</td><td>na'ēr → na'ēr-k^æț (abyssal flood)</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Compounding</h3>
+            <p>Words combine with head-final order (modifier + head). Use hyphen in romanization:</p>
+            <div class="word-example">
+                <span class="nyrakai">na'ēr-fœra</span>
+                <span class="translation">"mud" (water + earth, water modifies earth)</span>
+            </div>
+
+            <h3>Interfixes</h3>
+            <p>Linking elements inserted between morphemes:</p>
+            <table>
+                <thead><tr><th>Context</th><th>Interfix</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td>Vowel + Vowel</td><td class="nyrakai">-w-</td><td>fā + aš → fāwaš</td></tr>
+                    <tr><td>Consonant + Consonant</td><td class="nyrakai">-a-</td><td>r'ōk + țræn → r'ōkațræn</td></tr>
+                    <tr><td>Consonant + ñī</td><td class="nyrakai">-a-</td><td>țræn + ñī → țrænañī</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Prefixes</h3>
+            <table>
+                <thead><tr><th>Prefix</th><th>Function</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td class="nyrakai">za-</td><td>Negator</td><td>sem → zasem (not good)</td></tr>
+                    <tr><td class="nyrakai">fē-</td><td>Reversal</td><td>k^el → fēk^el (uncreate)</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- LEXICON -->
+        <section id="lexicon">
+            <h2>Chapter 7: Lexicon</h2>
+
+            <h3>Onomatopoeia</h3>
+            <p>Sound-imitative words in Nyrakai use harsh consonants and explosive sounds:</p>
+            <table>
+                <thead><tr><th>Word</th><th>Sound</th><th>Meaning</th></tr></thead>
+                <tbody>
+                    <tr><td class="nyrakai">ŧ'ōm</td><td>/trəʔoːm/</td><td>Thunder rumble</td></tr>
+                    <tr><td class="nyrakai">pl'æš</td><td>/pləʔaiʃ/</td><td>Water splash</td></tr>
+                    <tr><td class="nyrakai">ƨræk</td><td>/tsraik/</td><td>Fire crackle</td></tr>
+                    <tr><td class="nyrakai">ț'ūs</td><td>/θəʔuːs/</td><td>Whisper</td></tr>
+                    <tr><td class="nyrakai">gr'ōl</td><td>/grəʔoːl/</td><td>Deep growl</td></tr>
+                </tbody>
+            </table>
+            <p>Reduplication (max 2x) intensifies: <span class="nyrakai">ŧ'ōm-ŧ'ōm</span> = continuous thunder</p>
+
+            <h3>Borrowing</h3>
+            <p>Nyrakai vocabulary draws from Tamil (everyday) and Sanskrit (sacred):</p>
+
+            <h4>Tamil Borrowings (Everyday)</h4>
+            <table>
+                <thead><tr><th>Tamil</th><th>Nyrakai</th><th>Meaning</th></tr></thead>
+                <tbody>
+                    <tr><td>ஆறு (āṟu)</td><td class="nyrakai">nærŧ</td><td>River</td></tr>
+                    <tr><td>ஊர் (ūr)</td><td class="nyrakai">plūrek</td><td>Village</td></tr>
+                    <tr><td>குரல் (kural)</td><td class="nyrakai">k^æl</td><td>Voice</td></tr>
+                    <tr><td>கனவு (kaṉavu)</td><td class="nyrakai">k^æn'œ</td><td>Dream</td></tr>
+                    <tr><td>பயம் (payam)</td><td class="nyrakai">p^æñ</td><td>Fear</td></tr>
+                </tbody>
+            </table>
+
+            <h4>Sanskrit Borrowings (Sacred)</h4>
+            <table>
+                <thead><tr><th>Sanskrit</th><th>Nyrakai</th><th>Meaning</th></tr></thead>
+                <tbody>
+                    <tr><td>आत्मा (ātmā)</td><td class="nyrakai">ræțm</td><td>Soul</td></tr>
+                    <tr><td>भाग्य (bhāgya)</td><td class="nyrakai">pr'ōk^</td><td>Fate</td></tr>
+                    <tr><td>ज्ञान (jñāna)</td><td class="nyrakai">ñ'ān</td><td>Wisdom</td></tr>
+                    <tr><td>दिव्य (divya)</td><td class="nyrakai">țīf'æ</td><td>Divine</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- DICTIONARY -->
         <section id="dictionary">
             <h2>Dictionary</h2>
             <p>Search the Nyrakai lexicon. Enter an English word or Nyrakai term.</p>
@@ -641,28 +949,10 @@
             </div>
         </section>
 
-        <section id="about">
-            <h2>About Nyrakai</h2>
-            <p>
-                Nyrakai (from <span class="nyrakai">n'æ-kæ</span>, "truth-tongue") is a constructed language 
-                designed for the world of the Nine Unknown Men — a secret society said to have been founded 
-                by Emperor Ashoka of India in 270 BCE to guard dangerous knowledge.
-            </p>
-            <p>
-                The language draws phonetic inspiration from Māori, Sangam Tamil, and the constructed languages 
-                Na'vi and Dothraki. Its phonosemantic sound map ensures that meaning is woven into the very 
-                fabric of its sounds.
-            </p>
-            <p>
-                This is a living language, continuously expanded with new vocabulary following strict 
-                phonotactic and semantic rules.
-            </p>
-        </section>
-
         <footer>
             <div class="sacred-text"><span class="nyrakai">N'æra añ R'ōk</span></div>
             <p>
-                Nyrakai is an open-source conlang project.<br>
+                Nyrakai is an open source conlang project.<br>
                 <a href="https://github.com/CodaCrew-Code-Labs/Nyrakai" target="_blank">View on GitHub</a>
             </p>
             <p style="margin-top: 20px; font-size: 0.85rem;">
@@ -672,17 +962,15 @@
     </div>
 
     <script>
-        // Dictionary data
         let dictionary = [];
 
-        // Load dictionary
         async function loadDictionary() {
             try {
                 const response = await fetch('tools/nyrakai-dictionary.json');
                 const data = await response.json();
                 dictionary = data.words;
                 document.getElementById('word-count').textContent = dictionary.length;
-                displayResults(dictionary.slice(0, 10)); // Show first 10
+                displayResults(dictionary.slice(0, 12));
             } catch (error) {
                 console.error('Failed to load dictionary:', error);
                 document.getElementById('results').innerHTML = 
@@ -690,7 +978,6 @@
             }
         }
 
-        // Display word cards
         function displayResults(words) {
             const container = document.getElementById('results');
             
@@ -705,38 +992,36 @@
                     <div class="english">${word.english}</div>
                     <div class="details">
                         <strong>IPA:</strong> ${word.ipa || '—'} &nbsp;|&nbsp;
-                        <strong>Structure:</strong> ${word.structure || '—'} &nbsp;|&nbsp;
-                        <strong>Syllables:</strong> ${word.syllable_count || '—'}
+                        <strong>Structure:</strong> ${word.structure || '—'}
+                        ${word.inherent_gender && word.inherent_gender !== 'null' ? `<br><strong>Gender:</strong> ${word.inherent_gender}` : ''}
                         ${word.notes ? `<br><em>${word.notes}</em>` : ''}
                     </div>
                 </div>
             `).join('');
         }
 
-        // Search function
         function searchWords(query) {
             const q = query.toLowerCase().trim();
             
             if (!q) {
-                displayResults(dictionary.slice(0, 10));
+                displayResults(dictionary.slice(0, 12));
                 return;
             }
 
             const results = dictionary.filter(word => 
                 word.english.toLowerCase().includes(q) ||
                 word.nyrakai.toLowerCase().includes(q) ||
-                (word.notes && word.notes.toLowerCase().includes(q))
+                (word.notes && word.notes.toLowerCase().includes(q)) ||
+                (word.inherent_gender && word.inherent_gender.toLowerCase().includes(q))
             );
 
             displayResults(results);
         }
 
-        // Event listeners
         document.getElementById('search').addEventListener('input', (e) => {
             searchWords(e.target.value);
         });
 
-        // Smooth scrolling for nav
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -745,7 +1030,6 @@
             });
         });
 
-        // Initialize
         loadDictionary();
     </script>
 </body>
