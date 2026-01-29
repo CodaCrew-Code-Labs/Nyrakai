@@ -67,7 +67,7 @@ The vowel /a/ symbolizes **fertility, continuity, and breath**. It is the "womb-
 | Root | Without -a- | With -a- | Meaning |
 |------|-------------|----------|---------|
 | țræn (person) | ~~țrænñī~~ | **țrænañī** | woman |
-| gōr (dog) | ~~gōrñī~~ | **gōrañī** | female dog |
+| gwōr (dog) | ~~gwōrñī~~ | **gwōrañī** | female dog |
 | tūk (bird) | ~~tūkñī~~ | **tūkañī** | female bird |
 
 ### Contrast with Masculine
@@ -77,7 +77,7 @@ The masculine suffix **-æn** attaches directly without a bridge vowel:
 | Root | Masculine | Feminine |
 |------|-----------|----------|
 | țræn | țrænæn (man) | țrænañī (woman) |
-| gōr | gōræn (male dog) | gōrañī (female dog) |
+| gwōr | gwōræn (male dog) | gwōrañī (female dog) |
 
 ---
 

@@ -25,9 +25,9 @@ Only takes feminine marking. Cannot be masculine.
 
 ### Sacred
 No gender marking at all. Exists outside the masculine/feminine duality.
-- Celestial: hīra (sun), lūn (moon), hīn (star)
+- Celestial: hīra (sun), hūn (moon), hīn (star)
 - Time: raț (night)
-- Abstract: n'æra (truth), r'ōk (death), sre'un (name), zəna (pair)
+- Abstract: n'æra (truth), r'ōk (death), sre'un (name), trəna (pair)
 - Body (sacred 3): kæ (tongue), yūm (blood), wōr (flesh)
 - The Order: Ŧɒñœrek
 
@@ -49,9 +49,9 @@ When adding the feminine suffix -ñī, if the root ends in a consonant, insert *
 - Masculine: țrænæn (man)
 - Feminine: țrænañī (woman)
 
-**Flexible (gōr - dog):**
-- Masculine: gōræn (male dog)
-- Feminine: gōrañī (female dog)
+**Flexible (gwōr - dog):**
+- Masculine: gwōræn (male dog)
+- Feminine: gwōrañī (female dog)
 
 **Fixed Feminine (na'ēr - water):**
 - Feminine only: na'ērñī

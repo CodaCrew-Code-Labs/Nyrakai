@@ -16,8 +16,8 @@ However, they are almost always **distorted through alien phonotactics**: syllab
 
 | Nyrakai | Meaning | Tamil Source | Transformation |
 |---------|---------|--------------|----------------|
-| **ƶærŧ** | river | ஆறு (āṟu) | Added ƶ + affricate ending |
-| **ƶūrek** | village | ஊர் (ūr) | Added ƶ + suffix -ek |
+| **nærŧ** | river | ஆறு (āṟu) | Added n- for water domain + affricate ending |
+| **plūrek** | village | ஊர் (ūr) | Added ƶ + suffix -ek |
 | **k^æl** | voice | குரல் (kural) | Ejective + diphthong shift |
 | **k^æn'œ** | dream | கனவு (kaṉavu) | Ejective + glottal + diphthong |
 | **p^æñ** | fear | பயம் (payam) | Ejective + velar nasal ending |
@@ -25,7 +25,7 @@ However, they are almost always **distorted through alien phonotactics**: syllab
 ### Everyday Tamil Roots
 
 Most Tamil-derived words entered the **everyday register**:
-- Nature (ƶærŧ "river", ƶūrek "village")
+- Nature (nærŧ "river", plūrek "village")
 - Emotions (p^æñ "fear", k^æn'œ "dream")
 - Communication (k^æl "voice")
 
@@ -101,7 +101,7 @@ Nyrakai: n'æ [nəʔai]
 
 | Source | Typical Register | Examples |
 |--------|------------------|----------|
-| Tamil | Everyday | ƶærŧ, ƶūrek, k^æl, p^æñ |
+| Tamil | Everyday | nærŧ, plūrek, k^æl, p^æñ |
 | Sanskrit | Sacred | ræțm, pr'ōk^, ñ'ān, țīf'æ |
 | Aramaic | Ritual | (future additions) |
 | Greek | Celestial | (future additions) |

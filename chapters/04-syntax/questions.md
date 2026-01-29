@@ -34,7 +34,7 @@ O + Vs + S + Va ka
 
 | Statement | Question | Meaning |
 |-----------|----------|---------|
-| hīn p^ɛn šā [asp] | hīn p^ɛn šā [asp] ka | "She sees the star" → "Does she see the star?" |
+| hīn yɛn šā [asp] | hīn yɛn šā [asp] ka | "She sees the star" → "Does she see the star?" |
 | na'ēr țūn gæ [asp] | na'ēr țūn gæ [asp] ka | "You drink water" → "Do you drink water?" |
 
 ---
@@ -60,14 +60,14 @@ The interrogative word occupies the position of the element being questioned:
 
 **"What does she see?"**
 ```
-kwæ + p^ɛn + šā + [asp] ka
+kwæ + yɛn + šā + [asp] ka
 what + see + she + [asp] Q
 ```
 (kwæ replaces the object)
 
 **"Who sees the star?"**
 ```
-hīn + p^ɛn + hœr + [asp] ka
+hīn + yɛn + hœr + [asp] ka
 star + see + who + [asp] Q
 ```
 (hœr replaces the subject)
@@ -86,7 +86,7 @@ Combine the negation prefix **za-** with the question particle **ka**:
 
 **"Does she not see?"**
 ```
-hīn + zap^ɛn + šā + [asp] ka
+hīn + zayɛn + šā + [asp] ka
 star + NEG-see + she + [asp] Q
 ```
 

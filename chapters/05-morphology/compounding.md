@@ -52,7 +52,7 @@ The verb root acts as a modifier describing action related to the noun.
 | Compound | Meaning | Analysis |
 |----------|---------|----------|
 | **ƶōr-țræn** | arsonist, burner | burn + person |
-| **nōr-țræn** | sage, knower | know + person |
+| **šōr-țræn** | sage, knower | know + person |
 | **lem-šek** | listening device, ear-tool | hear + tool |
 
 ---

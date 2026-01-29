@@ -27,7 +27,7 @@ Where:
 | V | a | (rare) |
 | CV | kæ | kæ (tongue) |
 | CVC | tal | tal (say) |
-| CCV | gro | gro (white) |
+| CCV | hro | hro (white) |
 | CCVC | drōm | drōm (long) |
 | CV'C | n'æ | n'æ (true) |
 
@@ -53,13 +53,14 @@ All consonants except '
 | C1 | Allowed C2 |
 |----|-----------|
 | d | r, w |
+| f | r, l |
 | g | r, l, w |
+| h | r |
 | k | r, l, w |
 | p | r, l |
-| t | r, w |
 | s | r, l, w, n, m, k, p, t |
+| t | r, w |
 | z | r, w, l |
-| f | r, l |
 | ț | r |
 
 ---

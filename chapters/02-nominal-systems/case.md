@@ -47,8 +47,8 @@ No suffix is added; the base form (with gender/number) serves as nominative.
 | na'ērñī | water (subject) |
 | hīra | sun (subject) |
 | gān | tree (subject) |
-| ƶærŧ | river (subject) |
-| ƶūrek | village (subject) |
+| nærŧ | river (subject) |
+| plūrek | village (subject) |
 
 ---
 
@@ -85,16 +85,16 @@ Marks **possession**, belonging, or origin between nouns.
 | fœrašar | of the earth |
 | n'ærašar | of truth |
 | hīrašar | of the sun |
-| lūnšar | of the moon |
-| ƶūrekšar | of the village |
-| ƶærŧšar | of the river |
+| hūnšar | of the moon |
+| plūrekšar | of the village |
+| nærŧšar | of the river |
 | r'ōkšar | of death |
 | ñ'ānšar | of wisdom |
 
 **Examples:**
 - "The man's sword" → man takes -šar: țrænænšar
 - "Light of the sun" → sun takes -šar: hīrašar
-- "Waters of the river" → river takes -šar: ƶærŧšar
+- "Waters of the river" → river takes -šar: nærŧšar
 - "Keeper of wisdom" → wisdom takes -šar: ñ'ānšar
 
 #### Genitive vs Possession Prefixes
@@ -125,14 +125,14 @@ Marks the **indirect object**: recipient, beneficiary, or purpose.
 | fāwiț | to me |
 | šāwiț | to him/her |
 | fœraiț | to the earth |
-| ƶūrekiț | to the village |
-| gōriț | to the dog |
+| plūrekiț | to the village |
+| gwōriț | to the dog |
 | gāniț | to the tree |
 
 **Examples:**
 - "I give the book to the woman" → woman takes -iț: țrænañīiț
 - "Speak to me" → me takes -iț: fāwiț
-- "Return to the village" → village takes -iț: ƶūrekiț
+- "Return to the village" → village takes -iț: plūrekiț
 
 ---
 
@@ -169,8 +169,8 @@ Marks **location**: in, on, or at a place.
 | fœrañen | on/at the earth |
 | t^arakñen | on/at the mountain |
 | na'ērñen | in the water |
-| ƶūrekñen | in the village |
-| ƶærŧñen | at the river |
+| plūrekñen | in the village |
+| nærŧñen | at the river |
 | gānñen | in the tree |
 | rațñen | in the night |
 | hīrañen | in/at the sun |
@@ -178,8 +178,8 @@ Marks **location**: in, on, or at a place.
 
 **Examples:**
 - "I stand on the mountain" → mountain takes -ñen: t^arakñen
-- "We live in the village" → village takes -ñen: ƶūrekñen
-- "Fish swim in the river" → river takes -ñen: ƶærŧñen
+- "We live in the village" → village takes -ñen: plūrekñen
+- "Fish swim in the river" → river takes -ñen: nærŧñen
 - "They walk on the path" → path takes -ñen: p^ānñen
 
 ---
@@ -194,15 +194,15 @@ Marks **source** or movement: from, out of, away.
 | t^arakɒr | from the mountain |
 | hīrawɒr | from the sun |
 | fāwɒr | from me |
-| ƶūrekɒr | from the village |
-| ƶærŧɒr | from the river |
+| plūrekɒr | from the village |
+| nærŧɒr | from the river |
 | na'ērɒr | from the water |
 | rațɒr | from the night |
 | k^æn'œwɒr | from the dream |
 
 **Examples:**
 - "I come from the mountain" → mountain takes -ɒr: t^arakɒr
-- "Water flows from the river" → river takes -ɒr: ƶærŧɒr
+- "Water flows from the river" → river takes -ɒr: nærŧɒr
 - "She wakes from the dream" → dream takes -ɒr: k^æn'œwɒr
 - "Light comes from the sun" → sun takes -ɒr: hīrawɒr
 
@@ -222,7 +222,7 @@ Used for **invocation** or direct address in sacred speech.
 | r'ōkți | O Death! |
 | Ŧɒñœrekți | O Nine Unknown! |
 | hīrați | O Sun! |
-| lūnți | O Moon! |
+| hūnți | O Moon! |
 | ñ'ānți | O Wisdom! |
 | pr'ōk^ți | O Fate! |
 | ræțmți | O Soul! |
@@ -263,12 +263,12 @@ Marks **absence**, lack, or forbidden negation. Thematically connected to the ne
 
 | Case | Suffix | Function | Examples |
 |------|--------|----------|----------|
-| Nominative | ∅ | Subject | țrænæn (man), hīra (sun), ƶūrek (village) |
+| Nominative | ∅ | Subject | țrænæn (man), hīra (sun), plūrek (village) |
 | Accusative | -aš | Direct object | na'ēraš (water), ñ'ānaš (wisdom) |
-| Genitive | -šar | Noun possession | hīrašar (of sun), ƶærŧšar (of river) |
-| Dative | -iț | Indirect object | fāwiț (to me), ƶūrekiț (to village) |
+| Genitive | -šar | Noun possession | hīrašar (of sun), nærŧšar (of river) |
+| Dative | -iț | Indirect object | fāwiț (to me), plūrekiț (to village) |
 | Instrumental | -ek | Tool/means | zwūrek (with stone), ñ'ānek (with wisdom) |
-| Locative | -ñen | Location | t^arakñen (on mountain), ƶærŧñen (at river) |
+| Locative | -ñen | Location | t^arakñen (on mountain), nærŧñen (at river) |
 | Ablative | -ɒr | Source/from | hīrawɒr (from sun), k^æn'œwɒr (from dream) |
 | Vocative | -ți | Invocation (sacred) | r'ōkți (O Death!), ñ'ānți (O Wisdom!) |
 | Privative | -zɒț | Absence/lack | p^æñzɒț (fearless), k^ælzɒț (voiceless) |

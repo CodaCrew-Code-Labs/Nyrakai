@@ -11,7 +11,7 @@ Nyrakai has a rich vowel system with 20 vowel sounds: 5 short, 5 long, and 10 di
 | a | /a/ | "father" | tal (say) |
 | e | /e/ | "bed" | sem (good) |
 | i | /i/ | "see" | gīn (seed) |
-| o | /o/ | "go" | pol (round) |
+| o | /o/ | "go" | swōl (round) |
 | u | /u/ | "too" | yun (do) |
 
 ---
@@ -25,7 +25,7 @@ Long vowels are marked with a macron (¯) and held for approximately twice the d
 | ā | /aː/ | long "father" | gān (tree) |
 | ē | /eː/ | long "bed" | zwēn (swim) |
 | ī | /iː/ | long "see" | yīr (eye) |
-| ō | /oː/ | long "go" | gōr (dog) |
+| ō | /oː/ | long "go" | gwōr (dog) |
 | ū | /uː/ | long "too" | țūn (drink) |
 
 ---

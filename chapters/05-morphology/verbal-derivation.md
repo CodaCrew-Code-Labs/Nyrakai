@@ -9,7 +9,7 @@ Verbal derivation transforms **verbs** into other parts of speech. These suffixe
 | Root | Meaning | Structure |
 |------|---------|-----------|
 | **ƶōr** | burn | CVC |
-| **nōr** | know | CVC |
+| **šōr** | know | CVC |
 | **lem** | hear | CVC |
 | **pæl** | walk | CVC |
 
@@ -37,7 +37,7 @@ Marks the one who performs the action.
 | Root | Derived | Meaning |
 |------|---------|---------|
 | ƶōr | **ƶōrƨu** | burner, arsonist |
-| nōr | **nōrƨu** | knower, sage |
+| šōr | **šōrƨu** | knower, sage |
 | lem | **lemƨu** | listener, hearer |
 | pæl | **pælƨu** | walker, traveler |
 
@@ -54,7 +54,7 @@ Marks the result, remains, or outcome of an action.
 | Root | Derived | Meaning |
 |------|---------|---------|
 | ƶōr | **ƶōrțal** | ash (result of burning) |
-| nōr | **nōrțal** | knowledge (result of knowing) |
+| šōr | **šōrțal** | knowledge (result of knowing) |
 | lem | **lemțal** | memory (result of hearing) |
 
 **Pronunciation:** /θal/
@@ -87,7 +87,7 @@ Creates a greater, more intense version.
 |------|---------|---------|
 | ƶōr | **ƶōrñor** | inferno (great fire) |
 | ƨæ | **ƨæñor** | wind (intense air) |
-| nōr | **nōrñor** | wisdom (deep knowledge) |
+| šōr | **šōrñor** | wisdom (deep knowledge) |
 
 **Pronunciation:** /ŋor/
 
@@ -125,6 +125,6 @@ Transforms a noun or verb into an adjective meaning "like X" or "of X."
 Verbal suffixes can stack, though this is uncommon:
 
 - **ƶōrțal-k^e** → small ash, cinders
-- **nōrñor-ɛm** → wise, wisdom-like
+- **šōrñor-ɛm** → wise, wisdom-like
 
 **Order:** Root + Primary Suffix + Secondary Suffix

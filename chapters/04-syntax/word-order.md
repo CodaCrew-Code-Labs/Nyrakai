@@ -28,7 +28,7 @@ This "wrapping" of the subject creates sentences that are harder for outsiders t
 ### "I see the star"
 
 ```
-hīn     p^ɛn    fā      [aspect]
+hīn     yɛn    fā      [aspect]
 star    see     I       [completed]
 O       Vs      S       Va
 
@@ -48,7 +48,7 @@ O       Vs      S       Va
 ### "They know the truth"
 
 ```
-n'æra   nōr     šāri    [aspect]
+n'æra   šōr     šāri    [aspect]
 truth   know    they    [habitual]
 O       Vs      S       Va
 
@@ -68,7 +68,7 @@ Vs + S + Va
 ### "I sleep"
 
 ```
-nōm     fā      [aspect]
+slōm     fā      [aspect]
 sleep   I       [completed]
 Vs      S       Va
 ```
@@ -94,7 +94,7 @@ Adjectives come **before** the noun they modify:
 ### "I see the big star"
 
 ```
-grōm hīn    p^ɛn    fā      [aspect]
+grōm hīn    yɛn    fā      [aspect]
 big star    see     I       [completed]
 [ADJ O]     Vs      S       Va
 ```
@@ -136,7 +136,7 @@ Postpositional phrases typically appear at the beginning (topic position):
 
 **"Truth stands over death"**
 ```
-r'ōk añ     tīr     n'æra   [aspect]
+r'ōk añ     stīr     n'æra   [aspect]
 death over  stand   truth   [eternal]
 [PP]        Vs      S       Va
 
@@ -165,7 +165,7 @@ Questions maintain OVSV order with **ka** added at the end:
 ### Yes/No Questions
 
 ```
-hīn     p^ɛn    šā      [aspect]    ka
+hīn     yɛn    šā      [aspect]    ka
 star    see     she     [completed] Q
 
 "Did she see the star?"
@@ -177,13 +177,13 @@ The interrogative word replaces the element being questioned:
 
 **"What does she see?"** (kwæ replaces object)
 ```
-kwæ     p^ɛn    šā      [aspect]    ka
+kwæ     yɛn    šā      [aspect]    ka
 what    see     she     [completed] Q
 ```
 
 **"Who sees the star?"** (hœr replaces subject)
 ```
-hīn     p^ɛn    hœr     [aspect]    ka
+hīn     yɛn    hœr     [aspect]    ka
 star    see     who     [completed] Q
 ```
 
@@ -194,7 +194,7 @@ star    see     who     [completed] Q
 The prefix **za-** attaches to the verb stem:
 
 ```
-hīn     zap^ɛn  fā      [aspect]
+hīn     zayɛn  fā      [aspect]
 star    NEG-see I       [completed]
 
 "I do not see the star"
@@ -227,7 +227,7 @@ The motto of the Ŧɒñœrek uses the standard form, placing **truth** in the po
 When multiple objects exist, they appear in sequence before the verb:
 
 ```
-na'ēr   ƶōrra   p^ɛn    fā      [aspect]
+na'ēr   ƶōrra   yɛn    fā      [aspect]
 water   fire    see     I       [completed]
 
 "I see water and fire"
@@ -254,12 +254,12 @@ This word order serves the Nine Unknown:
 
 | Sentence Type | Structure | Example |
 |---------------|-----------|---------|
-| Basic transitive | O + Vs + S + Va | hīn p^ɛn fā [asp] |
-| Intransitive | Vs + S + Va | nōm fā [asp] |
-| With adjective | [Adj O] + Vs + S + Va | grōm hīn p^ɛn fā [asp] |
-| Question | O + Vs + S + Va + ka | hīn p^ɛn šā [asp] ka |
-| Negative | O + za-Vs + S + Va | hīn zap^ɛn fā [asp] |
-| With postposition | [PP] + Vs + S + Va | r'ōk añ tīr n'æra [asp] |
+| Basic transitive | O + Vs + S + Va | hīn yɛn fā [asp] |
+| Intransitive | Vs + S + Va | slōm fā [asp] |
+| With adjective | [Adj O] + Vs + S + Va | grōm hīn yɛn fā [asp] |
+| Question | O + Vs + S + Va + ka | hīn yɛn šā [asp] ka |
+| Negative | O + za-Vs + S + Va | hīn zayɛn fā [asp] |
+| With postposition | [PP] + Vs + S + Va | r'ōk añ stīr n'æra [asp] |
 
 ---
 

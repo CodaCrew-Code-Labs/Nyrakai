@@ -10,12 +10,12 @@ Nyrakai has 24 consonant sounds: 15 basic consonants, 2 glides, 3 ejectives, and
 |--------|-----|-------|---------|
 | d | /d/ | "dog" | dōn (give) |
 | f | /f/ | "fish" | fā (I) |
-| g | /g/ | "go" | gōr (dog) |
+| g | /g/ | "go" | gwōr (dog) |
 | h | /h/ | "hat" | hīn (star) |
 | k | /k/ | "kite" | kōm (come) |
 | l | /l/ | "lamp" | lem (hear) |
-| m | /m/ | "map" | mok (dry) |
-| n | /n/ | "net" | nōr (know) |
+| m | /m/ | "map" | krōk (dry) |
+| n | /n/ | "net" | šōr (know) |
 | ñ | /ŋ/ | "sing" | ñœr (many) |
 | p | /p/ | "pen" | pæl (walk) |
 | r | /r/ | "run" (trilled) | r'ōk (death) |

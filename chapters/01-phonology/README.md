@@ -7,6 +7,7 @@ The sound system of Nyrakai comprises 44 distinct phonemes, designed to create a
 • [Vowels](vowels.md) — Short vowels, long vowels, and diphthongs
 • [Consonants](consonants.md) — Basic consonants, ejectives, and affricates
 • [Phonotactics](phonotactics.md) — Syllable structure and sound combination rules
+• [Sound Map](sound-map.md) — Onset-to-domain mappings for vocabulary creation
 
 ---
 

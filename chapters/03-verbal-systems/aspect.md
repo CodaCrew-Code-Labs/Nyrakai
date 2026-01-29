@@ -29,7 +29,7 @@ Lengthens into something solemn. Feels like a "seal" being closed. Marks actions
 | Verb | + Aspect | Meaning |
 |------|----------|---------|
 | tal (say) | talarek | said / has said |
-| p^ɛn (see) | p^ɛnarek | saw / has seen |
+| yɛn (see) | yɛnarek | saw / has seen |
 | dōn (give) | dōnarek | gave / has given |
 | r'ōk (die) | r'ōkarek | died / has died |
 
@@ -46,7 +46,7 @@ Adds sacred æ for ritual depth. Feels open and flowing. Marks actions as contin
 | Verb | + Aspect | Meaning |
 |------|----------|---------|
 | tal (say) | taliræn | is saying / speaks |
-| p^ɛn (see) | p^ɛniræn | is seeing / watches |
+| yɛn (see) | yɛniræn | is seeing / watches |
 | ƶōr (burn) | ƶōriræn | is burning / burns |
 | pæl (walk) | pæliræn | is walking / walks |
 
@@ -63,8 +63,8 @@ Harsh -ț ending creates alien, ritual permanence. Feels cyclical, eternal. Mark
 | Verb | + Aspect | Meaning |
 |------|----------|---------|
 | tal (say) | talaneț | says (habitually) / always says |
-| hīra (sun) + tīr (stand) | tīraneț | rises (eternally) |
-| nōm (sleep) | nōmaneț | sleeps (regularly) |
+| hīra (sun) + stīr (stand) | stīraneț | rises (eternally) |
+| slōm (sleep) | slōmaneț | sleeps (regularly) |
 
 **Usage:** Habitual actions, eternal cycles, cosmic patterns, rituals.
 
@@ -79,7 +79,7 @@ Uses ț, reserved for sacred/taboo. Dark, heavy, ritualistic. Marks actions as p
 | Verb | + Aspect | Meaning |
 |------|----------|---------|
 | tal (say) | talațar | could say / might say (forbidden?) |
-| nōr (know) | nōrațar | could know / forbidden knowledge |
+| šōr (know) | šōrațar | could know / forbidden knowledge |
 | p^ōr (kill) | p^ōrațar | could kill / has killing potential |
 
 **Usage:** Possibilities, latent abilities, forbidden actions, taboo knowledge.

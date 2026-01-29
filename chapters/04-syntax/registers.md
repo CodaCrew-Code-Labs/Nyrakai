@@ -89,7 +89,7 @@ Reserved for rituals, invocations, and speaking of cosmic forces. Named after r'
 | Element | Purpose |
 |---------|---------|
 | ' (schwa-glottal) | Creates "catch" in throat — reverence |
-| Sacred vocabulary | r'ōk, hīra, lūn, n'æra, sre'un |
+| Sacred vocabulary | r'ōk, hīra, hūn, n'æra, sre'un |
 | Ejectives | Seals meaning with finality |
 
 ### The Sacred Vocabulary
@@ -100,7 +100,7 @@ Words of sacred gender carry inherent weight:
 |------|---------|------------|
 | r'ōk | death | The ultimate mystery |
 | hīra | sun | Source of all life |
-| lūn | moon | Keeper of cycles |
+| hūn | moon | Keeper of cycles |
 | n'æra | truth | What the Nine protect |
 | sre'un | name | Identity itself |
 | kæ | tongue | Vehicle of truth |

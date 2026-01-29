@@ -38,8 +38,8 @@ O + za-Vs + S + Va
 
 | Affirmative | Negative | Meaning |
 |-------------|----------|---------|
-| nōr | zanōr | know → not know |
-| p^ɛn | zap^ɛn | see → not see |
+| šōr | zašōr | know → not know |
+| yɛn | zayɛn | see → not see |
 | lem | zalem | hear → not hear |
 | kōm | zakōm | come → not come |
 | tal | zatal | say → not say |
@@ -58,13 +58,13 @@ O + za-Vs + S + Va
 
 **"I do not know"**
 ```
-∅ + zanōr + fā + [aspect]
+∅ + zašōr + fā + [aspect]
     NEG-know + I
 ```
 
 **"She does not see the star"**
 ```
-hīn + zap^ɛn + šā + [aspect]
+hīn + zayɛn + šā + [aspect]
 star + NEG-see + she
 ```
 
@@ -74,8 +74,8 @@ star + NEG-see + she
 
 Nyrakai does **not** use double negatives for emphasis. A single **za-** is sufficient:
 
-- ✅ `zanōr` = "do not know"
-- ❌ `zazanōr` = ungrammatical
+- ✅ `zašōr` = "do not know"
+- ❌ `zazašōr` = ungrammatical
 
 ---
 
