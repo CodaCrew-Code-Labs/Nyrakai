@@ -33,7 +33,7 @@ Nyrakai has 24 consonant sounds: 15 basic consonants, 2 glides, 3 ejectives, and
 | Letter | IPA | Sound | Example |
 |--------|-----|-------|---------|
 | w | /w/ | "wet" | wōr (flesh) |
-| y | /j/ | "yes" | yām (we) |
+| y | /j/ | "yes" | yīr (eye) |
 
 ---
 

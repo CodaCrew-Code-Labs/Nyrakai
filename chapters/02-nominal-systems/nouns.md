@@ -119,4 +119,4 @@ Some nouns have inherent gender based on cultural/natural associations:
 
 • The bridge vowel **a** ensures smooth pronunciation when suffixes attach to consonant-final roots
 • Formal/literary Nyrakai uses gender marking; informal speech may omit it
-• Existing words k^or (man) and mēra (woman) remain as common/informal alternatives to țrænæn and țrænañī
+• "Man" and "woman" are expressed as țrænæn and țrænañī, derived from țræn (person) using gender suffixes
