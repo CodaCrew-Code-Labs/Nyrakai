@@ -29,13 +29,15 @@ The language features ejective consonants, a verb final word order, and a strict
 
 ## Table of Contents
 
-1. [Phonology](chapters/01-phonology.md) — Sounds & Alphabet
-2. [Phonotactics](chapters/02-phonotactics.md) — Syllable Rules
-3. [Morphology](chapters/03-morphology.md) — Word Building
-4. [Grammar](chapters/04-grammar.md) — Sentence Structure
-5. [Dictionary](chapters/05-dictionary.md) — Word List
-6. [Phrases](chapters/06-phrases.md) — Common Expressions
-7. [Lore](chapters/07-lore.md) — The Nine Unknown Men
+1. [Phonology](chapters/01-phonology/) — Sounds & Alphabet
+   - [Vowels](chapters/01-phonology/vowels.md)
+   - [Consonants](chapters/01-phonology/consonants.md)
+   - [Phonotactics](chapters/01-phonology/phonotactics.md)
+2. Morphology — Word Building (coming soon)
+3. Grammar — Sentence Structure (coming soon)
+4. Dictionary — Word List (coming soon)
+5. Phrases — Common Expressions (coming soon)
+6. Lore — The Nine Unknown Men (coming soon)
 
 ---
 
