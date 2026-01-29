@@ -5,8 +5,8 @@ The syntactic rules of Nyrakai govern sentence structure, word order, and how me
 ## Contents
 
 • [Word Order](word-order.md) — OVSV structure explained *(coming soon)*
-• [Negation](negation.md) — How to negate statements *(coming soon)*
-• [Questions](questions.md) — Forming interrogatives *(coming soon)*
+• [Negation](negation.md) — Forming negative statements with **za-** prefix
+• [Questions](questions.md) — Yes/no and WH-questions with **ka** particle
 
 ---
 

@@ -46,8 +46,8 @@ The language features ejective consonants, a verb final word order, and a strict
 
 ### 4. [Syntax](chapters/04-syntax/) — Sentence Structure
    - Word Order — OVSV explained *(coming soon)*
-   - Negation — Negative statements *(coming soon)*
-   - Questions — Interrogative forms *(coming soon)*
+   - [Negation](chapters/04-syntax/negation.md) — Negative statements with **za-** prefix
+   - [Questions](chapters/04-syntax/questions.md) — Interrogatives with **ka** particle
 
 ### 5. Morphology — Word Building *(coming soon)*
    - Derivational affixes
