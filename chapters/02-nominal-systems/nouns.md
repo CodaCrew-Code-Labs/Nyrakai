@@ -6,11 +6,11 @@ Every noun in Nyrakai belongs to one of two gender classes, except sacred ones.
 
 ## Gender Classes
 
-**Bridge vowel = a**
-When adding gender suffixes, if the root ends in a consonant, insert **a** before the suffix.
+**Masculine → suffix -æn** (attaches directly to root)
+**Feminine → suffix -ñī** (uses bridge vowel)
 
-**Masculine → suffix -æn**
-**Feminine → suffix -ñī**
+**Bridge vowel rule:**
+When adding the feminine suffix -ñī, if the root ends in a consonant, insert **a** before the suffix. The masculine suffix -æn attaches directly without a bridge vowel.
 
 ---
 
