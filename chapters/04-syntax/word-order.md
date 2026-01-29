@@ -116,27 +116,45 @@ Nyrakai uses **postpositions** (after the noun) instead of prepositions:
 | English | Nyrakai | Structure |
 |---------|---------|-----------|
 | over death | r'ōk añ | NOUN + POSTP |
-| to the mountain | t^arak [to] | NOUN + POSTP |
+| on the mountain | t^arak añ | NOUN + POSTP |
 
-### "Truth over death"
+### Regular Postposition Phrases
+
+The postposition follows the noun it governs:
+
+```
+r'ōk    añ
+death   over
+NOUN    POSTP
+
+"over death"
+```
+
+### In Sentences
+
+Postpositional phrases typically appear at the beginning (topic position):
+
+**"Truth stands over death"**
+```
+r'ōk añ     tīr     n'æra   [aspect]
+death over  stand   truth   [eternal]
+[PP]        Vs      S       Va
+
+"Over death, truth stands [eternally]"
+```
+
+### The Sacred Motto
+
+The motto **N'æra añ r'ōk** uses a special poetic construction where the postposition links two nouns directly:
 
 ```
 n'æra   añ      r'ōk
 truth   over    death
 
-(Literally: "truth over death" — postposition follows first noun)
+"Truth over death"
 ```
 
-### In Sentences
-
-Postpositional phrases typically appear at the beginning (topic position) or end:
-
-```
-r'ōk añ     n'æra   tīr     fāri    [aspect]
-death over  truth   stand   we      [eternal]
-
-"Over death, truth stands, we [eternally]"
-```
+This elliptical form (omitting the verb "stands" or "prevails") is reserved for oaths and sacred phrases. In everyday speech, a full sentence structure would be required.
 
 ---
 
@@ -241,7 +259,7 @@ This word order serves the Nine Unknown:
 | With adjective | [Adj O] + Vs + S + Va | grōm hīn p^ɛn fā [asp] |
 | Question | O + Vs + S + Va + ka | hīn p^ɛn šā [asp] ka |
 | Negative | O + za-Vs + S + Va | hīn zap^ɛn fā [asp] |
-| With postposition | [N postp] + O + Vs + S + Va | r'ōk añ n'æra tīr fāri [asp] |
+| With postposition | [PP] + Vs + S + Va | r'ōk añ tīr n'æra [asp] |
 
 ---
 
