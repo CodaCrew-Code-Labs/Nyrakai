@@ -45,7 +45,7 @@ The language features ejective consonants, a verb final word order, and a strict
    - [Mood](chapters/03-verbal-systems/mood.md) — Declarative, interrogative, imperative, optative, conditional
 
 ### 4. [Syntax](chapters/04-syntax/) — Sentence Structure
-   - Word Order — OVSV explained *(coming soon)*
+   - [Word Order](chapters/04-syntax/word-order.md) — OVSV structure with split verb construction
    - [Negation](chapters/04-syntax/negation.md) — Negative statements with **za-** prefix
    - [Questions](chapters/04-syntax/questions.md) — Interrogatives with **ka** particle
    - [Registers](chapters/04-syntax/registers.md) — Speech styles (Everyday, Formal, Sacred, Whispered)

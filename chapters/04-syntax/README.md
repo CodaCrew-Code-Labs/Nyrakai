@@ -4,7 +4,7 @@ The syntactic rules of Nyrakai govern sentence structure, word order, and how me
 
 ## Contents
 
-• [Word Order](word-order.md) — OVSV structure explained *(coming soon)*
+• [Word Order](word-order.md) — OVSV structure with split verb construction
 • [Negation](negation.md) — Forming negative statements with **za-** prefix
 • [Questions](questions.md) — Yes/no and WH-questions with **ka** particle
 • [Registers](registers.md) — Speech styles: Everyday, Formal, Sacred, Whispered
