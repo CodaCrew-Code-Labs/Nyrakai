@@ -4,7 +4,7 @@
     "version": "3.2",
     "created": "2026-01-29",
     "updated": "2026-01-30",
-    "total_words": 144,
+    "total_words": 145,
     "format": "english | nyrakai | pronunciation | IPA | structure | syllables | pos | root",
     "notes": "Sound-map domain compliance update"
   },
@@ -2143,6 +2143,21 @@
       "validated": true,
       "notes": "w- connective; disjunctive conjunction",
       "inherent_gender": null
+    },
+    {
+      "english": "Nyrakai (the language)",
+      "nyrakai": "n'ærakæ",
+      "pronunciation": "nai-ra-kai",
+      "ipa": "/nəʔai.ra.kai/",
+      "structure": "CV.CV.CV",
+      "syllables": "n'æ (CV) + ra (CV) + kæ (CV)",
+      "syllable_count": 3,
+      "pos": "proper noun",
+      "is_root": false,
+      "etymology": "n'æra (truth) + kæ (tongue) = tongue of truth",
+      "validated": true,
+      "notes": "The sacred language of the Ŧɒñœrek; compound: truth-tongue",
+      "inherent_gender": "sacred"
     }
   ]
 }

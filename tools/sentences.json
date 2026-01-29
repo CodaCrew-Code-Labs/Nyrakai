@@ -4,7 +4,7 @@
     "version": "1.0",
     "created": "2026-01-30",
     "updated": "2026-01-30",
-    "total_sentences": 3,
+    "total_sentences": 4,
     "categories": [
       "motto",
       "greeting",
@@ -128,6 +128,37 @@
       "category": "dialogue",
       "register": "everyday",
       "notes": "Demonstrates -w- interfix (t'ōni + iræn → t'ōniwiræn) and choice phrase structure",
+      "validated": true,
+      "added": "2026-01-30"
+    },
+    {
+      "id": 4,
+      "english": "I speak Nyrakai",
+      "nyrakai": "n'ærakæwaš taliræn fā",
+      "ipa": "/nəʔai.ra.kai.waʃ ta.li.rain faː/",
+      "literal": "Nyrakai speak-ongoing I",
+      "breakdown": [
+        {
+          "word": "n'ærakæwaš",
+          "gloss": "Nyrakai",
+          "role": "object (accusative, -w- interfix)"
+        },
+        {
+          "word": "taliræn",
+          "gloss": "speak-ongoing",
+          "role": "verb + aspect"
+        },
+        {
+          "word": "fā",
+          "gloss": "I",
+          "role": "subject"
+        }
+      ],
+      "word_order": "OVS: [O] [V-ASP] [S]",
+      "context": "Declaring language ability",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "n'ærakæ (sacred) takes -waš accusative (vowel+vowel interfix)",
       "validated": true,
       "added": "2026-01-30"
     }
