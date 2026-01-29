@@ -1,10 +1,39 @@
 # Noun System
 
-Every noun in Nyrakai belongs to one of two gender classes, except sacred ones.
+Nyrakai nouns belong to one of four gender categories: flexible, masculine, feminine, or sacred.
 
 ---
 
-## Gender Classes
+## Gender Categories
+
+### Flexible
+Can take either masculine or feminine suffixes depending on the specific referent.
+- Most animals: dog, bird, fish, louse
+- Most body parts: head, hand, eye, bone, etc.
+- Person (țræn): becomes man (țrænæn) or woman (țrænañī)
+
+### Fixed Masculine
+Only takes masculine marking. Cannot be feminine.
+- Earth/stone family: fœra (earth), zwūr (stone), zwūrk^e (sand), t^arak (mountain), p^ān (path)
+- Fire family: ƶōrra (fire), ƶōrțal (ash), ƶōrk^e (ember), ƶōrñor (inferno), ƶæ (smoke)
+
+### Fixed Feminine
+Only takes feminine marking. Cannot be masculine.
+- Water family: na'ēr (water), na'ērk^e (rain), nəl (cloud)
+- Air family: ƨæ (air), ƨæñor (wind)
+- Tree family: gān (tree), gīn (seed), gɒr (bark), gūr (root)
+
+### Sacred
+No gender marking at all. Exists outside the masculine/feminine duality.
+- Celestial: hīra (sun), lūn (moon), hīn (star)
+- Time: raț (night)
+- Abstract: n'æra (truth), r'ōk (death), sre'un (name), zəna (pair)
+- Body (sacred 3): kæ (tongue), yūm (blood), wōr (flesh)
+- The Order: Ŧɒñœrek
+
+---
+
+## Gender Suffixes
 
 **Masculine → suffix -æn** (attaches directly to root)
 **Feminine → suffix -ñī** (uses bridge vowel)
@@ -14,117 +43,61 @@ When adding the feminine suffix -ñī, if the root ends in a consonant, insert *
 
 ---
 
-### Root Word Examples
+### Examples by Category
 
-**țræn (person)**
-• Masculine: țrænæn (male person/man)
-• Feminine: țrænañī (female person/woman)
+**Flexible (țræn - person):**
+- Masculine: țrænæn (man)
+- Feminine: țrænañī (woman)
 
-**gōr (dog)**
-• Masculine: gōræn (male dog)
-• Feminine: gōrañī (female dog)
+**Flexible (gōr - dog):**
+- Masculine: gōræn (male dog)
+- Feminine: gōrañī (female dog)
 
-**tūk (bird)**
-• Masculine: tūkæn (male bird)
-• Feminine: tūkañī (female bird)
+**Fixed Feminine (na'ēr - water):**
+- Feminine only: na'ērñī
+- No masculine form exists
 
-**na'ēr (water)**
-• Masculine: No masculine form as water is considered feminine
-• Feminine: na'ērñī (water, formally marked)
+**Fixed Masculine (fœra - earth):**
+- Masculine only: fœræn
+- No feminine form exists
 
-**fœra (earth)**
-• Masculine: fœræn (earth, formally marked)
-• Feminine: No feminine form as earth is considered masculine
-
-**n'æra (truth)**
-• No masculine or feminine form as it is sacred
-
-**r'ōk (death)**
-• No masculine or feminine form as it is sacred
+**Sacred (n'æra - truth):**
+- No gender suffix: n'æra
+- Cannot become *n'æræn or *n'ærañī
 
 ---
 
-## Plurality (Gendered)
+## Plurality
 
 Plural marking follows gender:
 
 **Masculine plural → suffix -œ**
 **Feminine plural → suffix -ā**
 
----
-
-### Root Word Examples
-
-**țræn (person)**
-• Masculine plural: țrænænœ (men)
-• Feminine plural: țrænañīā (women)
-
-**gōr (dog)**
-• Masculine plural: gōrænœ (male dogs)
-• Feminine plural: gōrañīā (female dogs)
-
-**tūk (bird)**
-• Masculine plural: tūkænœ (male birds)
-• Feminine plural: tūkañīā (female birds)
-
-**na'ēr (water)**
-• Masculine: No masculine form as water is considered feminine
-• Feminine plural: na'ērñīā (waters)
-
-**fœra (earth)**
-• Masculine plural: fœrænœ (earths/lands)
-• Feminine: No feminine form as earth is considered masculine
-
-**n'æra (truth)**
-• No plural form as it is sacred and singular
-
-**r'ōk (death)**
-• No plural form as it is sacred and singular
+| Category | Singular | Plural |
+|----------|----------|--------|
+| Flexible (m.) | țrænæn (man) | țrænænœ (men) |
+| Flexible (f.) | țrænañī (woman) | țrænañīā (women) |
+| Fixed Masc. | fœræn (earth) | fœrænœ (earths) |
+| Fixed Fem. | na'ērñī (water) | na'ērñīā (waters) |
+| Sacred | n'æra (truth) | — (no plural) |
 
 ---
 
 ## Summary Table
 
-| Suffix | Meaning | Example |
-|--------|---------|---------|
-| -æn | masculine | țrænæn (man) |
-| -ñī | feminine | țrænañī (woman) |
-| -œ | masculine plural | țrænænœ (men) |
-| -ā | feminine plural | țrænañīā (women) |
-
----
-
-## Special Categories
-
-### Sacred Words (No Gender)
-Sacred and abstract concepts do not take gender marking:
-• n'æra (truth)
-• r'ōk (death)
-• ñœrek (unknown)
-• Words related to the Ŧɒñœrek
-
-### Inherently Gendered Words
-Some nouns have inherent gender based on cultural/natural associations:
-
-| Noun | Inherent Gender | Reason |
-|------|-----------------|--------|
-| na'ēr (water) | Feminine | Life-giving, flowing |
-| fœra (earth) | Masculine | Solid, foundational |
-| hīra (sun) | Sacred | Celestial body |
-| lūn (moon) | Sacred | Celestial body |
-| hīn (star) | Sacred | Celestial body |
-
-### Sacred Categories
-The following are always sacred (no gender marking):
-• **Celestial bodies:** sun, moon, stars
-• **Body parts:** all parts of the human body
-• **Abstract concepts:** truth, death, names, time (night)
-• **The Order:** Ŧɒñœrek and related terms
+| Category | Gender Suffix | Plural | Examples |
+|----------|---------------|--------|----------|
+| Flexible | -æn or -ñī | -œ or -ā | person, dog, bird, most body parts |
+| Masculine | -æn only | -œ | earth, fire, stone, mountain |
+| Feminine | -ñī only | -ā | water, air, tree family |
+| Sacred | none | none | truth, death, celestial, tongue, blood, flesh |
 
 ---
 
 ## Notes
 
-• The bridge vowel **a** ensures smooth pronunciation when suffixes attach to consonant-final roots
-• Formal/literary Nyrakai uses gender marking; informal speech may omit it
-• "Man" and "woman" are expressed as țrænæn and țrænañī, derived from țræn (person) using gender suffixes
+- The bridge vowel **a** ensures smooth pronunciation when suffixes attach to consonant-final roots
+- Flexible nouns default to context; when gender is unknown or irrelevant, masculine is often used
+- Sacred words are philosophically outside gender; forcing gender marking is considered improper
+- The three sacred body parts (tongue, blood, flesh) relate to speech, life, and mortality
