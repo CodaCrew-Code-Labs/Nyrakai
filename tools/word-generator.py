@@ -139,15 +139,19 @@ def get_domain_hint(english_word: str) -> str:
     
     # Map common English words to Nyrakai domains
     domain_keywords = {
-        'nature': ['water', 'fire', 'earth', 'air', 'wind', 'rain', 'cloud', 'stone', 'rock', 'tree', 'plant', 'river', 'mountain', 'sun', 'moon', 'star', 'sky', 'forest', 'sea', 'lake'],
-        'body': ['hand', 'foot', 'eye', 'ear', 'mouth', 'heart', 'blood', 'bone', 'skin', 'head', 'tongue', 'nose', 'hair', 'flesh', 'tooth', 'knee', 'liver'],
-        'action': ['give', 'walk', 'stand', 'come', 'go', 'run', 'take', 'make', 'do', 'see', 'hear', 'create', 'build', 'fight', 'swim'],
-        'abstract': ['truth', 'death', 'soul', 'fate', 'wisdom', 'life', 'dream', 'fear', 'hope', 'love', 'hate'],
-        'social': ['person', 'man', 'woman', 'child', 'village', 'family', 'tribe', 'king', 'queen', 'leader'],
+        'nature': ['water', 'fire', 'earth', 'air', 'wind', 'rain', 'cloud', 'stone', 'rock', 'tree', 'plant', 'river', 'mountain', 'forest', 'sea', 'lake'],
+        'body': ['hand', 'foot', 'eye', 'ear', 'mouth', 'heart', 'blood', 'bone', 'skin', 'head', 'tongue', 'nose', 'hair', 'flesh', 'tooth', 'knee', 'liver', 'belly', 'neck', 'breast'],
+        'action': ['give', 'walk', 'stand', 'come', 'go', 'run', 'take', 'make', 'do', 'see', 'hear', 'create', 'build', 'fight', 'swim', 'fly', 'sleep', 'eat', 'drink', 'kill', 'die', 'sit', 'lie'],
+        'abstract': ['truth', 'death', 'soul', 'fate', 'wisdom', 'life', 'dream', 'fear', 'hope', 'love', 'hate', 'like'],
+        'social': ['person', 'man', 'woman', 'child', 'village', 'family', 'tribe', 'king', 'queen', 'leader', 'voice', 'name'],
         'quantity': ['one', 'two', 'three', 'four', 'five', 'many', 'few', 'all', 'none', 'zero', 'pair'],
         'spatial': ['big', 'small', 'long', 'short', 'over', 'under', 'near', 'far', 'round', 'path', 'road'],
-        'quality': ['good', 'bad', 'hot', 'cold', 'dry', 'wet', 'new', 'old', 'dark', 'light'],
-        'celestial': ['sun', 'moon', 'star', 'sky', 'light', 'bright', 'white', 'day'],
+        'quality': ['good', 'bad', 'hot', 'cold', 'dry', 'wet', 'new', 'old', 'dark', 'light', 'true', 'false'],
+        'celestial': ['sun', 'moon', 'star', 'sky', 'light', 'bright', 'white', 'day', 'night'],
+        'mammal': ['dog', 'cat', 'deer', 'horse', 'cow', 'sheep', 'goat', 'wolf', 'bear', 'lion', 'tiger', 'pig', 'fox', 'rabbit', 'mouse', 'rat', 'elephant', 'monkey', 'ape', 'beast', 'animal', 'mammal', 'doe', 'buck', 'stag'],
+        'bird': ['bird', 'eagle', 'hawk', 'owl', 'crow', 'raven', 'sparrow', 'dove', 'pigeon', 'chicken', 'duck', 'goose', 'swan', 'falcon'],
+        'fish': ['fish', 'shark', 'whale', 'dolphin', 'salmon', 'trout', 'eel'],
+        'insect': ['insect', 'bug', 'louse', 'ant', 'bee', 'wasp', 'fly', 'spider', 'worm', 'beetle'],
     }
     
     word_lower = english_word.lower()
@@ -158,14 +162,34 @@ def get_domain_hint(english_word: str) -> str:
             detected_domain = domain
             break
     
+    # Special onset mappings for animal domains (from sound-map.md)
+    animal_onsets = {
+        'mammal': ['gw-'],  # gwōr (dog), beasts, livestock
+        'bird': ['t-'],     # tūk (bird), flying creatures
+        'fish': ['n-'],     # nūl (fish), aquatic creatures
+        'insect': ['y-'],   # yīk (louse), small creatures
+    }
+    
     if detected_domain:
-        onsets = suggest_onset(detected_domain)
-        onset_str = ", ".join(onsets[:8])  # Limit to 8 examples
-        return f"""
+        # Use special animal onsets or fall back to sound_map
+        if detected_domain in animal_onsets:
+            onsets = animal_onsets[detected_domain]
+            onset_str = ", ".join(onsets)
+            return f"""
+SOUND MAP GUIDANCE (MANDATORY):
+The word "{english_word}" is a {detected_domain.upper()}.
+YOU MUST START the word with one of these onsets: {onset_str}
+This is NOT optional - words for {detected_domain}s MUST use these sounds.
+Examples: gwōr (dog), tūk (bird), nūl (fish), yīk (louse)
+"""
+        else:
+            onsets = suggest_onset(detected_domain)
+            onset_str = ", ".join(onsets[:8])  # Limit to 8 examples
+            return f"""
 SOUND MAP GUIDANCE:
 The word "{english_word}" belongs to the {detected_domain.upper()} domain.
 Preferred onsets for this domain: {onset_str}
-Try to START the word with one of these sounds for phonosemantic consistency.
+You SHOULD START the word with one of these sounds for phonosemantic consistency.
 """
     
     return ""

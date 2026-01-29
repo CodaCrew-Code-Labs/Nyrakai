@@ -4,7 +4,7 @@
     "version": "3.2",
     "created": "2026-01-29",
     "updated": "2026-01-30",
-    "total_words": 145,
+    "total_words": 146,
     "format": "english | nyrakai | pronunciation | IPA | structure | syllables | pos | root",
     "notes": "Sound-map domain compliance update"
   },
@@ -2158,6 +2158,21 @@
       "validated": true,
       "notes": "The sacred language of the Ŧɒñœrek; compound: truth-tongue",
       "inherent_gender": "sacred"
+    },
+    {
+      "english": "deer",
+      "nyrakai": "gwīƨ",
+      "pronunciation": "gweets",
+      "ipa": "/gwiːts/",
+      "structure": "CCVC",
+      "syllables": "gwīƨ (CCVC)",
+      "syllable_count": 1,
+      "pos": "noun",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "notes": "gw- mammal domain; ƨ (ts) affricate ending; flexible gender",
+      "inherent_gender": "flexible"
     }
   ]
 }

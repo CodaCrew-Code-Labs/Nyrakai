@@ -4,7 +4,7 @@
     "version": "1.0",
     "created": "2026-01-30",
     "updated": "2026-01-30",
-    "total_sentences": 4,
+    "total_sentences": 5,
     "categories": [
       "motto",
       "greeting",
@@ -159,6 +159,37 @@
       "category": "dialogue",
       "register": "everyday",
       "notes": "n'ærakæ (sacred) takes -waš accusative (vowel+vowel interfix)",
+      "validated": true,
+      "added": "2026-01-30"
+    },
+    {
+      "id": 5,
+      "english": "The man killed a doe",
+      "nyrakai": "gwīƨañīwaš p^ōrarek țrænæn",
+      "ipa": "/gwiːtsaɲiːwaʃ p'oːrarek θrainæn/",
+      "literal": "doe-fem-acc kill-completed man",
+      "breakdown": [
+        {
+          "word": "gwīƨañīwaš",
+          "gloss": "doe",
+          "role": "object (feminine + accusative + interfix)"
+        },
+        {
+          "word": "p^ōrarek",
+          "gloss": "killed",
+          "role": "verb + completed aspect"
+        },
+        {
+          "word": "țrænæn",
+          "gloss": "man",
+          "role": "subject (person + masculine)"
+        }
+      ],
+      "word_order": "OVS: [O] [V-ASP] [S]",
+      "context": "Simple past tense action with gendered nouns",
+      "category": "narrative",
+      "register": "everyday",
+      "notes": "Demonstrates gender derivation (țræn→țrænæn, gwīƨ→gwīƨañī) and vowel interfix (-waš)",
       "validated": true,
       "added": "2026-01-30"
     }
