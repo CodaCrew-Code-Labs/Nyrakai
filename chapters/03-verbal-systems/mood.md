@@ -71,7 +71,6 @@ Airy, breath-like, invoking. Used for blessings, curses, and ritual wishes. Spee
 |------|---------|
 | talarekhāli | May [someone] have said |
 | talirænhāli | May [someone] be saying |
-| n'æra talarekhāli | May truth be spoken |
 
 ---
 
@@ -85,8 +84,6 @@ Soft, hypothetical, bound. Used for conditional statements: "if X, then Y" / "wo
 |------|---------|
 | talarekwɒț | If [someone] said / would say |
 | talirænwɒț | If [someone] were saying |
-
-**Example:** "If truth were spoken, death would flee"
 
 ---
 

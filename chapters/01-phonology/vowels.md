@@ -38,7 +38,7 @@ Diphthongs are vowel combinations pronounced as a single syllable.
 |--------|-----|-------|---------|
 | æ | /ai/ | "eye" | kæ (tongue) |
 | ɒ | /au/ | "cow" | šɒ (that) |
-| ɛ | /ei/ | "day" | t'ɛm (eat) |
+| ɛ | /ei/ | "day" | t^ɛm (eat) |
 | ə | /eu/ | "ay-oo" | nəl (cloud) |
 | œ | /oi/ | "boy" | šœ (this) |
 

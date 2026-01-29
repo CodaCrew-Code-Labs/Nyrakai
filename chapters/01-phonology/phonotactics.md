@@ -45,7 +45,7 @@ When two consonants begin a syllable, they must follow these rules:
 All consonants except '
 
 **Forbidden second consonants (C2):**
-- Ejectives (k', p', t')
+- Ejectives (k^, p^, t^)
 - Affricates š, ƨ
 - Velar nasal ñ
 
