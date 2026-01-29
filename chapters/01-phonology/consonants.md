@@ -39,15 +39,17 @@ Nyrakai has 24 consonant sounds: 15 basic consonants, 2 glides, 3 ejectives, and
 
 ## Ejectives (3)
 
-Ejectives are produced with a sharp burst of air from the glottis, creating a "popping" sound. They are written with an apostrophe after the consonant.
+Ejectives are produced with a sharp burst of air from the glottis, creating a "popping" sound. They are written with a caret (^) after the consonant.
 
 | Letter | IPA | Sound | Example |
 |--------|-----|-------|---------|
-| k' | /k'/ | sharp "k" | k'œl (zero) |
-| p' | /p'/ | sharp "p" | p'œr (four) |
-| t' | /t'/ | sharp "t" | t'ūn (one) |
+| k^ | /k'/ | sharp "k" | k^œl (zero) |
+| p^ | /p'/ | sharp "p" | p^œr (four) |
+| t^ | /t'/ | sharp "t" | t^ūn (one) |
 
 Ejectives are uncommon in European languages but found in many indigenous American, African, and Caucasian languages. They give Nyrakai its distinctive ancient, alien quality.
+
+**Note:** The caret (^) is used for ejectives to distinguish them from the glottal marker (') used in patterns like n'æ.
 
 ---
 
