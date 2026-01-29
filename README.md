@@ -48,6 +48,7 @@ The language features ejective consonants, a verb final word order, and a strict
    - Word Order — OVSV explained *(coming soon)*
    - [Negation](chapters/04-syntax/negation.md) — Negative statements with **za-** prefix
    - [Questions](chapters/04-syntax/questions.md) — Interrogatives with **ka** particle
+   - [Registers](chapters/04-syntax/registers.md) — Speech styles (Everyday, Formal, Sacred, Whispered)
 
 ### 5. Morphology — Word Building *(coming soon)*
    - Derivational affixes
