@@ -13,6 +13,7 @@ Usage:
 import json
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict, List, Tuple
 
@@ -22,6 +23,7 @@ from typing import Optional, Dict, List, Tuple
 
 SCRIPT_DIR = Path(__file__).parent
 DICT_PATH = SCRIPT_DIR / "nyrakai-dictionary.json"
+SENTENCES_PATH = SCRIPT_DIR / "sentences.json"
 
 # Load dictionary
 def load_dictionary() -> Dict:
@@ -537,6 +539,78 @@ class NyrakaiTranslator:
         return result
 
 # ============================================================================
+# SENTENCE STORAGE
+# ============================================================================
+
+def load_sentences() -> Dict:
+    """Load sentences database."""
+    if SENTENCES_PATH.exists():
+        with open(SENTENCES_PATH, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {
+        "meta": {
+            "language": "Nyrakai",
+            "version": "1.0",
+            "created": datetime.now().strftime("%Y-%m-%d"),
+            "updated": datetime.now().strftime("%Y-%m-%d"),
+            "total_sentences": 0,
+            "categories": ["motto", "greeting", "dialogue", "narrative", "ritual", "proverb"]
+        },
+        "sentences": []
+    }
+
+def save_sentence(result: Dict, category: str = "dialogue", context: str = "", register: str = "everyday") -> bool:
+    """Save an approved translation to sentences.json."""
+    if not result.get('success'):
+        print("❌ Cannot save: translation has missing words")
+        return False
+    
+    data = load_sentences()
+    
+    # Generate next ID
+    next_id = max([s.get('id', 0) for s in data['sentences']], default=0) + 1
+    
+    # Build breakdown from result
+    breakdown = []
+    for step in result.get('breakdown', []):
+        if '→' in step:
+            parts = step.split('→')
+            eng = parts[0].strip()
+            rest = parts[1].strip()
+            nyr = rest.split('(')[0].strip()
+            role = rest.split('(')[1].rstrip(')') if '(' in rest else ''
+            breakdown.append({
+                "word": nyr,
+                "gloss": eng,
+                "role": role
+            })
+    
+    sentence = {
+        "id": next_id,
+        "english": result['input'],
+        "nyrakai": result['nyrakai'],
+        "ipa": "",  # TODO: Generate IPA
+        "literal": result.get('literal', ''),
+        "breakdown": breakdown,
+        "context": context,
+        "category": category,
+        "register": register,
+        "notes": "",
+        "validated": True,
+        "added": datetime.now().strftime("%Y-%m-%d")
+    }
+    
+    data['sentences'].append(sentence)
+    data['meta']['total_sentences'] = len(data['sentences'])
+    data['meta']['updated'] = datetime.now().strftime("%Y-%m-%d")
+    
+    with open(SENTENCES_PATH, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    
+    print(f"✅ Saved sentence #{next_id} to sentences.json")
+    return True
+
+# ============================================================================
 # CLI INTERFACE
 # ============================================================================
 
@@ -603,19 +677,54 @@ def main():
     if len(sys.argv) < 2:
         print("Usage: python translator.py \"English sentence\"")
         print("       python translator.py --interactive")
+        print("       python translator.py --save \"English sentence\"")
+        print()
+        print("Options:")
+        print("  --interactive, -i    Interactive translation mode")
+        print("  --save, -s           Save approved translation to sentences.json")
         print()
         print("Examples:")
         print("  python translator.py \"I see the star\"")
         print("  python translator.py \"She drinks water\"")
-        print("  python translator.py \"Do you know the truth?\"")
+        print("  python translator.py --save \"Do you know the truth?\"")
         sys.exit(1)
     
-    if sys.argv[1] == '--interactive' or sys.argv[1] == '-i':
+    # Parse arguments
+    save_mode = False
+    interactive_mode_flag = False
+    sentence_parts = []
+    
+    i = 1
+    while i < len(sys.argv):
+        arg = sys.argv[i]
+        if arg in ['--interactive', '-i']:
+            interactive_mode_flag = True
+        elif arg in ['--save', '-s']:
+            save_mode = True
+        else:
+            sentence_parts.append(arg)
+        i += 1
+    
+    if interactive_mode_flag:
         interactive_mode(translator)
-    else:
-        sentence = ' '.join(sys.argv[1:])
+    elif sentence_parts:
+        sentence = ' '.join(sentence_parts)
         result = translator.translate(sentence)
         print_result(result)
+        
+        if save_mode:
+            if result.get('success'):
+                print()
+                confirm = input("Save this translation? [y/N] ").strip().lower()
+                if confirm == 'y':
+                    category = input("Category (motto/greeting/dialogue/narrative/ritual/proverb) [dialogue]: ").strip() or "dialogue"
+                    context = input("Context (optional): ").strip()
+                    save_sentence(result, category=category, context=context)
+            else:
+                print("❌ Cannot save: translation has missing words")
+    else:
+        print("No sentence provided.")
+        sys.exit(1)
 
 if __name__ == '__main__':
     main()

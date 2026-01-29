@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "language": "Nyrakai",
+    "version": "1.0",
+    "created": "2026-01-30",
+    "updated": "2026-01-30",
+    "total_sentences": 2,
+    "categories": [
+      "motto",
+      "greeting",
+      "dialogue",
+      "narrative",
+      "ritual",
+      "proverb"
+    ]
+  },
+  "sentences": [
+    {
+      "id": 1,
+      "english": "Truth over death",
+      "nyrakai": "N'æra añ r'ōk",
+      "ipa": "/nəʔai.ra aŋ rəʔoːk/",
+      "literal": "truth over death",
+      "breakdown": [
+        {
+          "word": "N'æra",
+          "gloss": "truth",
+          "role": "subject"
+        },
+        {
+          "word": "añ",
+          "gloss": "over",
+          "role": "postposition"
+        },
+        {
+          "word": "r'ōk",
+          "gloss": "death",
+          "role": "object of postposition"
+        }
+      ],
+      "context": "Motto of the Ŧɒñœrek (The Nine Unknown)",
+      "category": "motto",
+      "register": "sacred",
+      "notes": "Elliptical construction (verb omitted). Full form would be 'N'æra r'ōk añ stīr' (Truth stands over death).",
+      "validated": true,
+      "added": "2026-01-30"
+    },
+    {
+      "id": 2,
+      "english": "I see the star",
+      "nyrakai": "hīnaš yɛniræn fā",
+      "ipa": "",
+      "literal": "star see I [ongoing]",
+      "breakdown": [
+        {
+          "word": "hīnaš",
+          "gloss": "star",
+          "role": "object, accusative"
+        },
+        {
+          "word": "yɛn",
+          "gloss": "see",
+          "role": "verb stem"
+        },
+        {
+          "word": "fā",
+          "gloss": "I",
+          "role": "subject"
+        },
+        {
+          "word": "iræn",
+          "gloss": "[ongoing]",
+          "role": "aspect"
+        }
+      ],
+      "context": "Test context",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "",
+      "validated": true,
+      "added": "2026-01-30"
+    }
+  ]
+}

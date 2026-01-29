@@ -38,6 +38,34 @@ python3 translator.py --interactive
    [ongoing] → iræn (aspect)
 ```
 
+**Save approved translations:**
+```bash
+python3 translator.py --save "I see the star"
+# Prompts for confirmation, category, and context
+# Saves to sentences.json
+```
+
+### sentence-validator.py
+Validates sentences in `sentences.json` against all grammatical rules.
+
+```bash
+# Validate all sentences
+python3 sentence-validator.py
+
+# Validate specific sentence by ID
+python3 sentence-validator.py --id 1
+
+# Verbose mode (detailed analysis)
+python3 sentence-validator.py --verbose
+```
+
+**Checks:**
+- All words exist in dictionary (or are valid derived forms)
+- Case suffixes correctly applied
+- Aspect/mood markers valid
+- Question particle placement
+- Negation prefix usage
+
 ### validator.py
 Validates Nyrakai words against phonotactic rules.
 
