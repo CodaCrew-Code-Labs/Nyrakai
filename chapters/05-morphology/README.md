@@ -14,6 +14,7 @@ Everyday derivations are flowing and chantable, while sacred derivations (marked
 1. [Verbal Derivation](verbal-derivation.md) — Suffixes that transform verbs
 2. [Nominal Derivation](nominal-derivation.md) — Suffixes that transform nouns
 3. [Compounding](compounding.md) — Rules for combining words
+4. [Interfixes](interfixes.md) — Connecting sounds between morphemes
 
 ---
 

@@ -54,10 +54,15 @@ The language features ejective consonants, a verb final word order, and a strict
    - [Verbal Derivation](chapters/05-morphology/verbal-derivation.md) — Suffixes for verbs: nominalizer, agentive, resultative, diminutive, augmentative
    - [Nominal Derivation](chapters/05-morphology/nominal-derivation.md) — Suffixes for nouns: keeper, place, essence, tool, collective, sacred
    - [Compounding](chapters/05-morphology/compounding.md) — Head-final compound formation
+   - [Interfixes](chapters/05-morphology/interfixes.md) — Connecting sounds: -w- glide, -a- bridge vowel
 
-### 6. Dictionary — Word List *(coming soon)*
+### 6. [Lexicon](chapters/06-lexicon/) — Special Vocabulary
+   - [Onomatopoeia](chapters/06-lexicon/onomatopoeia.md) — Sound-words: sacred echoes, forbidden roots
+   - [Borrowing](chapters/06-lexicon/borrowing.md) — Tamil core (~60%), Sanskrit, Aramaic, Greek, Arabic influences
 
-### 7. Lore — The Nine Unknown Men *(coming soon)*
+### 7. Dictionary — Word List *(coming soon)*
+
+### 8. Lore — The Nine Unknown Men *(coming soon)*
 
 ---
 

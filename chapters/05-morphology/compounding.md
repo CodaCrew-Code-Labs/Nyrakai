@@ -89,9 +89,14 @@ Compounds involving sacred roots or the **-k^æț** suffix are handled with care
 
 ### Linking
 
-When compounding creates awkward consonant clusters, a linking vowel **-a-** may be inserted:
+Nyrakai uses systematic linking at compound boundaries. See [Interfixes](interfixes.md) for full rules.
 
-- Rare in practice; Nyrakai generally tolerates clusters
+| Boundary | Linking | Example |
+|----------|---------|---------|
+| Vowel + Vowel | **-w-** | hīra + añ → hīrawañ |
+| Consonant + Consonant | **-a-** | r'ōk + țræn → r'ōkațræn |
+| Vowel + Consonant | none | na'ēr + bren → na'ērbren |
+| Consonant + Vowel | none | r'ōk + añ → r'ōkañ |
 
 ### Stress
 
