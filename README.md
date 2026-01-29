@@ -29,19 +29,58 @@ The language features ejective consonants, a verb final word order, and a strict
 
 ## Table of Contents
 
-1. [Phonology](chapters/01-phonology/) — Sounds & Alphabet
-   - [Vowels](chapters/01-phonology/vowels.md)
-   - [Consonants](chapters/01-phonology/consonants.md)
-   - [Phonotactics](chapters/01-phonology/phonotactics.md)
-2. [Nominal Systems](chapters/02-nominal-systems/) — Nouns, Pronouns & Possession
-   - [Nouns](chapters/02-nominal-systems/nouns.md)
-   - Pronouns (coming soon)
-   - Possession (coming soon)
-3. Morphology — Word Building (coming soon)
-4. Grammar — Sentence Structure (coming soon)
-5. Dictionary — Word List (coming soon)
-6. Phrases — Common Expressions (coming soon)
-7. Lore — The Nine Unknown Men (coming soon)
+### 1. [Phonology](chapters/01-phonology/) — Sounds & Syllable Structure
+   - [Vowels](chapters/01-phonology/vowels.md) — Short, long, and diphthongs
+   - [Consonants](chapters/01-phonology/consonants.md) — Basic, ejectives, and affricates
+   - [Phonotactics](chapters/01-phonology/phonotactics.md) — Syllable rules
+
+### 2. [Nominal Systems](chapters/02-nominal-systems/) — Nouns, Pronouns, Possession & Case
+   - [Nouns](chapters/02-nominal-systems/nouns.md) — Gender classes and plurality
+   - [Pronouns](chapters/02-nominal-systems/pronouns.md) — Personal and demonstrative
+   - [Possession](chapters/02-nominal-systems/possession.md) — Ownership marking
+   - [Case](chapters/02-nominal-systems/case.md) — Grammatical roles *(in progress)*
+
+### 3. [Verbal Systems](chapters/03-verbal-systems/) — Verbs, Tense & Aspect
+   - Verbs — Roots and conjugation *(coming soon)*
+   - Aspect Markers — The split-verb system *(coming soon)*
+
+### 4. [Syntax](chapters/04-syntax/) — Sentence Structure
+   - Word Order — OVSV explained *(coming soon)*
+   - Negation — Negative statements *(coming soon)*
+   - Questions — Interrogative forms *(coming soon)*
+
+### 5. Morphology — Word Building *(coming soon)*
+   - Derivational affixes
+   - Compounding rules
+
+### 6. Dictionary — Word List *(coming soon)*
+
+### 7. Lore — The Nine Unknown Men *(coming soon)*
+
+---
+
+## Quick Reference
+
+| Feature | Nyrakai |
+|---------|---------|
+| Word order | OVSV (Object-VerbStem-Subject-VerbAspect) |
+| Gender | Masculine (-æn), Feminine (-ñī), Sacred (unmarked) |
+| Plurality | Masculine (-œ), Feminine (-ā) |
+| Possession | Prefixes: fā- (my), gæ- (your), šā- (his/her) |
+| Pronouns | fā (I), gæ (you), šā (he/she/it) |
+| Postpositions | Yes (after noun): "r'ōk añ" = "death over" |
+
+---
+
+## Sample Text
+
+> **N'æra añ r'ōk**
+> 
+> /nəʔai.ra aŋ rəʔoːk/
+> 
+> "Truth over death"
+> 
+> *(Motto of the Ŧɒñœrek)*
 
 ---
 
