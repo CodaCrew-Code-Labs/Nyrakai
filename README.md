@@ -33,11 +33,15 @@ The language features ejective consonants, a verb final word order, and a strict
    - [Vowels](chapters/01-phonology/vowels.md)
    - [Consonants](chapters/01-phonology/consonants.md)
    - [Phonotactics](chapters/01-phonology/phonotactics.md)
-2. Morphology — Word Building (coming soon)
-3. Grammar — Sentence Structure (coming soon)
-4. Dictionary — Word List (coming soon)
-5. Phrases — Common Expressions (coming soon)
-6. Lore — The Nine Unknown Men (coming soon)
+2. [Nominal Systems](chapters/02-nominal-systems/) — Nouns, Pronouns & Possession
+   - [Nouns](chapters/02-nominal-systems/nouns.md)
+   - Pronouns (coming soon)
+   - Possession (coming soon)
+3. Morphology — Word Building (coming soon)
+4. Grammar — Sentence Structure (coming soon)
+5. Dictionary — Word List (coming soon)
+6. Phrases — Common Expressions (coming soon)
+7. Lore — The Nine Unknown Men (coming soon)
 
 ---
 
