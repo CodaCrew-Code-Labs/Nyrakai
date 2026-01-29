@@ -3,11 +3,19 @@
 Nyrakai Word Validator & Dictionary Manager
 Checks if words follow Nyrakai phonotactic rules
 Now with STRICT syllable structure validation!
+Includes Sound Map domain validation.
 """
 
 import json
 import re
 from pathlib import Path
+
+# Import sound map for domain validation
+try:
+    from sound_map import get_onset, get_domain, validate_domain, DOMAINS
+    SOUND_MAP_AVAILABLE = True
+except ImportError:
+    SOUND_MAP_AVAILABLE = False
 
 # Nyrakai Alphabet
 CONSONANTS = set('dfghklmnñprst') | {'ț', 'z'}
@@ -394,6 +402,14 @@ def validate_word(word: str, auto_normalize: bool = True) -> dict:
             result["valid"] = False
             result["errors"].extend(errors)
     
+    # Add sound map domain info if available
+    if SOUND_MAP_AVAILABLE:
+        onset = get_onset(normalized)
+        primary, secondary = get_domain(normalized)
+        result["onset"] = onset
+        result["primary_domain"] = primary
+        result["secondary_domain"] = secondary
+    
     return result
 
 
@@ -536,9 +552,19 @@ if __name__ == "__main__":
                     print(f"  • {w['nyrakai']} ({w['english']})")
                     for e in w["errors"]:
                         print(f"    - {e}")
+        elif sys.argv[1] == "--domains":
+            # List all domains
+            if SOUND_MAP_AVAILABLE:
+                print("Sound Map Domains")
+                print("=" * 40)
+                for domain, desc in DOMAINS.items():
+                    print(f"  {domain}: {desc}")
+            else:
+                print("Sound map not available")
         else:
             # Validate a single word
             word = sys.argv[1]
+            expected_domain = sys.argv[2] if len(sys.argv) > 2 else None
             result = validate_word(word)
             status = "✓ VALID" if result["valid"] else "✗ INVALID"
             print(f"{status}: {word}")
@@ -546,6 +572,20 @@ if __name__ == "__main__":
             print(f"  Phonemes: {result['phonemes']}")
             print(f"  Syllables: {result['syllables']}")
             print(f"  Structure: {'.'.join(result['syllable_structures'])}")
+            
+            # Show domain info
+            if SOUND_MAP_AVAILABLE and 'onset' in result:
+                print(f"  Onset: {result['onset']}-")
+                print(f"  Domain: {result['primary_domain'] or 'unmapped'}", end="")
+                if result.get('secondary_domain'):
+                    print(f" / {result['secondary_domain']}", end="")
+                print()
+                
+                # Check domain match if specified
+                if expected_domain:
+                    domain_result = validate_domain(word, expected_domain)
+                    print(f"  Domain check: {domain_result['message']}")
+            
             if result["warnings"]:
                 print(f"  Warnings: {result['warnings']}")
             if result["errors"]:

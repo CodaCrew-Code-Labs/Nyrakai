@@ -3,6 +3,7 @@
 Nyrakai Word Generator
 Generates word suggestions using AI, inspired by Māori, Sangam Tamil, Navi, and Dothraki.
 Auto-validates against Nyrakai phonotactic rules.
+Now with Sound Map integration for domain-aware generation!
 """
 
 import os
@@ -12,6 +13,13 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 from validator import validate_word, normalize
+
+# Import sound map for domain-aware generation
+try:
+    from sound_map import get_onset, get_domain, suggest_onset, SOUND_MAP, DOMAINS
+    SOUND_MAP_AVAILABLE = True
+except ImportError:
+    SOUND_MAP_AVAILABLE = False
 
 # Load API keys from clawdbot config
 CONFIG_PATH = Path.home() / ".clawdbot" / "clawdbot.json"
@@ -124,13 +132,55 @@ def call_openai(prompt: str, system: str) -> str:
     return result["choices"][0]["message"]["content"].strip()
 
 
-def generate_words(english_word: str, count: int = 5) -> list:
+def get_domain_hint(english_word: str) -> str:
+    """Get domain and onset hints based on the English word's semantic category."""
+    if not SOUND_MAP_AVAILABLE:
+        return ""
+    
+    # Map common English words to Nyrakai domains
+    domain_keywords = {
+        'nature': ['water', 'fire', 'earth', 'air', 'wind', 'rain', 'cloud', 'stone', 'rock', 'tree', 'plant', 'river', 'mountain', 'sun', 'moon', 'star', 'sky', 'forest', 'sea', 'lake'],
+        'body': ['hand', 'foot', 'eye', 'ear', 'mouth', 'heart', 'blood', 'bone', 'skin', 'head', 'tongue', 'nose', 'hair', 'flesh', 'tooth', 'knee', 'liver'],
+        'action': ['give', 'walk', 'stand', 'come', 'go', 'run', 'take', 'make', 'do', 'see', 'hear', 'create', 'build', 'fight', 'swim'],
+        'abstract': ['truth', 'death', 'soul', 'fate', 'wisdom', 'life', 'dream', 'fear', 'hope', 'love', 'hate'],
+        'social': ['person', 'man', 'woman', 'child', 'village', 'family', 'tribe', 'king', 'queen', 'leader'],
+        'quantity': ['one', 'two', 'three', 'four', 'five', 'many', 'few', 'all', 'none', 'zero', 'pair'],
+        'spatial': ['big', 'small', 'long', 'short', 'over', 'under', 'near', 'far', 'round', 'path', 'road'],
+        'quality': ['good', 'bad', 'hot', 'cold', 'dry', 'wet', 'new', 'old', 'dark', 'light'],
+        'celestial': ['sun', 'moon', 'star', 'sky', 'light', 'bright', 'white', 'day'],
+    }
+    
+    word_lower = english_word.lower()
+    detected_domain = None
+    
+    for domain, keywords in domain_keywords.items():
+        if word_lower in keywords:
+            detected_domain = domain
+            break
+    
+    if detected_domain:
+        onsets = suggest_onset(detected_domain)
+        onset_str = ", ".join(onsets[:8])  # Limit to 8 examples
+        return f"""
+SOUND MAP GUIDANCE:
+The word "{english_word}" belongs to the {detected_domain.upper()} domain.
+Preferred onsets for this domain: {onset_str}
+Try to START the word with one of these sounds for phonosemantic consistency.
+"""
+    
+    return ""
+
+
+def generate_words(english_word: str, count: int = 5, domain: str = None) -> list:
     """Generate Nyrakai word suggestions for an English word."""
+    
+    # Get domain hint
+    domain_hint = get_domain_hint(english_word) if SOUND_MAP_AVAILABLE else ""
     
     prompt = f"""{NYRAKAI_REFERENCE}
 
 {INSPIRATION_NOTE}
-
+{domain_hint}
 Generate exactly {count} unique Nyrakai word suggestions for the English word: "{english_word}"
 
 Requirements:
@@ -139,6 +189,7 @@ Requirements:
 3. Vary the complexity - some simple (1 syllable), some complex (2-3 syllables)
 4. Make them feel ancient and mysterious
 5. Use digraph forms (ai, ee, th, tr, etc.) - they will be auto-converted
+6. If domain guidance is provided, prefer those onset sounds
 
 Return ONLY a JSON array of objects with this format:
 [
@@ -188,7 +239,7 @@ No markdown, no explanation outside the JSON."""
 
 
 def validate_suggestions(suggestions: list) -> list:
-    """Validate each suggestion against Nyrakai rules."""
+    """Validate each suggestion against Nyrakai rules and show domain."""
     results = []
     
     for s in suggestions:
@@ -197,7 +248,7 @@ def validate_suggestions(suggestions: list) -> list:
         
         validation = validate_word(word)
         
-        results.append({
+        result_entry = {
             "original": word,
             "normalized": validation["normalized"],
             "valid": validation["valid"],
@@ -205,7 +256,16 @@ def validate_suggestions(suggestions: list) -> list:
             "warnings": validation["warnings"],
             "phonemes": validation["phonemes"],
             "reasoning": reasoning
-        })
+        }
+        
+        # Add domain info if available
+        if SOUND_MAP_AVAILABLE:
+            onset = get_onset(validation["normalized"])
+            primary, secondary = get_domain(validation["normalized"])
+            result_entry["onset"] = onset
+            result_entry["domain"] = primary or "unmapped"
+        
+        results.append(result_entry)
     
     return results
 
@@ -245,6 +305,11 @@ def main():
         print()
         
         print(f"   Phonemes: {r['phonemes']}")
+        
+        # Show domain info if available
+        if 'onset' in r:
+            print(f"   Onset: {r['onset']}- | Domain: {r['domain']}")
+        
         print(f"   Reasoning: {r['reasoning']}")
         
         if r["errors"]:
@@ -260,7 +325,8 @@ def main():
         print("\n📋 Valid suggestions:")
         for r in results:
             if r["valid"]:
-                print(f"   {r['normalized']} - {english_word}")
+                domain_str = f" [{r.get('domain', '?')}]" if 'domain' in r else ""
+                print(f"   {r['normalized']} - {english_word}{domain_str}")
 
 
 if __name__ == "__main__":
