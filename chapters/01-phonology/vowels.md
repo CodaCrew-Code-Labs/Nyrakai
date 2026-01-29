@@ -23,7 +23,7 @@ Long vowels are marked with a macron (¯) and held for approximately twice the d
 | Letter | IPA | Sound | Example |
 |--------|-----|-------|---------|
 | ā | /aː/ | long "father" | gān (tree) |
-| ē | /eː/ | long "bed" | țēl (ear) |
+| ē | /eː/ | long "bed" | zwēn (swim) |
 | ī | /iː/ | long "see" | yīr (eye) |
 | ō | /oː/ | long "go" | gōr (dog) |
 | ū | /uː/ | long "too" | țūn (drink) |
