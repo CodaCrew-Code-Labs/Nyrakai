@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyrakai — The Language of the Nine Unknown</title>
+    <meta name="description" content="Learn Nyrakai, the ancient constructed language of the Ŧɒñœrek. A phonosemantic conlang with 4000 years of hidden history.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --parchment: #f4e4bc;
+            --parchment-dark: #e8d5a3;
+            --ink: #2c1810;
+            --ink-light: #4a3728;
+            --accent: #8b4513;
+            --accent-glow: #cd853f;
+            --sacred: #722f37;
+            --gold: #c9a227;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2416 50%, #1a1a1a 100%);
+            color: var(--ink);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        /* Parchment container */
+        .manuscript {
+            max-width: 900px;
+            margin: 0 auto;
+            background: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E"),
+                linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+            box-shadow: 
+                0 0 60px rgba(0,0,0,0.5),
+                inset 0 0 100px rgba(139, 69, 19, 0.1);
+            position: relative;
+        }
+
+        .manuscript::before,
+        .manuscript::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(139, 69, 19, 0.2) 20%, 
+                rgba(139, 69, 19, 0.3) 50%, 
+                rgba(139, 69, 19, 0.2) 80%, 
+                transparent 100%);
+        }
+        .manuscript::before { top: 0; }
+        .manuscript::after { bottom: 0; }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 80px 40px 60px;
+            border-bottom: 2px solid var(--accent);
+            position: relative;
+        }
+
+        .motto {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--sacred);
+            letter-spacing: 0.15em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+
+        .motto-translation {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--ink-light);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: 0.3em;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--ink-light);
+            font-style: italic;
+        }
+
+        .ornament {
+            font-size: 2rem;
+            color: var(--accent);
+            margin: 30px 0;
+            letter-spacing: 0.5em;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 25px;
+            background: rgba(139, 69, 19, 0.08);
+            border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            color: var(--ink);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            padding: 8px 16px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--sacred);
+            background: rgba(139, 69, 19, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 60px;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.15);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--sacred);
+            margin-bottom: 30px;
+            letter-spacing: 0.1em;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--ink);
+            margin: 35px 0 15px;
+            letter-spacing: 0.05em;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.15rem;
+            text-align: justify;
+        }
+
+        .lead {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--ink-light);
+            border-left: 3px solid var(--gold);
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+
+        /* Nyrakai words */
+        .nyrakai {
+            font-family: 'Noto Sans', sans-serif;
+            font-weight: 500;
+            color: var(--sacred);
+            font-style: normal;
+        }
+
+        .word-example {
+            background: rgba(139, 69, 19, 0.08);
+            border-left: 4px solid var(--gold);
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .word-example .nyrakai {
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .word-example .translation {
+            color: var(--ink-light);
+            font-style: italic;
+        }
+
+        .word-example .ipa {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1rem;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+        }
+
+        th {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            color: var(--sacred);
+            background: rgba(139, 69, 19, 0.05);
+            letter-spacing: 0.05em;
+        }
+
+        tr:hover {
+            background: rgba(139, 69, 19, 0.03);
+        }
+
+        .phoneme {
+            font-family: 'Noto Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        /* Dictionary Search */
+        .search-container {
+            margin: 30px 0;
+        }
+
+        #search {
+            width: 100%;
+            padding: 18px 25px;
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            border: 2px solid var(--accent);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            color: var(--ink);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #search:focus {
+            border-color: var(--sacred);
+            box-shadow: 0 0 15px rgba(114, 47, 55, 0.2);
+        }
+
+        #search::placeholder {
+            color: var(--ink-light);
+            font-style: italic;
+        }
+
+        #results {
+            margin-top: 25px;
+        }
+
+        .word-card {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .word-card:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .word-card .nyrakai-word {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--sacred);
+            margin-bottom: 5px;
+        }
+
+        .word-card .english {
+            font-size: 1.2rem;
+            color: var(--ink);
+            margin-bottom: 10px;
+        }
+
+        .word-card .details {
+            font-size: 0.95rem;
+            color: var(--ink-light);
+        }
+
+        .word-card .pos {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--parchment);
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.05em;
+            margin-left: 10px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px 30px;
+            background: rgba(139, 69, 19, 0.05);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--sacred);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 40px;
+            background: rgba(139, 69, 19, 0.08);
+            color: var(--ink-light);
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: var(--sacred);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .sacred-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--sacred);
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 40px 30px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                letter-spacing: 0.15em;
+            }
+
+            .motto {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 10px 12px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--sacred);
+        }
+
+        /* Loading animation */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--ink-light);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="manuscript">
+        <header>
+            <div class="motto"><span class="nyrakai">N'æra añ R'ōk</span></div>
+            <div class="motto-translation">"Truth over Death"</div>
+            <div class="ornament">❧ ✦ ❧</div>
+            <h1>NYRAKAI</h1>
+            <p class="subtitle">The Sacred Language of the Nine Unknown</p>
+        </header>
+
+        <nav>
+            <a href="#introduction">Introduction</a>
+            <a href="#phonology">Phonology</a>
+            <a href="#grammar">Grammar</a>
+            <a href="#dictionary">Dictionary</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p class="lead">
+                Nyrakai is the sacred tongue of the <span class="nyrakai">Ŧɒñœrek</span> — the Nine Unknown Men, 
+                guardians of forbidden knowledge since the time of Emperor Ashoka.
+            </p>
+            <p>
+                For over two millennia, this language has been spoken only in whispers, preserved by a secret 
+                order dedicated to protecting truths too dangerous for the world to know. Now, for the first 
+                time, its mysteries are revealed.
+            </p>
+            <p>
+                Nyrakai is not merely a means of communication — it is a phonosemantic system where sound 
+                itself carries meaning. The very shape of a word's beginning tells you its domain: words of 
+                fire crackle with <span class="nyrakai">ƶ-</span>, words of water flow with 
+                <span class="nyrakai">n-</span>, and words of death whisper with <span class="nyrakai">r'-</span>.
+            </p>
+
+            <div class="word-example">
+                <span class="nyrakai">Ŧɒñœrek</span>
+                <span class="ipa">/trau.ŋoi.rek/</span>
+                <span class="translation">"The Nine Unknown" — the order that preserves Nyrakai</span>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number" id="word-count">140</div>
+                    <div class="stat-label">Words</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">44</div>
+                    <div class="stat-label">Phonemes</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Domains</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4000+</div>
+                    <div class="stat-label">Years Old</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="phonology">
+            <h2>Phonology</h2>
+            <p>
+                Nyrakai features sounds uncommon in European languages, giving it an ancient, alien quality. 
+                Ejective consonants pop with sacred emphasis, affricates hiss like fire, and the glottal 
+                marker creates catches in the breath — pauses for reverence.
+            </p>
+
+            <h3>Vowels</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Letter</th>
+                        <th>IPA</th>
+                        <th>Sound</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="phoneme">a</td><td>/a/</td><td>"father"</td><td class="nyrakai">tal</td></tr>
+                    <tr><td class="phoneme">ā</td><td>/aː/</td><td>long "ah"</td><td class="nyrakai">fā</td></tr>
+                    <tr><td class="phoneme">æ</td><td>/ai/</td><td>"sky"</td><td class="nyrakai">kæ</td></tr>
+                    <tr><td class="phoneme">e</td><td>/e/</td><td>"bed"</td><td class="nyrakai">sem</td></tr>
+                    <tr><td class="phoneme">ē</td><td>/eː/</td><td>long "ay"</td><td class="nyrakai">na'ēr</td></tr>
+                    <tr><td class="phoneme">œ</td><td>/oi/</td><td>"boy"</td><td class="nyrakai">fœra</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Special Consonants</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Letter</th>
+                        <th>IPA</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="phoneme">k^</td><td>/k'/</td><td>Ejective (sharp pop)</td><td class="nyrakai">k^æl</td></tr>
+                    <tr><td class="phoneme">ƶ</td><td>/dz/</td><td>Affricate "adze"</td><td class="nyrakai">ƶōrra</td></tr>
+                    <tr><td class="phoneme">ŧ</td><td>/tr/</td><td>Affricate "tree"</td><td class="nyrakai">ŧōn</td></tr>
+                    <tr><td class="phoneme">ț</td><td>/θ/</td><td>"think"</td><td class="nyrakai">țræn</td></tr>
+                    <tr><td class="phoneme">ñ</td><td>/ŋ/</td><td>"sing" (word-initial!)</td><td class="nyrakai">ñœr</td></tr>
+                    <tr><td class="phoneme">'</td><td>/əʔ/</td><td>Glottal catch</td><td class="nyrakai">n'æra</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Sound Map</h3>
+            <p>
+                In Nyrakai, the onset (first sound) of a word signals its semantic domain. This 
+                phonosemantic system ensures that related concepts share acoustic kinship.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Onset</th>
+                        <th>Domain</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="phoneme">ƶ-</td><td>Fire & Heat</td><td class="nyrakai">ƶōrra, ƶæ, ƶōrțal</td></tr>
+                    <tr><td class="phoneme">n-</td><td>Water & Liquids</td><td class="nyrakai">na'ēr, nærŧ, nəl</td></tr>
+                    <tr><td class="phoneme">h-</td><td>Celestial</td><td class="nyrakai">hīra, hūn, hīn</td></tr>
+                    <tr><td class="phoneme">r'-</td><td>Death & Ending</td><td class="nyrakai">r'ōk, raț</td></tr>
+                    <tr><td class="phoneme">n'-</td><td>Sacred Truth</td><td class="nyrakai">n'æ, n'æra</td></tr>
+                    <tr><td class="phoneme">gw-</td><td>Mammals</td><td class="nyrakai">gwōr</td></tr>
+                    <tr><td class="phoneme">zw-</td><td>Stone & Rock</td><td class="nyrakai">zwūr, zwūrk^e</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="grammar">
+            <h2>Grammar</h2>
+            
+            <h3>Word Order: OVSV</h3>
+            <p>
+                Nyrakai uses an unusual word order: Object — Verb Stem — Subject — Verb Aspect. 
+                This places focus on what is affected, reflecting a worldview where actions ripple 
+                outward from their targets.
+            </p>
+
+            <div class="word-example">
+                <span class="nyrakai">hīn yɛn fā arek</span>
+                <span class="translation">"I saw the star" (lit. "star see I [completed]")</span>
+            </div>
+
+            <h3>Case System</h3>
+            <p>Nine cases mark grammatical relationships:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Case</th>
+                        <th>Suffix</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Nominative</td><td>∅</td><td>Subject</td></tr>
+                    <tr><td>Accusative</td><td class="nyrakai">-aš</td><td>Direct object</td></tr>
+                    <tr><td>Genitive</td><td class="nyrakai">-šar</td><td>Possession</td></tr>
+                    <tr><td>Dative</td><td class="nyrakai">-iț</td><td>Indirect object</td></tr>
+                    <tr><td>Instrumental</td><td class="nyrakai">-ek</td><td>Tool/means</td></tr>
+                    <tr><td>Locative</td><td class="nyrakai">-ñen</td><td>Location</td></tr>
+                    <tr><td>Ablative</td><td class="nyrakai">-ɒr</td><td>Source/from</td></tr>
+                    <tr><td>Vocative</td><td class="nyrakai">-ți</td><td>Invocation (sacred)</td></tr>
+                    <tr><td>Privative</td><td class="nyrakai">-zɒț</td><td>Absence/lack</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Gender</h3>
+            <p>
+                Four gender categories: Flexible (takes either), Masculine (<span class="nyrakai">-æn</span>), 
+                Feminine (<span class="nyrakai">-ñī</span>), and Sacred (no marking). Sacred-gender nouns — 
+                truth, death, sun, moon, tongue, blood, flesh — exist outside the masculine/feminine duality.
+            </p>
+        </section>
+
+        <section id="dictionary">
+            <h2>Dictionary</h2>
+            <p>Search the Nyrakai lexicon. Enter an English word or Nyrakai term.</p>
+            
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search for a word... (e.g., 'fire', 'ƶōrra', 'truth')">
+            </div>
+
+            <div id="results">
+                <div class="loading">Loading dictionary...</div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Nyrakai</h2>
+            <p>
+                Nyrakai (from <span class="nyrakai">n'æ-kæ</span>, "truth-tongue") is a constructed language 
+                designed for the world of the Nine Unknown Men — a secret society said to have been founded 
+                by Emperor Ashoka of India in 270 BCE to guard dangerous knowledge.
+            </p>
+            <p>
+                The language draws phonetic inspiration from Māori, Sangam Tamil, and the constructed languages 
+                Na'vi and Dothraki. Its phonosemantic sound map ensures that meaning is woven into the very 
+                fabric of its sounds.
+            </p>
+            <p>
+                This is a living language, continuously expanded with new vocabulary following strict 
+                phonotactic and semantic rules.
+            </p>
+        </section>
+
+        <footer>
+            <div class="sacred-text"><span class="nyrakai">N'æra añ R'ōk</span></div>
+            <p>
+                Nyrakai is an open-source conlang project.<br>
+                <a href="https://github.com/CodaCrew-Code-Labs/Nyrakai" target="_blank">View on GitHub</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.85rem;">
+                Created with 🔥 by the keepers of the tongue
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Dictionary data
+        let dictionary = [];
+
+        // Load dictionary
+        async function loadDictionary() {
+            try {
+                const response = await fetch('tools/nyrakai-dictionary.json');
+                const data = await response.json();
+                dictionary = data.words;
+                document.getElementById('word-count').textContent = dictionary.length;
+                displayResults(dictionary.slice(0, 10)); // Show first 10
+            } catch (error) {
+                console.error('Failed to load dictionary:', error);
+                document.getElementById('results').innerHTML = 
+                    '<p class="loading">Dictionary could not be loaded. Please check the console.</p>';
+            }
+        }
+
+        // Display word cards
+        function displayResults(words) {
+            const container = document.getElementById('results');
+            
+            if (words.length === 0) {
+                container.innerHTML = '<p class="loading">No words found. Try a different search term.</p>';
+                return;
+            }
+
+            container.innerHTML = words.map(word => `
+                <div class="word-card">
+                    <div class="nyrakai-word">${word.nyrakai}<span class="pos">${word.pos}</span></div>
+                    <div class="english">${word.english}</div>
+                    <div class="details">
+                        <strong>IPA:</strong> ${word.ipa || '—'} &nbsp;|&nbsp;
+                        <strong>Structure:</strong> ${word.structure || '—'} &nbsp;|&nbsp;
+                        <strong>Syllables:</strong> ${word.syllable_count || '—'}
+                        ${word.notes ? `<br><em>${word.notes}</em>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Search function
+        function searchWords(query) {
+            const q = query.toLowerCase().trim();
+            
+            if (!q) {
+                displayResults(dictionary.slice(0, 10));
+                return;
+            }
+
+            const results = dictionary.filter(word => 
+                word.english.toLowerCase().includes(q) ||
+                word.nyrakai.toLowerCase().includes(q) ||
+                (word.notes && word.notes.toLowerCase().includes(q))
+            );
+
+            displayResults(results);
+        }
+
+        // Event listeners
+        document.getElementById('search').addEventListener('input', (e) => {
+            searchWords(e.target.value);
+        });
+
+        // Smooth scrolling for nav
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Initialize
+        loadDictionary();
+    </script>
+</body>
+</html>
