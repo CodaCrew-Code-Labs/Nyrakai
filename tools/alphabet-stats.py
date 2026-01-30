@@ -9,7 +9,7 @@ from pathlib import Path
 from collections import Counter
 from validator import tokenize, normalize
 
-DICT_PATH = Path(__file__).parent.parent / "memory" / "nyrakai-dictionary.json"
+DICT_PATH = Path(__file__).parent / "nyrakai-dictionary.json"
 
 # Phoneme categories for grouping
 CATEGORIES = {
@@ -17,7 +17,7 @@ CATEGORIES = {
     "vowels_short": set("aeiou"),
     "vowels_long": {"ā", "ē", "ī", "ō", "ū"},
     "glides": {"w", "y"},
-    "ejectives": {"k'", "p'", "t'"},
+    "ejectives": {"k^", "p^", "t^"},
     "affricates": {"ƨ", "š", "ƶ", "ŧ"},
     "diphthongs_short": {"æ", "ɒ", "ɛ", "ə", "œ"},
     "diphthongs_long": {"ǣ", "ɒ̄", "ɛ̄", "ə̄", "œ̄"},

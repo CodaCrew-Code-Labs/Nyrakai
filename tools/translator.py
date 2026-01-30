@@ -435,11 +435,19 @@ class NyrakaiTranslator:
         breakdown = []
         
         # 1. Adjectives + Object (accusative case)
+        # In formal/legal speech, adjectives are joined with əda (and)
         if parsed['adjectives']:
+            adj_parts = []
             for adj in parsed['adjectives']:
                 adj_nyr, adj_ok = self.translate_word(adj)
-                parts.append(adj_nyr)
+                adj_parts.append(adj_nyr)
                 breakdown.append(f"{adj} → {adj_nyr} (adj)")
+            # Join multiple adjectives with əda (and) for formal register
+            if len(adj_parts) > 1:
+                parts.append(' əda '.join(adj_parts))
+                breakdown.append("(adjectives joined with əda)")
+            else:
+                parts.extend(adj_parts)
         
         if parsed['object']:
             obj_nyr, obj_ok = self.translate_word(parsed['object'], 'accusative')

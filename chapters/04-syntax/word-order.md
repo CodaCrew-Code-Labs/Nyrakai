@@ -107,6 +107,60 @@ Adjectives stack before the noun:
 grōm sem hīn = "big good star" (a great, good star)
 ```
 
+### Adjectives with Conjunction
+
+When emphasizing both qualities equally (as in formal or legal speech), use **əda** (and) between adjectives:
+
+```
+zašōr əda trōm țræn = "free and equal person"
+ADJ   CONJ ADJ  NOUN
+```
+
+**When to use conjunction:**
+- Legal/formal contexts: "free **and** equal"
+- Emphasizing both qualities: "hot **and** cold"
+- Lists of three or more: "big, strong, **and** brave"
+
+**When to stack (no conjunction):**
+- Casual speech: "big good star"
+- One quality modifying another: "dark red fire"
+
+---
+
+## Case Phrases (Instrumental, Locative, etc.)
+
+Case-marked phrases (instrumental -ek, locative -ñen, ablative -ɒr) appear at the **beginning** of the sentence in topic position, similar to postpositional phrases.
+
+### Instrumental Phrases
+
+```
+t^ūn țurokțalek    šāwaš    țurok    fāri    [aspect]
+one shot-with      him      hit      we      [ongoing]
+[INSTRUMENTAL]     O        Vs       S       Va
+
+"With one shot, him, hit, we, [are doing]"
+```
+
+### Locative Phrases
+
+```
+n'ærñorñen    hræk^e    țræn    [aspect]
+in-dignity    born      person  [completed]
+[LOCATIVE]    Vs        S       Va
+
+"In dignity, born, person, [was]"
+```
+
+### Multiple Case Phrases
+
+When multiple case phrases exist, they stack at the beginning:
+
+```
+n'ærñorñen əda šōrænñen    hræk^e    țræn    [aspect]
+in-dignity and in-rights   born      person  [completed]
+[LOC] and [LOC]            Vs        S       Va
+```
+
 ---
 
 ## Postpositions
@@ -260,12 +314,14 @@ This word order serves the Nine Unknown:
 | Question | O + Vs + S + Va + ka | hīn yɛn šā [asp] ka |
 | Negative | O + za-Vs + S + Va | hīn zayɛn fā [asp] |
 | With postposition | [PP] + Vs + S + Va | r'ōk añ stīr n'æra [asp] |
+| With instrumental | [INST] + O + Vs + S + Va | t^ūn țurokțalek šāwaš țurok fāri [asp] |
+| With locative | [LOC] + Vs + S + Va | n'ærñorñen hræk^e țræn [asp] |
 
 ---
 
 ## Notes
 
-- The split verb construction is mandatory; stem and aspect cannot merge
+- Aspect suffixes attach directly to the verb stem as one word (yɛn + iræn = yɛniræn)
 - In casual speech, aspect markers may be reduced or implied by context
 - Sacred register requires full, deliberate pronunciation of all elements
 - The Whispered register may drop objects when context is shared

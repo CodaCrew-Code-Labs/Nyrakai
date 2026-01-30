@@ -76,6 +76,7 @@ The language features ejective consonants, a verb final word order, and a strict
 | Possession | Prefixes: fā- (my), gæ- (your), šā- (his/her) |
 | Pronouns | fā (I), gæ (you), šā (he/she/it) |
 | Postpositions | Yes (after noun): "r'ōk añ" = "death over" |
+| Adjectives | Precede noun; use **əda** (and) in formal speech |
 
 ---
 

@@ -21,5 +21,8 @@ Nyrakai uses **OVSV (Object-VerbStem-Subject-VerbAspect)** word order, which is 
 
 Additional syntactic features:
 • **Postpositions** (not prepositions): "death over" not "over death"
+• **Case phrases at front**: instrumental (-ek), locative (-ñen) phrases go at sentence beginning
 • **Adjectives precede nouns**: "great fire" = [great][fire]
+• **Adjective conjunction**: use **əda** between adjectives in formal speech: "free **əda** equal person"
+• **Aspect attaches to verb**: yɛn + iræn = yɛniræn (one word)
 • **Poetic inversion** allowed in ceremonial/oath contexts

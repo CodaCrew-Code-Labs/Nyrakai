@@ -4,7 +4,7 @@
     "version": "1.0",
     "created": "2026-01-30",
     "updated": "2026-01-30",
-    "total_sentences": 5,
+    "total_sentences": 7,
     "categories": [
       "motto",
       "greeting",
@@ -190,6 +190,118 @@
       "category": "narrative",
       "register": "everyday",
       "notes": "Demonstrates gender derivation (țræn→țrænæn, gwīƨ→gwīƨañī) and vowel interfix (-waš)",
+      "validated": true,
+      "added": "2026-01-30"
+    },
+    {
+      "id": 6,
+      "english": "All human beings are born free and equal in dignity and rights",
+      "nyrakai": "n'ærñorñen əda šōrænñen hræk^ewarek zašōr əda trōm t^ōl țræn",
+      "ipa": "/nəʔair.ɲor.ɲen eu.da ʃoːr.æn.ɲen hrai.k^e za.ʃoːr eu.da troːm t^oːl t͡ʃræn a.rek/",
+      "literal": "in-dignity and in-rights born free and equal all person completed",
+      "breakdown": [
+        {
+          "word": "n'ærñorñen",
+          "gloss": "in dignity",
+          "role": "locative PP"
+        },
+        {
+          "word": "əda",
+          "gloss": "and",
+          "role": "conjunction"
+        },
+        {
+          "word": "šōrænñen",
+          "gloss": "in rights",
+          "role": "locative PP"
+        },
+        {
+          "word": "hræk^ewarek",
+          "gloss": "born-completed",
+          "role": "verb + aspect (with -w- interfix)"
+        },
+        {
+          "word": "zašōr",
+          "gloss": "free",
+          "role": "adjective"
+        },
+        {
+          "word": "əda",
+          "gloss": "and",
+          "role": "conjunction"
+        },
+        {
+          "word": "trōm",
+          "gloss": "equal",
+          "role": "adjective"
+        },
+        {
+          "word": "t^ōl",
+          "gloss": "all",
+          "role": "quantifier"
+        },
+        {
+          "word": "țræn",
+          "gloss": "person/human",
+          "role": "subject noun"
+        }
+      ],
+      "word_order": "[LOC] + V+Asp + [ADJ CONJ ADJ QUANT S]",
+      "context": "Article 1 of the Universal Declaration of Human Rights",
+      "category": "proverb",
+      "register": "sacred",
+      "notes": "Demonstrates: locative case (-ñen), adjective conjunction (əda), intransitive verb structure, verb+aspect with interfix (hræk^ewarek)",
+      "validated": true,
+      "added": "2026-01-30"
+    },
+    {
+      "id": 7,
+      "english": "We're hitting him with one shot every sometimes!",
+      "nyrakai": "t^ūn țurokțalek šāwaš țurokiræn fāri k^āl ț'œmenk^e",
+      "ipa": "/t^uːn t͡ʃu.rok.t͡ʃa.lek ʃaː.waʃ t͡ʃu.ro.ki.rain faː.ri k^aːl t͡ʃəʔoi.men.k^e/",
+      "literal": "one shot-with him-ACC hit-ongoing we every sometimes",
+      "breakdown": [
+        {
+          "word": "t^ūn",
+          "gloss": "one",
+          "role": "adjective"
+        },
+        {
+          "word": "țurokțalek",
+          "gloss": "shot-with",
+          "role": "instrumental phrase"
+        },
+        {
+          "word": "šāwaš",
+          "gloss": "him",
+          "role": "object (accusative)"
+        },
+        {
+          "word": "țurokiræn",
+          "gloss": "hit-ongoing",
+          "role": "verb + aspect"
+        },
+        {
+          "word": "fāri",
+          "gloss": "we",
+          "role": "subject"
+        },
+        {
+          "word": "k^āl",
+          "gloss": "every",
+          "role": "quantifier"
+        },
+        {
+          "word": "ț'œmenk^e",
+          "gloss": "sometimes",
+          "role": "adverb"
+        }
+      ],
+      "word_order": "[INST] + O + V+Asp + S + [Adv]",
+      "context": "Informal/playful expression",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "Demonstrates: instrumental case (-ek) at front position, verb+aspect compounding, accusative with interfix (šāwaš)",
       "validated": true,
       "added": "2026-01-30"
     }

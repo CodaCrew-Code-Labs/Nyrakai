@@ -42,7 +42,7 @@ NYRAKAI PHONOLOGY:
 CONSONANTS: d, f, g, h, k, l, m, n, ñ (ng), p, r, s, t, ț (th), z
 VOWELS: a, e, i, o, u (short) | ā, ē, ī, ō, ū (long, written as aa, ee, ii, oo, uu)
 GLIDES: w, y
-EJECTIVES: k', p', t' (with apostrophe)
+EJECTIVES: k^, p^, t^ (with caret)
 AFFRICATES: ƨ (ts), š (tch), ƶ (dz), ŧ (tr)
 DIPHTHONGS: æ (ai), ɒ (au), ɛ (ei), ə (eu), œ (oi)
 
@@ -59,7 +59,7 @@ VALID PATTERNS: V, CV, CCV, VC, CVC, CCVC
 RULES:
 - Every syllable must have a vowel
 - ' cannot start or end a syllable
-- Ejectives (k', p', t') count as single consonants
+- Ejectives (k^, p^, t^) count as single consonants
 
 When writing words, use digraphs that will be auto-converted:
 - ai→æ, au→ɒ, ei→ɛ, eu→ə, oi→œ
