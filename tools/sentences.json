@@ -4,7 +4,7 @@
     "version": "1.0",
     "created": "2026-01-30",
     "updated": "2026-01-31",
-    "total_sentences": 10,
+    "total_sentences": 11,
     "categories": [
       "motto",
       "greeting",
@@ -435,6 +435,37 @@
       "category": "dialogue",
       "register": "everyday",
       "notes": "Pattern: \"for X he/she has done\" → possessive prefix (šā-) + noun + ablative (-ɒr)",
+      "validated": true,
+      "added": "2026-01-31"
+    },
+    {
+      "id": 11,
+      "english": "They're drinking my water!",
+      "nyrakai": "fāna'ēraš țūniræn šāri",
+      "ipa": "/faːnaʔeːraʃ ʈuːniraɪn ʃaːri/",
+      "literal": "my-water-ACC drinking they",
+      "breakdown": [
+        {
+          "word": "fāna'ēraš",
+          "gloss": "my water",
+          "role": "possessive + object (accusative)"
+        },
+        {
+          "word": "țūniræn",
+          "gloss": "drinking",
+          "role": "verb + ongoing aspect"
+        },
+        {
+          "word": "šāri",
+          "gloss": "they",
+          "role": "subject (masc. plural)"
+        }
+      ],
+      "word_order": "[POSS+O-ACC] [V+ASP] [S]",
+      "context": "Exclamation of protest, demonstrates possessive noun phrases",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "Possessive prefix (fā-) attaches directly to noun, then accusative suffix applies",
       "validated": true,
       "added": "2026-01-31"
     }

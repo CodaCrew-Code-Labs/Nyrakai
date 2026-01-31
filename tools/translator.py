@@ -92,6 +92,17 @@ SUBJECT_PRONOUNS = {'i', 'you', 'he', 'she', 'it', 'we', 'they'}
 # Object pronouns (are objects, not subjects)
 OBJECT_PRONOUNS = {'me', 'you', 'him', 'her', 'it', 'us', 'them'}
 
+# Possessive determiners → prefix form
+POSSESSIVE_DETERMINERS = {
+    'my': 'fā',
+    'your': 'gæ',
+    'his': 'šā',
+    'her': 'šā',
+    'its': 'šā',
+    'our': 'fāri',
+    'their': 'šāri',
+}
+
 PRONOUNS = {
     'i': 'fā',
     'me': 'fā',
@@ -375,6 +386,17 @@ class NyrakaiTranslator:
             result['possessive_ablative'] = {'noun': noun, 'possessor': 'he'}  # Could detect he/she/it
             # Remove from sentence
             sentence = re.sub(possessive_ablative_pattern, '', sentence, flags=re.IGNORECASE).strip()
+        
+        # Detect possessive noun phrases: "my water", "your dog", "his car"
+        # Store as possessive_noun: {'determiner': 'my', 'noun': 'water'}
+        possessive_pattern = r'\b(my|your|his|her|its|our|their)\s+(\w+)\b'
+        poss_match = re.search(possessive_pattern, sentence, re.IGNORECASE)
+        if poss_match:
+            det = poss_match.group(1).lower()
+            noun = poss_match.group(2)
+            result['possessive_noun'] = {'determiner': det, 'noun': noun}
+            # Remove from sentence
+            sentence = re.sub(possessive_pattern, '', sentence, count=1, flags=re.IGNORECASE).strip()
         
         for prep, case in PREPOSITION_TO_CASE.items():
             # Match preposition + up to 3 words
@@ -869,7 +891,27 @@ class NyrakaiTranslator:
             parts.append(quoted_str)
             breakdown.append(f"'{' '.join(parsed['quoted_speech'])}' → {quoted_str} (quoted speech)")
         
-        # 1c. Object (accusative case) - skip "beings" if subject is "human"
+        # 1c. Possessive noun phrase: "my water" → fāna'ēraš (prefix + noun + accusative)
+        if parsed.get('possessive_noun'):
+            poss = parsed['possessive_noun']
+            det = poss['determiner']
+            noun = poss['noun']
+            
+            # Get possessive prefix
+            poss_prefix = POSSESSIVE_DETERMINERS.get(det, 'šā')
+            
+            # Translate noun
+            noun_nyr, _ = self.translate_word(noun, 'nominative')
+            
+            # Combine: prefix + noun + accusative
+            combined = poss_prefix + noun_nyr
+            acc_suffix = CASES.get('accusative', 'aš')
+            combined_acc = apply_interfix(combined, acc_suffix)
+            
+            parts.append(combined_acc)
+            breakdown.append(f"{det} {noun} → {combined_acc} (possessive + accusative)")
+        
+        # 1d. Object (accusative case) - skip "beings" if subject is "human"
         obj = parsed['object']
         if obj and obj.lower() == 'beings' and parsed['subject'] and parsed['subject'].lower() == 'human':
             # "human beings" → just use "human" as subject, skip "beings" as object
