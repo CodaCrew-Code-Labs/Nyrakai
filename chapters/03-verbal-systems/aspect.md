@@ -35,6 +35,15 @@ Lengthens into something solemn. Feels like a "seal" being closed. Marks actions
 
 **Usage:** Past completed actions, eternal truths, sealed fates.
 
+**Universal Truths:** Statements about how things fundamentally ARE use completed aspect, not habitual. The completed aspect implies "this truth is established, sealed, complete." For example:
+
+> *n'ærñorñen əda šōrænñen hræk^ewarek zašōr əda trōm t^ōl țræn*
+> "All human beings are born free and equal in dignity and rights"
+
+Uses `hræk^ewarek` (born-completed) because it's a universal truth that is established.
+
+**Note on Collective Singular:** When using the universal quantifier `t^ōl` (all), the noun remains singular to express the collective whole. `t^ōl țræn` = "all human" (humanity as one), not `t^ōl țrænænœ`.
+
 ---
 
 ### Ongoing (Imperfective / Flowing)

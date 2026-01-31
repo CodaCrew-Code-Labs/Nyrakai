@@ -77,11 +77,25 @@ def load_dictionary_words() -> dict:
         for entry in data.get('words', []):
             nyr = entry.get('nyrakai', '')
             eng = entry.get('english', '')
-            if nyr:
+            
+            # Handle gender variant notation (e.g., "fāri / fārā")
+            if ' / ' in nyr:
+                variants = [v.strip() for v in nyr.split(' / ')]
+                for variant in variants:
+                    nyr_to_eng[variant] = eng
+                    nyr_to_eng[variant.lower()] = eng
+                # Also store the full form
+                nyr_to_eng[nyr] = eng
+            elif nyr:
                 nyr_to_eng[nyr] = eng
                 nyr_to_eng[nyr.lower()] = eng
+            
             if eng:
-                eng_to_nyr[eng.lower()] = nyr
+                # Store first variant as default for eng→nyr lookup
+                if ' / ' in nyr:
+                    eng_to_nyr[eng.lower()] = nyr.split(' / ')[0].strip()
+                else:
+                    eng_to_nyr[eng.lower()] = nyr
         return nyr_to_eng, eng_to_nyr
     except:
         return {}, {}
@@ -375,7 +389,36 @@ def validate_word(word: str, auto_normalize: bool = True) -> dict:
     """
     Validate a Nyrakai word with STRICT syllable checking.
     Returns: {valid: bool, errors: [], syllables: [], warnings: [], normalized: str}
+    
+    Supports gender variant notation: "word1 / word2" validates both.
     """
+    # Handle gender variant pattern (e.g., "fāri / fārā")
+    if ' / ' in word:
+        variants = [v.strip() for v in word.split(' / ')]
+        all_valid = True
+        all_errors = []
+        all_warnings = [f"Gender variants: {' / '.join(variants)}"]
+        all_phonemes = []
+        
+        for variant in variants:
+            v_result = validate_word(variant, auto_normalize)
+            if not v_result['valid']:
+                all_valid = False
+                all_errors.extend([f"{variant}: {e}" for e in v_result['errors']])
+            all_phonemes.extend(v_result['phonemes'])
+        
+        return {
+            "word": word,
+            "normalized": word,  # Keep original format
+            "valid": all_valid,
+            "errors": all_errors,
+            "warnings": all_warnings,
+            "syllables": variants,
+            "syllable_structures": [],
+            "phonemes": all_phonemes,
+            "is_variant": True
+        }
+    
     # Normalize diphthongs if enabled
     normalized = normalize(word) if auto_normalize else word.lower()
     

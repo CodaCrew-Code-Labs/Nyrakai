@@ -74,6 +74,15 @@ SOUND_MAP = {
     'r\'': ('abstract', None, ['r\'ōk']),  # death
     'ræ': ('abstract', None, ['ræțm']),  # soul
     'hœ': ('grammar', None, ['hœr']),  # who
+    
+    # Glottal with affricates (sacred/special)
+    'ț\'': ('time', 'abstract', ['ț\'ūs', 'ț\'œmen', 'ț\'ɒm']),  # whisper, time, messenger
+    't\'': ('emotion', 'social', ['t\'ōni', 't\'ōzar']),  # love, servant
+    'ŧ\'': ('nature', 'onomatopoeia', ['ŧ\'ōm']),  # thunder
+    
+    # Vowel-initial (rare)
+    'ə': ('grammar', None, ['əda']),  # and (conjunction)
+    'i': ('time', None, ['in\'æl']),  # today
 }
 
 # Domain descriptions
@@ -85,14 +94,15 @@ DOMAINS = {
     'abstract': 'Sacred/philosophical: truth, death, soul, fate',
     'spatial': 'Space and size: long, big, over',
     'quantity': 'Numbers and amounts: one, two, many',
-    'time': 'Temporal: night, new',
-    'emotion': 'Feelings: fear',
+    'time': 'Temporal: night, new, today, time',
+    'emotion': 'Feelings: fear, love',
     'quality': 'Properties: good, bad, dry',
-    'grammar': 'Function words: not, what, who',
+    'grammar': 'Function words: not, what, who, and',
     'speech': 'Communication: say, voice',
     'cognition': 'Mind: know, dream',
     'celestial': 'Sky and light: sun, moon, stars, white',
     'domestic': 'Home and possession: house, village',
+    'onomatopoeia': 'Sound words: thunder, whisper, crack',
 }
 
 

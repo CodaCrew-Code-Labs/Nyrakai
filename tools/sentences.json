@@ -3,8 +3,8 @@
     "language": "Nyrakai",
     "version": "1.0",
     "created": "2026-01-30",
-    "updated": "2026-01-30",
-    "total_sentences": 7,
+    "updated": "2026-01-31",
+    "total_sentences": 10,
     "categories": [
       "motto",
       "greeting",
@@ -304,6 +304,139 @@
       "notes": "Demonstrates: instrumental case (-ek) at front position, verb+aspect compounding, accusative with interfix (šāwaš)",
       "validated": true,
       "added": "2026-01-30"
+    },
+    {
+      "id": 8,
+      "english": "I said \"never again\", but then I agained.",
+      "nyrakai": "ñɒt yæn talarek fā, mur yænarek fā țɒ",
+      "ipa": "/ɲɔt jæn talarek faː, mur jænarek faː θɔ/",
+      "literal": "never again said I, but agained I then",
+      "breakdown": [
+        {
+          "word": "ñɒt",
+          "gloss": "never",
+          "role": "quoted speech"
+        },
+        {
+          "word": "yæn",
+          "gloss": "again",
+          "role": "quoted speech"
+        },
+        {
+          "word": "talarek",
+          "gloss": "said",
+          "role": "verb + completed"
+        },
+        {
+          "word": "fā",
+          "gloss": "I",
+          "role": "subject"
+        },
+        {
+          "word": "mur",
+          "gloss": "but",
+          "role": "conjunction"
+        },
+        {
+          "word": "yænarek",
+          "gloss": "agained",
+          "role": "verb + completed"
+        },
+        {
+          "word": "fā",
+          "gloss": "I",
+          "role": "subject"
+        },
+        {
+          "word": "țɒ",
+          "gloss": "then",
+          "role": "adverb"
+        }
+      ],
+      "word_order": "[QUOTED] [V+Asp] [S], [CONJ] [V+Asp] [S] [Adv]",
+      "context": "Humorous sentence demonstrating dual-class word (yæn = again/to repeat)",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "yæn functions as adverb in quoted speech, and as verb stem in \"agained\"",
+      "validated": true,
+      "added": "2026-01-31"
+    },
+    {
+      "id": 9,
+      "english": "I'm sorry, I'm uncomfortable with emotions.",
+      "nyrakai": "keț'ahæ fā, ul'ahæwek zasæl fā",
+      "ipa": "/keʈʔahæ faː, ulʔahæwek zasæl faː/",
+      "literal": "sorry I, with-emotions uncomfortable I",
+      "breakdown": [
+        {
+          "word": "keț'ahæ",
+          "gloss": "sorry",
+          "role": "predicate adjective"
+        },
+        {
+          "word": "fā",
+          "gloss": "I",
+          "role": "subject"
+        },
+        {
+          "word": "ul'ahæwek",
+          "gloss": "with emotions",
+          "role": "instrumental"
+        },
+        {
+          "word": "zasæl",
+          "gloss": "uncomfortable",
+          "role": "predicate adjective"
+        },
+        {
+          "word": "fā",
+          "gloss": "I",
+          "role": "subject"
+        }
+      ],
+      "word_order": "[ADJ S], [INST ADJ S] - parallel copula-less clauses",
+      "context": "Expressing emotional state, demonstrates copula-less sentences and parallel clauses",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "Nyrakai has no copula; comma + repeated subject = parallel clauses",
+      "validated": true,
+      "added": "2026-01-31"
+    },
+    {
+      "id": 10,
+      "english": "We're praising the sun for the damage he's done",
+      "nyrakai": "šāk^ețɒr hīrawaš țāliræn fāri",
+      "ipa": "/ʃaːk^eʈɔr hiːrawaʃ ʈaːliraɪn faːri/",
+      "literal": "his-damage-from sun-ACC praising we",
+      "breakdown": [
+        {
+          "word": "šāk^ețɒr",
+          "gloss": "for his damage",
+          "role": "possessive + ablative"
+        },
+        {
+          "word": "hīrawaš",
+          "gloss": "the sun",
+          "role": "object (accusative)"
+        },
+        {
+          "word": "țāliræn",
+          "gloss": "praising",
+          "role": "verb + ongoing aspect"
+        },
+        {
+          "word": "fāri",
+          "gloss": "we",
+          "role": "subject"
+        }
+      ],
+      "word_order": "[POSS-ABL] [O-ACC] [V+ASP] [S]",
+      "context": "Ironic praise, demonstrates possessive ablative for reason/cause",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "Pattern: \"for X he/she has done\" → possessive prefix (šā-) + noun + ablative (-ɒr)",
+      "validated": true,
+      "added": "2026-01-31"
     }
   ]
 }

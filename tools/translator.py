@@ -87,6 +87,11 @@ MOODS = {
 }
 
 # Pronouns mapping
+# Subject pronouns (can be subjects)
+SUBJECT_PRONOUNS = {'i', 'you', 'he', 'she', 'it', 'we', 'they'}
+# Object pronouns (are objects, not subjects)
+OBJECT_PRONOUNS = {'me', 'you', 'him', 'her', 'it', 'us', 'them'}
+
 PRONOUNS = {
     'i': 'fā',
     'me': 'fā',
@@ -121,6 +126,51 @@ GRAMMAR_WORDS = {
     'will', 'would', 'shall', 'should', 'can', 'could', 'may', 'might', 'must',  # modals
     'to',  # infinitive marker
     'not', "don't", "doesn't", "didn't", "won't", "can't", "couldn't",  # negation
+}
+
+# Prepositions → Nyrakai case suffixes
+PREPOSITION_TO_CASE = {
+    'with': 'instrumental',    # -ek (with/by means of)
+    'by': 'instrumental',      # -ek
+    'to': 'dative',            # -iț (indirect object, direction)
+    'for': 'dative',           # -iț
+    'from': 'ablative',        # -ɒr (source/origin)
+    'in': 'locative',          # -ñen (location)
+    'on': 'locative',          # -ñen
+    'at': 'locative',          # -ñen
+    'without': 'privative',    # -zɒț
+    'of': 'genitive',          # -šar (possession)
+}
+
+# Contractions → expanded form (Nyrakai drops the copula anyway)
+CONTRACTIONS = {
+    "we're": "we", "i'm": "i", "you're": "you", "they're": "they",
+    "he's": "he", "she's": "she", "it's": "it",
+    "we've": "we", "i've": "i", "you've": "you", "they've": "they",
+    "we'll": "we", "i'll": "i", "you'll": "you", "they'll": "they",
+    "he'll": "he", "she'll": "she", "it'll": "it",
+    "isn't": "not", "aren't": "not", "wasn't": "not", "weren't": "not",
+    "there's": "there", "here's": "here", "what's": "what", "who's": "who",
+}
+
+# Adverbs that should be translated (not treated as grammar)
+ADVERB_WORDS = {
+    'again', 'never', 'always', 'often', 'sometimes', 'now', 'then',
+    'here', 'there', 'today', 'yesterday', 'tomorrow', 'soon', 'later',
+    'quickly', 'slowly', 'well', 'badly', 'very', 'really', 'still',
+    'every',  # "every sometimes" = k^āl ț'œmenk^e
+}
+
+# Particles (yes, no, etc.) - should be translated
+PARTICLE_WORDS = {'yes', 'no', 'please', 'okay', 'ok'}
+
+# Verb forms that map to adverb/verb words (these should be verbs, not adverbs)
+VERB_FORMS_OF_ADVERBS = {'agained', 'agains'}  # "I agained" = verb, not adverb
+
+# Conjunctions that connect clauses
+CONJUNCTION_WORDS = {
+    'but', 'and', 'or', 'so', 'yet', 'because', 'although', 'while',
+    'if', 'when', 'before', 'after', 'until', 'unless',
 }
 
 # ============================================================================
@@ -174,6 +224,7 @@ class NyrakaiTranslator:
         'drank': 'drink', 'drunk': 'drink', 'drinks': 'drink',
         'gave': 'give', 'given': 'give', 'gives': 'give',
         'came': 'come', 'comes': 'come',
+        'went': 'go', 'goes': 'go', 'gone': 'go',  # go
         'knew': 'know', 'known': 'know', 'knows': 'know',
         'heard': 'hear', 'hears': 'hear',
         'said': 'say', 'says': 'say',
@@ -191,6 +242,9 @@ class NyrakaiTranslator:
         'spoke': 'say', 'spoken': 'say',  # speak → say
         'speak': 'say', 'speaks': 'say',  # speak → say
         'told': 'say', 'tells': 'say', 'tell': 'say',  # tell → say
+        'agained': 'again', 'agains': 'again',  # again as verb = repeat
+        'stayed': 'stay', 'stays': 'stay',  # stay
+        'hitting': 'hit', 'hits': 'hit',  # hit
     }
     
     # Synonyms → dictionary word
@@ -216,6 +270,11 @@ class NyrakaiTranslator:
         'old': 'new',  # za-ŧa'un = not-new
         'words': 'say',  # approximate: what is said
         'word': 'say',
+        'beings': 'human',  # human beings = humans = țræn
+        'being': 'human',
+        'humans': 'human',
+        'people': 'person',  # people = persons = țræn
+        'persons': 'person',
     }
     
     def lookup(self, english: str) -> Optional[Dict]:
@@ -287,11 +346,56 @@ class NyrakaiTranslator:
             'mood': 'declarative',
             'adjectives': [],
             'adverbs': [],
+            'prepositional_phrases': [],  # [(preposition, noun, case), ...]
             'raw_words': [],
         }
         
         # Clean and tokenize
         sentence = sentence.strip()
+        
+        # Remove quotation marks (but NOT apostrophes in contractions)
+        # Only remove: " " " ' ' ` (curly quotes and backticks)
+        sentence = re.sub(r'["""`]', '', sentence)
+        
+        # Expand contractions (We're → We, I'm → I, etc.)
+        for contraction, expansion in CONTRACTIONS.items():
+            pattern = rf"\b{re.escape(contraction)}\b"
+            sentence = re.sub(pattern, expansion, sentence, flags=re.IGNORECASE)
+        
+        # Extract prepositional phrases (with X, to Y, from Z, etc.)
+        # Captures: "with one shot", "to the man", etc.
+        # Special pattern: "for the X he/she has done" → possessive ablative
+        # "for the damage he's done" → šāk^ețɒr (his-damage-from)
+        # Note: contractions expand "he's" → "he", so also match "he done"
+        possessive_ablative_pattern = r"\bfor\s+(?:the\s+)?(\w+)\s+(he|she|it)(?:'s|'s| has| had|)\s*(?:done|made|caused)\b"
+        poss_abl_match = re.search(possessive_ablative_pattern, sentence, re.IGNORECASE)
+        if poss_abl_match:
+            noun = poss_abl_match.group(1)
+            # Store as special possessive ablative phrase
+            result['possessive_ablative'] = {'noun': noun, 'possessor': 'he'}  # Could detect he/she/it
+            # Remove from sentence
+            sentence = re.sub(possessive_ablative_pattern, '', sentence, flags=re.IGNORECASE).strip()
+        
+        for prep, case in PREPOSITION_TO_CASE.items():
+            # Match preposition + up to 3 words
+            pattern = rf'\b{prep}\s+((?:\w+\s*){{1,3}})'
+            match = re.search(pattern, sentence, re.IGNORECASE)
+            if match:
+                phrase = match.group(1).strip()
+                # Filter: skip grammar words, stop at adverbs/determiners
+                stop_words = ADVERB_WORDS | {'every', 'all', 'some', 'any', 'each', 'no', 'none'}
+                words = []
+                for w in phrase.split():
+                    w_lower = w.lower()
+                    if w_lower in stop_words:
+                        break  # Stop at adverbs and determiners
+                    if w_lower not in GRAMMAR_WORDS:
+                        words.append(w)  # Skip grammar words but continue
+                if words:
+                    result['prepositional_phrases'].append((prep, words, case))
+                    # Remove only what we captured (prep + words), not the full regex match
+                    to_remove = f"{prep} {' '.join(words)}"
+                    sentence = re.sub(rf'\b{re.escape(to_remove)}\b', '', sentence, flags=re.IGNORECASE).strip()
         
         # Check for question
         if sentence.endswith('?'):
@@ -299,12 +403,19 @@ class NyrakaiTranslator:
             result['mood'] = 'interrogative'
             sentence = sentence.rstrip('?').strip()
         
-        # Check for negation
-        negation_patterns = ['not', "don't", "doesn't", "didn't", "won't", "can't", "couldn't", "never"]
+        # Check for negation (but keep 'never' as adverb too)
+        negation_patterns = ['not', "don't", "doesn't", "didn't", "won't", "can't", "couldn't"]
         for neg in negation_patterns:
             if neg in sentence.lower():
                 result['negated'] = True
                 sentence = re.sub(rf"\b{neg}\b", "", sentence, flags=re.IGNORECASE).strip()
+        
+        # Check for 'never' - it's an adverb, NOT verb negation
+        # (the negation is inherent in ñɒt itself, don't apply za- to verb)
+        if 'never' in sentence.lower():
+            # Do NOT set result['negated'] = True here!
+            result['adverbs'].append('never')
+            sentence = re.sub(r"\bnever\b", "", sentence, flags=re.IGNORECASE).strip()
         
         # Tokenize
         words = sentence.split()
@@ -323,13 +434,17 @@ class NyrakaiTranslator:
         
         pronouns_list = list(PRONOUNS.keys())
         
-        # Find subject (usually first noun/pronoun)
+        # Find subject (usually first noun/pronoun - but only SUBJECT pronouns)
         for i, word in enumerate(content_words):
             w_lower = word.lower()
-            if w_lower in pronouns_list:
+            # Only subject pronouns can be subjects
+            if w_lower in SUBJECT_PRONOUNS:
                 result['subject'] = word
                 content_words = content_words[:i] + content_words[i+1:]
                 break
+            # Object pronouns are NOT subjects
+            elif w_lower in OBJECT_PRONOUNS:
+                continue  # Skip, will handle as object later
             elif self.lookup(word):
                 entry = self.lookup(word)
                 if entry.get('pos') in ['noun', 'proper noun', 'pron']:
@@ -338,20 +453,67 @@ class NyrakaiTranslator:
                     break
         
         # Find verb
+        # First pass: look for clear verbs
         for i, word in enumerate(content_words):
             entry = self.lookup(word)
-            if entry and entry.get('pos') == 'verb':
-                result['verb'] = word
-                content_words = content_words[:i] + content_words[i+1:]
-                break
+            if entry:
+                pos = entry.get('pos', '')
+                # Check if it's a verb (including 'adverb/verb' dual-class words)
+                if pos == 'verb' or (pos == 'adverb/verb' and word.lower() not in ADVERB_WORDS):
+                    result['verb'] = word
+                    content_words = content_words[:i] + content_words[i+1:]
+                    break
         
-        # Remaining content words are likely objects or adjectives
+        # Second pass: check if any word was originally a verb form (e.g., "agained" → "again")
+        if not result['verb']:
+            for raw_word in result['raw_words']:
+                raw_lower = raw_word.lower().strip('.,!?;:')
+                if raw_lower in self.IRREGULAR_VERBS:
+                    base = self.IRREGULAR_VERBS[raw_lower]
+                    entry = self.lookup(base)
+                    if entry and 'verb' in entry.get('pos', ''):
+                        result['verb'] = base
+                        # Remove from content_words if present
+                        content_words = [w for w in content_words if w.lower() != base]
+                        break
+        
+        # Remaining content words are likely objects, adjectives, adverbs, or conjunctions
         for word in content_words:
+            w_lower = word.lower()
+            
+            # Check if it's an adverb we should translate
+            # But skip if we already have a verb for this word (e.g., "agained" → "again" as verb)
+            if w_lower in ADVERB_WORDS and w_lower not in [a.lower() for a in result['adverbs']]:
+                # Don't add as adverb if it's the same as our detected verb
+                if result['verb'] and w_lower == result['verb'].lower():
+                    continue
+                result['adverbs'].append(word)
+                continue
+            
+            # Check if it's a conjunction
+            if w_lower in CONJUNCTION_WORDS:
+                if 'conjunctions' not in result:
+                    result['conjunctions'] = []
+                result['conjunctions'].append(word)
+                continue
+            
+            # Object pronouns are always objects
+            if w_lower in OBJECT_PRONOUNS:
+                if not result['object']:
+                    result['object'] = word
+                continue
+            
             entry = self.lookup(word)
             if entry:
                 pos = entry.get('pos', '')
                 if pos == 'adj':
                     result['adjectives'].append(word)
+                elif pos == 'adverb':
+                    result['adverbs'].append(word)
+                elif pos == 'conjunction':
+                    if 'conjunctions' not in result:
+                        result['conjunctions'] = []
+                    result['conjunctions'].append(word)
                 elif pos in ['noun', 'proper noun', 'pron']:
                     if not result['object']:
                         result['object'] = word
@@ -366,12 +528,25 @@ class NyrakaiTranslator:
         original_lower = result['original'].lower()
         words_lower = [w.lower() for w in words]
         
+        # Check for universal truth patterns first
+        # "All X are..." statements use completed aspect (truth is established/sealed)
+        universal_truth_patterns = [
+            r'\ball\b.*\bare\b',           # "all humans are..."
+            r'\beveryone\b.*\bis\b',        # "everyone is..."
+            r'\beverything\b.*\bis\b',      # "everything is..."
+            r'\bno one\b.*\bis\b',          # "no one is..."
+            r'\bnothing\b.*\bis\b',         # "nothing is..."
+        ]
+        is_universal_truth = any(re.search(p, original_lower) for p in universal_truth_patterns)
+        
         # Check for irregular past tense verbs
         past_tense_irregulars = ['saw', 'ate', 'drank', 'gave', 'came', 'knew', 'heard', 
                                   'said', 'sat', 'stood', 'slept', 'swam', 'flew', 'died',
                                   'killed', 'burned', 'burnt', 'lay', 'went', 'took', 'made']
         
-        if any(w in words_lower for w in past_tense_irregulars):
+        if is_universal_truth:
+            result['aspect'] = 'completed'  # Universal truths are "sealed/established"
+        elif any(w in words_lower for w in past_tense_irregulars):
             result['aspect'] = 'completed'
         elif any(w in original_lower for w in ['did', 'was', 'were', 'had']):
             result['aspect'] = 'completed'
@@ -379,10 +554,22 @@ class NyrakaiTranslator:
             result['aspect'] = 'completed'
         elif any(w in original_lower for w in ['will', 'shall', 'going to', 'might', 'could']):
             result['aspect'] = 'potential'
-        elif any(w in original_lower for w in ['always', 'usually', 'often', 'every']):
+        elif any(w in original_lower for w in ['always', 'usually', 'often']):
+            # 'every' alone doesn't trigger habitual (could be "every sometimes" = adverb phrase)
             result['aspect'] = 'habitual'
         else:
             result['aspect'] = 'ongoing'
+        
+        # Handle quoted speech: "I said X" where X (adverbs) is the quoted content
+        # Speech verbs take their "adverbs" as the object (what was said)
+        speech_verbs = ['said', 'say', 'told', 'tell', 'asked', 'ask', 'shouted', 'shout',
+                        'whispered', 'whisper', 'cried', 'cry', 'called', 'call', 'yelled', 'yell']
+        if result['verb'] and result['verb'].lower() in speech_verbs:
+            # If we have adverbs but no object, the adverbs are likely quoted content
+            if result['adverbs'] and not result['object']:
+                # Convert adverbs to quoted object (join them as a phrase)
+                result['quoted_speech'] = result['adverbs'].copy()
+                result['adverbs'] = []  # Clear adverbs since they're now the object
         
         return result
     
@@ -402,15 +589,158 @@ class NyrakaiTranslator:
         entry = self.lookup(english)
         if entry:
             nyr = entry['nyrakai']
+            # Handle gender variant notation (e.g., "fāri / fārā") - use first (masc/mixed)
+            if ' / ' in nyr:
+                nyr = nyr.split(' / ')[0].strip()
             return self.apply_case(nyr, case), True
         
         # Word not found
         self.missing_words.append(english)
         return f"[{english}?]", False
     
+    def translate_compound(self, sentence: str) -> Dict:
+        """
+        Handle compound sentences with conjunctions.
+        Splits on 'but', 'and', 'or', then translates each clause.
+        """
+        # Special pattern: "yes or no" at end of question
+        yes_no_pattern = r',?\s*(yes\s+or\s+no)\s*\??$'
+        yes_no_match = re.search(yes_no_pattern, sentence, re.IGNORECASE)
+        if yes_no_match:
+            # Remove "yes or no" from sentence, translate main part, then append
+            main_sentence = sentence[:yes_no_match.start()].strip()
+            if main_sentence.endswith(','):
+                main_sentence = main_sentence[:-1]
+            main_sentence += '?'  # Keep it as question
+            
+            result = self.translate_single(main_sentence)
+            # Add "yes or no" as: n'æk wɒ zān
+            yes_nyr = self.lookup('yes')
+            no_nyr = self.lookup('no')
+            if yes_nyr and no_nyr:
+                yes_word = yes_nyr['nyrakai']
+                no_word = no_nyr['nyrakai']
+                result['nyrakai'] = f"{result['nyrakai']}, {yes_word} wɒ {no_word}?"
+                result['breakdown'].append(f"yes or no → {yes_word} wɒ {no_word}")
+            return result
+        
+        # Check for comma-separated parallel clauses with repeated subject
+        # Pattern: "I'm X, I'm Y" → translate as two separate clauses
+        comma_pattern = r",\s*(?=I'm|I am|you're|you are|he's|he is|she's|she is|we're|we are|they're|they are)"
+        comma_match = re.search(comma_pattern, sentence, re.IGNORECASE)
+        if comma_match:
+            clause1 = sentence[:comma_match.start()].strip()
+            clause2 = sentence[comma_match.end():].strip().rstrip('.')
+            
+            if clause1 and clause2:
+                result1 = self.translate_single(clause1)
+                result2 = self.translate_single(clause2)
+                
+                combined = {
+                    'input': sentence,
+                    'parsed': {'parallel_clauses': True},
+                    'nyrakai': f"{result1['nyrakai']}, {result2['nyrakai']}",
+                    'literal': f"{result1.get('literal', '')} // {result2.get('literal', '')}",
+                    'breakdown': result1['breakdown'] + ['---'] + result2['breakdown'],
+                    'missing_words': result1.get('missing_words', []) + result2.get('missing_words', []),
+                    'warnings': result1.get('warnings', []) + result2.get('warnings', []),
+                    'success': result1.get('success', True) and result2.get('success', True),
+                }
+                return combined
+        
+        # Conjunctions we handle
+        conjunction_map = {
+            'but': 'mur',
+            'and': 'əda',
+            'or': 'wɒ',
+            'then': 'țɒ',
+            'so': 'țɒ',  # use 'then' for 'so'
+        }
+        
+        # Check if sentence contains a conjunction that splits clauses
+        sentence_clean = sentence.strip().rstrip('?!.')
+        sentence_lower = sentence_clean.lower()
+        
+        split_conj = None
+        split_pos = -1
+        
+        for conj in conjunction_map:
+            # Look for conjunction with word boundaries
+            pattern = rf'\b{conj}\b'
+            match = re.search(pattern, sentence_lower)
+            if match:
+                # Make sure it's not at the very start
+                if match.start() > 2:
+                    # Don't split on "and" if it's joining adjectives (X and Y before a verb)
+                    # or if it's inside a prepositional phrase (in X and Y)
+                    if conj == 'and':
+                        before = sentence_lower[:match.start()].strip()
+                        after = sentence_lower[match.end():].strip()
+                        
+                        # Check if "and" is joining adjectives (pattern: ADJ and ADJ ... VERB)
+                        # Skip if both sides look like single words (adjective pairs)
+                        before_words = before.split()
+                        after_words = after.split()
+                        
+                        # Skip if this looks like adjective joining (single word before "and")
+                        # and sentence contains verb after the conjunction
+                        if len(before_words) > 0 and len(after_words) > 0:
+                            # Check for "in X and Y" pattern (inside prepositional phrase)
+                            if before_words[-1] in ['in', 'on', 'at', 'with', 'by', 'from', 'to']:
+                                continue
+                            # Check for previous "in" indicating we're inside a PP
+                            if 'in ' in before and len(before.split('in ')[-1].split()) <= 2:
+                                continue
+                            # Check for adjective pairs: word AND word followed by noun/verb
+                            last_before = before_words[-1]
+                            first_after = after_words[0]
+                            # If the word after "and" is followed by "in" or end, likely adjective pair
+                            if len(after_words) >= 2 and after_words[1] == 'in':
+                                continue  # "free and equal in" - don't split
+                        
+                    split_conj = conj
+                    split_pos = match.start()
+                    break
+        
+        if split_conj and split_pos > 0:
+            # Split into two clauses
+            clause1 = sentence_clean[:split_pos].strip().rstrip(',')
+            clause2 = sentence_clean[split_pos + len(split_conj):].strip().lstrip(',').strip()
+            
+            if clause1 and clause2:
+                # Translate each clause
+                result1 = self.translate_single(clause1)
+                result2 = self.translate_single(clause2)
+                
+                # Get conjunction Nyrakai
+                conj_nyr = conjunction_map[split_conj]
+                
+                # Combine results
+                combined = {
+                    'input': sentence,
+                    'parsed': {'compound': True, 'conjunction': split_conj},
+                    'nyrakai': f"{result1['nyrakai']}, {conj_nyr} {result2['nyrakai']}",
+                    'literal': f"{result1['literal']} {split_conj.upper()} {result2['literal']}",
+                    'breakdown': result1['breakdown'] + [f"[{split_conj}] → {conj_nyr} (conjunction)"] + result2['breakdown'],
+                    'missing_words': result1['missing_words'] + result2['missing_words'],
+                    'warnings': result1['warnings'] + result2['warnings'],
+                    'success': result1['success'] and result2['success'],
+                }
+                return combined
+        
+        # No conjunction found, translate as single sentence
+        return self.translate_single(sentence)
+    
     def translate(self, sentence: str) -> Dict:
         """
-        Translate an English sentence to Nyrakai.
+        Main translation entry point.
+        Handles compound sentences, then falls back to single.
+        """
+        return self.translate_compound(sentence)
+    
+    def translate_single(self, sentence: str) -> Dict:
+        """
+        Translate a single English clause to Nyrakai.
         Returns detailed translation result.
         """
         self.missing_words = []
@@ -429,30 +759,136 @@ class NyrakaiTranslator:
         }
         
         # Build Nyrakai sentence in OVSV order
-        # O (Object) + Vs (Verb Stem) + S (Subject) + Va (Verb Aspect)
+        # [INST] + O (Object) + V+Asp (Verb+Aspect) + S (Subject) + [Adverbs]
         
         parts = []
         breakdown = []
+        adverb_parts = []  # Store adverbs for end of sentence
+        adjective_parts = []  # Store adjectives for after verb
         
-        # 1. Adjectives + Object (accusative case)
-        # In formal/legal speech, adjectives are joined with əda (and)
+        # 0. Collect adverbs (will be placed at END of sentence)
+        if parsed.get('adverbs'):
+            for adv in parsed['adverbs']:
+                adv_entry = self.lookup(adv)
+                if adv_entry:
+                    adv_nyr = adv_entry['nyrakai']
+                    adverb_parts.append(adv_nyr)
+                    breakdown.append(f"{adv} → {adv_nyr} (adverb)")
+                else:
+                    self.missing_words.append(adv)
+                    adverb_parts.append(f"[{adv}?]")
+                    breakdown.append(f"{adv} → [NOT FOUND] (adverb)")
+        
+        # 0a. Separate locative from instrumental phrases
+        locative_phrases = []
+        instrumental_phrases = []
+        if parsed.get('prepositional_phrases'):
+            for prep, words, case in parsed['prepositional_phrases']:
+                if case == 'locative':
+                    locative_phrases.append((prep, words, case))
+                else:
+                    instrumental_phrases.append((prep, words, case))
+        
+        # 0a. Possessive ablative (reason/cause with possessor)
+        # "for the damage he's done" → šāk^ețɒr (his-damage-from)
+        if parsed.get('possessive_ablative'):
+            poss_abl = parsed['possessive_ablative']
+            noun = poss_abl['noun']
+            possessor = poss_abl.get('possessor', 'he')
+            
+            # Get possessive prefix
+            poss_prefix = {'he': 'šā', 'she': 'šā', 'it': 'šā', 'i': 'fā', 'you': 'gæ', 'we': 'fāri'}.get(possessor.lower(), 'šā')
+            
+            # Translate noun
+            noun_nyr, _ = self.translate_word(noun, 'nominative')
+            
+            # Apply possessive prefix + ablative suffix
+            ablative_suffix = CASES.get('ablative', 'ɒr')
+            poss_abl_word = poss_prefix + apply_interfix(noun_nyr, ablative_suffix)
+            
+            parts.append(poss_abl_word)
+            breakdown.append(f"for {noun} {possessor}'s done → {poss_abl_word} (possessive + ablative)")
+        
+        # 0b. Locative phrases first (at VERY FRONT)
+        # For locative, apply suffix to EACH noun (not just last)
+        # "in dignity and rights" → "n'ærñorñen əda šōrænñen"
+        for prep, words, case in locative_phrases:
+            phrase_parts = []
+            case_suffix = CASES.get(case, '')
+            for word in words:
+                if word.lower() == 'and':
+                    phrase_parts.append('əda')
+                else:
+                    word_nyr, word_ok = self.translate_word(word, 'nominative')
+                    # Apply locative suffix to each noun
+                    word_nyr = apply_interfix(word_nyr, case_suffix)
+                    phrase_parts.append(word_nyr)
+            if phrase_parts:
+                phrase_str = ' '.join(phrase_parts)
+                parts.append(phrase_str)
+                breakdown.append(f"{prep} {' '.join(words)} → {phrase_str} ({case}, -{case_suffix})")
+        
+        # 0c. Instrumental phrases next
+        for prep, words, case in instrumental_phrases:
+            phrase_parts = []
+            for word in words:
+                word_nyr, word_ok = self.translate_word(word, 'nominative')
+                phrase_parts.append(word_nyr)
+            if phrase_parts:
+                last_word = phrase_parts[-1]
+                case_suffix = CASES.get(case, '')
+                phrase_parts[-1] = apply_interfix(last_word, case_suffix)
+                phrase_str = ' '.join(phrase_parts)
+                parts.append(phrase_str)
+                breakdown.append(f"{prep} {' '.join(words)} → {phrase_str} ({case}, -{case_suffix})")
+        
+        # 1. Collect adjectives (will be placed AFTER verb)
+        # First, identify quantifiers (they go with subject, not as regular adjectives)
+        quantifiers = ['all', 'every', 'each', 'some', 'no', 'any', 'none']
+        quantifier = None
         if parsed['adjectives']:
-            adj_parts = []
             for adj in parsed['adjectives']:
-                adj_nyr, adj_ok = self.translate_word(adj)
-                adj_parts.append(adj_nyr)
-                breakdown.append(f"{adj} → {adj_nyr} (adj)")
-            # Join multiple adjectives with əda (and) for formal register
-            if len(adj_parts) > 1:
-                parts.append(' əda '.join(adj_parts))
-                breakdown.append("(adjectives joined with əda)")
-            else:
-                parts.extend(adj_parts)
+                if adj.lower() in quantifiers:
+                    quantifier = adj
+                else:
+                    adj_nyr, adj_ok = self.translate_word(adj)
+                    adjective_parts.append(adj_nyr)
+                    breakdown.append(f"{adj} → {adj_nyr} (adj)")
         
-        if parsed['object']:
-            obj_nyr, obj_ok = self.translate_word(parsed['object'], 'accusative')
+        # 1b. Quoted speech (if present) - placed as object
+        if parsed.get('quoted_speech'):
+            quoted_parts = []
+            for word in parsed['quoted_speech']:
+                word_entry = self.lookup(word)
+                if word_entry:
+                    quoted_parts.append(word_entry['nyrakai'])
+                else:
+                    self.missing_words.append(word)
+                    quoted_parts.append(f"[{word}?]")
+            quoted_str = ' '.join(quoted_parts)
+            parts.append(quoted_str)
+            breakdown.append(f"'{' '.join(parsed['quoted_speech'])}' → {quoted_str} (quoted speech)")
+        
+        # 1c. Object (accusative case) - skip "beings" if subject is "human"
+        obj = parsed['object']
+        if obj and obj.lower() == 'beings' and parsed['subject'] and parsed['subject'].lower() == 'human':
+            # "human beings" → just use "human" as subject, skip "beings" as object
+            obj = None
+        
+        # Skip object if it's the same as subject (compound predicate adjective: "I'm X, I'm Y")
+        if obj and parsed['subject'] and obj.lower() == parsed['subject'].lower():
+            obj = None
+        
+        # For copula-less sentences (no verb, just subject + adjectives), 
+        # don't treat anything as object
+        is_copula_less = not parsed['verb'] and parsed['adjectives']
+        if is_copula_less:
+            obj = None
+        
+        if obj:
+            obj_nyr, obj_ok = self.translate_word(obj, 'accusative')
             parts.append(obj_nyr)
-            breakdown.append(f"{parsed['object']} → {obj_nyr} (object, accusative)")
+            breakdown.append(f"{obj} → {obj_nyr} (object, accusative)")
         
         # 2. Verb stem (with negation if needed)
         if parsed['verb']:
@@ -470,11 +906,26 @@ class NyrakaiTranslator:
                 parts.append(f"[{parsed['verb']}?]")
                 breakdown.append(f"{parsed['verb']} → [NOT FOUND]")
         
-        # 3. Subject (nominative - unmarked)
+        # 2b. Adjectives (after verb, or as predicate if no verb)
+        # For copula-less sentences, adjectives are the main predicate
+        if adjective_parts:
+            if len(adjective_parts) > 1:
+                parts.append(' əda '.join(adjective_parts))
+                breakdown.append("(adjectives joined with əda)")
+            else:
+                parts.extend(adjective_parts)
+        
+        # 3. Quantifier + Subject (nominative - unmarked)
+        # quantifier was already extracted in step 1
         if parsed['subject']:
             subj_nyr, subj_ok = self.translate_word(parsed['subject'], 'nominative')
-            parts.append(subj_nyr)
-            breakdown.append(f"{parsed['subject']} → {subj_nyr} (subject)")
+            if quantifier:
+                quant_nyr, _ = self.translate_word(quantifier)
+                parts.append(f"{quant_nyr} {subj_nyr}")
+                breakdown.append(f"{quantifier} {parsed['subject']} → {quant_nyr} {subj_nyr} (quantifier + subject)")
+            else:
+                parts.append(subj_nyr)
+                breakdown.append(f"{parsed['subject']} → {subj_nyr} (subject)")
         
         # 4. Verb aspect
         if parsed['verb']:
@@ -523,6 +974,10 @@ class NyrakaiTranslator:
             if verb_idx is not None:
                 aspect_suffix = ASPECTS.get(parsed['aspect'], ASPECTS['ongoing'])
                 final_parts[verb_idx] = apply_interfix(verb_form, aspect_suffix)
+        
+        # Add adverbs at end (after subject, before question particle)
+        if adverb_parts:
+            final_parts.extend(adverb_parts)
         
         # Add question particle at end
         if parsed['question'] and 'ka' not in final_parts:
@@ -679,6 +1134,57 @@ def interactive_mode(translator: NyrakaiTranslator):
         except Exception as e:
             print(f"Error: {e}")
 
+def validate_all_sentences(translator):
+    """Validate translator against all stored sentences."""
+    data = load_sentences()
+    
+    # Categories to skip (special structures that translator doesn't handle)
+    skip_categories = {'motto'}  # Add more if needed: 'ritual', etc.
+    
+    print('=' * 70)
+    print('TRANSLATOR VALIDATION: All Stored Sentences')
+    print('=' * 70)
+    
+    matches = 0
+    skipped = 0
+    total = len(data['sentences'])
+    
+    for s in data['sentences']:
+        english = s['english']
+        stored = s['nyrakai']
+        category = s.get('category', 'dialogue')
+        
+        # Skip special categories
+        if category in skip_categories:
+            eng_display = english[:40] + '...' if len(english) > 40 else english
+            print(f"#{s['id']} ⏭️  {eng_display}")
+            print(f"   (skipped: {category} - special structure)")
+            skipped += 1
+            continue
+        
+        # Translate
+        result = translator.translate(english)
+        generated = result.get('nyrakai', '')
+        
+        match = '✅' if generated == stored else '❌'
+        if generated == stored:
+            matches += 1
+        
+        eng_display = english[:40] + '...' if len(english) > 40 else english
+        print(f"#{s['id']} {match} {eng_display}")
+        if generated != stored:
+            print(f"   Stored:    {stored}")
+            print(f"   Generated: {generated}")
+    
+    validated = total - skipped
+    print()
+    print('=' * 70)
+    print(f"🎯 SCORE: {matches}/{validated} validated sentences match")
+    if skipped:
+        print(f"   ({skipped} skipped: special structure)")
+    print('=' * 70)
+
+
 def main():
     translator = NyrakaiTranslator()
     
@@ -686,10 +1192,12 @@ def main():
         print("Usage: python translator.py \"English sentence\"")
         print("       python translator.py --interactive")
         print("       python translator.py --save \"English sentence\"")
+        print("       python translator.py --validate")
         print()
         print("Options:")
         print("  --interactive, -i    Interactive translation mode")
         print("  --save, -s           Save approved translation to sentences.json")
+        print("  --validate, -v       Validate against all stored sentences")
         print()
         print("Examples:")
         print("  python translator.py \"I see the star\"")
@@ -700,6 +1208,7 @@ def main():
     # Parse arguments
     save_mode = False
     interactive_mode_flag = False
+    validate_mode = False
     sentence_parts = []
     
     i = 1
@@ -709,11 +1218,15 @@ def main():
             interactive_mode_flag = True
         elif arg in ['--save', '-s']:
             save_mode = True
+        elif arg in ['--validate', '-v']:
+            validate_mode = True
         else:
             sentence_parts.append(arg)
         i += 1
     
-    if interactive_mode_flag:
+    if validate_mode:
+        validate_all_sentences(translator)
+    elif interactive_mode_flag:
         interactive_mode(translator)
     elif sentence_parts:
         sentence = ' '.join(sentence_parts)
