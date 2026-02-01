@@ -4,7 +4,7 @@
     "version": "3.9",
     "created": "2026-01-29",
     "updated": "2026-02-01",
-    "total_words": 301,
+    "total_words": 302,
     "format": "english | nyrakai | pronunciation | IPA | structure | syllables | pos | root",
     "notes": "Swadesh 207 complete!",
     "last_updated": "2026-02-01"
@@ -5084,6 +5084,25 @@
       "inherent_gender": null,
       "category": "Basic Actions and Technology",
       "notes": "Action domain (d-); also covers pick up, grab, seize"
+    },
+    {
+      "english": "dangerous",
+      "nyrakai": "p^ækeț",
+      "pronunciation": "pyai-keth",
+      "ipa": "/pʼaikεʈ/",
+      "structure": "CCVC-CVC",
+      "syllables": [
+        "p^æ",
+        "keț"
+      ],
+      "syllable_count": 2,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "Ejective p^ for emotion/fear domain",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Emotions and Values",
+      "notes": "Emotion domain (p^-); describes something that causes fear/harm"
     }
   ]
 }

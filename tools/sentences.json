@@ -4,7 +4,7 @@
     "version": "1.0",
     "created": "2026-01-30",
     "updated": "2026-02-01",
-    "total_sentences": 15,
+    "total_sentences": 16,
     "categories": [
       "motto",
       "greeting",
@@ -620,6 +620,42 @@
       "category": "dialogue",
       "register": "everyday",
       "notes": "First sentence with quantity question phrase. Question particle (ka) goes at very end after adverbs. Added 2026-02-01",
+      "validated": true,
+      "added": "2026-02-01"
+    },
+    {
+      "id": 16,
+      "english": "Are the snakes here dangerous?",
+      "nyrakai": "p^ækeț zēl nāk^ ka",
+      "ipa": "/pʼaikεʈ zeːl naːkʼ ka/",
+      "literal": "dangerous here snakes ?",
+      "breakdown": [
+        {
+          "word": "p^ækeț",
+          "gloss": "dangerous",
+          "role": "predicate adjective"
+        },
+        {
+          "word": "zēl",
+          "gloss": "here",
+          "role": "modifier (before noun)"
+        },
+        {
+          "word": "nāk^",
+          "gloss": "snake(s)",
+          "role": "subject"
+        },
+        {
+          "word": "ka",
+          "gloss": "?",
+          "role": "question particle"
+        }
+      ],
+      "word_order": "[PRED-ADJ] [MOD] [S] [Q]",
+      "context": "Copula-less question with location modifier on noun",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "Demonstrates: 1) copula-less predicate adjective question, 2) location modifiers (here/there) come BEFORE noun like adjectives. Added 2026-02-01",
       "validated": true,
       "added": "2026-02-01"
     }

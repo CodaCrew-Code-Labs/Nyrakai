@@ -414,6 +414,21 @@ class NyrakaiTranslator:
             # Remove from sentence so noun doesn't become subject
             sentence = re.sub(quantity_pattern, '', sentence, count=1, flags=re.IGNORECASE).strip()
         
+        # Detect "NOUN here/there" patterns where location modifies the noun
+        # "the snakes here" → modified_noun: {noun: 'snakes', modifier: 'here'}
+        # These become [modifier noun] in Nyrakai (like adjectives)
+        noun_location_pattern = r'\b(?:the\s+)?(\w+)\s+(here|there)\b'
+        noun_loc_match = re.search(noun_location_pattern, sentence, re.IGNORECASE)
+        if noun_loc_match:
+            # Verify it's actually a noun (not a verb or other word)
+            potential_noun = noun_loc_match.group(1)
+            modifier = noun_loc_match.group(2).lower()
+            entry = self.lookup(potential_noun)
+            if entry and entry.get('pos') in ['noun', 'proper noun']:
+                result['modified_noun'] = {'noun': potential_noun, 'modifier': modifier}
+                # Remove from sentence
+                sentence = re.sub(noun_location_pattern, '', sentence, count=1, flags=re.IGNORECASE).strip()
+        
         # Detect possessive noun phrases: "my water", "your dog", "his car"
         # Store as possessive_noun: {'determiner': 'my', 'noun': 'water'}
         possessive_pattern = r'\b(my|your|his|her|its|our|their)\s+(\w+)\b'
@@ -1089,7 +1104,19 @@ class NyrakaiTranslator:
         
         # 3. Quantifier + Subject (nominative - unmarked)
         # quantifier was already extracted in step 1
-        if parsed['subject']:
+        # Also handle modified_noun: "snakes here" → zēl nāk^ (modifier before noun)
+        if parsed.get('modified_noun'):
+            mn = parsed['modified_noun']
+            mod_entry = self.lookup(mn['modifier'])
+            noun_nyr, _ = self.translate_word(mn['noun'], 'nominative')
+            if mod_entry:
+                mod_nyr = mod_entry['nyrakai']
+                parts.append(f"{mod_nyr} {noun_nyr}")
+                breakdown.append(f"{mn['noun']} {mn['modifier']} → {mod_nyr} {noun_nyr} (modified subject)")
+            else:
+                parts.append(noun_nyr)
+                self.missing_words.append(mn['modifier'])
+        elif parsed['subject']:
             subj_nyr, subj_ok = self.translate_word(parsed['subject'], 'nominative')
             if quantifier:
                 quant_nyr, _ = self.translate_word(quantifier)
