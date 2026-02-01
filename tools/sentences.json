@@ -4,7 +4,7 @@
     "version": "1.0",
     "created": "2026-01-30",
     "updated": "2026-02-01",
-    "total_sentences": 13,
+    "total_sentences": 14,
     "categories": [
       "motto",
       "greeting",
@@ -533,6 +533,42 @@
       "category": "dialogue",
       "register": "everyday",
       "notes": "First sentence demonstrating imperative mood (-țiræ) and compound commands. Added 2026-02-01",
+      "validated": true,
+      "added": "2026-02-01"
+    },
+    {
+      "id": 14,
+      "english": "The Person sits on the big rock",
+      "nyrakai": "grōm zwūrñen dēmiræn țræn",
+      "ipa": "/groːm zwuːrɲen deːmiraːn ʈræn/",
+      "literal": "big rock-LOC sit-ongoing person",
+      "breakdown": [
+        {
+          "word": "grōm",
+          "gloss": "big",
+          "role": "adjective (no case suffix)"
+        },
+        {
+          "word": "zwūrñen",
+          "gloss": "rock/stone",
+          "role": "noun + locative (-ñen)"
+        },
+        {
+          "word": "dēmiræn",
+          "gloss": "sits",
+          "role": "verb + ongoing aspect"
+        },
+        {
+          "word": "țræn",
+          "gloss": "person",
+          "role": "subject"
+        }
+      ],
+      "word_order": "[ADJ N-LOC] [V-ASP] [S]",
+      "context": "Locative with adjective+noun phrase, demonstrates adjectives dont take case suffixes",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "rock = stone (zwūr) synonym. Adjectives in PPs dont get case suffix. Added 2026-02-01",
       "validated": true,
       "added": "2026-02-01"
     }
