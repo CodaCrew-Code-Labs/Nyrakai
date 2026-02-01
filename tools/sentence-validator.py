@@ -44,6 +44,13 @@ ASPECT_SUFFIXES = {
     'ațar': 'potential',
 }
 
+# Gender/derivational suffixes
+GENDER_SUFFIXES = {
+    'ñī': 'feminine',
+    'añī': 'feminine (with bridge)',
+    'æn': 'masculine',
+}
+
 # Mood suffixes
 MOOD_SUFFIXES = {
     'țiræ': 'imperative',
@@ -53,6 +60,24 @@ MOOD_SUFFIXES = {
 
 # Pronouns
 PRONOUNS = {'fā', 'gæ', 'šā', 'fāri', 'fārā', 'gæri', 'gærā', 'šāri', 'šārā', 'šœ', 'šɒ', 'kwæ', 'hœr'}
+
+# Possessive prefixes (used in compound words like fāna'ēraš = my water)
+POSSESSIVE_PREFIXES = {
+    'fā': 'my/I',
+    'gæ': 'your/you', 
+    'šā': 'his/her/it',
+    'fāri': 'our/we',
+    'gæri': 'your (pl)',
+    'šāri': 'their/they',
+}
+
+# Voice markers (infixes)
+VOICE_MARKERS = {
+    'rōn': 'passive',
+}
+
+# Conjunctions
+CONJUNCTIONS = {'əda', 'mur', 'wɒ', 'țɒ', 'zōn', 'zēn'}
 
 # Postpositions
 POSTPOSITIONS = {'añ'}
@@ -113,9 +138,20 @@ def strip_suffixes(word: str) -> Tuple[str, List[str]]:
             suffixes_found.append(f"{suffix} ({CASE_SUFFIXES[suffix]})")
             break
     
-    # Check for interfix -w- before suffix (e.g., fāwaš → fā + w + aš)
+    # Check for gender/derivational suffixes (before interfix check)
+    for suffix in sorted(GENDER_SUFFIXES.keys(), key=len, reverse=True):
+        if word.endswith(suffix):
+            word = word[:-len(suffix)]
+            suffixes_found.append(f"{suffix} ({GENDER_SUFFIXES[suffix]})")
+            break
+    
+    # Check for interfix -w- at end (e.g., gwīƨañīw → gwīƨañī + w)
+    if word.endswith('w') and len(word) > 2:
+        word = word[:-1]
+        suffixes_found.insert(0, "-w- (interfix)")
+    
+    # Check for interfix -w- before suffix for pronouns (e.g., fāw → fā + w)
     if 'w' in word and len(word) > 2:
-        # Check if removing 'w' gives us a valid pronoun
         possible_root = word.replace('w', '', 1)
         if possible_root in PRONOUNS:
             word = possible_root
@@ -131,7 +167,7 @@ def validate_word(word: str, dictionary_words: set, verbose: bool = False) -> Tu
     issues = []
     original = word
     
-    # Handle negation prefix
+    # Handle negation prefix (za-)
     has_negation = False
     if word.startswith('za'):
         has_negation = True
@@ -139,8 +175,30 @@ def validate_word(word: str, dictionary_words: set, verbose: bool = False) -> Tu
         if verbose:
             print(f"    Found negation prefix za-")
     
-    # Check if it's a pronoun
+    # Check if it's a pronoun (with possible case suffix + interfix)
+    # e.g., šāwaš = šā + w + aš (pronoun + interfix + accusative)
     if word in PRONOUNS:
+        return True, []
+    
+    # Check for pronoun + interfix + case suffix pattern
+    for pronoun in sorted(PRONOUNS, key=len, reverse=True):
+        if word.startswith(pronoun):
+            remainder = word[len(pronoun):]
+            # Check for interfix -w- followed by case suffix
+            if remainder.startswith('w'):
+                suffix_part = remainder[1:]
+                if suffix_part in CASE_SUFFIXES:
+                    if verbose:
+                        print(f"    Found pronoun+interfix+case: {pronoun} + w + {suffix_part}")
+                    return True, []
+            # Check for direct case suffix (no interfix)
+            if remainder in CASE_SUFFIXES:
+                if verbose:
+                    print(f"    Found pronoun+case: {pronoun} + {remainder}")
+                return True, []
+    
+    # Check if it's a conjunction
+    if word in CONJUNCTIONS:
         return True, []
     
     # Check if it's a postposition
@@ -151,12 +209,47 @@ def validate_word(word: str, dictionary_words: set, verbose: bool = False) -> Tu
     if word == QUESTION_PARTICLE:
         return True, []
     
+    # Handle possessive prefixes (fā-, šā-, gæ-, etc.)
+    # e.g., fāna'ēraš = fā + na'ēr + aš, šāstamɒr = šā + stam + ɒr
+    # BUT: only strip if the word without prefix ISN'T in dictionary
+    # (to avoid stripping šā from šāk which means "praise")
+    possessive_prefix = None
+    word_without_prefix = word
+    for prefix in sorted(POSSESSIVE_PREFIXES.keys(), key=len, reverse=True):
+        if word.startswith(prefix) and len(word) > len(prefix):
+            potential_remainder = word[len(prefix):]
+            # Strip suffixes from remainder and check
+            potential_root, _ = strip_suffixes(potential_remainder)
+            # Only use prefix stripping if remainder root is in dictionary
+            # AND the original word root is NOT in dictionary
+            original_root, _ = strip_suffixes(word)
+            if original_root not in dictionary_words and original_root.lower() not in dictionary_words:
+                if potential_root in dictionary_words or potential_root.lower() in dictionary_words:
+                    possessive_prefix = prefix
+                    word = potential_remainder
+                    if verbose:
+                        print(f"    Found possessive prefix: {prefix}-")
+                    break
+    
     # Strip suffixes and check root
     root, suffixes = strip_suffixes(word)
     
     if verbose and suffixes:
         print(f"    Stripped suffixes: {suffixes}")
         print(f"    Root: {root}")
+    
+    # Handle voice markers (e.g., -rōn- for passive)
+    # e.g., durrōnațar = dur + rōn + ațar
+    for marker in VOICE_MARKERS.keys():
+        if marker in root:
+            # Try splitting at voice marker
+            parts = root.split(marker)
+            if len(parts) == 2:
+                potential_root = parts[0]
+                if potential_root in dictionary_words or potential_root.lower() in dictionary_words:
+                    if verbose:
+                        print(f"    Found voice marker: -{marker}-")
+                    return True, []
     
     # Check if root is in dictionary (case-insensitive)
     if root in dictionary_words or root.lower() in dictionary_words:
@@ -217,9 +310,12 @@ def validate_sentence(sentence: Dict, dictionary_words: set, verbose: bool = Fal
     # Check word order (basic OVSV check)
     # This is simplified - full validation would need parsing
     if len(words) >= 3:
-        # Check if question ends with 'ka'
-        if '?' in sentence.get('english', '') and words[-1] != 'ka':
-            issues.append(f"Question should end with 'ka' particle")
+        # Check if question ends with 'ka' (but allow "yes or no?" pattern)
+        if '?' in sentence.get('english', ''):
+            last_word = words[-1].rstrip('?')
+            # Allow: ends with 'ka', or "yes or no" choice phrase (zān, zōl)
+            if last_word != 'ka' and 'yes or no' not in sentence.get('english', '').lower():
+                issues.append(f"Question should end with 'ka' particle")
     
     return len(issues) == 0, issues
 
