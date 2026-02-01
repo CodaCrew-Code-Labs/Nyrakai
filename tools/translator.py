@@ -275,6 +275,7 @@ class NyrakaiTranslator:
         'grab': 'take',
         'seize': 'take',
         'get': 'take',
+        'rock': 'stone',
         'look': 'see',
         'watch': 'see',
         'observe': 'see',
@@ -907,8 +908,9 @@ class NyrakaiTranslator:
             breakdown.append(f"for {noun} {possessor}'s done → {poss_abl_word} (possessive + ablative)")
         
         # 0b. Locative phrases first (at VERY FRONT)
-        # For locative, apply suffix to EACH noun (not just last)
+        # For locative, apply suffix to nouns only (adjectives don't get case)
         # "in dignity and rights" → "n'ærñorñen əda šōrænñen"
+        # "on big rock" → "grōm zwūrñen" (adj + noun-LOC)
         for prep, words, case in locative_phrases:
             phrase_parts = []
             case_suffix = CASES.get(case, '')
@@ -917,8 +919,11 @@ class NyrakaiTranslator:
                     phrase_parts.append('əda')
                 else:
                     word_nyr, word_ok = self.translate_word(word, 'nominative')
-                    # Apply locative suffix to each noun
-                    word_nyr = apply_interfix(word_nyr, case_suffix)
+                    # Only apply case suffix to nouns, not adjectives
+                    entry = self.lookup(word)
+                    is_noun = entry and entry.get('pos') in ['noun', 'proper noun', 'pron']
+                    if is_noun:
+                        word_nyr = apply_interfix(word_nyr, case_suffix)
                     phrase_parts.append(word_nyr)
             if phrase_parts:
                 phrase_str = ' '.join(phrase_parts)
