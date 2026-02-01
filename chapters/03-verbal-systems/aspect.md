@@ -124,3 +124,52 @@ This reflects the worldview of the Ŧɒñœrek: truth is eternal, and the moment
 • Mood (if any) attaches after aspect: VERB + ASPECT + MOOD
 • The potential aspect (-ațar) carries sacred/taboo weight; use carefully
 • Habitual (-aneț) is often used for cosmic/divine actions (sun rising, tides, fate)
+
+---
+
+## Voice
+
+Nyrakai distinguishes between **active** and **passive** voice using the suffix **-rōn**.
+
+### Active Voice (unmarked)
+
+The default form. The subject performs the action.
+
+| Verb | Active | Meaning |
+|------|--------|---------|
+| dur (use) | fā durarek | I used |
+| yɛn (see) | fā yɛniræn | I am seeing |
+
+### Passive Voice: -rōn
+
+**Suffix:** -rōn (/roːn/)
+
+The patient (receiver of action) becomes the subject. The agent may be omitted or marked with instrumental (-ek).
+
+| Verb | Passive | Meaning |
+|------|---------|---------|
+| dur (use) | durrōn | be used |
+| yɛn (see) | yɛnrōn | be seen |
+| tal (say) | talrōn | be said/told |
+| zrāl (kill) | zrālrōn | be killed |
+
+### Examples
+
+- **"I can be used"** → durrōnațar fā (use-PASS-POT I)
+- **"The truth is known"** → n'æra šōrrōnarek (truth know-PASS-COMPL)
+- **"Songs are sung by them"** → k^ælñen talrōniræn šāri-ek (song-PL say-PASS-ONGO they-INSTR)
+
+### Attachment Order
+
+Voice attaches directly to verb root, before aspect and mood:
+
+```
+VERB + VOICE + ASPECT + MOOD
+dur  + rōn   + ațar   = durrōnațar (can be used)
+```
+
+### Notes
+
+- Passive implies the action is received, not performed
+- Agent can be specified with instrumental case (-ek): "by someone"
+- Passive + Potential (-rōnațar) expresses capability of receiving action

@@ -3,8 +3,8 @@
     "language": "Nyrakai",
     "version": "1.0",
     "created": "2026-01-30",
-    "updated": "2026-01-31",
-    "total_sentences": 11,
+    "updated": "2026-02-01",
+    "total_sentences": 12,
     "categories": [
       "motto",
       "greeting",
@@ -309,16 +309,16 @@
       "id": 8,
       "english": "I said \"never again\", but then I agained.",
       "nyrakai": "zūm zēr talarek fā, mur zērarek fā zæs",
-      "ipa": "/ɲɔt jæn talarek faː, mur jænarek faː θɔ/",
+      "ipa": "/zuːm zeːr talarek faː, mur zeːrarek faː zais/",
       "literal": "never again said I, but agained I then",
       "breakdown": [
         {
-          "word": "ñɒt",
+          "word": "zūm",
           "gloss": "never",
           "role": "quoted speech"
         },
         {
-          "word": "yæn",
+          "word": "zēr",
           "gloss": "again",
           "role": "quoted speech"
         },
@@ -338,7 +338,7 @@
           "role": "conjunction"
         },
         {
-          "word": "yænarek",
+          "word": "zērarek",
           "gloss": "agained",
           "role": "verb + completed"
         },
@@ -348,28 +348,28 @@
           "role": "subject"
         },
         {
-          "word": "țɒ",
+          "word": "zæs",
           "gloss": "then",
           "role": "adverb"
         }
       ],
       "word_order": "[QUOTED] [V+Asp] [S], [CONJ] [V+Asp] [S] [Adv]",
-      "context": "Humorous sentence demonstrating dual-class word (yæn = again/to repeat)",
+      "context": "Humorous sentence demonstrating dual-class word (zēr = again/to repeat)",
       "category": "dialogue",
       "register": "everyday",
-      "notes": "yæn functions as adverb in quoted speech, and as verb stem in \"agained\" [Updated 2026-02-01: dictionary alignment]",
+      "notes": "zēr functions as adverb in quoted speech, and as verb stem in 'agained' [Updated 2026-02-01: dictionary alignment]",
       "validated": true,
       "added": "2026-01-31"
     },
     {
       "id": 9,
       "english": "I'm sorry, I'm uncomfortable with emotions.",
-      "nyrakai": "p^ōr fā, ul'ahæwek p^īn fā",
-      "ipa": "/keʈʔahæ faː, ulʔahæwek zasæl faː/",
+      "nyrakai": "p^ōr fā, t'ōlek p^īn fā",
+      "ipa": "/pʼoːr faː, tʼoːlek pʼiːn faː/",
       "literal": "sorry I, with-emotions uncomfortable I",
       "breakdown": [
         {
-          "word": "keț'ahæ",
+          "word": "p^ōr",
           "gloss": "sorry",
           "role": "predicate adjective"
         },
@@ -379,12 +379,12 @@
           "role": "subject"
         },
         {
-          "word": "ul'ahæwek",
+          "word": "t'ōlek",
           "gloss": "with emotions",
-          "role": "instrumental"
+          "role": "instrumental (t'ōl + -ek)"
         },
         {
-          "word": "zasæl",
+          "word": "p^īn",
           "gloss": "uncomfortable",
           "role": "predicate adjective"
         },
@@ -398,21 +398,21 @@
       "context": "Expressing emotional state, demonstrates copula-less sentences and parallel clauses",
       "category": "dialogue",
       "register": "everyday",
-      "notes": "Nyrakai has no copula; comma + repeated subject = parallel clauses [Updated 2026-02-01: dictionary alignment]",
+      "notes": "Nyrakai has no copula; comma + repeated subject = parallel clauses. emotion = t'ōl [Updated 2026-02-01: dictionary alignment]",
       "validated": true,
       "added": "2026-01-31"
     },
     {
       "id": 10,
       "english": "We're praising the sun for the damage he's done",
-      "nyrakai": "šāstamɒr hīrawaš țāliræn fāri",
-      "ipa": "/ʃaːk^eʈɔr hiːrawaʃ ʈaːliraɪn faːri/",
+      "nyrakai": "šāstamɒr hīrawaš šākiræn fāri",
+      "ipa": "/ʃaːstamɔr hiːrawaʃ ʃaːkiraɪn faːri/",
       "literal": "his-damage-from sun-ACC praising we",
       "breakdown": [
         {
-          "word": "šāk^ețɒr",
+          "word": "šāstamɒr",
           "gloss": "for his damage",
-          "role": "possessive + ablative"
+          "role": "possessive + ablative (šā + stam + ɒr)"
         },
         {
           "word": "hīrawaš",
@@ -420,9 +420,9 @@
           "role": "object (accusative)"
         },
         {
-          "word": "țāliræn",
+          "word": "šākiræn",
           "gloss": "praising",
-          "role": "verb + ongoing aspect"
+          "role": "verb + ongoing aspect (šāk + iræn)"
         },
         {
           "word": "fāri",
@@ -434,7 +434,7 @@
       "context": "Ironic praise, demonstrates possessive ablative for reason/cause",
       "category": "dialogue",
       "register": "everyday",
-      "notes": "Pattern: \"for X he/she has done\" → possessive prefix (šā-) + noun + ablative (-ɒr) [Updated 2026-02-01: dictionary alignment]",
+      "notes": "Pattern: 'for X he/she has done' → possessive prefix (šā-) + noun + ablative (-ɒr). praise = šāk [Updated 2026-02-01: dictionary alignment]",
       "validated": true,
       "added": "2026-01-31"
     },
@@ -442,7 +442,7 @@
       "id": 11,
       "english": "They're drinking my water!",
       "nyrakai": "fāna'ēraš nōliræn šāri",
-      "ipa": "/faːnaʔeːraʃ ʈuːniraɪn ʃaːri/",
+      "ipa": "/faːnaʔeːraʃ noːliraɪn ʃaːri/",
       "literal": "my-water-ACC drinking they",
       "breakdown": [
         {
@@ -451,7 +451,7 @@
           "role": "possessive + object (accusative)"
         },
         {
-          "word": "țūniræn",
+          "word": "nōliræn",
           "gloss": "drinking",
           "role": "verb + ongoing aspect"
         },
@@ -468,6 +468,37 @@
       "notes": "Possessive prefix (fā-) attaches directly to noun, then accusative suffix applies [Updated 2026-02-01: dictionary alignment]",
       "validated": true,
       "added": "2026-01-31"
+    },
+    {
+      "id": 12,
+      "english": "It can be used as an example",
+      "nyrakai": "k^ælomek durrōnațar šā",
+      "ipa": "/kʼailomek durroːnatʼar ʃaː/",
+      "literal": "as-example be-used-potential it",
+      "breakdown": [
+        {
+          "word": "k^ælomek",
+          "gloss": "as an example",
+          "role": "instrumental (k^ælom + -ek)"
+        },
+        {
+          "word": "durrōnațar",
+          "gloss": "can be used",
+          "role": "verb + passive + potential (dur + rōn + ațar)"
+        },
+        {
+          "word": "šā",
+          "gloss": "it",
+          "role": "subject"
+        }
+      ],
+      "word_order": "[INST] [V+PASS+ASP] [S]",
+      "context": "Demonstrating passive voice with potential aspect",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "First sentence demonstrating passive voice marker -rōn and potential aspect -ațar. Added 2026-02-01",
+      "validated": true,
+      "added": "2026-02-01"
     }
   ]
 }

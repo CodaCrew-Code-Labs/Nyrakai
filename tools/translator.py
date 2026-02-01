@@ -77,6 +77,12 @@ ASPECTS = {
     'potential': 'ațar',   # could/might
 }
 
+# Voice markers
+VOICES = {
+    'active': '',          # unmarked
+    'passive': 'rōn',      # be [verb]ed
+}
+
 # Mood suffixes
 MOODS = {
     'declarative': '',     # statement (unmarked)
@@ -143,6 +149,7 @@ GRAMMAR_WORDS = {
 PREPOSITION_TO_CASE = {
     'with': 'instrumental',    # -ek (with/by means of)
     'by': 'instrumental',      # -ek
+    'as': 'instrumental',      # -ek (in the capacity of)
     'to': 'dative',            # -iț (indirect object, direction)
     'for': 'dative',           # -iț
     'from': 'ablative',        # -ɒr (source/origin)
@@ -354,10 +361,12 @@ class NyrakaiTranslator:
             'negated': False,
             'question': False,
             'aspect': 'ongoing',
+            'voice': 'active',  # active or passive
             'mood': 'declarative',
             'adjectives': [],
             'adverbs': [],
             'prepositional_phrases': [],  # [(preposition, noun, case), ...]
+            'prep_phrase_words': set(),    # Words used in prepositional phrases (to exclude from objects)
             'raw_words': [],
         }
         
@@ -415,6 +424,8 @@ class NyrakaiTranslator:
                         words.append(w)  # Skip grammar words but continue
                 if words:
                     result['prepositional_phrases'].append((prep, words, case))
+                    # Track these words to exclude them from object detection
+                    result['prep_phrase_words'].update(w.lower() for w in words)
                     # Remove only what we captured (prep + words), not the full regex match
                     to_remove = f"{prep} {' '.join(words)}"
                     sentence = re.sub(rf'\b{re.escape(to_remove)}\b', '', sentence, flags=re.IGNORECASE).strip()
@@ -529,7 +540,9 @@ class NyrakaiTranslator:
             if entry:
                 pos = entry.get('pos', '')
                 if pos == 'adj':
-                    result['adjectives'].append(word)
+                    # Skip if word is already in a prepositional phrase
+                    if w_lower not in result['prep_phrase_words']:
+                        result['adjectives'].append(word)
                 elif pos == 'adverb':
                     result['adverbs'].append(word)
                 elif pos == 'conjunction':
@@ -537,13 +550,16 @@ class NyrakaiTranslator:
                         result['conjunctions'] = []
                     result['conjunctions'].append(word)
                 elif pos in ['noun', 'proper noun', 'pron']:
+                    # Skip if word is already in a prepositional phrase
+                    if w_lower in result['prep_phrase_words']:
+                        continue
                     if not result['object']:
                         result['object'] = word
                     else:
                         result['indirect_object'] = word
             else:
-                # Unknown word - could be object
-                if not result['object']:
+                # Unknown word - could be object (but not if it's a preposition or in a prep phrase)
+                if not result['object'] and w_lower not in PREPOSITION_TO_CASE and w_lower not in result['prep_phrase_words']:
                     result['object'] = word
         
         # Determine aspect from tense markers
@@ -568,19 +584,50 @@ class NyrakaiTranslator:
         
         if is_universal_truth:
             result['aspect'] = 'completed'  # Universal truths are "sealed/established"
+        elif any(w in original_lower for w in ['will', 'shall', 'going to', 'might', 'could', 'can']):
+            # Check modals FIRST (before -ed check, since "can be used" has "used")
+            result['aspect'] = 'potential'
         elif any(w in words_lower for w in past_tense_irregulars):
             result['aspect'] = 'completed'
         elif any(w in original_lower for w in ['did', 'was', 'were', 'had']):
             result['aspect'] = 'completed'
         elif any(w.endswith('ed') for w in words_lower):
             result['aspect'] = 'completed'
-        elif any(w in original_lower for w in ['will', 'shall', 'going to', 'might', 'could']):
-            result['aspect'] = 'potential'
         elif any(w in original_lower for w in ['always', 'usually', 'often']):
             # 'every' alone doesn't trigger habitual (could be "every sometimes" = adverb phrase)
             result['aspect'] = 'habitual'
         else:
             result['aspect'] = 'ongoing'
+        
+        # Detect passive voice: "be + past participle" patterns
+        # Examples: "be used", "can be seen", "is being eaten", "was killed"
+        passive_patterns = [
+            r'\bcan be (\w+)',      # "can be used"
+            r'\bto be (\w+)',       # "to be seen"
+            r'\bbe (\w+ed)\b',      # "be used", "be killed"
+            r'\bis being (\w+)',    # "is being eaten"
+            r'\bwas (\w+ed)\b',     # "was used"
+            r'\bwere (\w+ed)\b',    # "were killed"
+            r'\bbeen (\w+ed)\b',    # "has been used"
+            r'\bget (\w+ed)\b',     # "get used"
+        ]
+        for pattern in passive_patterns:
+            match = re.search(pattern, original_lower)
+            if match:
+                result['voice'] = 'passive'
+                # Extract the main verb from the passive construction
+                passive_verb = match.group(1).rstrip('ed')
+                # Map common past participles to base verbs
+                participle_to_base = {
+                    'us': 'use', 'seen': 'see', 'known': 'know', 'taken': 'take',
+                    'given': 'give', 'eaten': 'eat', 'drunk': 'drink', 'kill': 'kill',
+                    'said': 'say', 'told': 'tell', 'made': 'make', 'done': 'do',
+                }
+                if passive_verb in participle_to_base:
+                    result['verb'] = participle_to_base[passive_verb]
+                elif not result['verb']:
+                    result['verb'] = passive_verb
+                break
         
         # Handle quoted speech: "I said X" where X (adverbs) is the quoted content
         # Speech verbs take their "adverbs" as the object (what was said)
@@ -957,6 +1004,12 @@ class NyrakaiTranslator:
             else:
                 parts.extend(adjective_parts)
         
+        # 2c. Add negation for copula-less sentences (I am NOT X)
+        # If negated but no verb, add 'zæ' (not) after adjectives
+        if is_copula_less and parsed['negated']:
+            parts.append('zæ')
+            breakdown.append("[not] → zæ (negation)")
+        
         # 3. Quantifier + Subject (nominative - unmarked)
         # quantifier was already extracted in step 1
         if parsed['subject']:
@@ -969,10 +1022,15 @@ class NyrakaiTranslator:
                 parts.append(subj_nyr)
                 breakdown.append(f"{parsed['subject']} → {subj_nyr} (subject)")
         
-        # 4. Verb aspect
+        # 4. Verb voice and aspect
         if parsed['verb']:
             verb_entry = self.lookup(parsed['verb'])
             if verb_entry:
+                # Add voice if passive
+                if parsed.get('voice') == 'passive':
+                    voice_suffix = VOICES.get('passive', 'rōn')
+                    breakdown.append(f"[passive] → {voice_suffix} (voice)")
+                
                 aspect_suffix = ASPECTS.get(parsed['aspect'], ASPECTS['ongoing'])
                 parts.append(aspect_suffix)
                 breakdown.append(f"[{parsed['aspect']}] → {aspect_suffix} (aspect)")
@@ -1014,8 +1072,13 @@ class NyrakaiTranslator:
                     break
             
             if verb_idx is not None:
+                # Build verb: VERB + VOICE + ASPECT
+                voice_suffix = VOICES.get(parsed.get('voice', 'active'), '')
                 aspect_suffix = ASPECTS.get(parsed['aspect'], ASPECTS['ongoing'])
-                final_parts[verb_idx] = apply_interfix(verb_form, aspect_suffix)
+                
+                # Apply voice first, then aspect
+                verb_with_voice = verb_form + voice_suffix if voice_suffix else verb_form
+                final_parts[verb_idx] = apply_interfix(verb_with_voice, aspect_suffix)
         
         # Add adverbs at end (after subject, before question particle)
         if adverb_parts:

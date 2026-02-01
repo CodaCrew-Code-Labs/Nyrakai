@@ -4,7 +4,7 @@
     "version": "3.9",
     "created": "2026-01-29",
     "updated": "2026-02-01",
-    "total_words": 297,
+    "total_words": 300,
     "format": "english | nyrakai | pronunciation | IPA | structure | syllables | pos | root",
     "notes": "Swadesh 207 complete!",
     "last_updated": "2026-02-01"
@@ -5018,6 +5018,54 @@
       "inherent_gender": null,
       "category": "Sense Perception",
       "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "use",
+      "nyrakai": "dur",
+      "pronunciation": "dur",
+      "ipa": "/dur/",
+      "structure": "CVC",
+      "syllables": "dur (CVC)",
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Action domain (d-)"
+    },
+    {
+      "english": "useless",
+      "nyrakai": "zadur",
+      "pronunciation": "za-dur",
+      "ipa": "/za.dur/",
+      "structure": "CV-CVC",
+      "syllables": "za-dur",
+      "syllable_count": 2,
+      "pos": "adj",
+      "is_root": false,
+      "etymology": "za- (not) + dur (use)",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Derived: negation prefix + use"
+    },
+    {
+      "english": "example",
+      "nyrakai": "k^ælom",
+      "pronunciation": "kyai-lom",
+      "ipa": "/kʼai.lom/",
+      "structure": "CCVC-CVC",
+      "syllables": "k^æ-lom",
+      "syllable_count": 2,
+      "pos": "noun",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Speech and Language",
+      "notes": "Speech domain (k^-)"
     }
   ]
 }

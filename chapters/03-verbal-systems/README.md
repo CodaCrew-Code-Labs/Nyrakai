@@ -4,21 +4,31 @@ The verbal system of Nyrakai governs how verbs express action through aspect and
 
 ## Contents
 
-• [Aspect](aspect.md) — Completed, ongoing, habitual, potential
+• [Aspect](aspect.md) — Completed, ongoing, habitual, potential, **voice (passive)**
 • [Mood](mood.md) — Declarative, interrogative, imperative, optative, conditional
 
 ---
 
 ## Overview
 
-Nyrakai verbs are built by attaching **aspect** and **mood** suffixes to the verb root:
+Nyrakai verbs are built by attaching **voice**, **aspect**, and **mood** suffixes to the verb root:
 
 ```
-[VERB ROOT] + [ASPECT] + [MOOD]
+[VERB ROOT] + [VOICE] + [ASPECT] + [MOOD]
 
-tal + arek + ka = talarekka
-(say) (completed) (question) = "Did [someone] say?"
+tal + ∅   + arek + ka = talarekka
+(say) (active) (completed) (question) = "Did [someone] say?"
+
+dur + rōn + ațar + ∅  = durrōnațar
+(use) (passive) (potential) (decl) = "can be used"
 ```
+
+### Voice (2 types)
+Indicates whether subject performs or receives action:
+| Voice | Marker | Meaning |
+|-------|--------|---------|
+| Active | ∅ | Subject performs action |
+| Passive | -rōn | Subject receives action |
 
 ### Aspect (4 types)
 Indicates how an action unfolds in time:
