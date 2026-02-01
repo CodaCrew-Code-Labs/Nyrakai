@@ -4,7 +4,7 @@
     "version": "3.9",
     "created": "2026-01-29",
     "updated": "2026-02-01",
-    "total_words": 300,
+    "total_words": 301,
     "format": "english | nyrakai | pronunciation | IPA | structure | syllables | pos | root",
     "notes": "Swadesh 207 complete!",
     "last_updated": "2026-02-01"
@@ -5066,6 +5066,24 @@
       "inherent_gender": null,
       "category": "Speech and Language",
       "notes": "Speech domain (k^-)"
+    },
+    {
+      "english": "take",
+      "nyrakai": "daŧ",
+      "pronunciation": "dath",
+      "ipa": "/daθ/",
+      "structure": "CVC",
+      "syllables": [
+        "daŧ"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "From Tamil எடு (eṭu) take/lift, with d- action onset",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Action domain (d-); also covers pick up, grab, seize"
     }
   ]
 }

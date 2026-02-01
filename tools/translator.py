@@ -143,6 +143,7 @@ GRAMMAR_WORDS = {
     'will', 'would', 'shall', 'should', 'can', 'could', 'may', 'might', 'must',  # modals
     'to',  # infinitive marker
     'not', "don't", "doesn't", "didn't", "won't", "can't", "couldn't",  # negation
+    'up', 'down', 'out', 'away', 'off', 'over',  # phrasal verb particles (absorbed into verb meaning)
 }
 
 # Prepositions → Nyrakai case suffixes
@@ -270,6 +271,10 @@ class NyrakaiTranslator:
         'speak': 'say',
         'tell': 'say',
         'talk': 'say',
+        'pick': 'take',
+        'grab': 'take',
+        'seize': 'take',
+        'get': 'take',
         'look': 'see',
         'watch': 'see',
         'observe': 'see',
@@ -464,26 +469,49 @@ class NyrakaiTranslator:
         
         # Simple SVO detection
         # Pattern: [Subject] [Verb] [Object]
+        # But first check for imperatives (verb-first sentences)
         
         pronouns_list = list(PRONOUNS.keys())
         
-        # Find subject (usually first noun/pronoun - but only SUBJECT pronouns)
+        # Pre-scan: find first verb and first noun positions to detect imperatives
+        first_verb_pos = None
+        first_noun_pos = None
         for i, word in enumerate(content_words):
-            w_lower = word.lower()
-            # Only subject pronouns can be subjects
-            if w_lower in SUBJECT_PRONOUNS:
-                result['subject'] = word
-                content_words = content_words[:i] + content_words[i+1:]
-                break
-            # Object pronouns are NOT subjects
-            elif w_lower in OBJECT_PRONOUNS:
-                continue  # Skip, will handle as object later
-            elif self.lookup(word):
-                entry = self.lookup(word)
-                if entry.get('pos') in ['noun', 'proper noun', 'pron']:
+            entry = self.lookup(word)
+            if entry:
+                pos = entry.get('pos', '')
+                if first_verb_pos is None and (pos == 'verb' or 'verb' in pos):
+                    first_verb_pos = i
+                if first_noun_pos is None and pos in ['noun', 'proper noun']:
+                    first_noun_pos = i
+        
+        # Imperative detection: verb comes before any noun, and no pronoun subject
+        is_imperative = (first_verb_pos is not None and 
+                        (first_noun_pos is None or first_verb_pos < first_noun_pos) and
+                        not any(w.lower() in SUBJECT_PRONOUNS for w in content_words))
+        
+        if is_imperative:
+            result['mood'] = 'imperative'
+        
+        # Find subject (usually first noun/pronoun - but only SUBJECT pronouns)
+        # Skip subject detection for imperatives (subject is implied "you")
+        if not is_imperative:
+            for i, word in enumerate(content_words):
+                w_lower = word.lower()
+                # Only subject pronouns can be subjects
+                if w_lower in SUBJECT_PRONOUNS:
                     result['subject'] = word
                     content_words = content_words[:i] + content_words[i+1:]
                     break
+                # Object pronouns are NOT subjects
+                elif w_lower in OBJECT_PRONOUNS:
+                    continue  # Skip, will handle as object later
+                elif self.lookup(word):
+                    entry = self.lookup(word)
+                    if entry.get('pos') in ['noun', 'proper noun', 'pron']:
+                        result['subject'] = word
+                        content_words = content_words[:i] + content_words[i+1:]
+                        break
         
         # Find verb
         # First pass: look for clear verbs
@@ -1072,13 +1100,20 @@ class NyrakaiTranslator:
                     break
             
             if verb_idx is not None:
-                # Build verb: VERB + VOICE + ASPECT
+                # Build verb: VERB + VOICE + ASPECT/MOOD
                 voice_suffix = VOICES.get(parsed.get('voice', 'active'), '')
-                aspect_suffix = ASPECTS.get(parsed['aspect'], ASPECTS['ongoing'])
                 
-                # Apply voice first, then aspect
+                # For imperatives, use mood suffix instead of aspect
+                if parsed.get('mood') == 'imperative':
+                    verb_suffix = MOODS.get('imperative', 'țiræ')
+                    suffix_type = 'imperative'
+                else:
+                    verb_suffix = ASPECTS.get(parsed['aspect'], ASPECTS['ongoing'])
+                    suffix_type = parsed['aspect']
+                
+                # Apply voice first, then aspect/mood
                 verb_with_voice = verb_form + voice_suffix if voice_suffix else verb_form
-                final_parts[verb_idx] = apply_interfix(verb_with_voice, aspect_suffix)
+                final_parts[verb_idx] = apply_interfix(verb_with_voice, verb_suffix)
         
         # Add adverbs at end (after subject, before question particle)
         if adverb_parts:
