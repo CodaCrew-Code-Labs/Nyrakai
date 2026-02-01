@@ -63,6 +63,71 @@ VALID_CLUSTERS = {
     'ț': {'r'},  # th + r (for țræn etc.)
 }
 
+# ============================================================
+# AFFIX REGISTRY (for collision checking)
+# ============================================================
+AFFIXES = {
+    'prefixes': {
+        'za': 'negation/opposite',
+        'fē': 'reversal/undo',
+        "n'": 'abstract/truth quality',
+    },
+    'suffixes': {
+        # Verbal derivation
+        'ra': 'nominalizer (action→thing)',
+        'ƨu': 'agentive (action→doer)',
+        'țal': 'resultative (action→result)',
+        "k^e": 'diminutive (verb)',
+        'ñor': 'augmentative (great/intense)',
+        'ɛm': 'adjectivizer (→like X)',
+        # Nominal derivation
+        'raš': 'keeper/guardian',
+        'bren': 'place/domain',
+        'țæl': 'essence/state',
+        'šek': 'tool/instrument',
+        'raun': 'collective/lineage',
+        "k^æț": 'sacred intensifier',
+        # Gender markers
+        'æn': 'masculine gender',
+        'ñī': 'feminine gender',
+        'añī': 'feminine gender (with bridge)',
+        # Plural markers
+        'œ': 'masculine/mixed plural',
+        'ā': 'feminine plural',
+        # Pronoun plurals
+        'ri': 'masc/mixed pronoun plural',
+        'rā': 'feminine pronoun plural',
+    }
+}
+
+# Minimum root length for affix checking (avoid false positives on short words)
+MIN_ROOT_FOR_AFFIX = 2
+
+# Category to sound map domain mapping
+CATEGORY_TO_DOMAINS = {
+    'The Body': ['body'],
+    'The Physical World': ['nature', 'celestial'],
+    'Animals': ['nature'],
+    'Motion': ['action', 'spatial'],
+    'Time': ['time', 'celestial'],
+    'Emotions and Values': ['emotion', 'quality', 'abstract'],
+    'Quantity': ['quantity'],
+    'Question Words': ['grammar'],
+    'Sense Perception': ['body', 'cognition', 'quality'],
+    'Social and Political Relations': ['social'],
+    'Basic Actions and Technology': ['action', 'domestic'],
+    'Spatial Relations': ['spatial'],
+    'Grammar and Pronouns': ['grammar'],
+    'Speech and Language': ['speech', 'cognition'],
+    'Cognition': ['cognition', 'abstract'],
+    'Kinship': ['social'],
+    'Law': ['social', 'abstract'],
+    'Religion and Belief': ['abstract', 'celestial'],
+    'Food and Drink': ['nature', 'domestic'],
+    'Agriculture and Vegetation': ['nature'],
+    'Warfare and Hunting': ['action'],
+}
+
 DICT_PATH = Path(__file__).parent / "nyrakai-dictionary.json"
 
 def load_dictionary_words() -> dict:
@@ -440,6 +505,19 @@ def validate_word(word: str, auto_normalize: bool = True) -> dict:
     tokens = tokenize(normalized)
     result["phonemes"] = tokens
     
+    # Check for forbidden sequences: ejective + glottal (^')
+    if "^'" in normalized:
+        result["errors"].append("Ejective marker ^ cannot precede glottal marker '")
+        result["valid"] = False
+        return result
+    
+    # Check for forbidden sequences: glottal + 'a' ('a)
+    # The glottal marker already contains schwa, so 'a creates awkward /əʔa/ sequence
+    if "'a" in normalized:
+        result["errors"].append("Glottal marker ' cannot precede 'a' (use 'æ or 'e instead)")
+        result["valid"] = False
+        return result
+    
     # Check all phonemes are valid
     all_valid = CONSONANTS | VOWELS | GLIDES | AFFRICATES | DIPHTHONGS | set(EJECTIVES)
     for t in tokens:
@@ -619,6 +697,477 @@ def validate_dictionary() -> dict:
     return results
 
 
+def edit_distance(s1: str, s2: str) -> int:
+    """Calculate Levenshtein edit distance between two strings."""
+    if len(s1) < len(s2):
+        return edit_distance(s2, s1)
+    if len(s2) == 0:
+        return len(s1)
+    prev_row = range(len(s2) + 1)
+    for i, c1 in enumerate(s1):
+        curr_row = [i + 1]
+        for j, c2 in enumerate(s2):
+            insertions = prev_row[j + 1] + 1
+            deletions = curr_row[j] + 1
+            substitutions = prev_row[j] + (c1 != c2)
+            curr_row.append(min(insertions, deletions, substitutions))
+        prev_row = curr_row
+    return prev_row[-1]
+
+
+def check_similarity(word: str, threshold: int = 2) -> dict:
+    """
+    Check if a word is too similar to existing dictionary words.
+    Returns dict with similar words found (edit distance <= threshold).
+    """
+    with open(DICT_PATH, 'r', encoding='utf-8') as f:
+        dictionary = json.load(f)
+    
+    normalized = normalize(word)
+    similar = []
+    
+    for w in dictionary["words"]:
+        existing = w["nyrakai"]
+        # Handle gender variants
+        if ' / ' in existing:
+            variants = [v.strip() for v in existing.split(' / ')]
+        else:
+            variants = [existing]
+        
+        for variant in variants:
+            if variant == normalized:
+                continue  # Skip exact match
+            dist = edit_distance(normalized, variant)
+            if dist <= threshold and len(normalized) > 2 and len(variant) > 2:
+                similar.append({
+                    "word": variant,
+                    "meaning": w["english"],
+                    "distance": dist
+                })
+    
+    # Sort by distance
+    similar.sort(key=lambda x: x["distance"])
+    
+    return {
+        "word": word,
+        "normalized": normalized,
+        "similar_count": len(similar),
+        "similar_words": similar,
+        "has_conflicts": len([s for s in similar if s["distance"] == 1]) > 0
+    }
+
+
+def check_all_similarities(threshold: int = 1) -> list:
+    """Find all confusingly similar pairs in dictionary."""
+    with open(DICT_PATH, 'r', encoding='utf-8') as f:
+        dictionary = json.load(f)
+    
+    # Build list of all words
+    all_words = []
+    for w in dictionary["words"]:
+        nyr = w["nyrakai"]
+        eng = w["english"]
+        if ' / ' in nyr:
+            for v in nyr.split(' / '):
+                all_words.append((v.strip(), eng))
+        else:
+            all_words.append((nyr, eng))
+    
+    # Find similar pairs
+    pairs = []
+    for i, (w1, e1) in enumerate(all_words):
+        for (w2, e2) in all_words[i+1:]:
+            if len(w1) > 2 and len(w2) > 2:
+                dist = edit_distance(w1, w2)
+                if dist <= threshold:
+                    pairs.append({
+                        "word1": w1, "meaning1": e1,
+                        "word2": w2, "meaning2": e2,
+                        "distance": dist
+                    })
+    
+    return pairs
+
+
+# ============================================================
+# CATEGORY-ONSET VALIDATION (Sound Map)
+# ============================================================
+
+def check_category_onset(include_all: bool = False) -> dict:
+    """
+    Check if words have correct onset for their semantic category.
+    Uses sound map domain mappings.
+    
+    Returns:
+        dict with mismatches, unmapped, and stats
+    """
+    if not SOUND_MAP_AVAILABLE:
+        return {"error": "Sound map not available"}
+    
+    with open(DICT_PATH, 'r', encoding='utf-8') as f:
+        dictionary = json.load(f)
+    
+    mismatches = []
+    unmapped_onsets = []
+    correct = []
+    no_category_map = set()
+    
+    for entry in dictionary.get("words", []):
+        nyr = entry.get("nyrakai", "").split(" / ")[0]
+        eng = entry.get("english", "")
+        category = entry.get("category", "")
+        is_root = entry.get("is_root", True)
+        
+        if not nyr or not is_root:
+            continue
+        
+        onset = get_onset(nyr)
+        primary_domain, secondary_domain = get_domain(nyr)
+        
+        if not primary_domain:
+            unmapped_onsets.append({
+                "word": nyr,
+                "meaning": eng,
+                "onset": onset,
+                "category": category
+            })
+            continue
+        
+        if category not in CATEGORY_TO_DOMAINS:
+            no_category_map.add(category)
+            continue
+        
+        expected_domains = CATEGORY_TO_DOMAINS[category]
+        domains = [primary_domain]
+        if secondary_domain:
+            domains.append(secondary_domain)
+        
+        matches = any(d in expected_domains for d in domains)
+        
+        if matches:
+            correct.append(nyr)
+        else:
+            mismatches.append({
+                "word": nyr,
+                "meaning": eng,
+                "category": category,
+                "onset": onset,
+                "actual_domains": domains,
+                "expected_domains": expected_domains
+            })
+    
+    return {
+        "total_checked": len(correct) + len(mismatches),
+        "correct": len(correct),
+        "mismatch_count": len(mismatches),
+        "mismatches": mismatches,
+        "unmapped_count": len(unmapped_onsets),
+        "unmapped": unmapped_onsets,
+        "missing_category_maps": list(no_category_map)
+    }
+
+
+# ============================================================
+# AFFIX COLLISION CHECKING
+# ============================================================
+
+def check_affix_overlap(word: str) -> dict:
+    """
+    Check if a word accidentally contains affix patterns.
+    Type 1 check: New translations shouldn't collide with affixes.
+    
+    Returns dict with:
+      - word: original word
+      - has_prefix_overlap: bool
+      - has_suffix_overlap: bool
+      - prefix_matches: list of (prefix, meaning, remaining)
+      - suffix_matches: list of (suffix, meaning, remaining)
+    """
+    normalized = normalize(word)
+    result = {
+        "word": word,
+        "normalized": normalized,
+        "has_prefix_overlap": False,
+        "has_suffix_overlap": False,
+        "prefix_matches": [],
+        "suffix_matches": [],
+        "warnings": []
+    }
+    
+    # Check prefixes
+    for prefix, meaning in AFFIXES['prefixes'].items():
+        if normalized.startswith(prefix):
+            remaining = normalized[len(prefix):]
+            # Only flag if remaining part could be a valid root
+            if len(remaining) >= MIN_ROOT_FOR_AFFIX:
+                result["prefix_matches"].append({
+                    "affix": prefix,
+                    "meaning": meaning,
+                    "remaining": remaining
+                })
+                result["has_prefix_overlap"] = True
+    
+    # Check suffixes
+    for suffix, meaning in AFFIXES['suffixes'].items():
+        if normalized.endswith(suffix):
+            remaining = normalized[:-len(suffix)]
+            # Only flag if remaining part could be a valid root
+            if len(remaining) >= MIN_ROOT_FOR_AFFIX:
+                result["suffix_matches"].append({
+                    "affix": suffix,
+                    "meaning": meaning,
+                    "remaining": remaining
+                })
+                result["has_suffix_overlap"] = True
+    
+    # Generate warnings
+    if result["has_prefix_overlap"]:
+        for m in result["prefix_matches"]:
+            result["warnings"].append(
+                f"Word starts with prefix '{m['affix']}' ({m['meaning']}). "
+                f"Could be confused with {m['affix']}- + {m['remaining']}"
+            )
+    
+    if result["has_suffix_overlap"]:
+        for m in result["suffix_matches"]:
+            result["warnings"].append(
+                f"Word ends with suffix '-{m['affix']}' ({m['meaning']}). "
+                f"Could be confused with {m['remaining']} + -{m['affix']}"
+            )
+    
+    return result
+
+
+def check_derived_collisions(verbose: bool = False, include_intentional: bool = False) -> dict:
+    """
+    Check if any root+affix combinations create words that already exist.
+    Type 2 check: Derived forms shouldn't collide with existing dictionary words.
+    
+    Args:
+        verbose: Print detailed output
+        include_intentional: If True, include intentional derivations (marked with derived_from)
+    
+    Returns dict with:
+      - total_roots: number of root words checked
+      - total_derivations: number of derivations generated
+      - collisions: list of collision details (accidental only by default)
+      - intentional: list of intentional derivations (for reference)
+    """
+    with open(DICT_PATH, 'r', encoding='utf-8') as f:
+        dictionary = json.load(f)
+    
+    # Build lookup of all existing words with their metadata
+    existing_words = {}  # word -> {"meaning": str, "derived_from": dict or None}
+    roots = []
+    
+    for entry in dictionary.get("words", []):
+        nyr = entry.get("nyrakai", "")
+        eng = entry.get("english", "")
+        is_root = entry.get("is_root", False)
+        derived_from = entry.get("derived_from", None)
+        
+        # Handle variant notation (e.g., "fāri / fārā" for gendered plurals)
+        if ' / ' in nyr:
+            variants = [v.strip() for v in nyr.split(' / ')]
+            for v in variants:
+                # For variants, store derived_from with the root (allows matching any affix from same root)
+                existing_words[v] = {
+                    "meaning": eng, 
+                    "derived_from": derived_from,
+                    "is_variant": True,
+                    "all_variants": variants
+                }
+        else:
+            existing_words[nyr] = {"meaning": eng, "derived_from": derived_from, "is_variant": False}
+        
+        # Collect roots for derivation
+        if is_root and nyr and ' / ' not in nyr:
+            roots.append({"nyrakai": nyr, "english": eng})
+    
+    collisions = []
+    intentional = []
+    total_derivations = 0
+    
+    for root in roots:
+        nyr = root["nyrakai"]
+        eng = root["english"]
+        
+        # Generate prefixed forms
+        for prefix, prefix_meaning in AFFIXES['prefixes'].items():
+            derived = prefix + nyr
+            total_derivations += 1
+            
+            if derived in existing_words and existing_words[derived]["meaning"] != eng:
+                collision_data = {
+                    "type": "prefix",
+                    "root": nyr,
+                    "root_meaning": eng,
+                    "affix": prefix,
+                    "affix_meaning": prefix_meaning,
+                    "derived": derived,
+                    "collides_with": existing_words[derived]["meaning"]
+                }
+                
+                # Check if this is an intentional derivation
+                df = existing_words[derived].get("derived_from")
+                is_variant = existing_words[derived].get("is_variant", False)
+                
+                # For variants (e.g., fāri/fārā), check if root matches (either affix is valid)
+                if df and df.get("root") == nyr:
+                    if df.get("affix") == prefix or is_variant:
+                        collision_data["intentional"] = True
+                        intentional.append(collision_data)
+                    else:
+                        collisions.append(collision_data)
+                else:
+                    collisions.append(collision_data)
+        
+        # Generate suffixed forms
+        for suffix, suffix_meaning in AFFIXES['suffixes'].items():
+            derived = nyr + suffix
+            total_derivations += 1
+            
+            if derived in existing_words and existing_words[derived]["meaning"] != eng:
+                collision_data = {
+                    "type": "suffix",
+                    "root": nyr,
+                    "root_meaning": eng,
+                    "affix": suffix,
+                    "affix_meaning": suffix_meaning,
+                    "derived": derived,
+                    "collides_with": existing_words[derived]["meaning"]
+                }
+                
+                # Check if this is an intentional derivation
+                df = existing_words[derived].get("derived_from")
+                is_variant = existing_words[derived].get("is_variant", False)
+                
+                # For variants (e.g., fāri/fārā), check if root matches (either affix is valid)
+                if df and df.get("root") == nyr:
+                    if df.get("affix") == suffix or is_variant:
+                        collision_data["intentional"] = True
+                        intentional.append(collision_data)
+                    else:
+                        collisions.append(collision_data)
+                else:
+                    collisions.append(collision_data)
+    
+    result = {
+        "total_roots": len(roots),
+        "total_derivations": total_derivations,
+        "collision_count": len(collisions),
+        "collisions": collisions,
+        "intentional_count": len(intentional),
+        "intentional": intentional
+    }
+    
+    if include_intentional:
+        result["all_collisions"] = collisions + intentional
+    
+    return result
+
+
+def check_word_for_collisions(word: str, english: str = None, category: str = None) -> dict:
+    """
+    Combined check for a new word before adding to dictionary.
+    Runs affix overlap, derivation collision, and onset validation checks.
+    
+    Args:
+        word: Nyrakai word to check
+        english: English meaning (optional)
+        category: Dictionary category for onset validation (optional)
+    
+    Returns comprehensive collision report.
+    """
+    normalized = normalize(word)
+    
+    # Type 1: Check if word overlaps with affixes
+    affix_check = check_affix_overlap(word)
+    
+    # Type 2: Check if word matches any existing root's derivation
+    with open(DICT_PATH, 'r', encoding='utf-8') as f:
+        dictionary = json.load(f)
+    
+    derivation_matches = []
+    
+    for entry in dictionary.get("words", []):
+        nyr = entry.get("nyrakai", "")
+        eng = entry.get("english", "")
+        is_root = entry.get("is_root", False)
+        
+        if not is_root or ' / ' in nyr:
+            continue
+        
+        # Check if our new word could be a derivation of an existing root
+        for prefix, meaning in AFFIXES['prefixes'].items():
+            if normalized == prefix + nyr:
+                derivation_matches.append({
+                    "type": "matches_prefix_derivation",
+                    "existing_root": nyr,
+                    "existing_meaning": eng,
+                    "prefix": prefix,
+                    "prefix_meaning": meaning
+                })
+        
+        for suffix, meaning in AFFIXES['suffixes'].items():
+            if normalized == nyr + suffix:
+                derivation_matches.append({
+                    "type": "matches_suffix_derivation",
+                    "existing_root": nyr,
+                    "existing_meaning": eng,
+                    "suffix": suffix,
+                    "suffix_meaning": meaning
+                })
+    
+    # Check existing word collision
+    exists, existing_meaning = word_exists_in_dictionary(normalized)
+    
+    # Onset validation (if category provided and sound map available)
+    onset_check = None
+    if category and SOUND_MAP_AVAILABLE:
+        onset = get_onset(normalized)
+        primary_domain, secondary_domain = get_domain(normalized)
+        
+        expected_domains = CATEGORY_TO_DOMAINS.get(category, [])
+        actual_domains = [d for d in [primary_domain, secondary_domain] if d]
+        
+        onset_matches = any(d in expected_domains for d in actual_domains) if expected_domains else True
+        
+        onset_check = {
+            "onset": onset,
+            "actual_domains": actual_domains,
+            "expected_domains": expected_domains,
+            "category": category,
+            "valid": onset_matches,
+            "message": (
+                f"✓ Onset '{onset}-' matches {category}" if onset_matches
+                else f"✗ Onset '{onset}-' ({'/'.join(actual_domains) or 'unmapped'}) doesn't match {category} (expected: {expected_domains})"
+            )
+        }
+    
+    # Determine overall safety
+    is_safe = (
+        not exists and 
+        not affix_check["has_prefix_overlap"] and 
+        not affix_check["has_suffix_overlap"] and
+        len(derivation_matches) == 0 and
+        (onset_check is None or onset_check["valid"])
+    )
+    
+    return {
+        "word": word,
+        "normalized": normalized,
+        "proposed_meaning": english,
+        "category": category,
+        "already_exists": exists,
+        "existing_meaning": existing_meaning,
+        "affix_overlap": affix_check,
+        "derivation_matches": derivation_matches,
+        "onset_check": onset_check,
+        "is_safe": is_safe
+    }
+
+
 if __name__ == "__main__":
     import sys
     
@@ -636,6 +1185,37 @@ if __name__ == "__main__":
                     print(f"  • {w['nyrakai']} ({w['english']})")
                     for e in w["errors"]:
                         print(f"    - {e}")
+        elif sys.argv[1] == "--check-similar":
+            # Check for confusingly similar words
+            threshold = int(sys.argv[2]) if len(sys.argv) > 2 else 1
+            print(f"Checking for similar words (distance ≤ {threshold})...")
+            print("=" * 60)
+            pairs = check_all_similarities(threshold)
+            if pairs:
+                print(f"Found {len(pairs)} similar pairs:\n")
+                for p in pairs:
+                    print(f"  ⚠️  {p['word1']} ({p['meaning1']}) ↔ {p['word2']} ({p['meaning2']}) [dist={p['distance']}]")
+            else:
+                print("✅ No confusingly similar words found!")
+        elif sys.argv[1] == "--similarity":
+            # Check similarity for a specific word
+            if len(sys.argv) < 3:
+                print("Usage: validator.py --similarity <word> [threshold]")
+            else:
+                word = sys.argv[2]
+                threshold = int(sys.argv[3]) if len(sys.argv) > 3 else 2
+                result = check_similarity(word, threshold)
+                print(f"Similarity check for: {word}")
+                print("=" * 40)
+                if result["similar_words"]:
+                    print(f"Found {result['similar_count']} similar words:\n")
+                    for s in result["similar_words"]:
+                        warn = "🔴" if s["distance"] == 1 else "🟡"
+                        print(f"  {warn} {s['word']} ({s['meaning']}) - distance {s['distance']}")
+                    if result["has_conflicts"]:
+                        print("\n⚠️  Has very similar words (distance=1)! Consider changing.")
+                else:
+                    print("✅ No similar words found - safe to use!")
         elif sys.argv[1] == "--domains":
             # List all domains
             if SOUND_MAP_AVAILABLE:
@@ -645,6 +1225,166 @@ if __name__ == "__main__":
                     print(f"  {domain}: {desc}")
             else:
                 print("Sound map not available")
+        elif sys.argv[1] == "--check-affixes":
+            # Check if a word overlaps with affix patterns (Type 1)
+            if len(sys.argv) < 3:
+                print("Usage: validator.py --check-affixes <word>")
+            else:
+                word = sys.argv[2]
+                result = check_affix_overlap(word)
+                print(f"Affix Overlap Check: {word}")
+                print("=" * 50)
+                print(f"  Normalized: {result['normalized']}")
+                
+                if result["has_prefix_overlap"]:
+                    print("\n🔴 PREFIX OVERLAPS:")
+                    for m in result["prefix_matches"]:
+                        print(f"   • Starts with '{m['affix']}-' ({m['meaning']})")
+                        print(f"     Could be confused with: {m['affix']}- + {m['remaining']}")
+                
+                if result["has_suffix_overlap"]:
+                    print("\n🔴 SUFFIX OVERLAPS:")
+                    for m in result["suffix_matches"]:
+                        print(f"   • Ends with '-{m['affix']}' ({m['meaning']})")
+                        print(f"     Could be confused with: {m['remaining']} + -{m['affix']}")
+                
+                if not result["has_prefix_overlap"] and not result["has_suffix_overlap"]:
+                    print("\n✅ No affix overlaps detected - safe!")
+        elif sys.argv[1] == "--check-collisions":
+            # Check all dictionary words for derivation collisions (Type 2)
+            show_all = "--all" in sys.argv
+            print("Checking derived form collisions...")
+            print("=" * 60)
+            result = check_derived_collisions(include_intentional=show_all)
+            print(f"Roots checked: {result['total_roots']}")
+            print(f"Derivations generated: {result['total_derivations']}")
+            print(f"Accidental collisions: {result['collision_count']}")
+            print(f"Intentional derivations: {result['intentional_count']}")
+            
+            if result["collisions"]:
+                print("\n🔴 ACCIDENTAL COLLISIONS (need review):")
+                for c in result["collisions"]:
+                    if c["type"] == "prefix":
+                        print(f"\n   {c['affix']}- + {c['root']} ({c['root_meaning']})")
+                        print(f"   = {c['derived']} → collides with '{c['collides_with']}'")
+                    else:
+                        print(f"\n   {c['root']} ({c['root_meaning']}) + -{c['affix']}")
+                        print(f"   = {c['derived']} → collides with '{c['collides_with']}'")
+            else:
+                print("\n✅ No accidental collisions found!")
+            
+            if show_all and result["intentional"]:
+                print("\n🟢 INTENTIONAL DERIVATIONS (marked in dictionary):")
+                for c in result["intentional"]:
+                    if c["type"] == "prefix":
+                        print(f"   ✓ {c['affix']}- + {c['root']} = {c['derived']} ({c['collides_with']})")
+                    else:
+                        print(f"   ✓ {c['root']} + -{c['affix']} = {c['derived']} ({c['collides_with']})")
+            elif result["intentional_count"] > 0:
+                print(f"\n(Use --check-collisions --all to see {result['intentional_count']} intentional derivations)")
+        elif sys.argv[1] == "--check-word":
+            # Full collision check for a new word (Type 1 + Type 2 + onset)
+            if len(sys.argv) < 3:
+                print("Usage: validator.py --check-word <word> [english] [--category \"Category Name\"]")
+                print("\nCategories:")
+                for cat in sorted(CATEGORY_TO_DOMAINS.keys()):
+                    print(f"  • {cat}")
+            else:
+                word = sys.argv[2]
+                english = None
+                category = None
+                
+                # Parse arguments
+                i = 3
+                while i < len(sys.argv):
+                    if sys.argv[i] == "--category" and i + 1 < len(sys.argv):
+                        category = sys.argv[i + 1]
+                        i += 2
+                    else:
+                        if english is None:
+                            english = sys.argv[i]
+                        i += 1
+                
+                result = check_word_for_collisions(word, english, category)
+                
+                print(f"Full Collision Check: {word}")
+                if english:
+                    print(f"Proposed meaning: {english}")
+                if category:
+                    print(f"Category: {category}")
+                print("=" * 60)
+                
+                if result["already_exists"]:
+                    print(f"\n🔴 WORD ALREADY EXISTS: means '{result['existing_meaning']}'")
+                
+                if result["affix_overlap"]["has_prefix_overlap"] or result["affix_overlap"]["has_suffix_overlap"]:
+                    print("\n🟡 AFFIX OVERLAP WARNINGS:")
+                    for w in result["affix_overlap"]["warnings"]:
+                        print(f"   • {w}")
+                
+                if result["derivation_matches"]:
+                    print("\n🔴 MATCHES EXISTING DERIVATION:")
+                    for m in result["derivation_matches"]:
+                        if "prefix" in m:
+                            print(f"   • Matches {m['prefix']}- + {m['existing_root']} ({m['existing_meaning']})")
+                        else:
+                            print(f"   • Matches {m['existing_root']} ({m['existing_meaning']}) + -{m['suffix']}")
+                
+                # Onset check
+                if result["onset_check"]:
+                    oc = result["onset_check"]
+                    if oc["valid"]:
+                        print(f"\n✅ ONSET: {oc['message']}")
+                    else:
+                        print(f"\n🔴 ONSET MISMATCH: {oc['message']}")
+                
+                if result["is_safe"]:
+                    print("\n✅ SAFE TO ADD - all checks passed!")
+                else:
+                    print("\n⚠️  REVIEW REQUIRED - potential issues found!")
+        elif sys.argv[1] == "--list-affixes":
+            # List all registered affixes
+            print("Nyrakai Affix Registry")
+            print("=" * 50)
+            print("\nPREFIXES:")
+            for affix, meaning in AFFIXES['prefixes'].items():
+                print(f"   {affix}-  → {meaning}")
+            print("\nSUFFIXES:")
+            for affix, meaning in AFFIXES['suffixes'].items():
+                print(f"   -{affix}  → {meaning}")
+        elif sys.argv[1] == "--check-onset":
+            # Check category-onset alignment
+            if not SOUND_MAP_AVAILABLE:
+                print("Sound map not available")
+            else:
+                print("Checking category-onset alignment...")
+                print("=" * 60)
+                result = check_category_onset()
+                print(f"Total checked: {result['total_checked']}")
+                print(f"Correct: {result['correct']} ✓")
+                print(f"Mismatches: {result['mismatch_count']} ✗")
+                print(f"Unmapped onsets: {result['unmapped_count']}")
+                
+                if result["mismatches"]:
+                    print("\n🔴 CATEGORY-ONSET MISMATCHES:")
+                    for m in result["mismatches"][:25]:
+                        print(f"\n   {m['word']} ({m['meaning']})")
+                        print(f"     Category: {m['category']}")
+                        print(f"     Onset: {m['onset']}- → {'/'.join(m['actual_domains'])}")
+                        print(f"     Expected: {m['expected_domains']}")
+                    if len(result["mismatches"]) > 25:
+                        print(f"\n   ... and {len(result['mismatches']) - 25} more")
+                
+                if result["unmapped"]:
+                    print(f"\n🟡 UNMAPPED ONSETS ({result['unmapped_count']}):")
+                    for u in result["unmapped"][:10]:
+                        print(f"   {u['word']} ({u['meaning']}) - onset '{u['onset']}' not in sound map")
+                
+                if result["missing_category_maps"]:
+                    print(f"\n⚠️  Categories without domain mapping: {result['missing_category_maps']}")
+                
+                if result["mismatch_count"] == 0:
+                    print("\n✅ All root words have correct onset for their category!")
         else:
             # Validate a single word
             word = sys.argv[1]
@@ -678,8 +1418,18 @@ if __name__ == "__main__":
         print("Nyrakai Validator")
         print("=" * 40)
         print("Usage:")
-        print("  python validator.py <word>       - Validate a word")
-        print("  python validator.py --check-dict - Validate entire dictionary")
+        print("  python validator.py <word>           - Validate a word")
+        print("  python validator.py --check-dict     - Validate entire dictionary")
+        print("  python validator.py --check-similar  - Find similar word pairs")
+        print("  python validator.py --similarity <w> - Check similarity for word")
+        print("  python validator.py --domains        - List sound map domains")
+        print()
+        print("Collision Checking:")
+        print("  python validator.py --check-affixes <word>   - Check affix overlap (Type 1)")
+        print("  python validator.py --check-collisions       - Check all derivation collisions (Type 2)")
+        print("  python validator.py --check-onset            - Check category-onset alignment")
+        print("  python validator.py --check-word <word> [en] - Full collision check for new word")
+        print("  python validator.py --list-affixes           - List all registered affixes")
         print()
         print("Testing some words...")
         test_words = ["kæ", "n'æra", "ƶōrra", "ŧɒn", "ñœrek", "drōm", "xyz"]
@@ -691,3 +1441,94 @@ if __name__ == "__main__":
             if result["errors"]:
                 for e in result["errors"]:
                     print(f"      Error: {e}")
+
+# =============================================================================
+# ENGLISH SIMILARITY CHECK - Avoid words that look/sound too English
+# =============================================================================
+
+from difflib import SequenceMatcher
+
+def check_english_similarity(nyrakai_word: str, english_meaning: str, threshold: float = 0.5) -> tuple[bool, list[str]]:
+    """
+    Check if a Nyrakai word is too similar to its English translation.
+    
+    Args:
+        nyrakai_word: The Nyrakai word to check
+        english_meaning: The English translation(s), comma-separated if multiple
+        threshold: Similarity threshold (0.0-1.0), default 0.5
+        
+    Returns:
+        tuple: (is_valid, list of warnings)
+    """
+    warnings = []
+    
+    # Normalize Nyrakai word (remove diacritics for comparison)
+    nyr_clean = nyrakai_word.lower()
+    for old, new in [("^", ""), ("'", ""), ("ē", "e"), ("ā", "a"), ("ī", "i"), 
+                      ("ō", "o"), ("ū", "u"), ("æ", "ae"), ("œ", "oe"), ("ɛ", "e"),
+                      ("ɒ", "o"), ("ə", "e"), ("ț", "t"), ("ƨ", "ts"), ("ƶ", "z"),
+                      ("š", "sh"), ("ñ", "n"), ("ŧ", "th")]:
+        nyr_clean = nyr_clean.replace(old, new)
+    
+    # Check against each English meaning
+    for eng in english_meaning.split(','):
+        eng_clean = eng.lower().strip()
+        
+        if not eng_clean or len(eng_clean) < 2:
+            continue
+            
+        # Calculate similarity
+        sim = SequenceMatcher(None, nyr_clean, eng_clean).ratio()
+        
+        # Check for substring matches
+        is_substring = (len(nyr_clean) > 2 and len(eng_clean) > 2 and 
+                       (nyr_clean in eng_clean or eng_clean in nyr_clean))
+        
+        # Check same start (3+ chars)
+        same_start = (len(nyr_clean) >= 3 and len(eng_clean) >= 3 and 
+                     nyr_clean[:3] == eng_clean[:3])
+        
+        # Check same end (3+ chars)  
+        same_end = (len(nyr_clean) >= 3 and len(eng_clean) >= 3 and 
+                   nyr_clean[-3:] == eng_clean[-3:])
+        
+        if sim >= threshold:
+            warnings.append(f"Too similar to English '{eng}' ({sim*100:.0f}% match)")
+        if is_substring:
+            warnings.append(f"Contains/contained in English '{eng}'")
+        if same_start and same_end:
+            warnings.append(f"Same start AND end as English '{eng}'")
+    
+    is_valid = len(warnings) == 0
+    return is_valid, warnings
+
+
+def validate_word_complete(nyrakai_word: str, english_meaning: str = None, 
+                           check_english: bool = True, english_threshold: float = 0.5) -> dict:
+    """
+    Complete validation including English similarity check.
+    
+    Args:
+        nyrakai_word: The Nyrakai word to validate
+        english_meaning: Optional English meaning for similarity check
+        check_english: Whether to check English similarity
+        english_threshold: Similarity threshold for English check
+        
+    Returns:
+        dict with 'valid', 'errors', 'warnings', 'english_warnings'
+    """
+    # Run standard validation
+    result = validate_word(nyrakai_word)
+    
+    # Add English check if meaning provided
+    result['english_warnings'] = []
+    if check_english and english_meaning:
+        eng_valid, eng_warnings = check_english_similarity(
+            nyrakai_word, english_meaning, english_threshold
+        )
+        result['english_warnings'] = eng_warnings
+        if not eng_valid:
+            result['warnings'] = result.get('warnings', []) + eng_warnings
+    
+    return result
+

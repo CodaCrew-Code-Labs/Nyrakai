@@ -83,7 +83,7 @@
     {
       "id": 3,
       "english": "Do you like dogs, yes or no?",
-      "nyrakai": "gwōraš t'ōniwiræn gæ ka, n'æk wɒ zān?",
+      "nyrakai": "gwōraš t'ōniwiræn gæ ka, zōl wɒ zān?",
       "ipa": "/gwoːraʃ təʔoːniwirain gai ka, nəʔaik wau zaːn/",
       "literal": "dogs like-ongoing you ?, yes or no",
       "breakdown": [
@@ -127,7 +127,7 @@
       "context": "Yes/no question with explicit choice options",
       "category": "dialogue",
       "register": "everyday",
-      "notes": "Demonstrates -w- interfix (t'ōni + iræn → t'ōniwiræn) and choice phrase structure",
+      "notes": "Demonstrates -w- interfix (t'ōni + iræn → t'ōniwiræn) and choice phrase structure [Updated 2026-02-01: dictionary alignment]",
       "validated": true,
       "added": "2026-01-30"
     },
@@ -165,7 +165,7 @@
     {
       "id": 5,
       "english": "The man killed a doe",
-      "nyrakai": "gwīƨañīwaš p^ōrarek țrænæn",
+      "nyrakai": "gwīƨañīwaš zrālarek țrænæn",
       "ipa": "/gwiːtsaɲiːwaʃ p'oːrarek θrainæn/",
       "literal": "doe-fem-acc kill-completed man",
       "breakdown": [
@@ -189,14 +189,14 @@
       "context": "Simple past tense action with gendered nouns",
       "category": "narrative",
       "register": "everyday",
-      "notes": "Demonstrates gender derivation (țræn→țrænæn, gwīƨ→gwīƨañī) and vowel interfix (-waš)",
+      "notes": "Demonstrates gender derivation (țræn→țrænæn, gwīƨ→gwīƨañī) and vowel interfix (-waš) [Updated 2026-02-01: dictionary alignment]",
       "validated": true,
       "added": "2026-01-30"
     },
     {
       "id": 6,
       "english": "All human beings are born free and equal in dignity and rights",
-      "nyrakai": "n'ærñorñen əda šōrænñen hræk^ewarek zašōr əda trōm t^ōl țræn",
+      "nyrakai": "n'ærñorñen əda šōrænñen hræk^ewarek zašōr əda trōm zā țræn",
       "ipa": "/nəʔair.ɲor.ɲen eu.da ʃoːr.æn.ɲen hrai.k^e za.ʃoːr eu.da troːm t^oːl t͡ʃræn a.rek/",
       "literal": "in-dignity and in-rights born free and equal all person completed",
       "breakdown": [
@@ -250,7 +250,7 @@
       "context": "Article 1 of the Universal Declaration of Human Rights",
       "category": "proverb",
       "register": "sacred",
-      "notes": "Demonstrates: locative case (-ñen), adjective conjunction (əda), intransitive verb structure, verb+aspect with interfix (hræk^ewarek)",
+      "notes": "Demonstrates: locative case (-ñen), adjective conjunction (əda), intransitive verb structure, verb+aspect with interfix (hræk^ewarek) [Updated 2026-02-01: dictionary alignment]",
       "validated": true,
       "added": "2026-01-30"
     },
@@ -308,7 +308,7 @@
     {
       "id": 8,
       "english": "I said \"never again\", but then I agained.",
-      "nyrakai": "ñɒt yæn talarek fā, mur yænarek fā țɒ",
+      "nyrakai": "zūm zēr talarek fā, mur zērarek fā zæs",
       "ipa": "/ɲɔt jæn talarek faː, mur jænarek faː θɔ/",
       "literal": "never again said I, but agained I then",
       "breakdown": [
@@ -357,14 +357,14 @@
       "context": "Humorous sentence demonstrating dual-class word (yæn = again/to repeat)",
       "category": "dialogue",
       "register": "everyday",
-      "notes": "yæn functions as adverb in quoted speech, and as verb stem in \"agained\"",
+      "notes": "yæn functions as adverb in quoted speech, and as verb stem in \"agained\" [Updated 2026-02-01: dictionary alignment]",
       "validated": true,
       "added": "2026-01-31"
     },
     {
       "id": 9,
       "english": "I'm sorry, I'm uncomfortable with emotions.",
-      "nyrakai": "keț'ahæ fā, ul'ahæwek zasæl fā",
+      "nyrakai": "p^ōr fā, ul'ahæwek p^īn fā",
       "ipa": "/keʈʔahæ faː, ulʔahæwek zasæl faː/",
       "literal": "sorry I, with-emotions uncomfortable I",
       "breakdown": [
@@ -398,14 +398,14 @@
       "context": "Expressing emotional state, demonstrates copula-less sentences and parallel clauses",
       "category": "dialogue",
       "register": "everyday",
-      "notes": "Nyrakai has no copula; comma + repeated subject = parallel clauses",
+      "notes": "Nyrakai has no copula; comma + repeated subject = parallel clauses [Updated 2026-02-01: dictionary alignment]",
       "validated": true,
       "added": "2026-01-31"
     },
     {
       "id": 10,
       "english": "We're praising the sun for the damage he's done",
-      "nyrakai": "šāk^ețɒr hīrawaš țāliræn fāri",
+      "nyrakai": "šāstamɒr hīrawaš țāliræn fāri",
       "ipa": "/ʃaːk^eʈɔr hiːrawaʃ ʈaːliraɪn faːri/",
       "literal": "his-damage-from sun-ACC praising we",
       "breakdown": [
@@ -434,14 +434,14 @@
       "context": "Ironic praise, demonstrates possessive ablative for reason/cause",
       "category": "dialogue",
       "register": "everyday",
-      "notes": "Pattern: \"for X he/she has done\" → possessive prefix (šā-) + noun + ablative (-ɒr)",
+      "notes": "Pattern: \"for X he/she has done\" → possessive prefix (šā-) + noun + ablative (-ɒr) [Updated 2026-02-01: dictionary alignment]",
       "validated": true,
       "added": "2026-01-31"
     },
     {
       "id": 11,
       "english": "They're drinking my water!",
-      "nyrakai": "fāna'ēraš țūniræn šāri",
+      "nyrakai": "fāna'ēraš nōliræn šāri",
       "ipa": "/faːnaʔeːraʃ ʈuːniraɪn ʃaːri/",
       "literal": "my-water-ACC drinking they",
       "breakdown": [
@@ -465,7 +465,7 @@
       "context": "Exclamation of protest, demonstrates possessive noun phrases",
       "category": "dialogue",
       "register": "everyday",
-      "notes": "Possessive prefix (fā-) attaches directly to noun, then accusative suffix applies",
+      "notes": "Possessive prefix (fā-) attaches directly to noun, then accusative suffix applies [Updated 2026-02-01: dictionary alignment]",
       "validated": true,
       "added": "2026-01-31"
     }

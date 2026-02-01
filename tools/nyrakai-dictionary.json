@@ -1,18 +1,18 @@
 {
   "meta": {
     "language": "Nyrakai",
-    "version": "3.2",
+    "version": "3.9",
     "created": "2026-01-29",
-    "updated": "2026-01-31",
-    "total_words": 211,
+    "updated": "2026-02-01",
+    "total_words": 297,
     "format": "english | nyrakai | pronunciation | IPA | structure | syllables | pos | root",
-    "notes": "Merged gendered pronouns into single entries",
-    "last_updated": "2026-01-31"
+    "notes": "Swadesh 207 complete!",
+    "last_updated": "2026-02-01"
   },
   "words": [
     {
       "english": "bad",
-      "nyrakai": "dem",
+      "nyrakai": "p^ēl",
       "pronunciation": "dem",
       "ipa": "/dem/",
       "structure": "CVC",
@@ -22,7 +22,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Emotions and Values",
+      "notes": " [Updated from dem for domain alignment]"
     },
     {
       "english": "big",
@@ -37,7 +39,8 @@
       "etymology": "",
       "validated": true,
       "notes": "gr- cluster",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Spatial Relations"
     },
     {
       "english": "bird",
@@ -51,7 +54,8 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Animals"
     },
     {
       "english": "black",
@@ -65,11 +69,12 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Sense Perception"
     },
     {
       "english": "burn",
-      "nyrakai": "ƶōr",
+      "nyrakai": "dār",
       "pronunciation": "dzor",
       "ipa": "/dzoːr/",
       "structure": "CVC",
@@ -79,8 +84,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "ƶ = dz affricate; ō = long o",
-      "inherent_gender": null
+      "notes": "ƶ = dz affricate; ō = long o [Updated from ƶōr for domain alignment]",
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology"
     },
     {
       "english": "fish",
@@ -94,21 +100,26 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Animals"
     },
     {
       "english": "fly",
-      "nyrakai": "fīr",
-      "pronunciation": "feer",
-      "ipa": "/fiːr/",
-      "structure": "CVC",
-      "syllables": "fīr (CVC)",
+      "nyrakai": "stōr",
+      "pronunciation": "stohr",
+      "ipa": "/stoːr/",
+      "structure": "CCVC",
+      "syllables": [
+        "stōr"
+      ],
       "syllable_count": 1,
       "pos": "verb",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": "[Changed from fīr for onset alignment]"
     },
     {
       "english": "fire",
@@ -123,7 +134,13 @@
       "etymology": "ƶōr (burn) + -ra (nominalizer)",
       "validated": true,
       "notes": "derived: the burning",
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "The Physical World",
+      "derived_from": {
+        "root": "ƶōr",
+        "affix": "ra",
+        "type": "suffix"
+      }
     },
     {
       "english": "over/above",
@@ -138,7 +155,8 @@
       "etymology": "",
       "validated": true,
       "notes": "postposition (comes after noun); ñ = velar nasal (ng)",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Spatial Relations"
     },
     {
       "english": "air",
@@ -153,7 +171,8 @@
       "etymology": "",
       "validated": true,
       "notes": "ƨ = ts affricate; æ = ai diphthong",
-      "inherent_gender": "feminine"
+      "inherent_gender": "feminine",
+      "category": "The Physical World"
     },
     {
       "english": "ash",
@@ -168,7 +187,13 @@
       "etymology": "ƶōr (burn) + -țal (resultative)",
       "validated": true,
       "notes": "derived: burn-remains",
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "The Physical World",
+      "derived_from": {
+        "root": "ƶōr",
+        "affix": "țal",
+        "type": "suffix"
+      }
     },
     {
       "english": "die",
@@ -183,7 +208,8 @@
       "etymology": "",
       "validated": true,
       "notes": "same as death noun",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology"
     },
     {
       "english": "earth",
@@ -198,7 +224,8 @@
       "etymology": "",
       "validated": true,
       "notes": "f + œ (oi diphthong)",
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "The Physical World"
     },
     {
       "english": "ember",
@@ -213,7 +240,13 @@
       "etymology": "ƶōr (burn) + -k^e (diminutive)",
       "validated": true,
       "notes": "derived: small-burn / spark",
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "The Physical World",
+      "derived_from": {
+        "root": "ƶōr",
+        "affix": "k^e",
+        "type": "suffix"
+      }
     },
     {
       "english": "inferno",
@@ -228,7 +261,13 @@
       "etymology": "ƶōr (burn) + -ñor (augmentative)",
       "validated": true,
       "notes": "derived: great-burn / wildfire",
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "The Physical World",
+      "derived_from": {
+        "root": "ƶōr",
+        "affix": "ñor",
+        "type": "suffix"
+      }
     },
     {
       "english": "cloud",
@@ -243,11 +282,12 @@
       "etymology": "",
       "validated": true,
       "notes": "ə = eu diphthong",
-      "inherent_gender": "feminine"
+      "inherent_gender": "feminine",
+      "category": "The Physical World"
     },
     {
       "english": "cold",
-      "nyrakai": "kre'net",
+      "nyrakai": "sās",
       "pronunciation": "kreh-uh-net",
       "ipa": "/kreəʔ.net/",
       "structure": "CCV.CVC",
@@ -257,12 +297,13 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "' = schwa + glottal stop (əʔ)",
-      "inherent_gender": null
+      "notes": "' = schwa + glottal stop (əʔ) [Updated from kre'net for domain alignment]",
+      "inherent_gender": null,
+      "category": "Sense Perception"
     },
     {
       "english": "come",
-      "nyrakai": "kōm",
+      "nyrakai": "dɒ",
       "pronunciation": "kohm",
       "ipa": "/koːm/",
       "structure": "CVC",
@@ -272,11 +313,13 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": " [Replaced kōm to avoid English similarity]"
     },
     {
       "english": "create",
-      "nyrakai": "k^el",
+      "nyrakai": "srāl",
       "pronunciation": "k^el",
       "ipa": "/k^el/",
       "structure": "CVC",
@@ -286,8 +329,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "k^ = ejective velar",
-      "inherent_gender": null
+      "notes": "k^ = ejective velar [Updated from k^el for domain alignment]",
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology"
     },
     {
       "english": "death",
@@ -302,25 +346,30 @@
       "etymology": "",
       "validated": true,
       "notes": "' = schwa + glottal stop; ō = long o",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "Basic Actions and Technology"
     },
     {
       "english": "do",
-      "nyrakai": "yun",
-      "pronunciation": "yun",
-      "ipa": "/jun/",
-      "structure": "CVC",
-      "syllables": "yun (CVC)",
+      "nyrakai": "stīn",
+      "pronunciation": "steen",
+      "ipa": "/stiːn/",
+      "structure": "CCVC",
+      "syllables": [
+        "stīn"
+      ],
       "syllable_count": 1,
       "pos": "verb",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": "[Changed from yun for onset alignment]"
     },
     {
       "english": "dry",
-      "nyrakai": "krōk",
+      "nyrakai": "dās",
       "pronunciation": "krohk",
       "ipa": "/kroːk/",
       "structure": "CCVC",
@@ -331,7 +380,8 @@
       "etymology": "",
       "validated": true,
       "inherent_gender": null,
-      "notes": "kr- cluster for cold/dry"
+      "notes": "kr- cluster for cold/dry [Updated from krōk for domain alignment]",
+      "category": "Sense Perception"
     },
     {
       "english": "green",
@@ -346,7 +396,8 @@
       "etymology": "",
       "validated": true,
       "notes": "ɛ = ei diphthong",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Sense Perception"
     },
     {
       "english": "rain",
@@ -361,7 +412,13 @@
       "etymology": "na'ēr (water) + -k^e (diminutive)",
       "validated": true,
       "notes": "derived: little-waters",
-      "inherent_gender": "feminine"
+      "inherent_gender": "feminine",
+      "category": "The Physical World",
+      "derived_from": {
+        "root": "na'ēr",
+        "affix": "k^e",
+        "type": "suffix"
+      }
     },
     {
       "english": "sand",
@@ -376,7 +433,13 @@
       "etymology": "zwūr (stone) + -k^e (diminutive)",
       "validated": true,
       "notes": "derived: small-stones",
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "The Physical World",
+      "derived_from": {
+        "root": "zwūr",
+        "affix": "k^e",
+        "type": "suffix"
+      }
     },
     {
       "english": "star",
@@ -391,11 +454,12 @@
       "etymology": "",
       "validated": true,
       "notes": "h + ī (long i)",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "The Physical World"
     },
     {
       "english": "swim",
-      "nyrakai": "zwēn",
+      "nyrakai": "slɒr",
       "pronunciation": "zwayn",
       "ipa": "/zweːn/",
       "structure": "CCVC",
@@ -405,8 +469,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "zw- cluster",
-      "inherent_gender": null
+      "notes": "zw- cluster [Updated from zwēn for domain alignment]",
+      "inherent_gender": null,
+      "category": "Motion"
     },
     {
       "english": "sun",
@@ -421,7 +486,8 @@
       "etymology": "",
       "validated": true,
       "notes": "h + ī (long i)",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "The Physical World"
     },
     {
       "english": "stone",
@@ -436,11 +502,12 @@
       "etymology": "",
       "validated": true,
       "notes": "zw cluster + ū long vowel",
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "The Physical World"
     },
     {
       "english": "small",
-      "nyrakai": "k^em",
+      "nyrakai": "smōk",
       "pronunciation": "k^em",
       "ipa": "/k^em/",
       "structure": "CVC",
@@ -450,8 +517,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "k^ = ejective",
-      "inherent_gender": null
+      "notes": "k^ = ejective [Updated from k^em for domain alignment]",
+      "inherent_gender": null,
+      "category": "Spatial Relations"
     },
     {
       "english": "smoke",
@@ -466,7 +534,8 @@
       "etymology": "",
       "validated": true,
       "notes": "ƶ = dz affricate; æ = ai diphthong",
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "The Physical World"
     },
     {
       "english": "give",
@@ -480,7 +549,8 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Motion"
     },
     {
       "english": "good",
@@ -494,11 +564,12 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Emotions and Values"
     },
     {
       "english": "kill",
-      "nyrakai": "p^ōr",
+      "nyrakai": "zrāl",
       "pronunciation": "p^ohr",
       "ipa": "/p^oːr/",
       "structure": "CVC",
@@ -508,8 +579,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "p^ = ejective",
-      "inherent_gender": null
+      "notes": "p^ = ejective [Updated from p^ōr for domain alignment]",
+      "inherent_gender": null,
+      "category": "Warfare and Hunting"
     },
     {
       "english": "know",
@@ -524,7 +596,8 @@
       "etymology": "",
       "validated": true,
       "inherent_gender": null,
-      "notes": "š- for cognition/knowing"
+      "notes": "š- for cognition/knowing",
+      "category": "Cognition"
     },
     {
       "english": "long",
@@ -539,26 +612,28 @@
       "etymology": "",
       "validated": true,
       "notes": "dr- cluster",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Spatial Relations"
     },
     {
       "english": "lie",
-      "nyrakai": "lōm",
-      "pronunciation": "lohm",
-      "ipa": "/loːm/",
-      "structure": "CVC",
+      "nyrakai": "stōm",
+      "pronunciation": "stohm",
+      "ipa": "/stoːm/",
+      "structure": "CCVC",
       "syllables": "lōm (CVC)",
       "syllable_count": 1,
       "pos": "verb",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "lie down (position)",
-      "inherent_gender": null
+      "notes": "Updated from rețū/lōm for domain alignment (st- action)",
+      "inherent_gender": null,
+      "category": "Motion"
     },
     {
       "english": "hot",
-      "nyrakai": "pre'net",
+      "nyrakai": "lāk",
       "pronunciation": "preh-uh-net",
       "ipa": "/preəʔ.net/",
       "structure": "CCV.CVC",
@@ -568,8 +643,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "' = schwa + glottal stop (əʔ); antonym of kre'net (cold)",
-      "inherent_gender": null
+      "notes": "' = schwa + glottal stop (əʔ); antonym of kre'net (cold) [Updated from pre'net for domain alignment]",
+      "inherent_gender": null,
+      "category": "Sense Perception"
     },
     {
       "english": "hear",
@@ -583,7 +659,8 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Sense Perception"
     },
     {
       "english": "red",
@@ -598,7 +675,8 @@
       "etymology": "",
       "validated": true,
       "notes": "š = tch affricate",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Sense Perception"
     },
     {
       "english": "say",
@@ -612,11 +690,12 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Speech and Language"
     },
     {
       "english": "sit",
-      "nyrakai": "tōm",
+      "nyrakai": "dēm",
       "pronunciation": "tohm",
       "ipa": "/toːm/",
       "structure": "CVC",
@@ -626,7 +705,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": " [Updated from tōm for domain alignment]"
     },
     {
       "english": "sleep",
@@ -641,7 +722,8 @@
       "etymology": "",
       "validated": true,
       "inherent_gender": null,
-      "notes": "sl- cluster for sleep/rest"
+      "notes": "sl- cluster for sleep/rest",
+      "category": "Basic Actions and Technology"
     },
     {
       "english": "stand",
@@ -656,7 +738,8 @@
       "etymology": "",
       "validated": true,
       "inherent_gender": null,
-      "notes": "st- cluster for standing/staying"
+      "notes": "st- cluster for standing/staying",
+      "category": "Motion"
     },
     {
       "english": "round",
@@ -671,22 +754,26 @@
       "etymology": "",
       "validated": true,
       "inherent_gender": null,
-      "notes": "sw- for round/circular"
+      "notes": "sw- for round/circular",
+      "category": "Spatial Relations"
     },
     {
       "english": "new",
-      "nyrakai": "ŧa'un",
-      "pronunciation": "tra-uh-un",
-      "ipa": "/ŧaəʔ.un/",
-      "structure": "CV.VC",
-      "syllables": "ŧa' (CV) + un (VC)",
+      "nyrakai": "sæm",
+      "pronunciation": "saim",
+      "ipa": "/saim/",
+      "structure": "CVC",
+      "syllables": [
+        "sæm"
+      ],
       "syllable_count": 2,
       "pos": "adj",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "ŧ = tr affricate; ' = schwa + glottal stop",
-      "inherent_gender": null
+      "notes": "[Changed from ŧa'un for onset alignment] ŧ = tr affricate; ' = schwa + glottal stop",
+      "inherent_gender": null,
+      "category": "Emotions and Values"
     },
     {
       "english": "pair",
@@ -701,7 +788,8 @@
       "etymology": "",
       "validated": true,
       "notes": "tr- for two/pair; ə = eu diphthong",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "Quantity"
     },
     {
       "english": "person",
@@ -716,11 +804,12 @@
       "etymology": "",
       "validated": true,
       "notes": "ț = th; æ = ai diphthong",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "path",
-      "nyrakai": "p^ān",
+      "nyrakai": "fām",
       "pronunciation": "p^ahn",
       "ipa": "/p^aːn/",
       "structure": "CVC",
@@ -730,8 +819,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "p^ = ejective bilabial; ā = long a",
-      "inherent_gender": "masculine"
+      "notes": "p^ = ejective bilabial; ā = long a [Updated from p^ān for domain alignment]",
+      "inherent_gender": "masculine",
+      "category": "The Physical World"
     },
     {
       "english": "night",
@@ -746,7 +836,8 @@
       "etymology": "",
       "validated": true,
       "notes": "ț = th sound (θ)",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "Time"
     },
     {
       "english": "mountain",
@@ -761,7 +852,8 @@
       "etymology": "",
       "validated": true,
       "notes": "t^ = ejective alveolar",
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "The Physical World"
     },
     {
       "english": "moon",
@@ -776,11 +868,12 @@
       "etymology": "",
       "validated": true,
       "notes": "h- for celestial bodies; ū = long u",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "The Physical World"
     },
     {
       "english": "name",
-      "nyrakai": "sre'un",
+      "nyrakai": "k^ōn",
       "pronunciation": "sreh-uh-un",
       "ipa": "/sreəʔ.un/",
       "structure": "CCV.VC",
@@ -790,12 +883,13 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "' = schwa + glottal stop (əʔ)",
-      "inherent_gender": "sacred"
+      "notes": "' = schwa + glottal stop (əʔ) [Updated from sre'un for domain alignment]",
+      "inherent_gender": "sacred",
+      "category": "Speech and Language"
     },
     {
       "english": "white",
-      "nyrakai": "hro",
+      "nyrakai": "yɒl",
       "pronunciation": "hro",
       "ipa": "/hro/",
       "structure": "CCV",
@@ -806,7 +900,8 @@
       "etymology": "",
       "validated": true,
       "inherent_gender": null,
-      "notes": "h- for celestial/light; white = light"
+      "notes": "h- for celestial/light; white = light [Updated from hro for domain alignment]",
+      "category": "Sense Perception"
     },
     {
       "english": "yellow",
@@ -821,7 +916,8 @@
       "etymology": "",
       "validated": true,
       "notes": "' = schwa + glottal stop (əʔ)",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Sense Perception"
     },
     {
       "english": "wind",
@@ -836,7 +932,13 @@
       "etymology": "ƨæ (air) + -ñor (augmentative)",
       "validated": true,
       "notes": "derived: strong-air / moving-air",
-      "inherent_gender": "feminine"
+      "inherent_gender": "feminine",
+      "category": "The Physical World",
+      "derived_from": {
+        "root": "ƨæ",
+        "affix": "ñor",
+        "type": "suffix"
+      }
     },
     {
       "english": "walk",
@@ -850,7 +952,8 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Motion"
     },
     {
       "english": "water",
@@ -865,7 +968,8 @@
       "etymology": "",
       "validated": true,
       "notes": "' = schwa + glottal stop; ē = long e",
-      "inherent_gender": "feminine"
+      "inherent_gender": "feminine",
+      "category": "The Physical World"
     },
     {
       "english": "tongue",
@@ -880,7 +984,8 @@
       "etymology": "",
       "validated": true,
       "notes": "æ = ai diphthong",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "The Body"
     },
     {
       "english": "true",
@@ -895,7 +1000,8 @@
       "etymology": "",
       "validated": true,
       "notes": "' = schwa + glottal stop (əʔ); æ = ai diphthong",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Religion and Belief"
     },
     {
       "english": "truth",
@@ -910,7 +1016,13 @@
       "etymology": "n'æ (true) + -ra (nominalizer suffix)",
       "validated": true,
       "notes": "' = schwa + glottal stop (əʔ); æ = ai diphthong",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "Religion and Belief",
+      "derived_from": {
+        "root": "n'æ",
+        "affix": "ra",
+        "type": "suffix"
+      }
     },
     {
       "english": "zero",
@@ -925,7 +1037,8 @@
       "etymology": "",
       "validated": true,
       "notes": "k^ ejective + œ diphthong",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "one",
@@ -940,11 +1053,12 @@
       "etymology": "",
       "validated": true,
       "notes": "t^ ejective + ū long vowel",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "two",
-      "nyrakai": "ƶœn",
+      "nyrakai": "trām",
       "pronunciation": "dzoin",
       "ipa": "/dzoin/",
       "structure": "CVC",
@@ -954,8 +1068,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "ƶ affricate + œ diphthong",
-      "inherent_gender": null
+      "notes": "ƶ affricate + œ diphthong [Updated from ƶœn for domain alignment]",
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "three",
@@ -970,7 +1085,8 @@
       "etymology": "",
       "validated": true,
       "notes": "ñ (ng) + ū long vowel",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "four",
@@ -985,7 +1101,8 @@
       "etymology": "",
       "validated": true,
       "notes": "p^ ejective + œ diphthong",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "five",
@@ -1000,7 +1117,8 @@
       "etymology": "",
       "validated": true,
       "notes": "ñ (ng) + æ diphthong",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "six",
@@ -1014,8 +1132,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "ŧ (tr) affricate + œ diphthong",
-      "inherent_gender": null
+      "notes": "Number - ŧ- onset now supports quantity domain",
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "seven",
@@ -1030,11 +1149,12 @@
       "etymology": "",
       "validated": true,
       "notes": "ñ (ng) + ū long vowel",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "eight",
-      "nyrakai": "hœk",
+      "nyrakai": "p^ɒm",
       "pronunciation": "hoik",
       "ipa": "/hoik/",
       "structure": "CVC",
@@ -1044,8 +1164,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "h + œ diphthong",
-      "inherent_gender": null
+      "notes": "h + œ diphthong [Updated from hœk for domain alignment]",
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "nine",
@@ -1059,12 +1180,13 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "ŧ (tr) affricate + ɒ diphthong",
-      "inherent_gender": null
+      "notes": "Number - ŧ- onset now supports quantity domain",
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "ten",
-      "nyrakai": "zœl",
+      "nyrakai": "k^ɒr",
       "pronunciation": "zoil",
       "ipa": "/zoil/",
       "structure": "CVC",
@@ -1074,8 +1196,9 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "z + œ diphthong",
-      "inherent_gender": null
+      "notes": "z + œ diphthong [Updated from zœl for domain alignment]",
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "unknown",
@@ -1090,7 +1213,8 @@
       "etymology": "",
       "validated": true,
       "notes": "ñ (ng) + œ (oi) diphthong; mysterious/hidden connotation",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Cognition"
     },
     {
       "english": "The Nine Unknown",
@@ -1105,7 +1229,13 @@
       "etymology": "ŧɒn (nine) + ñœrek (unknown); n→ñ elision",
       "validated": true,
       "notes": "The secret order; n from ŧɒn merges with ñ of ñœrek",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "Religion and Belief",
+      "derived_from": {
+        "root": "ŧɒn",
+        "affix": "ñœrek",
+        "type": "compound"
+      }
     },
     {
       "english": "many",
@@ -1120,22 +1250,26 @@
       "etymology": "",
       "validated": true,
       "notes": "ñ (velar nasal) + œ (oi diphthong)",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "all",
-      "nyrakai": "t^ōl",
-      "pronunciation": "t^ohl",
-      "ipa": "/t^oːl/",
-      "structure": "CVC",
-      "syllables": "t^ōl (CVC)",
+      "nyrakai": "zā",
+      "pronunciation": "zaa",
+      "ipa": "/zaː/",
+      "structure": "CV",
+      "syllables": [
+        "zā"
+      ],
       "syllable_count": 1,
       "pos": "adj",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "t^ ejective + ō long vowel",
-      "inherent_gender": null
+      "notes": "[Changed from t^ōl for onset alignment] t^ ejective + ō long vowel",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "not",
@@ -1150,7 +1284,8 @@
       "etymology": "",
       "validated": true,
       "notes": "z + æ (ai diphthong); pairs with za- prefix",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "what",
@@ -1165,7 +1300,8 @@
       "etymology": "",
       "validated": true,
       "notes": "kw- cluster + æ diphthong; interrogative",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "who",
@@ -1180,67 +1316,80 @@
       "etymology": "",
       "validated": true,
       "notes": "h + œ (oi diphthong); interrogative",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "I",
-      "nyrakai": "fā",
-      "pronunciation": "faa",
-      "ipa": "/faː/",
+      "nyrakai": "zœ",
+      "pronunciation": "zoi",
+      "ipa": "/zoi/",
       "structure": "CV",
-      "syllables": "fā (CV)",
+      "syllables": [
+        "zœ"
+      ],
       "syllable_count": 1,
       "pos": "pron",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "f + ā (long a); 1st person singular",
-      "inherent_gender": null
+      "notes": "[Changed from fā for onset alignment] f + ā (long a); 1st person singular",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "you",
-      "nyrakai": "gæ",
-      "pronunciation": "gai",
-      "ipa": "/gai/",
+      "nyrakai": "țæ",
+      "pronunciation": "thai",
+      "ipa": "/θai/",
       "structure": "CV",
-      "syllables": "gæ (CV)",
+      "syllables": [
+        "țæ"
+      ],
       "syllable_count": 1,
       "pos": "pron",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "g + æ (ai diphthong); 2nd person singular",
-      "inherent_gender": null
+      "notes": "[Changed from gæ for onset alignment] g + æ (ai diphthong); 2nd person singular",
+      "inherent_gender": null,
+      "category": "Social and Political Relations"
     },
     {
       "english": "this",
-      "nyrakai": "šœ",
-      "pronunciation": "choi",
-      "ipa": "/tʃoi/",
+      "nyrakai": "zɒ",
+      "pronunciation": "zau",
+      "ipa": "/zau/",
       "structure": "CV",
-      "syllables": "šœ (CV)",
+      "syllables": [
+        "zɒ"
+      ],
       "syllable_count": 1,
       "pos": "pron",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "š (ch) + œ (oi); proximal demonstrative",
-      "inherent_gender": null
+      "notes": "[Changed from šœ for onset alignment] š (ch) + œ (oi); proximal demonstrative",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "that",
-      "nyrakai": "šɒ",
-      "pronunciation": "chau",
-      "ipa": "/tʃau/",
+      "nyrakai": "zō",
+      "pronunciation": "zoh",
+      "ipa": "/zoː/",
       "structure": "CV",
-      "syllables": "šɒ (CV)",
+      "syllables": [
+        "zō"
+      ],
       "syllable_count": 1,
       "pos": "pron",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "š (ch) + ɒ (au); distal demonstrative",
-      "inherent_gender": null
+      "notes": "[Changed from šɒ for onset alignment] š (ch) + ɒ (au); distal demonstrative",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "dog",
@@ -1255,7 +1404,8 @@
       "etymology": "",
       "validated": true,
       "notes": "gw- cluster for mammals; g + ō (long o) + r",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Animals"
     },
     {
       "english": "louse",
@@ -1270,7 +1420,8 @@
       "etymology": "",
       "validated": true,
       "notes": "y + ī (long i) + k",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Animals"
     },
     {
       "english": "tree",
@@ -1285,7 +1436,8 @@
       "etymology": "",
       "validated": true,
       "notes": "g + ā (long a); g- tree family",
-      "inherent_gender": "feminine"
+      "inherent_gender": "feminine",
+      "category": "Agriculture and Vegetation"
     },
     {
       "english": "seed",
@@ -1300,7 +1452,8 @@
       "etymology": "",
       "validated": true,
       "notes": "g + ī (long i); g- tree family",
-      "inherent_gender": "feminine"
+      "inherent_gender": "feminine",
+      "category": "Agriculture and Vegetation"
     },
     {
       "english": "bark",
@@ -1315,7 +1468,8 @@
       "etymology": "",
       "validated": true,
       "notes": "g + ɒ (au diphthong); g- tree family",
-      "inherent_gender": "feminine"
+      "inherent_gender": "feminine",
+      "category": "Agriculture and Vegetation"
     },
     {
       "english": "root",
@@ -1330,7 +1484,8 @@
       "etymology": "",
       "validated": true,
       "notes": "g + ū (long u); g- tree family",
-      "inherent_gender": "feminine"
+      "inherent_gender": "feminine",
+      "category": "Agriculture and Vegetation"
     },
     {
       "english": "skin",
@@ -1345,7 +1500,8 @@
       "etymology": "",
       "validated": true,
       "notes": "ƨ (ts) affricate + œ (oi) diphthong; body family",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "flesh",
@@ -1360,7 +1516,8 @@
       "etymology": "",
       "validated": true,
       "notes": "w glide + ō (long o); body family",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "The Body"
     },
     {
       "english": "blood",
@@ -1375,11 +1532,12 @@
       "etymology": "",
       "validated": true,
       "notes": "y glide + ū (long u); body family",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "The Body"
     },
     {
       "english": "bone",
-      "nyrakai": "ŧōn",
+      "nyrakai": "kol",
       "pronunciation": "troon",
       "ipa": "/troːn/",
       "structure": "CVC",
@@ -1389,23 +1547,27 @@
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "ŧ (tr) affricate + ō (long o); body family",
-      "inherent_gender": "flexible"
+      "notes": "ŧ (tr) affricate + ō (long o); body family [Replaced ŧōn to avoid English similarity]",
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "oil/grease",
-      "nyrakai": "sǣl",
-      "pronunciation": "saail",
-      "ipa": "/saːil/",
+      "nyrakai": "nǣl",
+      "pronunciation": "naail",
+      "ipa": "/naːil/",
       "structure": "CVC",
-      "syllables": "sǣl (CVC)",
+      "syllables": [
+        "nǣl"
+      ],
       "syllable_count": 1,
       "pos": "noun",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "s + ǣ (long āi diphthong)",
-      "inherent_gender": "flexible"
+      "notes": "[Changed from sǣl for onset alignment] s + ǣ (long āi diphthong)",
+      "inherent_gender": "flexible",
+      "category": "Food and Drink"
     },
     {
       "english": "egg",
@@ -1420,7 +1582,8 @@
       "etymology": "",
       "validated": true,
       "notes": "f + ɒ̄ (long āu diphthong)",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "horn",
@@ -1435,7 +1598,8 @@
       "etymology": "",
       "validated": true,
       "notes": "f + ɛ̄ (long ēi diphthong)",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "tail",
@@ -1450,7 +1614,8 @@
       "etymology": "",
       "validated": true,
       "notes": "w glide + ǣ (long āi diphthong)",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "feather",
@@ -1465,7 +1630,8 @@
       "etymology": "",
       "validated": true,
       "notes": "s + œ̄ (long ōi diphthong)",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "hair",
@@ -1480,7 +1646,8 @@
       "etymology": "",
       "validated": true,
       "notes": "y glide + ə̄ (long ēu diphthong)",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "head",
@@ -1495,7 +1662,8 @@
       "etymology": "",
       "validated": true,
       "notes": "š (ch) + œ̄ (long ōi diphthong)",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "ear",
@@ -1510,7 +1678,8 @@
       "syllables": "sɛ̄l (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "eye",
@@ -1525,7 +1694,8 @@
       "syllables": "yīr (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "nose",
@@ -1540,7 +1710,8 @@
       "syllables": "nɒ̄k (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "mouth",
@@ -1555,7 +1726,8 @@
       "syllables": "mɒ̄l (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "tooth",
@@ -1570,22 +1742,26 @@
       "syllables": "ŧɒ̄k (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "claw",
-      "nyrakai": "ƶǣk",
-      "pronunciation": "dzaaik",
-      "ipa": "/dzaːik/",
+      "nyrakai": "mɛ̄l",
+      "pronunciation": "meeil",
+      "ipa": "/meːil/",
       "structure": "CVC",
       "pos": "noun",
       "is_root": true,
       "validated": true,
-      "notes": "ƶ (dz) + ǣ (long āi)",
-      "syllables": "ƶǣk (CVC)",
+      "notes": "[Changed from ƶǣk for onset alignment] ƶ (dz) + ǣ (long āi)",
+      "syllables": [
+        "mɛ̄l"
+      ],
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "foot",
@@ -1600,7 +1776,8 @@
       "syllables": "fə̄n (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "knee",
@@ -1615,52 +1792,58 @@
       "syllables": "nɛ̄l (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "hand",
-      "nyrakai": "hǣn",
+      "nyrakai": "mɒ'e",
       "pronunciation": "haain",
       "ipa": "/haːin/",
       "structure": "CVC",
       "pos": "noun",
       "is_root": true,
       "validated": true,
-      "notes": "h + ǣ (long āi)",
+      "notes": "h + ǣ (long āi) [Replaced hǣn to avoid English similarity]",
       "syllables": "hǣn (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "belly",
-      "nyrakai": "pɛ̄l",
-      "pronunciation": "peeil",
-      "ipa": "/peːil/",
+      "nyrakai": "mæl",
+      "pronunciation": "mail",
+      "ipa": "/mail/",
       "structure": "CVC",
       "pos": "noun",
       "is_root": true,
       "validated": true,
-      "notes": "p + ɛ̄ (long ēi)",
-      "syllables": "pɛ̄l (CVC)",
+      "notes": "[Changed from pɛ̄l for onset alignment] p + ɛ̄ (long ēi)",
+      "syllables": [
+        "mæl"
+      ],
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "neck",
-      "nyrakai": "nœ̄k",
+      "nyrakai": "m'ēl",
       "pronunciation": "nooik",
       "ipa": "/noːik/",
       "structure": "CVC",
       "pos": "noun",
       "is_root": true,
       "validated": true,
-      "notes": "n + œ̄ (long ōi)",
+      "notes": "n + œ̄ (long ōi) [Replaced nœ̄k to avoid English similarity]",
       "syllables": "nœ̄k (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "breast",
@@ -1675,7 +1858,8 @@
       "syllables": "ƨɛ̄n (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "heart",
@@ -1690,7 +1874,8 @@
       "syllables": "hɒ̄r (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "liver",
@@ -1705,22 +1890,26 @@
       "syllables": "lɛ̄r (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "The Body"
     },
     {
       "english": "drink",
-      "nyrakai": "țūn",
-      "pronunciation": "thoon",
-      "ipa": "/θuːn/",
+      "nyrakai": "nōl",
+      "pronunciation": "nohl",
+      "ipa": "/noːl/",
       "structure": "CVC",
       "pos": "verb",
       "is_root": true,
       "validated": true,
-      "notes": "ț (th) + ū (long u); underused sounds",
-      "syllables": "țūn (CVC)",
+      "notes": "[Changed from țūn for onset alignment] ț (th) + ū (long u); underused sounds",
+      "syllables": [
+        "nōl"
+      ],
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Food and Drink"
     },
     {
       "english": "eat",
@@ -1735,7 +1924,8 @@
       "syllables": "t^ɛm (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Food and Drink"
     },
     {
       "english": "bite",
@@ -1750,7 +1940,8 @@
       "syllables": "dœ̄k (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology"
     },
     {
       "english": "see",
@@ -1765,22 +1956,26 @@
       "syllables": "yɛn (CVC)",
       "syllable_count": 1,
       "etymology": "",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Sense Perception"
     },
     {
       "english": "he/she/it",
-      "nyrakai": "šā",
-      "pronunciation": "chaa",
-      "ipa": "/tʃaː/",
+      "nyrakai": "zī",
+      "pronunciation": "zee",
+      "ipa": "/ziː/",
       "structure": "CV",
-      "syllables": "šā (CV)",
+      "syllables": [
+        "zī"
+      ],
       "syllable_count": 1,
       "pos": "pron",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "š + ā (long a); 3rd person singular, gender neutral",
-      "inherent_gender": null
+      "notes": "[Changed from šā for onset alignment] š + ā (long a); 3rd person singular, gender neutral",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "we",
@@ -1795,7 +1990,13 @@
       "etymology": "fā (I) + -ri (masculine plural)",
       "validated": true,
       "notes": "fāri (masc/mixed) / fārā (fem)",
-      "inherent_gender": "mixed"
+      "inherent_gender": "mixed",
+      "category": "Social and Political Relations",
+      "derived_from": {
+        "root": "fā",
+        "affix": "rā",
+        "type": "suffix"
+      }
     },
     {
       "english": "you all",
@@ -1810,7 +2011,13 @@
       "etymology": "gæ (you) + -ri (masculine plural)",
       "validated": true,
       "notes": "gæri (masc/mixed) / gærā (fem)",
-      "inherent_gender": "mixed"
+      "inherent_gender": "mixed",
+      "category": "Question Words",
+      "derived_from": {
+        "root": "gæ",
+        "affix": "rā",
+        "type": "suffix"
+      }
     },
     {
       "english": "they",
@@ -1825,22 +2032,31 @@
       "etymology": "šā (he/she/it) + -ri (masculine plural)",
       "validated": true,
       "notes": "šāri (masc/mixed) / šārā (fem)",
-      "inherent_gender": "mixed"
+      "inherent_gender": "mixed",
+      "category": "Social and Political Relations",
+      "derived_from": {
+        "root": "šā",
+        "affix": "rā",
+        "type": "suffix"
+      }
     },
     {
       "english": "question marker",
-      "nyrakai": "ka",
-      "pronunciation": "ka",
-      "ipa": "/ka/",
+      "nyrakai": "zū",
+      "pronunciation": "zoo",
+      "ipa": "/zuː/",
       "structure": "CV",
-      "syllables": "ka (CV)",
+      "syllables": [
+        "zū"
+      ],
       "syllable_count": 1,
       "pos": "particle",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "sentence-final question marker; stands alone, does not attach to words",
-      "inherent_gender": null
+      "notes": "[Changed from ka for onset alignment] sentence-final question marker; stands alone, does not attach to words",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "river",
@@ -1855,7 +2071,8 @@
       "etymology": "Tamil ஆறு (āṟu) → alienized",
       "validated": true,
       "inherent_gender": "feminine",
-      "notes": "n- for water domain; river"
+      "notes": "n- for water domain; river",
+      "category": "The Physical World"
     },
     {
       "english": "village",
@@ -1870,7 +2087,8 @@
       "etymology": "Tamil ஊர் (ūr) → alienized",
       "validated": true,
       "inherent_gender": "masculine",
-      "notes": "pl- for community/village"
+      "notes": "pl- for community/village",
+      "category": "Social and Political Relations"
     },
     {
       "english": "voice",
@@ -1884,21 +2102,26 @@
       "is_root": true,
       "etymology": "Tamil குரல் (kural) → alienized",
       "validated": true,
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Speech and Language"
     },
     {
       "english": "dream",
-      "nyrakai": "k^æn'œ",
-      "pronunciation": "kain-uh-oi",
-      "ipa": "/k'ainəʔoi/",
-      "structure": "CV.C'V",
-      "syllables": "k^æ.n'œ",
+      "nyrakai": "šæn",
+      "pronunciation": "chain",
+      "ipa": "/tʃain/",
+      "structure": "CVC",
+      "syllables": [
+        "šæn"
+      ],
       "syllable_count": 2,
       "pos": "noun",
       "is_root": true,
       "etymology": "Tamil கனவு (kaṉavu) → alienized",
       "validated": true,
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "Cognition",
+      "notes": "[Changed from k^æn'œ for onset alignment]"
     },
     {
       "english": "fear",
@@ -1912,7 +2135,8 @@
       "is_root": true,
       "etymology": "Tamil பயம் (payam) → alienized",
       "validated": true,
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Emotions and Values"
     },
     {
       "english": "soul",
@@ -1926,7 +2150,8 @@
       "is_root": true,
       "etymology": "Sanskrit आत्मा (ātmā) → alienized",
       "validated": true,
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "Religion and Belief"
     },
     {
       "english": "fate",
@@ -1940,7 +2165,8 @@
       "is_root": true,
       "etymology": "Sanskrit भाग्य (bhāgya) → alienized",
       "validated": true,
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "Religion and Belief"
     },
     {
       "english": "wisdom",
@@ -1954,21 +2180,26 @@
       "is_root": true,
       "etymology": "Sanskrit ज्ञान (jñāna) → alienized",
       "validated": true,
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "Emotions and Values"
     },
     {
       "english": "divine",
-      "nyrakai": "țīf'æ",
-      "pronunciation": "theef-uh-ai",
-      "ipa": "/θiːfəʔai/",
-      "structure": "CV.C'V",
-      "syllables": "țī.f'æ",
+      "nyrakai": "ræm",
+      "pronunciation": "raim",
+      "ipa": "/raim/",
+      "structure": "CVC",
+      "syllables": [
+        "ræm"
+      ],
       "syllable_count": 2,
       "pos": "adj",
       "is_root": true,
       "etymology": "Sanskrit दिव्य (divya) → alienized",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Religion and Belief",
+      "notes": "[Changed from țīf'æ for onset alignment]"
     },
     {
       "english": "thunder",
@@ -1982,21 +2213,26 @@
       "is_root": true,
       "etymology": "Onomatopoeia - thunder rumble",
       "validated": true,
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "The Physical World"
     },
     {
       "english": "splash",
-      "nyrakai": "pl'æš",
-      "pronunciation": "pl-uh-aish",
-      "ipa": "/pləʔaiʃ/",
-      "structure": "CC'VC",
-      "syllables": "pl'æš",
+      "nyrakai": "næl",
+      "pronunciation": "nail",
+      "ipa": "/nail/",
+      "structure": "CVC",
+      "syllables": [
+        "næl"
+      ],
       "syllable_count": 1,
       "pos": "noun",
       "is_root": true,
       "etymology": "Onomatopoeia - water splash",
       "validated": true,
-      "inherent_gender": "feminine"
+      "inherent_gender": "feminine",
+      "category": "The Physical World",
+      "notes": "[Changed from pl'æš for onset alignment]"
     },
     {
       "english": "crackle",
@@ -2010,25 +2246,30 @@
       "is_root": true,
       "etymology": "Onomatopoeia - fire crackle",
       "validated": true,
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "The Physical World"
     },
     {
       "english": "whisper",
-      "nyrakai": "ț'ūs",
-      "pronunciation": "th-uh-oos",
-      "ipa": "/θəʔuːs/",
-      "structure": "C'VC",
-      "syllables": "ț'ūs",
+      "nyrakai": "k^īr",
+      "pronunciation": "k'eer",
+      "ipa": "/kʼiːr/",
+      "structure": "CVC",
+      "syllables": [
+        "k^īr"
+      ],
       "syllable_count": 1,
       "pos": "noun",
       "is_root": true,
       "etymology": "Onomatopoeia - soft whisper",
       "validated": true,
-      "inherent_gender": "feminine"
+      "inherent_gender": "feminine",
+      "category": "Speech and Language",
+      "notes": "[Changed from ț'ūs for onset alignment]"
     },
     {
       "english": "growl",
-      "nyrakai": "gr'ōl",
+      "nyrakai": "ƶūr",
       "pronunciation": "gr-uh-ohl",
       "ipa": "/grəʔoːl/",
       "structure": "CC'VC",
@@ -2038,7 +2279,9 @@
       "is_root": true,
       "etymology": "Onomatopoeia - animal growl",
       "validated": true,
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "Animals",
+      "notes": " [Replaced gr'ōl to avoid English similarity]"
     },
     {
       "english": "like/love",
@@ -2053,22 +2296,26 @@
       "etymology": "",
       "validated": true,
       "notes": "t'- onset with glottal; to like, to love, to be fond of",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Emotions and Values"
     },
     {
       "english": "yes",
-      "nyrakai": "n'æk",
-      "pronunciation": "nuh-aik",
-      "ipa": "/nəʔaik/",
+      "nyrakai": "zōl",
+      "pronunciation": "zohl",
+      "ipa": "/zoːl/",
       "structure": "CVC",
-      "syllables": "n'æk (CVC)",
+      "syllables": [
+        "zōl"
+      ],
       "syllable_count": 1,
       "pos": "particle",
       "is_root": true,
       "etymology": "Related to n'æ (true)",
       "validated": true,
-      "notes": "n'- truth domain; affirmation particle",
-      "inherent_gender": null
+      "notes": "[Changed from n'æk for onset alignment] n'- truth domain; affirmation particle",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "no",
@@ -2083,22 +2330,26 @@
       "etymology": "Related to zæ (not)",
       "validated": true,
       "notes": "z- negation domain; rejection particle (different from zæ 'not')",
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "or",
-      "nyrakai": "wɒ",
-      "pronunciation": "wau",
-      "ipa": "/wau/",
-      "structure": "CV",
-      "syllables": "wɒ (CV)",
+      "nyrakai": "zæn",
+      "pronunciation": "zain",
+      "ipa": "/zain/",
+      "structure": "CVC",
+      "syllables": [
+        "zæn"
+      ],
       "syllable_count": 1,
       "pos": "conj",
       "is_root": true,
       "etymology": "",
       "validated": true,
-      "notes": "w- connective; disjunctive conjunction",
-      "inherent_gender": null
+      "notes": "[Changed from wɒ for onset alignment] w- connective; disjunctive conjunction",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "Nyrakai",
@@ -2113,7 +2364,13 @@
       "etymology": "n'æra (truth) + kæ (tongue) = tongue of truth",
       "validated": true,
       "notes": "The sacred language of the Ŧɒñœrek; compound: truth-tongue",
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "Speech and Language",
+      "derived_from": {
+        "root": "n'æra",
+        "affix": "kæ",
+        "type": "suffix"
+      }
     },
     {
       "english": "deer",
@@ -2128,7 +2385,8 @@
       "etymology": "",
       "validated": true,
       "notes": "gw- mammal domain; ƨ (ts) affricate ending; flexible gender",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Animals"
     },
     {
       "english": "man",
@@ -2143,7 +2401,13 @@
       "etymology": "țræn (person) + -æn (masculine suffix)",
       "validated": true,
       "inherent_gender": "masculine",
-      "notes": "Derived from person"
+      "notes": "Derived from person",
+      "category": "Social and Political Relations",
+      "derived_from": {
+        "root": "țræn",
+        "affix": "æn",
+        "type": "suffix"
+      }
     },
     {
       "english": "woman",
@@ -2158,7 +2422,13 @@
       "etymology": "țræn (person) + -a- (bridge) + -ñī (feminine suffix)",
       "validated": true,
       "inherent_gender": "feminine",
-      "notes": "Derived from person"
+      "notes": "Derived from person",
+      "category": "Social and Political Relations",
+      "derived_from": {
+        "root": "țræn",
+        "affix": "añī",
+        "type": "suffix"
+      }
     },
     {
       "english": "leaf",
@@ -2173,52 +2443,62 @@
       "etymology": "g- tree family onset",
       "validated": true,
       "inherent_gender": "feminine",
-      "notes": "Part of tree family: gān (tree), gīn (seed), gɒr (bark), gūr (root), gēl (leaf)"
+      "notes": "Part of tree family: gān (tree), gīn (seed), gɒr (bark), gūr (root), gēl (leaf)",
+      "category": "Agriculture and Vegetation"
     },
     {
       "english": "full",
-      "nyrakai": "plōm",
-      "pronunciation": "plohm",
-      "ipa": "/ploːm/",
-      "structure": "CCVC",
-      "syllables": "plōm (CCVC)",
+      "nyrakai": "ñœs",
+      "pronunciation": "ngois",
+      "ipa": "/ŋois/",
+      "structure": "CVC",
+      "syllables": [
+        "ñœs"
+      ],
       "syllable_count": 1,
       "pos": "adj",
       "is_root": true,
       "etymology": "pl- abundance/community domain",
       "validated": true,
       "inherent_gender": null,
-      "notes": "pl- onset suggests fullness, community gathering"
+      "notes": "[Changed from plōm for onset alignment] pl- onset suggests fullness, community gathering",
+      "category": "Quantity"
     },
     {
       "english": "father",
-      "nyrakai": "t^āru",
-      "pronunciation": "TAH-roo",
-      "ipa": "/t^aːru/",
-      "structure": "CVCCV",
-      "syllables": "t^ā-ru",
+      "nyrakai": "țē",
+      "pronunciation": "thee",
+      "ipa": "/θeː/",
+      "structure": "CV",
+      "syllables": [
+        "țē"
+      ],
       "syllable_count": 2,
       "pos": "noun",
       "is_root": true,
       "etymology": "t^- ejective onset",
       "validated": true,
       "inherent_gender": "masculine",
-      "notes": "Kinship term, uses underused t^ ejective"
+      "notes": "[Changed from t^āru for onset alignment] Kinship term, uses underused t^ ejective",
+      "category": "Kinship"
     },
     {
       "english": "mother",
-      "nyrakai": "māt^ū",
-      "pronunciation": "MAH-too",
-      "ipa": "/maːt^uː/",
-      "structure": "CVCCV",
-      "syllables": "mā-t^ū",
+      "nyrakai": "țō",
+      "pronunciation": "thoh",
+      "ipa": "/θoː/",
+      "structure": "CV",
+      "syllables": [
+        "țō"
+      ],
       "syllable_count": 2,
       "pos": "noun",
       "is_root": true,
       "etymology": "m- body domain + t^- ejective",
       "validated": true,
       "inherent_gender": "feminine",
-      "notes": "Kinship term, uses underused t^ and ū"
+      "notes": "[Changed from māt^ū for onset alignment] Kinship term, uses underused t^ and ū",
+      "category": "Kinship"
     },
     {
       "english": "day",
@@ -2233,7 +2513,8 @@
       "etymology": "h- celestial domain (sun-related)",
       "validated": true,
       "inherent_gender": "sacred",
-      "notes": "Time/celestial concept, h- matches sun family"
+      "notes": "Time/celestial concept, h- matches sun family",
+      "category": "Time"
     },
     {
       "english": "animal",
@@ -2248,7 +2529,8 @@
       "etymology": "gw- mammal domain",
       "validated": true,
       "inherent_gender": "flexible",
-      "notes": "Generic animal term, gw- onset for mammals"
+      "notes": "Generic animal term, gw- onset for mammals",
+      "category": "Animals"
     },
     {
       "english": "flower",
@@ -2263,7 +2545,13 @@
       "etymology": "gēl (leaf) + -ra (nominalizer)",
       "validated": true,
       "inherent_gender": "feminine",
-      "notes": "Plant family, derived from leaf"
+      "notes": "Plant family, derived from leaf",
+      "category": "Agriculture and Vegetation",
+      "derived_from": {
+        "root": "gēl",
+        "affix": "ra",
+        "type": "suffix"
+      }
     },
     {
       "english": "law",
@@ -2278,7 +2566,8 @@
       "etymology": "š- cognition domain (binding thought/rule)",
       "validated": true,
       "inherent_gender": "sacred",
-      "notes": "social domain; distinct from šōr (know)"
+      "notes": "social domain; distinct from šōr (know)",
+      "category": "Law"
     },
     {
       "english": "judge",
@@ -2293,7 +2582,13 @@
       "etymology": "šōr (law) + -ƨu (agentive suffix)",
       "validated": true,
       "inherent_gender": "flexible",
-      "notes": "One who does law, derived from šōr"
+      "notes": "One who does law, derived from šōr",
+      "category": "Law",
+      "derived_from": {
+        "root": "šōr",
+        "affix": "ƨu",
+        "type": "suffix"
+      }
     },
     {
       "english": "guilty",
@@ -2308,7 +2603,13 @@
       "etymology": "n'- truth domain + dem (bad)",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Truth-bad = guilty, compound word"
+      "notes": "Truth-bad = guilty, compound word",
+      "category": "Law",
+      "derived_from": {
+        "root": "n'æ",
+        "affix": "dem",
+        "type": "compound"
+      }
     },
     {
       "english": "innocent",
@@ -2323,7 +2624,13 @@
       "etymology": "n'- truth domain + sem (good)",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Truth-good = innocent, compound word"
+      "notes": "Truth-good = innocent, compound word",
+      "category": "Law",
+      "derived_from": {
+        "root": "n'æ",
+        "affix": "sem",
+        "type": "compound"
+      }
     },
     {
       "english": "justice",
@@ -2338,7 +2645,13 @@
       "etymology": "n'ær (truth root) + -țal (resultative suffix)",
       "validated": true,
       "inherent_gender": "sacred",
-      "notes": "Result of truth = justice, derived word"
+      "notes": "Result of truth = justice, derived word",
+      "category": "Law",
+      "derived_from": {
+        "root": "n'æra",
+        "affix": "țal",
+        "type": "suffix"
+      }
     },
     {
       "english": "born",
@@ -2353,7 +2666,13 @@
       "etymology": "hræ (day) + -k^e (diminutive) = coming into light",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Birth as \"little day\" / first light"
+      "notes": "Birth as \"little day\" / first light",
+      "category": "Basic Actions and Technology",
+      "derived_from": {
+        "root": "hræ",
+        "affix": "k^e",
+        "type": "suffix"
+      }
     },
     {
       "english": "free",
@@ -2368,7 +2687,13 @@
       "etymology": "za- (negation) + šōr (law) = without bounds",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Freedom as absence of binding laws"
+      "notes": "Freedom as absence of binding laws",
+      "category": "Emotions and Values",
+      "derived_from": {
+        "root": "šōr",
+        "affix": "za",
+        "type": "prefix"
+      }
     },
     {
       "english": "and",
@@ -2383,7 +2708,8 @@
       "etymology": "Uses underused ə (eu) diphthong",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Conjunction for connecting words/phrases"
+      "notes": "Conjunction for connecting words/phrases",
+      "category": "Question Words"
     },
     {
       "english": "equal",
@@ -2398,7 +2724,8 @@
       "etymology": "tr- two/pair domain (balanced)",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Equality as balance between two"
+      "notes": "Equality as balance between two",
+      "category": "Quantity"
     },
     {
       "english": "dignity",
@@ -2413,7 +2740,13 @@
       "etymology": "n'ær (truth root) + -ñor (augmentative) = great truth of self",
       "validated": true,
       "inherent_gender": "sacred",
-      "notes": "Dignity as inner truth magnified"
+      "notes": "Dignity as inner truth magnified",
+      "category": "Emotions and Values",
+      "derived_from": {
+        "root": "n'æra",
+        "affix": "ñor",
+        "type": "suffix"
+      }
     },
     {
       "english": "right",
@@ -2428,7 +2761,13 @@
       "etymology": "šōr (law) + -æn (noun suffix) = legal entitlement",
       "validated": true,
       "inherent_gender": "sacred",
-      "notes": "Rights derived from law"
+      "notes": "Rights derived from law",
+      "category": "Spatial Relations",
+      "derived_from": {
+        "root": "šōr",
+        "affix": "æn",
+        "type": "suffix"
+      }
     },
     {
       "english": "hit",
@@ -2441,7 +2780,8 @@
       "pos": "verb",
       "is_root": true,
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Motion"
     },
     {
       "english": "time",
@@ -2454,7 +2794,8 @@
       "pos": "noun",
       "is_root": true,
       "validated": true,
-      "inherent_gender": "sacred"
+      "inherent_gender": "sacred",
+      "category": "Time"
     },
     {
       "english": "every",
@@ -2467,7 +2808,8 @@
       "pos": "det",
       "is_root": true,
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Quantity"
     },
     {
       "english": "shot",
@@ -2481,7 +2823,13 @@
       "is_root": false,
       "etymology": "țurok (hit) + -țal (resultative)",
       "validated": true,
-      "inherent_gender": "masculine"
+      "inherent_gender": "masculine",
+      "category": "Warfare and Hunting",
+      "derived_from": {
+        "root": "țurok",
+        "affix": "țal",
+        "type": "suffix"
+      }
     },
     {
       "english": "sometimes",
@@ -2495,7 +2843,13 @@
       "is_root": false,
       "etymology": "ț'œmen (time) + -k^e (diminutive)",
       "validated": true,
-      "inherent_gender": null
+      "inherent_gender": null,
+      "category": "Time",
+      "derived_from": {
+        "root": "ț'œmen",
+        "affix": "k^e",
+        "type": "suffix"
+      }
     },
     {
       "english": "arm",
@@ -2510,127 +2864,150 @@
       "etymology": "",
       "validated": true,
       "inherent_gender": "flexible",
-      "notes": "Body part - upper limb"
+      "notes": "Body part - upper limb",
+      "category": "The Body"
     },
     {
       "english": "leg",
-      "nyrakai": "p^œ",
-      "pronunciation": "poi",
-      "ipa": "/pʼœ/",
-      "structure": "CV",
-      "syllables": "p^œ (CV)",
+      "nyrakai": "mīl",
+      "pronunciation": "meel",
+      "ipa": "/miːl/",
+      "structure": "CVC",
+      "syllables": [
+        "mīl"
+      ],
       "syllable_count": 1,
       "pos": "noun",
       "is_root": true,
       "etymology": "",
       "validated": true,
       "inherent_gender": "flexible",
-      "notes": "Body part - lower limb; ejective p^"
+      "notes": "[Changed from p^œ for onset alignment] Body part - lower limb; ejective p^",
+      "category": "The Body"
     },
     {
       "english": "face",
-      "nyrakai": "mūr",
+      "nyrakai": "mæs",
       "pronunciation": "moor",
       "ipa": "/muːr/",
       "structure": "CVC",
-      "syllables": "mūr (CVC)",
+      "syllables": "mæs (CVC)",
       "syllable_count": 1,
       "pos": "noun",
       "is_root": true,
       "etymology": "",
       "validated": true,
       "inherent_gender": "flexible",
-      "notes": "Body part - that which sees"
+      "notes": "Body part - m- onset for body domain. Replaced mūr (too similar to mur)",
+      "category": "The Body"
     },
     {
       "english": "finger",
-      "nyrakai": "k^ɛl",
-      "pronunciation": "keil",
-      "ipa": "/kʼɛl/",
+      "nyrakai": "mǣk",
+      "pronunciation": "maaik",
+      "ipa": "/maːik/",
       "structure": "CVC",
-      "syllables": "k^ɛl (CVC)",
+      "syllables": [
+        "mǣk"
+      ],
       "syllable_count": 1,
       "pos": "noun",
       "is_root": true,
       "etymology": "",
       "validated": true,
       "inherent_gender": "flexible",
-      "notes": "Body part - digit; ejective k^"
+      "notes": "[Changed from k^ɛl for onset alignment] Body part - digit; ejective k^",
+      "category": "The Body"
     },
     {
       "english": "morning",
-      "nyrakai": "sōr'æ",
-      "pronunciation": "sohr-uh-ai",
-      "ipa": "/soːrəʔai/",
-      "structure": "CVCCV",
-      "syllables": "sōr-'æ (CVC-CV)",
+      "nyrakai": "hōț",
+      "pronunciation": "hohth",
+      "ipa": "/hoːθ/",
+      "structure": "CVC",
+      "syllables": [
+        "hōț"
+      ],
       "syllable_count": 2,
       "pos": "noun",
       "is_root": true,
       "etymology": "light-birth",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Time word - dawn, first light"
+      "notes": "[Changed from sōr'æ for onset alignment] Time word - dawn, first light",
+      "category": "Time"
     },
     {
       "english": "evening",
-      "nyrakai": "sān'æ",
-      "pronunciation": "saan-uh-ai",
-      "ipa": "/saːnəʔai/",
-      "structure": "CVCCV",
-      "syllables": "sān-'æ (CVC-CV)",
+      "nyrakai": "hæț",
+      "pronunciation": "haith",
+      "ipa": "/haiθ/",
+      "structure": "CVC",
+      "syllables": [
+        "hæț"
+      ],
       "syllable_count": 2,
       "pos": "noun",
       "is_root": true,
       "etymology": "Tamil சாயம் (sāyam)",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Time word - dusk, when light fades"
+      "notes": "[Changed from sān'æ for onset alignment] Time word - dusk, when light fades",
+      "category": "Time"
     },
     {
       "english": "year",
-      "nyrakai": "k^ā'rɛ",
-      "pronunciation": "kaa-uh-rei",
-      "ipa": "/kʼaːəʔrɛ/",
-      "structure": "CVCCV",
-      "syllables": "k^ā-'rɛ (CV-CV)",
+      "nyrakai": "hūț",
+      "pronunciation": "hooth",
+      "ipa": "/huːθ/",
+      "structure": "CVC",
+      "syllables": [
+        "hūț"
+      ],
       "syllable_count": 2,
       "pos": "noun",
       "is_root": true,
       "etymology": "circular time",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Time word - annual cycle"
+      "notes": "[Changed from k^ā'rɛ for onset alignment] Time word - annual cycle",
+      "category": "Time"
     },
     {
       "english": "month",
-      "nyrakai": "mās'æ",
-      "pronunciation": "maas-uh-ai",
-      "ipa": "/maːsəʔai/",
-      "structure": "CVCCV",
-      "syllables": "mās-'æ (CVC-CV)",
+      "nyrakai": "hōm",
+      "pronunciation": "hohm",
+      "ipa": "/hoːm/",
+      "structure": "CVC",
+      "syllables": [
+        "hōm"
+      ],
       "syllable_count": 2,
       "pos": "noun",
       "is_root": true,
       "etymology": "Tamil மாசம் (māsam)",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Time word - lunar cycle"
+      "notes": "[Changed from mās'æ for onset alignment] Time word - lunar cycle",
+      "category": "Time"
     },
     {
       "english": "week",
-      "nyrakai": "t^'œ",
-      "pronunciation": "t-uh-oi",
-      "ipa": "/tʼəʔœ/",
-      "structure": "CCV",
-      "syllables": "t^'œ (CV)",
+      "nyrakai": "hēr",
+      "pronunciation": "heer",
+      "ipa": "/heːr/",
+      "structure": "CVC",
+      "syllables": [
+        "hēr"
+      ],
       "syllable_count": 1,
       "pos": "noun",
       "is_root": true,
       "etymology": "",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Time word - seven-day cycle"
+      "notes": "[Changed from țūm for onset alignment] Time word - seven-day cycle. Updated from t^'œ (violated ^' rule)",
+      "category": "Time"
     },
     {
       "english": "now",
@@ -2645,7 +3022,8 @@
       "etymology": "",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Time word - present moment"
+      "notes": "Time word - present moment",
+      "category": "Time"
     },
     {
       "english": "today",
@@ -2660,37 +3038,44 @@
       "etymology": "Tamil இன்று (iṉṟu)",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Time word - this day"
+      "notes": "Time word - this day",
+      "category": "Time"
     },
     {
       "english": "tomorrow",
-      "nyrakai": "kærū",
-      "pronunciation": "kai-roo",
-      "ipa": "/kairūː/",
-      "structure": "CVCV",
-      "syllables": "kæ-rū (CV-CV)",
+      "nyrakai": "hæl",
+      "pronunciation": "hail",
+      "ipa": "/hail/",
+      "structure": "CVC",
+      "syllables": [
+        "hæl"
+      ],
       "syllable_count": 2,
       "pos": "adv",
       "is_root": true,
       "etymology": "Polynesian-inspired",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Time word - next day"
+      "notes": "[Changed from kærū for onset alignment] Time word - next day",
+      "category": "Time"
     },
     {
       "english": "yesterday",
-      "nyrakai": "t^æm",
-      "pronunciation": "taim",
-      "ipa": "/tʼaim/",
+      "nyrakai": "hīk",
+      "pronunciation": "heek",
+      "ipa": "/hiːk/",
       "structure": "CVC",
-      "syllables": "t^æm (CVC)",
+      "syllables": [
+        "hīk"
+      ],
       "syllable_count": 1,
       "pos": "adv",
       "is_root": true,
       "etymology": "",
       "validated": true,
       "inherent_gender": null,
-      "notes": "Time word - previous day"
+      "notes": "[Changed from t^æm for onset alignment] Time word - previous day",
+      "category": "Time"
     },
     {
       "english": "citizen",
@@ -2705,7 +3090,8 @@
       "etymology": "one of the people, belonging to the community",
       "validated": true,
       "notes": "social domain; ț = th",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "subject",
@@ -2720,7 +3106,8 @@
       "etymology": "one under rule, foundation of the realm",
       "validated": true,
       "notes": "social domain; citizen under governance",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "servant",
@@ -2735,22 +3122,26 @@
       "etymology": "from Tamil தொழிலாளர் (worker), one bound to service",
       "validated": true,
       "notes": "glottal marker indicates bound duty",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "slave",
-      "nyrakai": "ad'æ",
-      "pronunciation": "adai",
-      "ipa": "/adʔai/",
-      "structure": "V.CV",
-      "syllables": "a-d'æ",
+      "nyrakai": "țū",
+      "pronunciation": "thoo",
+      "ipa": "/θuː/",
+      "structure": "CV",
+      "syllables": [
+        "țū"
+      ],
       "syllable_count": 2,
       "pos": "noun",
       "is_root": true,
       "etymology": "from Tamil அடிமை (aṭimai), glottal break emphasizes subjugation",
       "validated": true,
-      "notes": "spatial domain; the glottal stop marks loss of autonomy",
-      "inherent_gender": "flexible"
+      "notes": "[Changed from ad'æ for onset alignment] spatial domain; the glottal stop marks loss of autonomy",
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "stranger",
@@ -2765,37 +3156,44 @@
       "etymology": "one who walks beyond, outsider",
       "validated": true,
       "notes": "social domain; schwa marker creates distance",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "neighbor",
-      "nyrakai": "ƨom",
-      "pronunciation": "tsom",
-      "ipa": "/t͡som/",
+      "nyrakai": "țīn",
+      "pronunciation": "theen",
+      "ipa": "/θiːn/",
       "structure": "CVC",
-      "syllables": "ƨom (CVC)",
+      "syllables": [
+        "țīn"
+      ],
       "syllable_count": 1,
       "pos": "noun",
       "is_root": true,
       "etymology": "near-dweller, one who lives close",
       "validated": true,
-      "notes": "nature domain; ƨ = ts affricate",
-      "inherent_gender": "flexible"
+      "notes": "[Changed from ƨom for onset alignment] nature domain; ƨ = ts affricate",
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "friend",
-      "nyrakai": "ƨāro",
-      "pronunciation": "tsaaro",
-      "ipa": "/t͡saːro/",
-      "structure": "CV.CV",
-      "syllables": "ƨā-ro",
+      "nyrakai": "țæm",
+      "pronunciation": "thaim",
+      "ipa": "/θaim/",
+      "structure": "CVC",
+      "syllables": [
+        "țæm"
+      ],
       "syllable_count": 2,
       "pos": "noun",
       "is_root": true,
       "etymology": "soul-sharer, one bound by trust",
       "validated": true,
-      "notes": "nature domain; long vowel emphasizes depth of bond",
-      "inherent_gender": "flexible"
+      "notes": "[Changed from ƨāro for onset alignment] nature domain; long vowel emphasizes depth of bond",
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "people",
@@ -2811,7 +3209,8 @@
       "validated": true,
       "notes": "derived plural form; masculine/mixed group of people",
       "inherent_gender": "masculine",
-      "derived_from": "țræn"
+      "derived_from": "țræn",
+      "category": "Social and Political Relations"
     },
     {
       "english": "enemy",
@@ -2827,82 +3226,102 @@
       "validated": true,
       "notes": "derived from negation of friend; grammar domain",
       "inherent_gender": "flexible",
-      "derived_from": "ƨāro"
+      "derived_from": {
+        "root": "ƨāro",
+        "affix": "za",
+        "type": "prefix"
+      },
+      "category": "Social and Political Relations"
     },
     {
       "english": "guest",
-      "nyrakai": "p^ægon",
-      "pronunciation": "paigon",
-      "ipa": "/p'aigon/",
-      "structure": "CV.CVC",
-      "syllables": "p^æ-gon",
+      "nyrakai": "țēl",
+      "pronunciation": "theel",
+      "ipa": "/θeːl/",
+      "structure": "CVC",
+      "syllables": [
+        "țēl"
+      ],
       "syllable_count": 2,
       "pos": "noun",
       "is_root": true,
       "etymology": "one who arrives with honor from afar",
       "validated": true,
-      "notes": "emotion domain; ejective p^ for respect",
-      "inherent_gender": "flexible"
+      "notes": "[Changed from p^ægon for onset alignment] emotion domain; ejective p^ for respect",
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "hero",
-      "nyrakai": "mor'āf",
-      "pronunciation": "mor-uh-aaf",
-      "ipa": "/morʔaːf/",
-      "structure": "CV.CVC",
-      "syllables": "mo-r'āf",
+      "nyrakai": "țūk",
+      "pronunciation": "thook",
+      "ipa": "/θuːk/",
+      "structure": "CVC",
+      "syllables": [
+        "țūk"
+      ],
       "syllable_count": 2,
       "pos": "noun",
       "is_root": true,
       "etymology": "enduring legendary status; schwa marker suggests timeless valor",
       "validated": true,
-      "notes": "grammar domain; rare z- onset",
-      "inherent_gender": "flexible"
+      "notes": "[Changed from mor'āf for onset alignment] grammar domain; rare z- onset",
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "traitor",
-      "nyrakai": "p^'īs",
-      "pronunciation": "puh-ees",
-      "ipa": "/p'ʔiːs/",
+      "nyrakai": "țæs",
+      "pronunciation": "thais",
+      "ipa": "/θais/",
       "structure": "CVC",
-      "syllables": "p^'īs",
+      "syllables": [
+        "țæs"
+      ],
       "syllable_count": 1,
       "pos": "noun",
       "is_root": true,
       "etymology": "poison-giver; ejective + schwa for sinister quality",
       "validated": true,
-      "notes": "emotion domain; underused p^- onset",
-      "inherent_gender": "flexible"
+      "notes": "[Changed from p^es for onset alignment] Emotion domain - betrayer. Updated from p^'īs (violated ^' rule)",
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "spy",
-      "nyrakai": "næz",
-      "pronunciation": "naiz",
-      "ipa": "/naiz/",
+      "nyrakai": "țīl",
+      "pronunciation": "theel",
+      "ipa": "/θiːl/",
       "structure": "CVC",
-      "syllables": "næz",
+      "syllables": [
+        "țīl"
+      ],
       "syllable_count": 1,
       "pos": "noun",
       "is_root": true,
       "etymology": "seeker; terse and memorable",
       "validated": true,
-      "notes": "nature domain; compact word for covert agent",
-      "inherent_gender": "flexible"
+      "notes": "[Changed from næz for onset alignment] nature domain; compact word for covert agent",
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "messenger",
-      "nyrakai": "ț'ɒm",
-      "pronunciation": "thuh-aum",
-      "ipa": "/θʔaum/",
+      "nyrakai": "țōn",
+      "pronunciation": "thohn",
+      "ipa": "/θoːn/",
       "structure": "CVC",
-      "syllables": "ț'ɒm",
+      "syllables": [
+        "țōn"
+      ],
       "syllable_count": 1,
       "pos": "noun",
       "is_root": true,
       "etymology": "whisper-bearer; schwa after ț for mystical pause",
       "validated": true,
-      "notes": "schwa marker creates sacred quality",
-      "inherent_gender": "flexible"
+      "notes": "[Changed from ț'ɒm for onset alignment] schwa marker creates sacred quality",
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "guide",
@@ -2917,112 +3336,140 @@
       "etymology": "classical wisdom passed down through generations",
       "validated": true,
       "notes": "social domain; long vowel for authority",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "prisoner",
-      "nyrakai": "k^æd'an",
-      "pronunciation": "kaid-uh-an",
-      "ipa": "/k'aidʔan/",
-      "structure": "CV.CVC",
-      "syllables": "k^æ-d'an",
+      "nyrakai": "țōrțal",
+      "pronunciation": "thor-thal",
+      "ipa": "/θoːr.θal/",
+      "structure": "CVC.CVC",
+      "syllables": [
+        "țōr",
+        "țal"
+      ],
       "syllable_count": 2,
       "pos": "noun",
-      "is_root": true,
-      "etymology": "bound captive; from Tamil கைதி (kaidi)",
+      "is_root": false,
+      "etymology": "țōr (law) + -țal (resultative)",
       "validated": true,
-      "notes": "speech domain; schwa marker emphasizes binding",
-      "inherent_gender": "flexible"
+      "notes": "Derived: result-of-law / one sentenced by law",
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations",
+      "derived_from": {
+        "root": "țōr",
+        "affix": "țal",
+        "type": "suffix"
+      }
     },
     {
       "english": "again",
-      "nyrakai": "yæn",
-      "pronunciation": "yan",
-      "ipa": "/jain/",
+      "nyrakai": "zēr",
+      "pronunciation": "zeer",
+      "ipa": "/zeːr/",
       "structure": "CVC",
-      "syllables": "yæn",
+      "syllables": [
+        "zēr"
+      ],
       "syllable_count": 1,
       "pos": "adverb/verb",
       "is_root": true,
       "etymology": "once more; y-glide with ai diphthong",
       "validated": true,
-      "notes": "body domain; as adverb: once more; as verb: to repeat, to do again",
-      "inherent_gender": null
+      "notes": "[Changed from yæn for onset alignment] body domain; as adverb: once more; as verb: to repeat, to do again",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "never",
-      "nyrakai": "ñɒt",
-      "pronunciation": "ngaut",
-      "ipa": "/ŋaut/",
+      "nyrakai": "zūm",
+      "pronunciation": "zoom",
+      "ipa": "/zuːm/",
       "structure": "CVC",
-      "syllables": "ñɒt",
+      "syllables": [
+        "zūm"
+      ],
       "syllable_count": 1,
       "pos": "adverb",
       "is_root": true,
       "etymology": "not-time; absolute denial with harsh final stop",
       "validated": true,
-      "notes": "quantity domain; underused ñ- onset",
-      "inherent_gender": null
+      "notes": "[Changed from ñɒt for onset alignment] quantity domain; underused ñ- onset",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "but",
-      "nyrakai": "mur",
-      "pronunciation": "mur",
-      "ipa": "/mur/",
+      "nyrakai": "zīk",
+      "pronunciation": "zeek",
+      "ipa": "/ziːk/",
       "structure": "CVC",
-      "syllables": "mur",
+      "syllables": [
+        "zīk"
+      ],
       "syllable_count": 1,
       "pos": "conjunction",
       "is_root": true,
       "etymology": "blunt opposition marker; Dothraki-style harshness",
       "validated": true,
-      "notes": "body domain; used in contrasts and debates",
-      "inherent_gender": null
+      "notes": "[Changed from mur for onset alignment] body domain; used in contrasts and debates",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "then",
-      "nyrakai": "țɒ",
-      "pronunciation": "thau",
-      "ipa": "/θau/",
-      "structure": "CV",
-      "syllables": "țɒ",
+      "nyrakai": "zæs",
+      "pronunciation": "zais",
+      "ipa": "/zais/",
+      "structure": "CVC",
+      "syllables": [
+        "zæs"
+      ],
       "syllable_count": 1,
       "pos": "adverb",
       "is_root": true,
       "etymology": "temporal flow marker; simple affricate with diphthong",
       "validated": true,
-      "notes": "social domain; sequence/time connector",
-      "inherent_gender": null
+      "notes": "[Changed from țɒ for onset alignment] social domain; sequence/time connector",
+      "inherent_gender": null,
+      "category": "Question Words"
     },
     {
       "english": "go",
-      "nyrakai": "țruk",
-      "pronunciation": "thruk",
-      "ipa": "/θruk/",
+      "nyrakai": "stæl",
+      "pronunciation": "stail",
+      "ipa": "/stail/",
       "structure": "CCVC",
-      "syllables": "țruk",
+      "syllables": [
+        "stæl"
+      ],
       "syllable_count": 1,
       "pos": "verb",
       "is_root": true,
       "etymology": "decisive departure; Dothraki-inspired harshness",
       "validated": true,
-      "notes": "social domain; țr- cluster for purposeful movement",
-      "inherent_gender": null
+      "notes": "[Changed from țruk for onset alignment] social domain; țr- cluster for purposeful movement",
+      "inherent_gender": null,
+      "category": "Motion"
     },
     {
       "english": "stay",
-      "nyrakai": "nōm",
-      "pronunciation": "nohm",
-      "ipa": "/noːm/",
-      "structure": "CVC",
-      "syllables": "nōm",
+      "nyrakai": "țāl",
+      "pronunciation": "stook",
+      "ipa": "/stuːk/",
+      "structure": "CCVC",
+      "syllables": [
+        "stūk"
+      ],
       "syllable_count": 1,
       "pos": "verb",
       "is_root": true,
       "etymology": "enduring presence; Māori-influenced",
       "validated": true,
-      "notes": "nature domain; opposite of țruk (go)",
-      "inherent_gender": null
+      "notes": "[Changed from nōm for onset alignment] nature domain; opposite of țruk (go) [Replaced stūk to avoid English similarity]",
+      "inherent_gender": null,
+      "category": "Motion"
     },
     {
       "english": "doe",
@@ -3038,7 +3485,12 @@
       "validated": true,
       "notes": "female deer; derived from gwīƨ",
       "inherent_gender": "feminine",
-      "derived_from": "gwīƨ"
+      "derived_from": {
+        "root": "gwīƨ",
+        "affix": "añī",
+        "type": "suffix"
+      },
+      "category": "Animals"
     },
     {
       "english": "human",
@@ -3053,58 +3505,1517 @@
       "etymology": "same as person; human = person",
       "validated": true,
       "notes": "shares root with person, like die/death share r'ōk",
-      "inherent_gender": "flexible"
+      "inherent_gender": "flexible",
+      "category": "Social and Political Relations"
     },
     {
       "english": "emotion",
       "nyrakai": "ul'ahæ",
       "pos": "noun",
-      "category": "Abstract",
+      "category": "Emotions and Values",
       "register": "sacred",
       "etymology": "From Tamil உள்ளம் (uḷḷam) meaning heart/mind/soul",
-      "added": "2026-01-31"
+      "added": "2026-01-31",
+      "ipa": "/uləʔahai/",
+      "pronunciation": "uluh-ahai"
     },
     {
       "english": "sorry",
-      "nyrakai": "keț'ahæ",
+      "nyrakai": "p^ōr",
       "pos": "adj",
-      "category": "Abstract",
+      "category": "Emotions and Values",
       "register": "sacred",
       "etymology": "Sacred word for remorse/apology, ejective ț marks weight",
-      "added": "2026-01-31"
+      "added": "2026-01-31",
+      "ipa": "/pʼoːr/",
+      "pronunciation": "p'ohr",
+      "structure": "CVC",
+      "syllables": [
+        "p^ōr"
+      ],
+      "validated": true,
+      "notes": "[Changed from keț'ahæ for onset alignment]"
     },
     {
       "english": "comfort",
       "nyrakai": "sæl",
       "pos": "adj",
-      "category": "Abstract",
+      "category": "Emotions and Values",
       "etymology": "Soft flowing sounds suggest ease and peace",
-      "added": "2026-01-31"
+      "added": "2026-01-31",
+      "ipa": "/sail/",
+      "pronunciation": "sail"
     },
     {
       "english": "uncomfortable",
-      "nyrakai": "zasæl",
+      "nyrakai": "p^īn",
       "pos": "adj",
-      "category": "Abstract",
+      "category": "Emotions and Values",
       "etymology": "za- (negation) + sæl (comfort)",
       "derived_from": "sæl",
-      "added": "2026-01-31"
+      "added": "2026-01-31",
+      "ipa": "/pʼiːn/",
+      "pronunciation": "p'een",
+      "structure": "CVC",
+      "syllables": [
+        "p^īn"
+      ],
+      "validated": true,
+      "notes": "[Changed from zasæl for onset alignment]"
     },
     {
       "english": "praise",
       "nyrakai": "țāl",
       "pos": "verb",
-      "category": "Social & Political",
+      "category": "Social and Political Relations",
       "etymology": "From ancient ritual chanting, ejective ț marks sacred weight",
-      "added": "2026-01-31"
+      "added": "2026-01-31",
+      "ipa": "/θaːl/",
+      "pronunciation": "thaal"
     },
     {
       "english": "damage",
-      "nyrakai": "k^eț",
+      "nyrakai": "stam",
       "pos": "noun",
-      "category": "Abstract",
+      "category": "Basic Actions and Technology",
       "etymology": "From Tamil கேடு (kēṭu) meaning ruin/damage",
-      "added": "2026-01-31"
+      "added": "2026-01-31",
+      "ipa": "/stam/",
+      "pronunciation": "stam",
+      "structure": "CCVC",
+      "syllables": [
+        "stam"
+      ],
+      "validated": true,
+      "notes": "[Changed from k^eț for onset alignment]"
+    },
+    {
+      "nyrakai": "nīm",
+      "english": "dust",
+      "pos": "noun",
+      "category": "The Physical World",
+      "syllables": [
+        "nīm"
+      ],
+      "notes": "[Changed from šūl for onset alignment] Swadesh 207 - floating particles",
+      "ipa": "/niːm/",
+      "pronunciation": "neem",
+      "structure": "CVC",
+      "validated": true
+    },
+    {
+      "nyrakai": "nef'ōm",
+      "english": "fog",
+      "pos": "noun",
+      "category": "The Physical World",
+      "syllables": "nef'ōm (CVC'VC)",
+      "notes": "Swadesh 207 - hidden water. Replaced țrōm (too similar to drōm/grōm/trōm)",
+      "ipa": "/nefəʔoːm/",
+      "pronunciation": "nefuh-ohm"
+    },
+    {
+      "nyrakai": "nūr",
+      "english": "grass",
+      "pos": "noun",
+      "category": "Agriculture and Vegetation",
+      "syllables": "nūr (CVC)",
+      "notes": "Swadesh 207 - green thread",
+      "ipa": "/nuːr/",
+      "pronunciation": "noor"
+    },
+    {
+      "nyrakai": "nūm",
+      "english": "ice",
+      "pos": "noun",
+      "category": "The Physical World",
+      "syllables": [
+        "nūm"
+      ],
+      "notes": "[Changed from k^rɒ for onset alignment] Swadesh 207 - sharp cracking",
+      "ipa": "/nuːm/",
+      "pronunciation": "noom",
+      "structure": "CVC",
+      "validated": true
+    },
+    {
+      "nyrakai": "næ'ōs",
+      "english": "lake",
+      "pos": "noun",
+      "category": "The Physical World",
+      "syllables": "næ'ōs (CV'VC)",
+      "notes": "Swadesh 207 - hidden depths",
+      "ipa": "/naiəʔoːs/",
+      "pronunciation": "naiuh-ohs"
+    },
+    {
+      "nyrakai": "nīras",
+      "english": "sea",
+      "pos": "noun",
+      "category": "The Physical World",
+      "syllables": "nī.ras (CV.CVC)",
+      "notes": "Swadesh 207 - Tamil நீர் influence",
+      "ipa": "/niːras/",
+      "pronunciation": "neeras"
+    },
+    {
+      "nyrakai": "hr'œ",
+      "english": "sky",
+      "pos": "noun",
+      "category": "The Physical World",
+      "syllables": "hr'œ (CC'V)",
+      "notes": "Swadesh 207 - celestial h- onset",
+      "ipa": "/hrəʔoi/",
+      "pronunciation": "hruh-oi"
+    },
+    {
+      "nyrakai": "nețɒ",
+      "english": "snow",
+      "pos": "noun",
+      "category": "The Physical World",
+      "syllables": "ne.țɒ (CV.CV)",
+      "notes": "Swadesh 207 - gentle drift",
+      "ipa": "/neθau/",
+      "pronunciation": "nethau"
+    },
+    {
+      "nyrakai": "yæm",
+      "english": "worm",
+      "pos": "noun",
+      "category": "Animals",
+      "syllables": "yæm (CVC)",
+      "notes": "Swadesh 207 - simple earthy",
+      "ipa": "/jaim/",
+      "pronunciation": "yaim"
+    },
+    {
+      "nyrakai": "nāk^",
+      "english": "snake",
+      "pos": "noun",
+      "category": "Animals",
+      "syllables": "nāk^ (CVC)",
+      "notes": "Swadesh 207 - Tamil நாகம் nāgam",
+      "ipa": "/naːkʼ/",
+      "pronunciation": "naak'"
+    },
+    {
+      "nyrakai": "wɒk",
+      "english": "back",
+      "pos": "noun",
+      "category": "The Body",
+      "syllables": "wɒk (CVC)",
+      "notes": "Swadesh 207 - w- onset for body domain",
+      "ipa": "/wauk/",
+      "pronunciation": "wauk"
+    },
+    {
+      "nyrakai": "sēk",
+      "english": "guts",
+      "pos": "noun",
+      "category": "The Body",
+      "syllables": "sēk (CVC)",
+      "notes": "Swadesh 207 - s- onset for body domain",
+      "ipa": "/seːk/",
+      "pronunciation": "seek"
+    },
+    {
+      "nyrakai": "mōl",
+      "english": "stomach",
+      "pos": "noun",
+      "category": "The Body",
+      "syllables": "mōl (CVC)",
+      "notes": "Swadesh 207 - m- onset for body domain",
+      "ipa": "/moːl/",
+      "pronunciation": "mohl"
+    },
+    {
+      "nyrakai": "sēr",
+      "english": "wing",
+      "pos": "noun",
+      "category": "The Body",
+      "syllables": "sēr (CVC)",
+      "notes": "Swadesh 207 - s- onset for body domain",
+      "ipa": "/seːr/",
+      "pronunciation": "seer"
+    },
+    {
+      "nyrakai": "t'ōr",
+      "english": "husband",
+      "pos": "noun",
+      "category": "Kinship",
+      "syllables": "t'ōr (CVC)",
+      "notes": "Swadesh 207 - t'- onset for social domain",
+      "ipa": "/təʔoːr/",
+      "pronunciation": "tuh-ohr"
+    },
+    {
+      "nyrakai": "t'ēr",
+      "english": "wife",
+      "pos": "noun",
+      "category": "Kinship",
+      "syllables": "t'ēr (CVC)",
+      "notes": "Swadesh 207 - t'- onset for social domain",
+      "ipa": "/təʔeːr/",
+      "pronunciation": "tuh-eer"
+    },
+    {
+      "english": "far",
+      "nyrakai": "dræl",
+      "pronunciation": "drail",
+      "ipa": "/drail/",
+      "structure": "CCVC",
+      "syllables": [
+        "dræl"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Spatial Relations",
+      "notes": "Swadesh 207; onset dr- for spatial domain"
+    },
+    {
+      "english": "near",
+      "nyrakai": "græl",
+      "pronunciation": "grail",
+      "ipa": "/grail/",
+      "structure": "CCVC",
+      "syllables": [
+        "græl"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Spatial Relations",
+      "notes": "Swadesh 207; onset gr- for spatial domain"
+    },
+    {
+      "english": "narrow",
+      "nyrakai": "smæl",
+      "pronunciation": "smail",
+      "ipa": "/smail/",
+      "structure": "CCVC",
+      "syllables": [
+        "smæl"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Spatial Relations",
+      "notes": "Swadesh 207; onset sm- for spatial domain"
+    },
+    {
+      "english": "wide",
+      "nyrakai": "swæl",
+      "pronunciation": "swail",
+      "ipa": "/swail/",
+      "structure": "CCVC",
+      "syllables": [
+        "swæl"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Spatial Relations",
+      "notes": "Swadesh 207; onset sw- for action domain"
+    },
+    {
+      "english": "short",
+      "nyrakai": "smūl",
+      "pronunciation": "smool",
+      "ipa": "/smuːl/",
+      "structure": "CCVC",
+      "syllables": [
+        "smūl"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Spatial Relations",
+      "notes": "Swadesh 207; onset sm- for spatial domain"
+    },
+    {
+      "english": "thick",
+      "nyrakai": "grōk",
+      "pronunciation": "grohk",
+      "ipa": "/groːk/",
+      "structure": "CCVC",
+      "syllables": [
+        "grōk"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Spatial Relations",
+      "notes": "Swadesh 207; onset gr- for spatial domain"
+    },
+    {
+      "english": "thin",
+      "nyrakai": "smēr",
+      "pronunciation": "smeer",
+      "ipa": "/smeːr/",
+      "structure": "CCVC",
+      "syllables": [
+        "smēr"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Spatial Relations",
+      "notes": "Swadesh 207; onset sm- for spatial domain"
+    },
+    {
+      "english": "straight",
+      "nyrakai": "drōk",
+      "pronunciation": "drohk",
+      "ipa": "/droːk/",
+      "structure": "CCVC",
+      "syllables": [
+        "drōk"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Spatial Relations",
+      "notes": "Swadesh 207; onset dr- for spatial domain"
+    },
+    {
+      "english": "warm",
+      "nyrakai": "lōr",
+      "pronunciation": "lohr",
+      "ipa": "/loːr/",
+      "structure": "CVC",
+      "syllables": [
+        "lōr"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Sense Perception",
+      "notes": "Swadesh 207; onset l- for body domain"
+    },
+    {
+      "english": "wet",
+      "nyrakai": "wæl",
+      "pronunciation": "wail",
+      "ipa": "/wail/",
+      "structure": "CVC",
+      "syllables": [
+        "wæl"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Sense Perception",
+      "notes": "Swadesh 207; onset w- for body domain"
+    },
+    {
+      "english": "heavy",
+      "nyrakai": "dōk",
+      "pronunciation": "dohk",
+      "ipa": "/doːk/",
+      "structure": "CVC",
+      "syllables": [
+        "dōk"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Sense Perception",
+      "notes": "Swadesh 207; onset d- for action domain"
+    },
+    {
+      "english": "smooth",
+      "nyrakai": "sōk",
+      "pronunciation": "sohk",
+      "ipa": "/soːk/",
+      "structure": "CVC",
+      "syllables": [
+        "sōk"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Sense Perception",
+      "notes": "Swadesh 207; onset s- for body domain"
+    },
+    {
+      "english": "sharp",
+      "nyrakai": "kur'æ",
+      "pronunciation": "sair",
+      "ipa": "/sair/",
+      "structure": "CVC",
+      "syllables": [
+        "sær"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Sense Perception",
+      "notes": "Swadesh 207; onset s- for body domain [Replaced sær to avoid English similarity]"
+    },
+    {
+      "english": "dull",
+      "nyrakai": "țūm",
+      "pronunciation": "dail",
+      "ipa": "/dail/",
+      "structure": "CVC",
+      "syllables": [
+        "dæl"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Sense Perception",
+      "notes": "Swadesh 207; onset d- for action domain [Replaced dæl to avoid English similarity]"
+    },
+    {
+      "english": "old",
+      "nyrakai": "lān",
+      "pronunciation": "hohl",
+      "ipa": "/hoːl/",
+      "structure": "CVC",
+      "syllables": [
+        "hōl"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Time",
+      "notes": "Swadesh 207; onset h- for celestial domain [Replaced hōl to avoid English similarity]"
+    },
+    {
+      "english": "young",
+      "nyrakai": "hæn",
+      "pronunciation": "hain",
+      "ipa": "/hain/",
+      "structure": "CVC",
+      "syllables": [
+        "hæn"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Time",
+      "notes": "Swadesh 207; onset h- for celestial domain"
+    },
+    {
+      "english": "few",
+      "nyrakai": "ñōr",
+      "pronunciation": "ngohr",
+      "ipa": "/ŋoːr/",
+      "structure": "CVC",
+      "syllables": [
+        "ñōr"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Quantity",
+      "notes": "Swadesh 207; onset ñ- for quantity domain"
+    },
+    {
+      "english": "correct",
+      "nyrakai": "sūr",
+      "pronunciation": "soor",
+      "ipa": "/suːr/",
+      "structure": "CVC",
+      "syllables": [
+        "sūr"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Emotions and Values",
+      "notes": "Swadesh 207; onset s- for body domain"
+    },
+    {
+      "english": "dirty",
+      "nyrakai": "grek^",
+      "pronunciation": "door",
+      "ipa": "/duːr/",
+      "structure": "CVC",
+      "syllables": [
+        "dūr"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Emotions and Values",
+      "notes": "Swadesh 207; onset d- for action domain [Replaced dūr to avoid English similarity]"
+    },
+    {
+      "english": "rotten",
+      "nyrakai": "p^ūl",
+      "pronunciation": "p'ool",
+      "ipa": "/pʼuːl/",
+      "structure": "CVC",
+      "syllables": [
+        "p^ūl"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Emotions and Values",
+      "notes": "Swadesh 207; onset p^- for emotion domain"
+    },
+    {
+      "english": "at",
+      "nyrakai": "zōr",
+      "pronunciation": "zohr",
+      "ipa": "/zoːr/",
+      "structure": "CVC",
+      "syllables": [
+        "zōr"
+      ],
+      "syllable_count": 1,
+      "pos": "postposition",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Question Words",
+      "notes": "Swadesh 207; onset z- for grammar domain"
+    },
+    {
+      "english": "because",
+      "nyrakai": "zōn",
+      "pronunciation": "zohn",
+      "ipa": "/zoːn/",
+      "structure": "CVC",
+      "syllables": [
+        "zōn"
+      ],
+      "syllable_count": 1,
+      "pos": "conj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Question Words",
+      "notes": "Swadesh 207; onset z- for grammar domain"
+    },
+    {
+      "english": "here",
+      "nyrakai": "zēl",
+      "pronunciation": "zeel",
+      "ipa": "/zeːl/",
+      "structure": "CVC",
+      "syllables": [
+        "zēl"
+      ],
+      "syllable_count": 1,
+      "pos": "adv",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Question Words",
+      "notes": "Swadesh 207; onset z- for grammar domain"
+    },
+    {
+      "english": "how",
+      "nyrakai": "kwōr",
+      "pronunciation": "kwohr",
+      "ipa": "/kwoːr/",
+      "structure": "CCVC",
+      "syllables": [
+        "kwōr"
+      ],
+      "syllable_count": 1,
+      "pos": "adv",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Question Words",
+      "notes": "Swadesh 207; onset kw- for domestic domain"
+    },
+    {
+      "english": "if",
+      "nyrakai": "zēn",
+      "pronunciation": "zeen",
+      "ipa": "/zeːn/",
+      "structure": "CVC",
+      "syllables": [
+        "zēn"
+      ],
+      "syllable_count": 1,
+      "pos": "conj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Question Words",
+      "notes": "Swadesh 207; onset z- for grammar domain"
+    },
+    {
+      "english": "in",
+      "nyrakai": "zūl",
+      "pronunciation": "zool",
+      "ipa": "/zuːl/",
+      "structure": "CVC",
+      "syllables": [
+        "zūl"
+      ],
+      "syllable_count": 1,
+      "pos": "postposition",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Question Words",
+      "notes": "Swadesh 207; onset z- for grammar domain"
+    },
+    {
+      "english": "there",
+      "nyrakai": "zēk",
+      "pronunciation": "zeek",
+      "ipa": "/zeːk/",
+      "structure": "CVC",
+      "syllables": [
+        "zēk"
+      ],
+      "syllable_count": 1,
+      "pos": "adv",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Question Words",
+      "notes": "Swadesh 207; onset z- for grammar domain"
+    },
+    {
+      "english": "when",
+      "nyrakai": "meț'æ",
+      "pronunciation": "kweel",
+      "ipa": "/kweːl/",
+      "structure": "CCVC",
+      "syllables": [
+        "kwēl"
+      ],
+      "syllable_count": 1,
+      "pos": "adv",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Question Words",
+      "notes": "Swadesh 207; onset kw- for domestic domain [Replaced kwēl to avoid English similarity]"
+    },
+    {
+      "english": "where",
+      "nyrakai": "kwōl",
+      "pronunciation": "kwohl",
+      "ipa": "/kwoːl/",
+      "structure": "CCVC",
+      "syllables": [
+        "kwōl"
+      ],
+      "syllable_count": 1,
+      "pos": "adv",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Question Words",
+      "notes": "Swadesh 207; onset kw- for domestic domain"
+    },
+    {
+      "english": "with",
+      "nyrakai": "zōm",
+      "pronunciation": "zohm",
+      "ipa": "/zoːm/",
+      "structure": "CVC",
+      "syllables": [
+        "zōm"
+      ],
+      "syllable_count": 1,
+      "pos": "postposition",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Question Words",
+      "notes": "Swadesh 207; onset z- for grammar domain"
+    },
+    {
+      "english": "hundred",
+      "nyrakai": "ñæn",
+      "pronunciation": "ngain",
+      "ipa": "/ŋain/",
+      "structure": "CVC",
+      "syllables": [
+        "ñæn"
+      ],
+      "syllable_count": 1,
+      "pos": "noun",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": "flexible",
+      "category": "Quantity",
+      "notes": "Swadesh 207; onset ñ- for quantity domain"
+    },
+    {
+      "english": "meat",
+      "nyrakai": "nōr",
+      "pronunciation": "nohr",
+      "ipa": "/noːr/",
+      "structure": "CVC",
+      "syllables": [
+        "nōr"
+      ],
+      "syllable_count": 1,
+      "pos": "noun",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": "flexible",
+      "category": "Food and Drink",
+      "notes": "Swadesh 207; onset n- for nature domain"
+    },
+    {
+      "english": "rope",
+      "nyrakai": "stōl",
+      "pronunciation": "stohl",
+      "ipa": "/stoːl/",
+      "structure": "CCVC",
+      "syllables": [
+        "stōl"
+      ],
+      "syllable_count": 1,
+      "pos": "noun",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": "flexible",
+      "category": "Basic Actions and Technology",
+      "notes": "Swadesh 207; onset st- for action domain"
+    },
+    {
+      "english": "salt",
+      "nyrakai": "næk",
+      "pronunciation": "naik",
+      "ipa": "/naik/",
+      "structure": "CVC",
+      "syllables": [
+        "næk"
+      ],
+      "syllable_count": 1,
+      "pos": "noun",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": "flexible",
+      "category": "Food and Drink",
+      "notes": "Swadesh 207; onset n- for nature domain"
+    },
+    {
+      "english": "left",
+      "nyrakai": "drūl",
+      "pronunciation": "drool",
+      "ipa": "/druːl/",
+      "structure": "CCVC",
+      "syllables": [
+        "drūl"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Spatial Relations",
+      "notes": "Swadesh 207; onset dr- for spatial domain"
+    },
+    {
+      "english": "other",
+      "nyrakai": "zūr",
+      "pronunciation": "zoor",
+      "ipa": "/zuːr/",
+      "structure": "CVC",
+      "syllables": [
+        "zūr"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Question Words",
+      "notes": "Swadesh 207; onset z- for grammar domain"
+    },
+    {
+      "english": "some",
+      "nyrakai": "ñūk",
+      "pronunciation": "ngook",
+      "ipa": "/ŋuːk/",
+      "structure": "CVC",
+      "syllables": [
+        "ñūk"
+      ],
+      "syllable_count": 1,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Quantity",
+      "notes": "Swadesh 207; onset ñ- for quantity domain"
+    },
+    {
+      "english": "dig",
+      "nyrakai": "kēr",
+      "pronunciation": "kayr",
+      "ipa": "/keːr/",
+      "structure": "CVC",
+      "syllables": [
+        "kēr"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "laugh",
+      "nyrakai": "kæršo",
+      "pronunciation": "kairsho",
+      "ipa": "/kairtʃo/",
+      "structure": "CVCCV",
+      "syllables": [
+        "kæršo"
+      ],
+      "syllable_count": 2,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Emotions and Values",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "play",
+      "nyrakai": "kɛlæ",
+      "pronunciation": "keilai",
+      "ipa": "/keilai/",
+      "structure": "CVCV",
+      "syllables": [
+        "kɛlæ"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Emotions and Values",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "sew",
+      "nyrakai": "dæn",
+      "pronunciation": "dain",
+      "ipa": "/dain/",
+      "structure": "CVC",
+      "syllables": [
+        "dæn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Clothing and Grooming",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "stab",
+      "nyrakai": "dāš",
+      "pronunciation": "dahsh",
+      "ipa": "/daːtʃ/",
+      "structure": "CVC",
+      "syllables": [
+        "dāš"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Warfare and Hunting",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "suck",
+      "nyrakai": "mœr'æ",
+      "pronunciation": "sloop",
+      "ipa": "/sluːp/",
+      "structure": "CCVC",
+      "syllables": [
+        "slūp"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Swadesh 207 completion - auto-generated [Replaced slūp to avoid English similarity]"
+    },
+    {
+      "english": "blow",
+      "nyrakai": "dōf",
+      "pronunciation": "dohf",
+      "ipa": "/doːf/",
+      "structure": "CVC",
+      "syllables": [
+        "dōf"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "breathe",
+      "nyrakai": "kæf",
+      "pronunciation": "kaif",
+      "ipa": "/kaif/",
+      "structure": "CVC",
+      "syllables": [
+        "kæf"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "The Body",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "cut",
+      "nyrakai": "pīk",
+      "pronunciation": "peek",
+      "ipa": "/piːk/",
+      "structure": "CVC",
+      "syllables": [
+        "pīk"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "fall",
+      "nyrakai": "stōk",
+      "pronunciation": "stohk",
+      "ipa": "/stoːk/",
+      "structure": "CCVC",
+      "syllables": [
+        "stōk"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "fight",
+      "nyrakai": "srōk",
+      "pronunciation": "srohk",
+      "ipa": "/sroːk/",
+      "structure": "CCVC",
+      "syllables": [
+        "srōk"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Warfare and Hunting",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "float",
+      "nyrakai": "swōn",
+      "pronunciation": "swohn",
+      "ipa": "/swoːn/",
+      "structure": "CCVC",
+      "syllables": [
+        "swōn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "flow",
+      "nyrakai": "slūr",
+      "pronunciation": "sloor",
+      "ipa": "/sluːr/",
+      "structure": "CCVC",
+      "syllables": [
+        "slūr"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "freeze",
+      "nyrakai": "krīn",
+      "pronunciation": "kreen",
+      "ipa": "/kriːn/",
+      "structure": "CCVC",
+      "syllables": [
+        "krīn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "The Physical World",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "hold",
+      "nyrakai": "kūm",
+      "pronunciation": "koom",
+      "ipa": "/kuːm/",
+      "structure": "CVC",
+      "syllables": [
+        "kūm"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "hunt",
+      "nyrakai": "pōr",
+      "pronunciation": "pohr",
+      "ipa": "/poːr/",
+      "structure": "CVC",
+      "syllables": [
+        "pōr"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Warfare and Hunting",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "pull",
+      "nyrakai": "keț",
+      "pronunciation": "keth",
+      "ipa": "/keθ/",
+      "structure": "CCVC",
+      "syllables": [
+        "prōn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": "Updated from prōn for domain alignment"
+    },
+    {
+      "english": "push",
+      "nyrakai": "țuk^",
+      "pronunciation": "pook",
+      "ipa": "/puːk/",
+      "structure": "CVC",
+      "syllables": [
+        "pūk"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": "Swadesh 207 completion - auto-generated [Replaced pūk to avoid English similarity]"
+    },
+    {
+      "english": "rub",
+      "nyrakai": "srūn",
+      "pronunciation": "sroon",
+      "ipa": "/sruːn/",
+      "structure": "CCVC",
+      "syllables": [
+        "srūn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "scratch",
+      "nyrakai": "sr'ōz",
+      "pronunciation": "sr-ohz",
+      "ipa": "/srʼoːz/",
+      "structure": "CCVC",
+      "syllables": [
+        "skōr"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Updated from skōr for domain alignment"
+    },
+    {
+      "english": "sing",
+      "nyrakai": "tōn",
+      "pronunciation": "tohn",
+      "ipa": "/toːn/",
+      "structure": "CVC",
+      "syllables": [
+        "tōn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Speech and Language",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "split",
+      "nyrakai": "pōk",
+      "pronunciation": "pohk",
+      "ipa": "/poːk/",
+      "structure": "CVC",
+      "syllables": [
+        "pōk"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "squeeze",
+      "nyrakai": "srōmek^",
+      "pronunciation": "sroh-mek",
+      "ipa": "/sroː.mekʼ/",
+      "structure": "CCVC",
+      "syllables": [
+        "kwīr"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Updated from kwīr for domain alignment"
+    },
+    {
+      "english": "swell",
+      "nyrakai": "wūs",
+      "pronunciation": "woos",
+      "ipa": "/wuːs/",
+      "structure": "CCVC",
+      "syllables": [
+        "swōr"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "The Body",
+      "notes": "Updated from swōr for domain alignment (body)"
+    },
+    {
+      "english": "throw",
+      "nyrakai": "stōn",
+      "pronunciation": "stohn",
+      "ipa": "/stoːn/",
+      "structure": "CCVC",
+      "syllables": [
+        "stōn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "tie",
+      "nyrakai": "kīn",
+      "pronunciation": "keen",
+      "ipa": "/kiːn/",
+      "structure": "CVC",
+      "syllables": [
+        "kīn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "turn",
+      "nyrakai": "swōk",
+      "pronunciation": "swohk",
+      "ipa": "/swoːk/",
+      "structure": "CCVC",
+      "syllables": [
+        "swōk"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Motion",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "vomit",
+      "nyrakai": "wel'ōm",
+      "pronunciation": "well-ohm",
+      "ipa": "/welʼoːm/",
+      "structure": "CVC",
+      "syllables": [
+        "pūl"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "The Body",
+      "notes": "Updated from pūl for domain alignment (body)"
+    },
+    {
+      "english": "wash",
+      "nyrakai": "slōn",
+      "pronunciation": "slohn",
+      "ipa": "/sloːn/",
+      "structure": "CCVC",
+      "syllables": [
+        "slōn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "wipe",
+      "nyrakai": "țūl",
+      "pronunciation": "sween",
+      "ipa": "/swiːn/",
+      "structure": "CCVC",
+      "syllables": [
+        "swīn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Basic Actions and Technology",
+      "notes": "Swadesh 207 completion - auto-generated [Replaced swīn to avoid English similarity]"
+    },
+    {
+      "english": "think",
+      "nyrakai": "ñɛ'n",
+      "pronunciation": "sheen",
+      "ipa": "/tʃiːn/",
+      "structure": "CVC",
+      "syllables": [
+        "šīn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Cognition",
+      "notes": "Swadesh 207 completion - auto-generated [Replaced šīn to avoid English similarity]"
+    },
+    {
+      "english": "count",
+      "nyrakai": "k^æn",
+      "pronunciation": "k-uh-ain",
+      "ipa": "/kʼain/",
+      "structure": "CVC",
+      "syllables": [
+        "k^æn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Quantity",
+      "notes": "Swadesh 207 completion - auto-generated"
+    },
+    {
+      "english": "smell",
+      "nyrakai": "sæn",
+      "pronunciation": "sain",
+      "ipa": "/sain/",
+      "structure": "CVC",
+      "syllables": [
+        "sæn"
+      ],
+      "syllable_count": 1,
+      "pos": "verb",
+      "is_root": true,
+      "etymology": "",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Sense Perception",
+      "notes": "Swadesh 207 completion - auto-generated"
     }
   ]
 }

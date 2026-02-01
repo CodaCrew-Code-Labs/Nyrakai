@@ -6,20 +6,43 @@ Tracks vocabulary completion against:
 1. Swadesh 100 (core universal concepts)
 2. Swadesh 207 (extended basic vocabulary)
 3. Target 912+ word list (comprehensive vocabulary)
+4. WOLD 100 (World Loanword Database - borrowing resistance)
+5. IDS 200 (Intercontinental Dictionary Series)
+6. Concepticon 100 (Cross-linguistic core concepts)
+7. NorthEuraLex 100 (Northern Eurasian core)
+8. Zompist 200 (Conlanger's essential vocabulary)
 
 Usage:
     python vocab-tracker.py                    # Full report
     python vocab-tracker.py --summary          # Quick summary
     python vocab-tracker.py --missing swadesh100  # Show missing Swadesh 100
     python vocab-tracker.py --missing swadesh207  # Show missing Swadesh 207
-    python vocab-tracker.py --category "The Body"  # Show specific category
-    python vocab-tracker.py --export           # Export to markdown
+    python vocab-tracker.py --missing wold100     # Show missing WOLD 100
+    python vocab-tracker.py --missing ids200      # Show missing IDS 200
+    python vocab-tracker.py --missing concepticon # Show missing Concepticon
+    python vocab-tracker.py --missing northeuralex # Show missing NorthEuraLex
+    python vocab-tracker.py --missing zompist     # Show missing Zompist
+    python vocab-tracker.py --lists               # Show all available lists
+    python vocab-tracker.py --category "The Body" # Show specific category
+    python vocab-tracker.py --export              # Export to markdown
 """
 
 import json
 import argparse
 from pathlib import Path
 from collections import defaultdict
+
+# Import extended word lists
+try:
+    from wordlists import CONCEPTICON, WOLD, NORTHEURALEX, ZOMPIST, ALL_LISTS
+    EXTENDED_LISTS_AVAILABLE = True
+except ImportError:
+    EXTENDED_LISTS_AVAILABLE = False
+    CONCEPTICON = []
+    WOLD = []
+    NORTHEURALEX = []
+    ZOMPIST = []
+    ALL_LISTS = {}
 
 # Swadesh 100 list (Leipzig-Jakarta based)
 SWADESH_100 = [
@@ -342,11 +365,31 @@ def check_coverage(dictionary_words, target_list):
 def main():
     parser = argparse.ArgumentParser(description='Nyrakai Vocabulary Progress Tracker')
     parser.add_argument('--summary', action='store_true', help='Show quick summary only')
-    parser.add_argument('--missing', choices=['swadesh100', 'swadesh207', 'all'], 
-                        help='Show missing words for a list')
+    parser.add_argument('--missing', choices=[
+        'swadesh100', 'swadesh207', 'all',
+        'wold', 'concepticon', 'northeuralex', 'zompist'
+    ], help='Show missing words for a list')
+    parser.add_argument('--lists', action='store_true', help='Show all available word lists')
     parser.add_argument('--category', type=str, help='Show specific category progress')
     parser.add_argument('--export', action='store_true', help='Export to markdown file')
     args = parser.parse_args()
+    
+    # Show available lists
+    if args.lists:
+        print("📚 Available Word Lists")
+        print("=" * 60)
+        lists_info = [
+            ("swadesh100", "Swadesh 100", 100, "Core universal concepts"),
+            ("swadesh207", "Swadesh 207", 207, "Extended basic vocabulary"),
+            ("wold", "WOLD", len(WOLD), "World Loanword Database (1460+ meanings)"),
+            ("concepticon", "Concepticon", len(CONCEPTICON), "Cross-linguistic concepts (4000+)"),
+            ("northeuralex", "NorthEuraLex", len(NORTHEURALEX), "Northern Eurasian lexicon (1000+)"),
+            ("zompist", "Zompist", len(ZOMPIST), "Conlanger's vocabulary (2000+)"),
+        ]
+        for key, name, count, desc in lists_info:
+            status = "✅" if count > 0 else "❌"
+            print(f"  {status} {name:<15} ({count:>4} words) - {desc}")
+        return
     
     # Find dictionary
     script_dir = Path(__file__).parent
@@ -363,6 +406,12 @@ def main():
     # Check Swadesh coverage
     sw100_have, sw100_missing = check_coverage(words, SWADESH_100)
     sw207_have, sw207_missing = check_coverage(words, SWADESH_207)
+    
+    # Check extended list coverage
+    wold_have, wold_missing = check_coverage(words, WOLD) if WOLD else ([], [])
+    concept_have, concept_missing = check_coverage(words, CONCEPTICON) if CONCEPTICON else ([], [])
+    northeur_have, northeur_missing = check_coverage(words, NORTHEURALEX) if NORTHEURALEX else ([], [])
+    zompist_have, zompist_missing = check_coverage(words, ZOMPIST) if ZOMPIST else ([], [])
     
     # Check category coverage
     all_target_words = []
@@ -385,28 +434,38 @@ def main():
     # Output
     if args.summary:
         print(f"📊 Nyrakai Vocabulary Progress")
-        print(f"=" * 40)
-        print(f"Unique Words:    {unique_words} ({total_words} entries)")
-        print(f"Swadesh 100:     {len(sw100_have)}/100 ({len(sw100_have)}%)")
-        print(f"Swadesh 207:     {len(sw207_have)}/207 ({len(sw207_have)*100//207}%)")
-        print(f"Target 912+:     {len(all_have)}/{len(all_target_words)} ({len(all_have)*100//len(all_target_words)}%)")
+        print(f"=" * 55)
+        print(f"Unique Words:      {unique_words} ({total_words} entries)")
+        print(f"─" * 55)
+        print(f"Swadesh 100:       {len(sw100_have):>3}/100   ({len(sw100_have)}%)")
+        print(f"Swadesh 207:       {len(sw207_have):>3}/207   ({len(sw207_have)*100//207}%)")
+        print(f"Target 912+:       {len(all_have):>3}/{len(all_target_words):<4}  ({len(all_have)*100//len(all_target_words)}%)")
+        if EXTENDED_LISTS_AVAILABLE:
+            print(f"─" * 55)
+            print(f"WOLD:              {len(wold_have):>3}/{len(WOLD):<4}  ({len(wold_have)*100//max(len(WOLD),1)}%)")
+            print(f"Concepticon:       {len(concept_have):>3}/{len(CONCEPTICON):<4}  ({len(concept_have)*100//max(len(CONCEPTICON),1)}%)")
+            print(f"NorthEuraLex:      {len(northeur_have):>3}/{len(NORTHEURALEX):<4}  ({len(northeur_have)*100//max(len(NORTHEURALEX),1)}%)")
+            print(f"Zompist:           {len(zompist_have):>3}/{len(ZOMPIST):<4}  ({len(zompist_have)*100//max(len(ZOMPIST),1)}%)")
         return
     
     if args.missing:
-        if args.missing == 'swadesh100':
-            print(f"❌ Missing from Swadesh 100 ({len(sw100_missing)} words):")
-            for w in sorted(sw100_missing):
+        missing_map = {
+            'swadesh100': ('Swadesh 100', sw100_missing),
+            'swadesh207': ('Swadesh 207', sw207_missing),
+            'wold': ('WOLD', wold_missing),
+            'concepticon': ('Concepticon', concept_missing),
+            'northeuralex': ('NorthEuraLex', northeur_missing),
+            'zompist': ('Zompist', zompist_missing),
+            'all': ('Target List', all_missing),
+        }
+        
+        if args.missing in missing_map:
+            name, missing = missing_map[args.missing]
+            print(f"❌ Missing from {name} ({len(missing)} words):")
+            for w in sorted(missing)[:100]:  # Limit to 100
                 print(f"  - {w}")
-        elif args.missing == 'swadesh207':
-            print(f"❌ Missing from Swadesh 207 ({len(sw207_missing)} words):")
-            for w in sorted(sw207_missing):
-                print(f"  - {w}")
-        elif args.missing == 'all':
-            print(f"❌ Missing from Target List ({len(all_missing)} words):")
-            for w in sorted(all_missing)[:50]:  # Limit to 50
-                print(f"  - {w}")
-            if len(all_missing) > 50:
-                print(f"  ... and {len(all_missing) - 50} more")
+            if len(missing) > 100:
+                print(f"  ... and {len(missing) - 100} more")
         return
     
     if args.category:
@@ -427,26 +486,41 @@ def main():
         return
     
     # Full report
-    print(f"╔{'═'*50}╗")
-    print(f"║{'📊 NYRAKAI VOCABULARY TRACKER':^50}║")
-    print(f"╠{'═'*50}╣")
-    print(f"║ Unique Words: {unique_words:>10} ({total_words} entries){' '*(19-len(str(total_words)))}║")
-    print(f"╠{'═'*50}╣")
-    print(f"║{'BENCHMARK LISTS':^50}║")
-    print(f"╟{'─'*50}╢")
-    print(f"║ Swadesh 100:  {len(sw100_have):>3}/100  {'█'*int(len(sw100_have)/5):<20} {len(sw100_have):>3}% ║")
-    print(f"║ Swadesh 207:  {len(sw207_have):>3}/207  {'█'*int(len(sw207_have)/10):<20} {len(sw207_have)*100//207:>3}% ║")
-    print(f"║ Target 912+:  {len(all_have):>3}/{len(all_target_words):<3}  {'█'*int(len(all_have)/50):<20} {len(all_have)*100//len(all_target_words):>3}% ║")
-    print(f"╠{'═'*50}╣")
-    print(f"║{'CATEGORY BREAKDOWN':^50}║")
-    print(f"╟{'─'*50}╢")
+    print(f"╔{'═'*60}╗")
+    print(f"║{'📊 NYRAKAI VOCABULARY TRACKER':^60}║")
+    print(f"╠{'═'*60}╣")
+    print(f"║ Unique Words: {unique_words:>10} ({total_words} entries){' '*(29-len(str(total_words)))}║")
+    print(f"╠{'═'*60}╣")
+    print(f"║{'CORE LISTS':^60}║")
+    print(f"╟{'─'*60}╢")
+    print(f"║ Swadesh 100:     {len(sw100_have):>3}/100  {'█'*int(len(sw100_have)/5):<20} {len(sw100_have):>3}%       ║")
+    print(f"║ Swadesh 207:     {len(sw207_have):>3}/207  {'█'*int(len(sw207_have)/10):<20} {len(sw207_have)*100//207:>3}%       ║")
+    print(f"║ Target 912+:     {len(all_have):>3}/{len(all_target_words):<4} {'█'*int(len(all_have)/50):<20} {len(all_have)*100//len(all_target_words):>3}%       ║")
+    
+    if EXTENDED_LISTS_AVAILABLE:
+        print(f"╠{'═'*60}╣")
+        print(f"║{'EXTENDED LISTS':^60}║")
+        print(f"╟{'─'*60}╢")
+        
+        def bar(have, total):
+            pct = have * 100 // max(total, 1)
+            return '█' * (pct // 5) + '░' * (20 - pct // 5)
+        
+        print(f"║ WOLD:            {len(wold_have):>3}/{len(WOLD):<4} {bar(len(wold_have), len(WOLD))} {len(wold_have)*100//max(len(WOLD),1):>3}%       ║")
+        print(f"║ Concepticon:     {len(concept_have):>3}/{len(CONCEPTICON):<4} {bar(len(concept_have), len(CONCEPTICON))} {len(concept_have)*100//max(len(CONCEPTICON),1):>3}%       ║")
+        print(f"║ NorthEuraLex:    {len(northeur_have):>3}/{len(NORTHEURALEX):<4} {bar(len(northeur_have), len(NORTHEURALEX))} {len(northeur_have)*100//max(len(NORTHEURALEX),1):>3}%       ║")
+        print(f"║ Zompist:         {len(zompist_have):>3}/{len(ZOMPIST):<4} {bar(len(zompist_have), len(ZOMPIST))} {len(zompist_have)*100//max(len(ZOMPIST),1):>3}%       ║")
+    
+    print(f"╠{'═'*60}╣")
+    print(f"║{'CATEGORY BREAKDOWN':^60}║")
+    print(f"╟{'─'*60}╢")
     
     for cat_name, stats in sorted(category_stats.items(), key=lambda x: -x[1]['have']/max(x[1]['total'],1)):
         pct = stats['have']*100//max(stats['total'],1)
         bar = '█'*int(pct/10) + '░'*(10-int(pct/10))
-        print(f"║ {cat_name[:25]:<25} {stats['have']:>3}/{stats['total']:<3} {bar} {pct:>3}% ║")
+        print(f"║ {cat_name[:30]:<30} {stats['have']:>3}/{stats['total']:<3} {bar} {pct:>3}%   ║")
     
-    print(f"╚{'═'*50}╝")
+    print(f"╚{'═'*60}╝")
     
     if args.export:
         export_markdown(total_words, sw100_have, sw100_missing, sw207_have, sw207_missing, 

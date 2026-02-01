@@ -91,6 +91,28 @@ The apostrophe represents a schwa + glottal stop (/əʔ/) and has special rules:
 
 ---
 
+## Forbidden Sequences
+
+These specific sound combinations are **phonotactically invalid** in Nyrakai:
+
+| Sequence | Rule | Reason |
+|----------|------|--------|
+| **^'** | Ejective + Glottal | The ejective release (^) cannot immediately precede a glottal catch ('). Creates an unpronounceable articulatory conflict. |
+| **'a** | Glottal + 'a' | The glottal marker (') already contains schwa /əʔ/. Following with 'a' creates awkward /əʔa/ sequence. Use **'æ** or **'e** instead. |
+
+### Examples
+
+❌ **Invalid:**
+- `k^'el` — ejective k^ cannot precede '
+- `n'ara` — glottal ' cannot precede 'a'
+
+✅ **Valid alternatives:**
+- `k^el` — remove glottal, or use `k'el`
+- `n'æra` — use 'æ instead of 'a
+- `n'era` — use 'e instead of 'a
+
+---
+
 ## Stress
 
 Stress typically falls on the **root syllable** of a word. In compounds and derived words, the original root retains primary stress.

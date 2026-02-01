@@ -12,7 +12,7 @@ import sys
 import urllib.request
 import urllib.error
 from pathlib import Path
-from validator import validate_word, normalize, word_exists_in_dictionary
+from validator import validate_word, normalize, word_exists_in_dictionary, check_english_similarity
 
 # Import sound map for domain-aware generation
 try:
@@ -540,8 +540,19 @@ def get_word_type_hint(english_word: str) -> tuple:
 def generate_words(english_word: str, count: int = 5, domain: str = None) -> list:
     """Generate Nyrakai word suggestions for an English word."""
     
-    # Get domain hint
-    domain_hint = get_domain_hint(english_word) if SOUND_MAP_AVAILABLE else ""
+    # Get domain hint (use explicit domain if provided)
+    if domain and SOUND_MAP_AVAILABLE:
+        # Find valid onsets for this domain
+        valid_onsets = [o for o, (p, s, _) in SOUND_MAP.items() if p == domain or s == domain]
+        onset_list = ', '.join(sorted(valid_onsets)[:12])
+        domain_hint = f"""
+DOMAIN CONSTRAINT: The word MUST start with one of these onsets for the '{domain}' domain:
+Valid onsets: {onset_list}
+
+This is MANDATORY - do not use any other onset consonants!
+"""
+    else:
+        domain_hint = get_domain_hint(english_word) if SOUND_MAP_AVAILABLE else ""
     
     # Get word type hint (borrowing or onomatopoeia)
     word_type, type_reference = get_word_type_hint(english_word)
@@ -631,7 +642,7 @@ No markdown, no explanation outside the JSON."""
         return []
 
 
-def validate_suggestions(suggestions: list) -> list:
+def validate_suggestions(suggestions: list, english_word: str = None) -> list:
     """Validate each suggestion against Nyrakai rules and show domain."""
     results = []
     
@@ -665,6 +676,15 @@ def validate_suggestions(suggestions: list) -> list:
             result_entry["existing_meaning"] = eng_meaning
             result_entry["warnings"].append(f"⚠️  DUPLICATE: already means '{eng_meaning}'")
         
+        # Check for English similarity (avoid look-alikes)
+        if english_word and result_entry["valid"]:
+            eng_valid, eng_warnings = check_english_similarity(
+                validation["normalized"], english_word, threshold=0.5
+            )
+            if not eng_valid:
+                result_entry["warnings"].extend([f"🚨 {w}" for w in eng_warnings])
+                result_entry["english_similar"] = True
+        
         results.append(result_entry)
     
     return results
@@ -672,10 +692,26 @@ def validate_suggestions(suggestions: list) -> list:
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python word-generator.py <english_word> [count]")
+        print("Usage: python word-generator.py <english_word> [count] [--domain DOMAIN]")
         print("       python word-generator.py <english_word> --lookup")
-        print("Example: python word-generator.py 'fire' 5")
+        print("       python word-generator.py --domains (list available domains)")
+        print("Example: python word-generator.py 'fire' 5 --domain nature")
         sys.exit(1)
+    
+    # Show available domains
+    if sys.argv[1] == "--domains":
+        if SOUND_MAP_AVAILABLE:
+            from sound_map import DOMAINS
+            print("Available domains and their onsets:")
+            print("=" * 50)
+            for domain, desc in DOMAINS.items():
+                # Find onsets for this domain
+                onsets = [o for o, (p, s, _) in SOUND_MAP.items() if p == domain or s == domain]
+                print(f"  {domain:12}: {', '.join(sorted(onsets)[:8])}")
+                print(f"               {desc}")
+        else:
+            print("Sound map not available")
+        sys.exit(0)
     
     english_word = sys.argv[1]
     
@@ -684,9 +720,22 @@ def main():
         display_related_words(english_word)
         sys.exit(0)
     
-    count = int(sys.argv[2]) if len(sys.argv) > 2 else 5
+    # Parse --domain flag
+    target_domain = None
+    count = 5
+    for i, arg in enumerate(sys.argv[2:], 2):
+        if arg == "--domain" and i + 1 < len(sys.argv):
+            target_domain = sys.argv[i + 1]
+        elif arg.isdigit():
+            count = int(arg)
     
-    print(f"\n🗣️  Generating {count} Nyrakai words for: \"{english_word}\"\n")
+    domain_msg = f" [domain: {target_domain}]" if target_domain else ""
+    print(f"\n🗣️  Generating {count} Nyrakai words for: \"{english_word}\"{domain_msg}\n")
+    
+    # Show valid onsets for target domain
+    if target_domain and SOUND_MAP_AVAILABLE:
+        valid_onsets = [o for o, (p, s, _) in SOUND_MAP.items() if p == target_domain or s == target_domain]
+        print(f"🎯 Target domain '{target_domain}' uses onsets: {', '.join(sorted(valid_onsets)[:10])}\n")
     
     # First, show related words from dictionary
     related = display_related_words(english_word)
@@ -698,15 +747,24 @@ def main():
     
     print("=" * 50)
     
-    # Generate suggestions
-    suggestions = generate_words(english_word, count)
+    # Generate suggestions with domain constraint
+    suggestions = generate_words(english_word, count, domain=target_domain)
     
     if not suggestions:
         print("Failed to generate suggestions.")
         sys.exit(1)
     
-    # Validate each
-    results = validate_suggestions(suggestions)
+    # Validate each (including English similarity check)
+    results = validate_suggestions(suggestions, english_word=english_word)
+    
+    # Filter by domain if specified
+    if target_domain and SOUND_MAP_AVAILABLE:
+        valid_onsets = set(o for o, (p, s, _) in SOUND_MAP.items() if p == target_domain or s == target_domain)
+        for r in results:
+            onset = r.get('onset', '')
+            if onset and onset not in valid_onsets:
+                r['valid'] = False
+                r['errors'].append(f"Onset '{onset}' not valid for domain '{target_domain}'")
     
     # Display results
     print("\n🆕 AI-GENERATED SUGGESTIONS:")
@@ -749,4 +807,231 @@ def main():
 if __name__ == "__main__":
     main()
 
+
+
+
+# ============================================
+# SMART WORD GENERATION SYSTEM
+# ============================================
+
+# Derivation rules: concept -> (base_word, affix, type)
+DERIVATION_RULES = {
+    # Negation patterns (za- prefix)
+    'bad': ('good', 'za', 'prefix'),
+    'dirty': ('clean', 'za', 'prefix'),
+    'ugly': ('beautiful', 'za', 'prefix'),
+    'wrong': ('correct', 'za', 'prefix'),
+    'weak': ('strong', 'za', 'prefix'),
+    'dull': ('sharp', 'za', 'prefix'),
+    'wet': ('dry', 'za', 'prefix'),
+    'cold': ('hot', 'za', 'prefix'),
+    'dark': ('bright', 'za', 'prefix'),
+    'enemy': ('friend', 'za', 'prefix'),
+    'hate': ('love', 'za', 'prefix'),
+    'die': ('live', 'za', 'prefix'),
+    
+    # Agentive (-ƨu suffix) - doer of action
+    'hunter': ('hunt', 'ƨu', 'suffix'),
+    'singer': ('sing', 'ƨu', 'suffix'),
+    'fighter': ('fight', 'ƨu', 'suffix'),
+    'speaker': ('speak', 'ƨu', 'suffix'),
+    'killer': ('kill', 'ƨu', 'suffix'),
+    'teacher': ('teach', 'ƨu', 'suffix'),
+    'leader': ('lead', 'ƨu', 'suffix'),
+    
+    # Resultative (-țal suffix) - result of action
+    'ash': ('burn', 'țal', 'suffix'),
+    'death': ('die', 'țal', 'suffix'),
+    'wound': ('cut', 'țal', 'suffix'),
+    'creation': ('create', 'țal', 'suffix'),
+    
+    # Nominalizer (-ra suffix) - action to thing
+    'fire': ('burn', 'ra', 'suffix'),
+    'speech': ('speak', 'ra', 'suffix'),
+    'thought': ('think', 'ra', 'suffix'),
+    'breath': ('breathe', 'ra', 'suffix'),
+    'dream': ('sleep', 'ra', 'suffix'),
+    
+    # Diminutive (-k^e suffix)
+    'rain': ('water', 'k^e', 'suffix'),
+    'sand': ('stone', 'k^e', 'suffix'),
+    'ember': ('fire', 'k^e', 'suffix'),
+    'pond': ('lake', 'k^e', 'suffix'),
+    'hill': ('mountain', 'k^e', 'suffix'),
+    
+    # Augmentative (-ñor suffix)
+    'wind': ('air', 'ñor', 'suffix'),
+    'inferno': ('fire', 'ñor', 'suffix'),
+    'ocean': ('sea', 'ñor', 'suffix'),
+    'storm': ('rain', 'ñor', 'suffix'),
+    
+    # Place/Domain (-bren suffix)
+    'forest': ('tree', 'bren', 'suffix'),
+    'homeland': ('home', 'bren', 'suffix'),
+    
+    # Keeper/Guardian (-raš suffix)
+    'shepherd': ('sheep', 'raš', 'suffix'),
+    'guardian': ('guard', 'raš', 'suffix'),
+}
+
+# Onomatopoeia patterns - sound-symbolic words
+ONOMATOPOEIA = {
+    # Use ŧ'- onset for explosive/impact sounds
+    'crash': ("ŧ'", ['æš', 'ōk', 'ūm']),
+    'crack': ("ŧ'", ['æk', 'ōr', 'ūn']),
+    'thunder': ("ŧ'", ['ōm', 'ūn', 'æl']),
+    'bang': ("ŧ'", ['æñ', 'ōk', 'ūm']),
+    'boom': ("ŧ'", ['ūm', 'ōn', 'æl']),
+    
+    # Use ƨ- onset for hissing/flowing sounds
+    'splash': ('ƨ', ['læš', 'ōr', 'ūl']),
+    'hiss': ('ƨ', ['īs', 'ær', 'ūn']),
+    'sizzle': ('ƨ', ['īl', 'ōs', 'ær']),
+    'flow': ('ƨ', ['ōr', 'æl', 'ūn']),
+    'whistle': ('ƨ', ['īl', 'ōr', 'æn']),
+    
+    # Use gr- for growling/rumbling sounds
+    'growl': ('gr', ['ōl', 'æn', 'ūr']),
+    'rumble': ('gr', ['ūl', 'ōm', 'ær']),
+    'roar': ('gr', ['ōr', 'æl', 'ūn']),
+    
+    # Use pl- for liquid/splashing sounds
+    'plop': ('pl', ['ōp', 'æk', 'ūn']),
+    'bubble': ('pl', ['ūl', 'ōk', 'ær']),
+    'drip': ('pl', ['īk', 'ōr', 'ūl']),
+    
+    # Use š- for shushing/soft sounds
+    'whisper': ('š', ['īr', 'ōl', 'ūn']),
+    'shush': ('š', ['ūš', 'ōr', 'æl']),
+    'rustle': ('š', ['ūl', 'ōr', 'æn']),
+}
+
+# Compound patterns for complex concepts
+COMPOUND_RULES = {
+    # body-part + quality compounds
+    'blind': ('eye', 'dead'),
+    'deaf': ('ear', 'dead'),
+    'mute': ('mouth', 'dead'),
+    
+    # element + element compounds
+    'mud': ('water', 'earth'),
+    'steam': ('water', 'fire'),
+    'lava': ('fire', 'stone'),
+    
+    # time compounds
+    'midnight': ('night', 'middle'),
+    'noon': ('day', 'middle'),
+    'dawn': ('day', 'birth'),
+    'dusk': ('day', 'death'),
+}
+
+
+def smart_generate(english_word: str, category: str = None) -> dict:
+    """
+    Smart word generation that tries:
+    1. Derivation from existing root
+    2. Onomatopoeia for sound-symbolic words
+    3. Compound creation
+    4. New root generation with proper onset
+    
+    Returns dict with word, method, and explanation.
+    """
+    word_lower = english_word.lower()
+    dictionary = load_dictionary()
+    
+    # Build lookup
+    eng_to_nyr = {}
+    for entry in dictionary.get("words", []):
+        eng = entry.get("english", "").lower()
+        nyr = entry.get("nyrakai", "").split(" / ")[0]
+        eng_to_nyr[eng] = nyr
+    
+    result = {
+        "english": english_word,
+        "method": None,
+        "nyrakai": None,
+        "base_word": None,
+        "affix": None,
+        "explanation": None,
+    }
+    
+    # 1. Check for derivation
+    if word_lower in DERIVATION_RULES:
+        base_eng, affix, affix_type = DERIVATION_RULES[word_lower]
+        if base_eng in eng_to_nyr:
+            base_nyr = eng_to_nyr[base_eng]
+            if affix_type == 'prefix':
+                derived = affix + base_nyr
+            else:
+                derived = base_nyr + affix
+            
+            # Validate
+            validation = validate_word(derived)
+            if validation['valid']:
+                result["method"] = "derivation"
+                result["nyrakai"] = derived
+                result["base_word"] = base_nyr
+                result["affix"] = affix
+                result["explanation"] = f"{affix}- + {base_nyr} ({base_eng})" if affix_type == 'prefix' else f"{base_nyr} ({base_eng}) + -{affix}"
+                return result
+    
+    # 2. Check for onomatopoeia
+    if word_lower in ONOMATOPOEIA:
+        onset, templates = ONOMATOPOEIA[word_lower]
+        for template in templates:
+            word = onset + template
+            if word.lower() not in [e.get("nyrakai", "").lower() for e in dictionary.get("words", [])]:
+                validation = validate_word(word)
+                if validation['valid']:
+                    result["method"] = "onomatopoeia"
+                    result["nyrakai"] = word
+                    result["explanation"] = f"Sound-symbolic: {onset}- onset mimics the sound"
+                    return result
+    
+    # 3. Check for compound
+    if word_lower in COMPOUND_RULES:
+        part1_eng, part2_eng = COMPOUND_RULES[word_lower]
+        if part1_eng in eng_to_nyr and part2_eng in eng_to_nyr:
+            part1_nyr = eng_to_nyr[part1_eng]
+            part2_nyr = eng_to_nyr[part2_eng]
+            compound = part1_nyr + "-" + part2_nyr
+            result["method"] = "compound"
+            result["nyrakai"] = compound
+            result["explanation"] = f"{part1_nyr} ({part1_eng}) + {part2_nyr} ({part2_eng})"
+            return result
+    
+    # 4. Fall back to new root with proper onset
+    result["method"] = "new_root"
+    result["explanation"] = "Generate new root with category-appropriate onset"
+    
+    return result
+
+
+def print_smart_suggestion(english_word: str, category: str = None):
+    """Print smart generation suggestion."""
+    result = smart_generate(english_word, category)
+    
+    print(f"\n{'='*50}")
+    print(f"Word: {result['english']}")
+    print(f"{'='*50}")
+    
+    if result['method'] == 'derivation':
+        print(f"✨ DERIVATION FOUND!")
+        print(f"   Base: {result['base_word']}")
+        print(f"   Affix: {result['affix']}")
+        print(f"   Result: {result['nyrakai']}")
+        print(f"   Formula: {result['explanation']}")
+    elif result['method'] == 'onomatopoeia':
+        print(f"🔊 ONOMATOPOEIA!")
+        print(f"   Word: {result['nyrakai']}")
+        print(f"   {result['explanation']}")
+    elif result['method'] == 'compound':
+        print(f"🔗 COMPOUND!")
+        print(f"   Word: {result['nyrakai']}")
+        print(f"   Formula: {result['explanation']}")
+    else:
+        print(f"📝 NEW ROOT NEEDED")
+        print(f"   {result['explanation']}")
+    
+    return result
 

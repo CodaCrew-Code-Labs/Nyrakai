@@ -79,6 +79,15 @@ python3 validator.py hro
 python3 validator.py --check-dict
 ```
 
+**Validation checks include:**
+- Valid phoneme inventory
+- Syllable structure (C)(C)V(')(C)
+- Onset cluster rules
+- Coda constraints
+- **Forbidden sequences:** `^'` (ejective + glottal), `'a` (glottal + 'a')
+- English similarity check (avoids look-alike words)
+- Dictionary duplicate detection
+
 ### word-generator.py
 AI-powered word generator using Claude or OpenAI.
 
@@ -88,9 +97,52 @@ python3 word-generator.py fire
 
 # Generate 10 suggestions for "mountain"
 python3 word-generator.py mountain 10
+
+# Generate with domain constraint
+python3 word-generator.py fire 5 --domain nature
+python3 word-generator.py think 3 --domain cognition
+
+# List available domains
+python3 word-generator.py --domains
 ```
 
 Requires `ANTHROPIC_API_KEY` or `OPENAI_API_KEY` in environment or `~/.clawdbot/clawdbot.json`.
+
+### batch-generator.py ⭐ NEW
+**Parallel** word generation with collision detection. ~2x faster than sequential.
+
+```bash
+# Generate multiple words in parallel
+python3 batch-generator.py --words "jump,climb,dance,run" --domain action
+
+# Generate from file (one word per line)
+python3 batch-generator.py words.txt --domain action
+
+# Generate all missing Swadesh 207 words
+python3 batch-generator.py --swadesh-missing
+
+# Validate multiple words in parallel
+python3 batch-generator.py --validate-batch words.txt
+
+# Save output to JSON
+python3 batch-generator.py --words "test,example" -o results.json
+
+# Add valid words directly to dictionary
+python3 batch-generator.py --words "test,example" --add-to-dict
+```
+
+**Features:**
+- Parallel API calls (5 workers by default)
+- Collision detection:
+  - Exact matches with existing dictionary
+  - Similar words (edit distance < 2)
+  - Duplicates within the batch
+- Progress indicator
+- Timing stats
+
+**Speed comparison:**
+- Sequential (8 words): ~24 seconds
+- Parallel (8 words): ~12 seconds (~2x faster)
 
 ### alphabet-stats.py
 Analyze alphabet usage and statistics.

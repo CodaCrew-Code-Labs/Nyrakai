@@ -13,13 +13,13 @@ SOUND_MAP = {
     'd': ('action', 'quality', ['dōn', 'dem']),  # give, bad
     'f': ('nature', 'body', ['fœra', 'fə̄n']),  # earth, foot
     'g': ('nature', None, ['gān', 'gīn', 'gɒr', 'gūr']),  # tree family
-    'h': ('celestial', 'body', ['hīra', 'hūn', 'hīn', 'hǣn', 'hɒ̄r']),  # sun, moon, star, hand, heart
+    'h': ('celestial', 'body', ['hīra', 'hūn', 'hīn', 'hǣn', 'hɒ̄r', 'hræ', 'hōț']),  # sun, moon, star, hand, heart, day, morning (time via celestial)
     'k': ('action', 'body', ['kōm', 'kæ']),  # come, tongue
-    'l': ('body', 'action', ['lɛ̄r', 'lem']),  # liver, hear
+    'l': ('body', 'quality', ['lɛ̄r', 'lem', 'lāk']),  # liver, hear, hot (qualities)
     'm': ('body', None, ['mɒ̄l']),  # mouth
     'n': ('nature', 'body', ['na\'ēr', 'nærŧ', 'nəl', 'nɒ̄k', 'nɛ̄l']),  # water family, nose, knee
     'p': ('action', None, ['pæl']),  # walk
-    'r': ('abstract', 'time', ['r\'ōk', 'raț']),  # death, night
+    'r': ('abstract', 'celestial', ['r\'ōk', 'raț']),  # death/die (abstract), night (celestial/time)
     's': ('body', 'quality', ['sɛ̄l', 'sem']),  # ear, good
     't': ('nature', 'speech', ['tūk', 'tal']),  # bird, say
     'w': ('body', None, ['wōr']),  # flesh
@@ -27,14 +27,14 @@ SOUND_MAP = {
     'z': ('grammar', None, ['zæ']),  # not (negation)
     
     # Special consonants
-    'ñ': ('quantity', None, ['ñœr']),  # many
+    'ñ': ('quantity', 'cognition', ['ñœr', 'ñœrek']),  # many, unknown
     'š': ('body', 'cognition', ['šœ̄k', 'šōr']),  # head, know
     'ț': ('social', 'action', ['țræn', 'țūn', 'țīf\'æ']),  # person, drink, divine
     
     # Affricates
     'ƨ': ('nature', 'body', ['ƨæ', 'ƨæñor', 'ƨœn', 'ƨɛ̄n']),  # air, wind, skin, breast
     'ƶ': ('nature', None, ['ƶōrra', 'ƶæ', 'ƶōrțal']),  # fire family
-    'ŧ': ('body', 'nature', ['ŧōn', 'ŧɒ̄k', 'ŧ\'ōm']),  # bone, tooth, thunder
+    'ŧ': ('body', 'quantity', ['ŧōn', 'ŧɒ̄k', 'ŧ\'ōm', 'ŧɒn', 'ŧœl', 'Ŧɒñœrek']),  # bone, tooth, thunder, nine, six, The Nine Unknown
     
     # Clusters
     'dr': ('spatial', 'law', ['drōm']),  # long
@@ -51,7 +51,7 @@ SOUND_MAP = {
     'pl': ('social', None, ['plūrek']),  # community, village
     'pr': ('abstract', None, ['pr\'ōk^']),  # fate
     'sl': ('nature', 'action', ['slōm']),  # vegetation; sleep
-    'sm': ('spatial', None, []),  # small
+    'sm': ('spatial', 'quality', ['smōk']),  # small, spatial qualities
     'sn': ('time', None, []),  # new
     'sp': ('domestic', None, []),  # possess
     'sr': ('action', None, ['sre\'un']),  # create
@@ -71,7 +71,7 @@ SOUND_MAP = {
     # Glottal combinations (sacred/abstract)
     'n\'': ('abstract', None, ['n\'æ', 'n\'æra']),  # true, truth
     'ñ\'': ('abstract', None, ['ñ\'ān']),  # wisdom
-    'r\'': ('abstract', None, ['r\'ōk']),  # death
+    'r\'': ('abstract', 'action', ['r\'ōk']),  # death/die
     'ræ': ('abstract', None, ['ræțm']),  # soul
     'hœ': ('grammar', None, ['hœr']),  # who
     
@@ -83,6 +83,7 @@ SOUND_MAP = {
     # Vowel-initial (rare)
     'ə': ('grammar', None, ['əda']),  # and (conjunction)
     'i': ('time', None, ['in\'æl']),  # today
+    'u': ('emotion', None, ["ul'ahæ"]),  # emotion (internal feelings)
 }
 
 # Domain descriptions
