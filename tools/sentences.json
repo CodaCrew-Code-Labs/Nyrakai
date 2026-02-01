@@ -4,7 +4,7 @@
     "version": "1.0",
     "created": "2026-01-30",
     "updated": "2026-02-01",
-    "total_sentences": 16,
+    "total_sentences": 17,
     "categories": [
       "motto",
       "greeting",
@@ -656,6 +656,57 @@
       "category": "dialogue",
       "register": "everyday",
       "notes": "Demonstrates: 1) copula-less predicate adjective question, 2) location modifiers (here/there) come BEFORE noun like adjectives. Added 2026-02-01",
+      "validated": true,
+      "added": "2026-02-01"
+    },
+    {
+      "id": 17,
+      "english": "It is true, you are wise and we are foolish",
+      "nyrakai": "n'æ šā, šok^ɛ gæ əda šəmū fāri",
+      "ipa": "/nʔai ʃaː, ʃokʼε gai əda ʃəmuː faːri/",
+      "literal": "true it, wise you and foolish we",
+      "breakdown": [
+        {
+          "word": "n'æ",
+          "gloss": "true",
+          "role": "predicate adjective"
+        },
+        {
+          "word": "šā",
+          "gloss": "it",
+          "role": "subject"
+        },
+        {
+          "word": "šok^ɛ",
+          "gloss": "wise",
+          "role": "predicate adjective 1"
+        },
+        {
+          "word": "gæ",
+          "gloss": "you",
+          "role": "subject 1"
+        },
+        {
+          "word": "əda",
+          "gloss": "and",
+          "role": "conjunction"
+        },
+        {
+          "word": "šəmū",
+          "gloss": "foolish",
+          "role": "predicate adjective 2"
+        },
+        {
+          "word": "fāri",
+          "gloss": "we",
+          "role": "subject 2"
+        }
+      ],
+      "word_order": "[ADJ S], [ADJ1 S1] əda [ADJ2 S2]",
+      "context": "Complex sentence with parallel predicate clauses",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "Demonstrates: 1) copula-less predicate adjectives, 2) parallel predicates with different subjects joined by əda. Added 2026-02-01",
       "validated": true,
       "added": "2026-02-01"
     }

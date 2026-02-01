@@ -4,7 +4,7 @@
     "version": "3.9",
     "created": "2026-01-29",
     "updated": "2026-02-01",
-    "total_words": 302,
+    "total_words": 304,
     "format": "english | nyrakai | pronunciation | IPA | structure | syllables | pos | root",
     "notes": "Swadesh 207 complete!",
     "last_updated": "2026-02-01"
@@ -5103,6 +5103,44 @@
       "inherent_gender": null,
       "category": "Emotions and Values",
       "notes": "Emotion domain (p^-); describes something that causes fear/harm"
+    },
+    {
+      "english": "wise",
+      "nyrakai": "šok^ɛ",
+      "pronunciation": "shok-yeh",
+      "ipa": "/ʃokʼε/",
+      "structure": "CVC-CV",
+      "syllables": [
+        "šok^",
+        "ɛ"
+      ],
+      "syllable_count": 2,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "Cognition domain (š-); deep-knowing",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Cognition",
+      "notes": "Related to ñ'ān (wisdom) but distinct adjective form"
+    },
+    {
+      "english": "foolish",
+      "nyrakai": "šəmū",
+      "pronunciation": "shuh-moo",
+      "ipa": "/ʃəmuː/",
+      "structure": "CV-CV",
+      "syllables": [
+        "šə",
+        "mū"
+      ],
+      "syllable_count": 2,
+      "pos": "adj",
+      "is_root": true,
+      "etymology": "Cognition domain (š-); confused mind",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Cognition",
+      "notes": "Opposite of šok^ɛ (wise)"
     }
   ]
 }

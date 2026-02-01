@@ -749,6 +749,59 @@ class NyrakaiTranslator:
                 result['breakdown'].append(f"yes or no → {yes_word} wɒ {no_word}")
             return result
         
+        # Detect parallel predicate clauses: "X are ADJ1 and Y are ADJ2"
+        # Pattern: "you are wise and we are foolish" → ADJ1 SUBJ1 əda ADJ2 SUBJ2
+        # Must check BEFORE comma splitting to catch full pattern
+        parallel_pred_pattern = r'\b(\w+)\s+(?:are|is|am)\s+(\w+)\s+and\s+(\w+)\s+(?:are|is|am)\s+(\w+)\b'
+        parallel_pred_match = re.search(parallel_pred_pattern, sentence, re.IGNORECASE)
+        if parallel_pred_match:
+            subj1 = parallel_pred_match.group(1)
+            adj1 = parallel_pred_match.group(2)
+            subj2 = parallel_pred_match.group(3)
+            adj2 = parallel_pred_match.group(4)
+            
+            # Verify adj1 and adj2 are actually adjectives
+            adj1_entry = self.lookup(adj1)
+            adj2_entry = self.lookup(adj2)
+            
+            if adj1_entry and adj1_entry.get('pos') == 'adj' and adj2_entry and adj2_entry.get('pos') == 'adj':
+                # Translate the parallel predicate clauses
+                adj1_nyr = adj1_entry['nyrakai']
+                adj2_nyr = adj2_entry['nyrakai']
+                subj1_nyr, _ = self.translate_word(subj1, 'nominative')
+                subj2_nyr, _ = self.translate_word(subj2, 'nominative')
+                
+                parallel_nyr = f"{adj1_nyr} {subj1_nyr} əda {adj2_nyr} {subj2_nyr}"
+                
+                # Check if there's a prefix clause (e.g., "It is true, ")
+                prefix = sentence[:parallel_pred_match.start()].strip().rstrip(',').strip()
+                if prefix:
+                    prefix_result = self.translate_single(prefix)
+                    final_nyr = f"{prefix_result['nyrakai']}, {parallel_nyr}"
+                    breakdown = prefix_result['breakdown'] + ['---'] + [
+                        f"{subj1} are {adj1} → {adj1_nyr} {subj1_nyr} (predicate 1)",
+                        f"{subj2} are {adj2} → {adj2_nyr} {subj2_nyr} (predicate 2)",
+                        f"[and] → əda"
+                    ]
+                else:
+                    final_nyr = parallel_nyr
+                    breakdown = [
+                        f"{subj1} are {adj1} → {adj1_nyr} {subj1_nyr} (predicate 1)",
+                        f"{subj2} are {adj2} → {adj2_nyr} {subj2_nyr} (predicate 2)",
+                        f"[and] → əda"
+                    ]
+                
+                return {
+                    'input': sentence,
+                    'parsed': {'parallel_predicates': True},
+                    'nyrakai': final_nyr,
+                    'literal': f"{adj1} {subj1} and {adj2} {subj2}",
+                    'breakdown': breakdown,
+                    'missing_words': [],
+                    'warnings': [],
+                    'success': True,
+                }
+        
         # Check for comma-separated parallel clauses with repeated subject
         # Pattern: "I'm X, I'm Y" → translate as two separate clauses
         comma_pattern = r",\s*(?=I'm|I am|you're|you are|he's|he is|she's|she is|we're|we are|they're|they are)"
