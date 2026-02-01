@@ -4,7 +4,7 @@
     "version": "1.0",
     "created": "2026-01-30",
     "updated": "2026-02-01",
-    "total_sentences": 17,
+    "total_sentences": 18,
     "categories": [
       "motto",
       "greeting",
@@ -707,6 +707,52 @@
       "category": "dialogue",
       "register": "everyday",
       "notes": "Demonstrates: 1) copula-less predicate adjectives, 2) parallel predicates with different subjects joined by əda. Added 2026-02-01",
+      "validated": true,
+      "added": "2026-02-01"
+    },
+    {
+      "id": 18,
+      "english": "O Mother of the world! Where are you now?",
+      "nyrakai": "ț'əngāršar țōți gæ kwōl hīñ ka",
+      "ipa": "/ʈʔəŋaːrʃar ʈoːʈi gai kwoːl hiːɲ ka/",
+      "literal": "world's Mother-O, you where now ?",
+      "breakdown": [
+        {
+          "word": "ț'əngāršar",
+          "gloss": "of the world",
+          "role": "genitive (world + -šar)"
+        },
+        {
+          "word": "țōți",
+          "gloss": "O Mother",
+          "role": "vocative (mother + -ți)"
+        },
+        {
+          "word": "gæ",
+          "gloss": "you",
+          "role": "subject"
+        },
+        {
+          "word": "kwōl",
+          "gloss": "where",
+          "role": "question adverb"
+        },
+        {
+          "word": "hīñ",
+          "gloss": "now",
+          "role": "adverb"
+        },
+        {
+          "word": "ka",
+          "gloss": "?",
+          "role": "question particle"
+        }
+      ],
+      "word_order": "[GEN] [VOC] [S] [Q-ADV] [ADV] [Q]",
+      "context": "Invocation to a divine mother figure, demonstrates vocative and genitive cases",
+      "category": "ritual",
+      "register": "sacred",
+      "notes": "Demonstrates: 1) vocative case (-ți) for direct address, 2) genitive (-šar) before the noun it modifies, 3) question adverb placement. Added 2026-02-01",
       "validated": true,
       "added": "2026-02-01"
     }

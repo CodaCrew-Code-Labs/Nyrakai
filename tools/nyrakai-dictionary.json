@@ -4,7 +4,7 @@
     "version": "3.9",
     "created": "2026-01-29",
     "updated": "2026-02-01",
-    "total_words": 304,
+    "total_words": 305,
     "format": "english | nyrakai | pronunciation | IPA | structure | syllables | pos | root",
     "notes": "Swadesh 207 complete!",
     "last_updated": "2026-02-01"
@@ -5141,6 +5141,25 @@
       "inherent_gender": null,
       "category": "Cognition",
       "notes": "Opposite of šok^ɛ (wise)"
+    },
+    {
+      "english": "world",
+      "nyrakai": "ț'əngār",
+      "pronunciation": "thuh-ngaar",
+      "ipa": "/ʈʔəŋaːr/",
+      "structure": "CCV-CVVC",
+      "syllables": [
+        "ț'ə",
+        "ngār"
+      ],
+      "syllable_count": 2,
+      "pos": "noun",
+      "is_root": true,
+      "etymology": "Abstract domain; ancient mother-realm, the encompassing world",
+      "validated": true,
+      "inherent_gender": null,
+      "category": "Physical World",
+      "notes": "Sacred/abstract domain (ț'-); the world, realm, universe. Distinct from fœra (earth/ground)"
     }
   ]
 }

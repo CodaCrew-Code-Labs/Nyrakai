@@ -178,6 +178,7 @@ ADVERB_WORDS = {
     'here', 'there', 'today', 'yesterday', 'tomorrow', 'soon', 'later',
     'quickly', 'slowly', 'well', 'badly', 'very', 'really', 'still',
     'every',  # "every sometimes" = k^āl ț'œmenk^e
+    'where', 'when',  # question adverbs
 }
 
 # Particles (yes, no, etc.) - should be translated
@@ -429,6 +430,20 @@ class NyrakaiTranslator:
                 # Remove from sentence
                 sentence = re.sub(noun_location_pattern, '', sentence, count=1, flags=re.IGNORECASE).strip()
         
+        # Detect vocative "O NOUN" pattern
+        # "O Mother" → vocative case: țōți (mother + -ți)
+        vocative_pattern = r'\bO\s+(\w+)\b'
+        vocative_match = re.search(vocative_pattern, sentence, re.IGNORECASE)
+        if vocative_match:
+            voc_noun = vocative_match.group(1)
+            entry = self.lookup(voc_noun)
+            if entry and entry.get('pos') in ['noun', 'proper noun']:
+                result['vocative'] = {'noun': voc_noun}
+                # Remove from sentence
+                sentence = re.sub(vocative_pattern, '', sentence, count=1, flags=re.IGNORECASE).strip()
+                # Also remove trailing "!" if present
+                sentence = sentence.lstrip('!').strip()
+        
         # Detect possessive noun phrases: "my water", "your dog", "his car"
         # Store as possessive_noun: {'determiner': 'my', 'noun': 'water'}
         possessive_pattern = r'\b(my|your|his|her|its|our|their)\s+(\w+)\b'
@@ -526,6 +541,9 @@ class NyrakaiTranslator:
         if not is_imperative:
             for i, word in enumerate(content_words):
                 w_lower = word.lower()
+                # Skip words already used in prepositional phrases
+                if w_lower in result['prep_phrase_words']:
+                    continue
                 # Only subject pronouns can be subjects
                 if w_lower in SUBJECT_PRONOUNS:
                     result['subject'] = word
@@ -957,7 +975,44 @@ class NyrakaiTranslator:
                     adverb_parts.append(f"[{adv}?]")
                     breakdown.append(f"{adv} → [NOT FOUND] (adverb)")
         
-        # 0a. Quantity question phrase (how many X) - goes at FRONT
+        # 0a. Vocative phrase (O Mother!) - goes at VERY FRONT
+        # "O Mother of the world" → ț'əngāršar țōți (genitive before vocative noun)
+        if parsed.get('vocative'):
+            voc = parsed['vocative']
+            voc_noun = voc['noun']
+            noun_nyr, _ = self.translate_word(voc_noun, 'nominative')
+            
+            # Check if there's a genitive "of X" that modifies the vocative noun
+            genitive_part = None
+            for prep, words, case in parsed.get('prepositional_phrases', []):
+                if case == 'genitive' and prep == 'of':
+                    # Translate genitive phrase and put it BEFORE vocative
+                    gen_words = []
+                    for w in words:
+                        w_nyr, _ = self.translate_word(w, 'nominative')
+                        gen_words.append(w_nyr)
+                    gen_suffix = CASES.get('genitive', 'šar')
+                    # Apply genitive to last word
+                    gen_words[-1] = apply_interfix(gen_words[-1], gen_suffix)
+                    genitive_part = ' '.join(gen_words)
+                    breakdown.append(f"of {' '.join(words)} → {genitive_part} (genitive, -{gen_suffix})")
+                    # Remove this phrase from prepositional_phrases so it's not processed again
+                    parsed['prepositional_phrases'] = [(p, w, c) for p, w, c in parsed['prepositional_phrases'] if not (p == 'of' and c == 'genitive')]
+                    break
+            
+            # Apply vocative suffix -ți
+            voc_suffix = CASES.get('vocative', 'ți')
+            voc_word = apply_interfix(noun_nyr, voc_suffix)
+            
+            # Build vocative phrase: [genitive] [vocative-noun]
+            if genitive_part:
+                parts.append(f"{genitive_part} {voc_word}")
+                breakdown.append(f"O {voc_noun} → {voc_word} (vocative, -{voc_suffix})")
+            else:
+                parts.append(voc_word)
+                breakdown.append(f"O {voc_noun} → {voc_word} (vocative, -{voc_suffix})")
+        
+        # 0b. Quantity question phrase (how many X) - goes at FRONT
         # "How many years" → kwōr ñœr hūț
         if parsed.get('quantity_question'):
             qq = parsed['quantity_question']
