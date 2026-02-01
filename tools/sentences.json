@@ -4,7 +4,7 @@
     "version": "1.0",
     "created": "2026-01-30",
     "updated": "2026-02-01",
-    "total_sentences": 12,
+    "total_sentences": 13,
     "categories": [
       "motto",
       "greeting",
@@ -497,6 +497,42 @@
       "category": "dialogue",
       "register": "everyday",
       "notes": "First sentence demonstrating passive voice marker -rōn and potential aspect -ațar. Added 2026-02-01",
+      "validated": true,
+      "added": "2026-02-01"
+    },
+    {
+      "id": 13,
+      "english": "Go and pick up the bird",
+      "nyrakai": "stælțiræ, əda tūkaš daŧțiræ",
+      "ipa": "/stailʈirai, əda tuːkaʃ daθʈirai/",
+      "literal": "go-IMP, and bird-ACC take-IMP",
+      "breakdown": [
+        {
+          "word": "stælțiræ",
+          "gloss": "go!",
+          "role": "verb + imperative"
+        },
+        {
+          "word": "əda",
+          "gloss": "and",
+          "role": "conjunction"
+        },
+        {
+          "word": "tūkaš",
+          "gloss": "bird",
+          "role": "object (accusative)"
+        },
+        {
+          "word": "daŧțiræ",
+          "gloss": "take/pick!",
+          "role": "verb + imperative"
+        }
+      ],
+      "word_order": "[V-IMP], [CONJ] [O-ACC] [V-IMP]",
+      "context": "Imperative command with conjunction, demonstrates verb-first parsing and accusative objects",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "First sentence demonstrating imperative mood (-țiræ) and compound commands. Added 2026-02-01",
       "validated": true,
       "added": "2026-02-01"
     }
