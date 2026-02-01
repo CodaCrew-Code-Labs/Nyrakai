@@ -79,7 +79,7 @@ From phonotactics, these onsets are allowed:
 ### 🦴 Structure (bones, framework)
 | Onset | Semantic Range | Existing Words |
 |-------|----------------|----------------|
-| **ŧ-** | bones, skeleton, teeth, hard parts | ŧōn (bone), ŧɒ̄k (tooth) |
+| **ŧ-** | teeth, skeleton, hard parts | ŧɒ̄k (tooth), ŧ'ōm (thunder) |
 
 ### 💧 Fluids & Soft Tissue
 | Onset | Semantic Range | Existing Words |
@@ -100,7 +100,7 @@ From phonotactics, these onsets are allowed:
 ### 🫀 Vital Organs
 | Onset | Semantic Range | Existing Words |
 |-------|----------------|----------------|
-| **h-** | heart, hand, vital centers | hɒ̄r (heart), hǣn (hand) |
+| **h-** | heart, vital centers | hɒ̄r (heart), hīn (star) |
 | **l-** | liver, internal organs | lɛ̄r (liver) |
 
 ### 🧠 Head & Mind
@@ -148,7 +148,7 @@ From phonotactics, these onsets are allowed:
 | Onset | Semantic Range | Existing Words |
 |-------|----------------|----------------|
 | **p-** | walk, step, travel | pæl (walk) |
-| **k-** | come, arrive, approach | kōm (come) |
+| **d-** | come, arrive, approach | dɒ (come) |
 | **sw-** | swim, glide, float | — |
 | **sl-** | sleep, rest, dormancy | slōm (sleep) |
 | **st-** | stand, stay, remain | stīr (stand) |

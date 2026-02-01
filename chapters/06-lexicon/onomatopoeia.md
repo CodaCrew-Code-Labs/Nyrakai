@@ -92,7 +92,7 @@ Words imitating cracks, ruptures, or unnatural silences were particularly feared
 | Root | IPA | Sound | Category |
 |------|-----|-------|----------|
 | **hūm** | /huːm/ | Low hum, heartbeat | Everyday |
-| **gr'ōl** | /grəʔoːl/ | Growl, rumble | Hunting chants |
+| **ƶūr** | /ʒuːr/ | Growl, rumble | Hunting chants |
 
 ### Silence and Void
 

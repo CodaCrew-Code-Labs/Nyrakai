@@ -12,7 +12,7 @@ Nyrakai has 24 consonant sounds: 15 basic consonants, 2 glides, 3 ejectives, and
 | f | /f/ | "fish" | fā (I) |
 | g | /g/ | "go" | gwōr (dog) |
 | h | /h/ | "hat" | hīn (star) |
-| k | /k/ | "kite" | kōm (come) |
+| k | /k/ | "kite" | kol (bone) |
 | l | /l/ | "lamp" | lem (hear) |
 | m | /m/ | "map" | krōk (dry) |
 | n | /n/ | "net" | šōr (know) |
@@ -62,7 +62,7 @@ Affricates combine a stop and a fricative into a single consonant sound.
 | ƨ | /ts/ | "cats" | ƨœn (skin) |
 | š | /tʃ/ | "church" | šœ (this) |
 | ƶ | /dz/ | "adze" | ƶōr (burn) |
-| ŧ | /tr/ | "tree" | ŧōn (bone) |
+| ŧ | /tr/ | "tree" | ŧɒ̄k (tooth) |
 
 ---
 

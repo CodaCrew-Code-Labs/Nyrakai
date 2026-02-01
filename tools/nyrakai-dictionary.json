@@ -150,7 +150,7 @@
       "structure": "VC",
       "syllables": "añ (VC)",
       "syllable_count": 1,
-      "pos": "postp",
+      "pos": "postposition",
       "is_root": true,
       "etymology": "",
       "validated": true,
@@ -3373,7 +3373,7 @@
         "zēr"
       ],
       "syllable_count": 1,
-      "pos": "adverb/verb",
+      "pos": "adv",
       "is_root": true,
       "etymology": "once more; y-glide with ai diphthong",
       "validated": true,
@@ -3391,7 +3391,7 @@
         "zūm"
       ],
       "syllable_count": 1,
-      "pos": "adverb",
+      "pos": "adv",
       "is_root": true,
       "etymology": "not-time; absolute denial with harsh final stop",
       "validated": true,
@@ -3409,7 +3409,7 @@
         "zīk"
       ],
       "syllable_count": 1,
-      "pos": "conjunction",
+      "pos": "conj",
       "is_root": true,
       "etymology": "blunt opposition marker; Dothraki-style harshness",
       "validated": true,
@@ -3427,7 +3427,7 @@
         "zæs"
       ],
       "syllable_count": 1,
-      "pos": "adverb",
+      "pos": "adv",
       "is_root": true,
       "etymology": "temporal flow marker; simple affricate with diphthong",
       "validated": true,
@@ -3510,14 +3510,15 @@
     },
     {
       "english": "emotion",
-      "nyrakai": "ul'ahæ",
+      "nyrakai": "t'ōl",
       "pos": "noun",
       "category": "Emotions and Values",
       "register": "sacred",
       "etymology": "From Tamil உள்ளம் (uḷḷam) meaning heart/mind/soul",
       "added": "2026-01-31",
       "ipa": "/uləʔahai/",
-      "pronunciation": "uluh-ahai"
+      "pronunciation": "uluh-ahai",
+      "notes": " [Changed from ul'ahæ - contained forbidden 'a sequence]"
     },
     {
       "english": "sorry",
@@ -3565,13 +3566,14 @@
     },
     {
       "english": "praise",
-      "nyrakai": "țāl",
+      "nyrakai": "šāk",
       "pos": "verb",
       "category": "Social and Political Relations",
       "etymology": "From ancient ritual chanting, ejective ț marks sacred weight",
       "added": "2026-01-31",
       "ipa": "/θaːl/",
-      "pronunciation": "thaal"
+      "pronunciation": "thaal",
+      "notes": " [Changed from țāl to avoid collision with stay]"
     },
     {
       "english": "damage",

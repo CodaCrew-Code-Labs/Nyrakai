@@ -41,7 +41,7 @@ O + za-Vs + S + Va
 | šōr | zašōr | know → not know |
 | yɛn | zayɛn | see → not see |
 | lem | zalem | hear → not hear |
-| kōm | zakōm | come → not come |
+| dɒ | zadɒ | come → not come |
 | tal | zatal | say → not say |
 
 ### Adjectives

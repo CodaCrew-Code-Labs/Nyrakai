@@ -144,7 +144,7 @@ Marks the **tool**, instrument, or means of an action.
 |------|---------|
 | zwūrek | with/by stone |
 | ƶōrraek | with/by fire |
-| hǣnek | with/by hand |
+| mɒ'ek | with/by hand |
 | na'ērek | with/by water |
 | kæek | with/by tongue (words) |
 | yīrek | with/by eye (sight) |

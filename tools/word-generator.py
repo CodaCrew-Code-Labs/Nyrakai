@@ -369,7 +369,7 @@ EXAMPLES:
 - ƶōr (fire roar)
 - ț'ūs (whisper)
 - pl'æš (splash)
-- gr'ōl (growl)
+- ƶūr (growl)
 
 Reduplication (once only) for sustained sounds: ŧ'ōm-ŧ'ōm
 """

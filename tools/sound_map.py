@@ -10,13 +10,13 @@ SOUND_MAP = {
     'a': ('spatial', 'postposition', ['añ']),  # over, above
     
     # Basic consonants
-    'd': ('action', 'quality', ['dōn', 'dem']),  # give, bad
+    'd': ('action', 'quality', ['dōn', 'dem', 'dɒ']),  # give, bad, come
     'f': ('nature', 'body', ['fœra', 'fə̄n']),  # earth, foot
     'g': ('nature', None, ['gān', 'gīn', 'gɒr', 'gūr']),  # tree family
-    'h': ('celestial', 'body', ['hīra', 'hūn', 'hīn', 'hǣn', 'hɒ̄r', 'hræ', 'hōț']),  # sun, moon, star, hand, heart, day, morning (time via celestial)
-    'k': ('action', 'body', ['kōm', 'kæ']),  # come, tongue
+    'h': ('celestial', 'body', ['hīra', 'hūn', 'hīn', 'hɒ̄r', 'hræ', 'hōț']),  # sun, moon, star, heart, day, morning (time via celestial)
+    'k': ('action', 'body', ['kol', 'kæ']),  # bone, tongue
     'l': ('body', 'quality', ['lɛ̄r', 'lem', 'lāk']),  # liver, hear, hot (qualities)
-    'm': ('body', None, ['mɒ̄l']),  # mouth
+    'm': ('body', None, ['mɒ̄l', "mɒ'e"]),  # mouth, hand
     'n': ('nature', 'body', ['na\'ēr', 'nærŧ', 'nəl', 'nɒ̄k', 'nɛ̄l']),  # water family, nose, knee
     'p': ('action', None, ['pæl']),  # walk
     'r': ('abstract', 'celestial', ['r\'ōk', 'raț']),  # death/die (abstract), night (celestial/time)
@@ -34,7 +34,7 @@ SOUND_MAP = {
     # Affricates
     'ƨ': ('nature', 'body', ['ƨæ', 'ƨæñor', 'ƨœn', 'ƨɛ̄n']),  # air, wind, skin, breast
     'ƶ': ('nature', None, ['ƶōrra', 'ƶæ', 'ƶōrțal']),  # fire family
-    'ŧ': ('body', 'quantity', ['ŧōn', 'ŧɒ̄k', 'ŧ\'ōm', 'ŧɒn', 'ŧœl', 'Ŧɒñœrek']),  # bone, tooth, thunder, nine, six, The Nine Unknown
+    'ŧ': ('body', 'quantity', ['ŧɒ̄k', 'ŧ\'ōm', 'ŧɒn', 'ŧœl', 'Ŧɒñœrek']),  # tooth, thunder, nine, six, The Nine Unknown
     
     # Clusters
     'dr': ('spatial', 'law', ['drōm']),  # long

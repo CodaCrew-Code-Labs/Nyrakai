@@ -57,7 +57,7 @@ Consider updating sound_map.py to add 'time' domain to h- onset.
 - hīñ (now)
 - hæl (tomorrow)
 - hīk (yesterday)
-- hōl (old)
+- lān (old)
 - hæn (young)
 
 ## 📝 RECOMMENDATIONS
