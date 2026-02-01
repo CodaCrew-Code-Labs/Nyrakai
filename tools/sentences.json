@@ -4,7 +4,7 @@
     "version": "1.0",
     "created": "2026-01-30",
     "updated": "2026-02-01",
-    "total_sentences": 14,
+    "total_sentences": 15,
     "categories": [
       "motto",
       "greeting",
@@ -569,6 +569,57 @@
       "category": "dialogue",
       "register": "everyday",
       "notes": "rock = stone (zwūr) synonym. Adjectives in PPs dont get case suffix. Added 2026-02-01",
+      "validated": true,
+      "added": "2026-02-01"
+    },
+    {
+      "id": 15,
+      "english": "How many years will you stay here?",
+      "nyrakai": "kwōr ñœr hūț țālațar gæ zēl ka",
+      "ipa": "/kwoːr ɲœr huːʈ ʈaːlatʼar gai zeːl ka/",
+      "literal": "how many year stay-potential you here ?",
+      "breakdown": [
+        {
+          "word": "kwōr",
+          "gloss": "how",
+          "role": "question word"
+        },
+        {
+          "word": "ñœr",
+          "gloss": "many",
+          "role": "adjective"
+        },
+        {
+          "word": "hūț",
+          "gloss": "year(s)",
+          "role": "noun (quantity phrase)"
+        },
+        {
+          "word": "țālațar",
+          "gloss": "will stay",
+          "role": "verb + potential aspect"
+        },
+        {
+          "word": "gæ",
+          "gloss": "you",
+          "role": "subject"
+        },
+        {
+          "word": "zēl",
+          "gloss": "here",
+          "role": "adverb"
+        },
+        {
+          "word": "ka",
+          "gloss": "?",
+          "role": "question particle"
+        }
+      ],
+      "word_order": "[Q-PHRASE] [V-ASP] [S] [ADV] [Q]",
+      "context": "Quantity question with \"how many X\" phrase, demonstrates question phrase fronting",
+      "category": "dialogue",
+      "register": "everyday",
+      "notes": "First sentence with quantity question phrase. Question particle (ka) goes at very end after adverbs. Added 2026-02-01",
       "validated": true,
       "added": "2026-02-01"
     }

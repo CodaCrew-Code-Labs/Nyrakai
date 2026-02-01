@@ -402,6 +402,18 @@ class NyrakaiTranslator:
             # Remove from sentence
             sentence = re.sub(possessive_ablative_pattern, '', sentence, flags=re.IGNORECASE).strip()
         
+        # Detect "how many X" quantity question phrases
+        # "How many years will you stay" → quantity_question: {word: 'how', adj: 'many', noun: 'years'}
+        quantity_pattern = r'\b(how)\s+(many|much)\s+(\w+)\b'
+        quantity_match = re.search(quantity_pattern, sentence, re.IGNORECASE)
+        if quantity_match:
+            q_word = quantity_match.group(1).lower()  # how
+            q_adj = quantity_match.group(2).lower()   # many/much
+            q_noun = quantity_match.group(3)          # years
+            result['quantity_question'] = {'word': q_word, 'adj': q_adj, 'noun': q_noun}
+            # Remove from sentence so noun doesn't become subject
+            sentence = re.sub(quantity_pattern, '', sentence, count=1, flags=re.IGNORECASE).strip()
+        
         # Detect possessive noun phrases: "my water", "your dog", "his car"
         # Store as possessive_noun: {'determiner': 'my', 'noun': 'water'}
         possessive_pattern = r'\b(my|your|his|her|its|our|their)\s+(\w+)\b'
@@ -877,7 +889,39 @@ class NyrakaiTranslator:
                     adverb_parts.append(f"[{adv}?]")
                     breakdown.append(f"{adv} → [NOT FOUND] (adverb)")
         
-        # 0a. Separate locative from instrumental phrases
+        # 0a. Quantity question phrase (how many X) - goes at FRONT
+        # "How many years" → kwōr ñœr hūț
+        if parsed.get('quantity_question'):
+            qq = parsed['quantity_question']
+            qq_parts = []
+            # Translate: how → kwōr, many → ñœr, noun
+            how_entry = self.lookup(qq['word'])  # how
+            adj_entry = self.lookup(qq['adj'])   # many/much
+            noun_entry = self.lookup(qq['noun']) # years
+            
+            if how_entry:
+                qq_parts.append(how_entry['nyrakai'])
+            else:
+                qq_parts.append(f"[{qq['word']}?]")
+                self.missing_words.append(qq['word'])
+            
+            if adj_entry:
+                qq_parts.append(adj_entry['nyrakai'])
+            else:
+                qq_parts.append(f"[{qq['adj']}?]")
+                self.missing_words.append(qq['adj'])
+            
+            if noun_entry:
+                qq_parts.append(noun_entry['nyrakai'])
+            else:
+                qq_parts.append(f"[{qq['noun']}?]")
+                self.missing_words.append(qq['noun'])
+            
+            qq_str = ' '.join(qq_parts)
+            parts.append(qq_str)
+            breakdown.append(f"how {qq['adj']} {qq['noun']} → {qq_str} (quantity question)")
+        
+        # 0b. Separate locative from instrumental phrases
         locative_phrases = []
         instrumental_phrases = []
         if parsed.get('prepositional_phrases'):
@@ -1068,9 +1112,9 @@ class NyrakaiTranslator:
                 parts.append(aspect_suffix)
                 breakdown.append(f"[{parsed['aspect']}] → {aspect_suffix} (aspect)")
         
-        # 5. Question particle (if question)
+        # 5. Question particle - added later (after adverbs) in final assembly
         if parsed['question']:
-            parts.append('ka')
+            # Don't add here - will be added at the very end after adverbs
             breakdown.append(f"[question] → ka (particle)")
         
         # Build final sentence
