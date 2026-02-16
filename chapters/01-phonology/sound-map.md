@@ -47,10 +47,10 @@ From phonotactics, these onsets are allowed:
 | **f-** | earth, soil, ground, dust, mud | fœra (earth) |
 | **t^-** | mountains, valleys, large landforms, caves | t^arak (mountain) |
 
-### ✨ Celestial
+### ✨ Celestial & Time
 | Onset | Semantic Range | Existing Words |
 |-------|----------------|----------------|
-| **h-** | sun, moon, stars, sky, celestial bodies, light, brightness | hīra (sun), hūn (moon), hīn (star), hro (white) |
+| **h-** | sun, moon, stars, sky, celestial bodies, light, brightness, **time cycles** (day, year, month, week) | hīra (sun), hūn (moon), hīn (star), hro (white), hræ (day), hōț (morning), hæț (evening), hūț (year), hōm (month), hēr (week), hīñ (now), hæl (tomorrow), hīk (yesterday), hæn (young) |
 
 ### ❄️ Weather & Forces
 | Onset | Semantic Range | Existing Words |
@@ -224,9 +224,10 @@ From phonotactics, these onsets are allowed:
 ### ⏰ Time
 | Onset | Semantic Range | Existing Words |
 |-------|----------------|----------------|
+| **h-** | day, daylight, time cycles, temporal markers | hræ (day), hōț (morning), hæț (evening), hūț (year), hōm (month), hēr (week), hīñ (now), hæl (tomorrow), hīk (yesterday), hæn (young) |
 | **r-** | night, darkness, ending | rațñen (night) |
-| **h-** | day, daylight (tied to sun) | — |
 | **sn-** | new, fresh, beginning | — |
+| **l-** | old, age | lān (old) |
 
 ---
 
@@ -279,13 +280,13 @@ From phonotactics, these onsets are allowed:
 | gl- | house, shelter | — |
 | gr- | big, large | storm |
 | gw- | mammals, beasts | — |
-| h- | celestial (sun/moon/star) | heart, hand |
+| h- | celestial (sun/moon/star), **time** | heart, hand |
 | k- | come, tongue | — |
 | k^- | voice, dream | zero |
 | kl- | — | — |
 | kr- | ice, cold | — |
 | kw- | door, what | — |
-| l- | liver, hear | — |
+| l- | liver, hear | old (lān) |
 | m- | mouth | who |
 | n- | water domain | know, nose, knee |
 | n'- | truth, sacred | — |

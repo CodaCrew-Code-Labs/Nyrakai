@@ -13,9 +13,9 @@ SOUND_MAP = {
     'd': ('action', 'quality', ['dōn', 'dem', 'dɒ']),  # give, bad, come
     'f': ('nature', 'body', ['fœra', 'fə̄n']),  # earth, foot
     'g': ('nature', None, ['gān', 'gīn', 'gɒr', 'gūr']),  # tree family
-    'h': ('celestial', 'body', ['hīra', 'hūn', 'hīn', 'hɒ̄r', 'hræ', 'hōț']),  # sun, moon, star, heart, day, morning (time via celestial)
+    'h': ('celestial', 'time', ['hīra', 'hūn', 'hīn', 'hɒ̄r', 'hræ', 'hōț', 'hæț', 'hūț', 'hōm', 'hēr', 'hīñ', 'hæl', 'hīk', 'hæn']),  # celestial (sun, moon, star) + time cycles (day, morning, evening, year, month, week, now, tomorrow, yesterday, young) + body (heart)
     'k': ('action', 'body', ['kol', 'kæ']),  # bone, tongue
-    'l': ('body', 'quality', ['lɛ̄r', 'lem', 'lāk']),  # liver, hear, hot (qualities)
+    'l': ('body', 'time', ['lɛ̄r', 'lem', 'lāk', 'lān']),  # liver, hear, hot, old (age/time)
     'm': ('body', None, ['mɒ̄l', "mɒ'e"]),  # mouth, hand
     'n': ('nature', 'body', ['na\'ēr', 'nærŧ', 'nəl', 'nɒ̄k', 'nɛ̄l']),  # water family, nose, knee
     'p': ('action', None, ['pæl']),  # walk

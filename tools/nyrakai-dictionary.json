@@ -55,7 +55,8 @@
       "etymology": "",
       "validated": true,
       "inherent_gender": "flexible",
-      "category": "Animals"
+      "category": "Animals",
+      "gender": "flex"
     },
     {
       "english": "black",
@@ -101,7 +102,8 @@
       "etymology": "",
       "validated": true,
       "inherent_gender": "flexible",
-      "category": "Animals"
+      "category": "Animals",
+      "gender": "flex"
     },
     {
       "english": "fly",
@@ -140,7 +142,8 @@
         "root": "ƶōr",
         "affix": "ra",
         "type": "suffix"
-      }
+      },
+      "gender": "masc"
     },
     {
       "english": "over/above",
@@ -172,7 +175,8 @@
       "validated": true,
       "notes": "ƨ = ts affricate; æ = ai diphthong",
       "inherent_gender": "feminine",
-      "category": "The Physical World"
+      "category": "The Physical World",
+      "gender": "fem"
     },
     {
       "english": "ash",
@@ -193,7 +197,8 @@
         "root": "ƶōr",
         "affix": "țal",
         "type": "suffix"
-      }
+      },
+      "gender": "masc"
     },
     {
       "english": "die",
@@ -225,7 +230,8 @@
       "validated": true,
       "notes": "f + œ (oi diphthong)",
       "inherent_gender": "masculine",
-      "category": "The Physical World"
+      "category": "The Physical World",
+      "gender": "masc"
     },
     {
       "english": "ember",
@@ -246,7 +252,8 @@
         "root": "ƶōr",
         "affix": "k^e",
         "type": "suffix"
-      }
+      },
+      "gender": "masc"
     },
     {
       "english": "inferno",
@@ -267,7 +274,8 @@
         "root": "ƶōr",
         "affix": "ñor",
         "type": "suffix"
-      }
+      },
+      "gender": "masc"
     },
     {
       "english": "cloud",
@@ -283,7 +291,8 @@
       "validated": true,
       "notes": "ə = eu diphthong",
       "inherent_gender": "feminine",
-      "category": "The Physical World"
+      "category": "The Physical World",
+      "gender": "fem"
     },
     {
       "english": "cold",
@@ -418,7 +427,8 @@
         "root": "na'ēr",
         "affix": "k^e",
         "type": "suffix"
-      }
+      },
+      "gender": "fem"
     },
     {
       "english": "sand",
@@ -439,7 +449,8 @@
         "root": "zwūr",
         "affix": "k^e",
         "type": "suffix"
-      }
+      },
+      "gender": "masc"
     },
     {
       "english": "star",
@@ -455,7 +466,8 @@
       "validated": true,
       "notes": "h + ī (long i)",
       "inherent_gender": "sacred",
-      "category": "The Physical World"
+      "category": "The Physical World",
+      "gender": "sacr"
     },
     {
       "english": "swim",
@@ -487,7 +499,8 @@
       "validated": true,
       "notes": "h + ī (long i)",
       "inherent_gender": "sacred",
-      "category": "The Physical World"
+      "category": "The Physical World",
+      "gender": "sacr"
     },
     {
       "english": "stone",
@@ -503,7 +516,8 @@
       "validated": true,
       "notes": "zw cluster + ū long vowel",
       "inherent_gender": "masculine",
-      "category": "The Physical World"
+      "category": "The Physical World",
+      "gender": "masc"
     },
     {
       "english": "small",
@@ -535,7 +549,8 @@
       "validated": true,
       "notes": "ƶ = dz affricate; æ = ai diphthong",
       "inherent_gender": "masculine",
-      "category": "The Physical World"
+      "category": "The Physical World",
+      "gender": "masc"
     },
     {
       "english": "give",
@@ -805,7 +820,8 @@
       "validated": true,
       "notes": "ț = th; æ = ai diphthong",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "path",
@@ -869,7 +885,8 @@
       "validated": true,
       "notes": "h- for celestial bodies; ū = long u",
       "inherent_gender": "sacred",
-      "category": "The Physical World"
+      "category": "The Physical World",
+      "gender": "sacr"
     },
     {
       "english": "name",
@@ -938,7 +955,8 @@
         "root": "ƨæ",
         "affix": "ñor",
         "type": "suffix"
-      }
+      },
+      "gender": "fem"
     },
     {
       "english": "walk",
@@ -969,7 +987,8 @@
       "validated": true,
       "notes": "' = schwa + glottal stop; ē = long e",
       "inherent_gender": "feminine",
-      "category": "The Physical World"
+      "category": "The Physical World",
+      "gender": "fem"
     },
     {
       "english": "tongue",
@@ -985,7 +1004,8 @@
       "validated": true,
       "notes": "æ = ai diphthong",
       "inherent_gender": "sacred",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "sacr"
     },
     {
       "english": "true",
@@ -1405,7 +1425,8 @@
       "validated": true,
       "notes": "gw- cluster for mammals; g + ō (long o) + r",
       "inherent_gender": "flexible",
-      "category": "Animals"
+      "category": "Animals",
+      "gender": "flex"
     },
     {
       "english": "louse",
@@ -1421,7 +1442,8 @@
       "validated": true,
       "notes": "y + ī (long i) + k",
       "inherent_gender": "flexible",
-      "category": "Animals"
+      "category": "Animals",
+      "gender": "flex"
     },
     {
       "english": "tree",
@@ -1501,7 +1523,8 @@
       "validated": true,
       "notes": "ƨ (ts) affricate + œ (oi) diphthong; body family",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "flesh",
@@ -1517,7 +1540,8 @@
       "validated": true,
       "notes": "w glide + ō (long o); body family",
       "inherent_gender": "sacred",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "sacr"
     },
     {
       "english": "blood",
@@ -1533,7 +1557,8 @@
       "validated": true,
       "notes": "y glide + ū (long u); body family",
       "inherent_gender": "sacred",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "sacr"
     },
     {
       "english": "bone",
@@ -1549,7 +1574,8 @@
       "validated": true,
       "notes": "ŧ (tr) affricate + ō (long o); body family [Replaced ŧōn to avoid English similarity]",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "oil/grease",
@@ -1567,7 +1593,8 @@
       "validated": true,
       "notes": "[Changed from sǣl for onset alignment] s + ǣ (long āi diphthong)",
       "inherent_gender": "flexible",
-      "category": "Food and Drink"
+      "category": "Food and Drink",
+      "gender": "neut"
     },
     {
       "english": "egg",
@@ -1583,7 +1610,8 @@
       "validated": true,
       "notes": "f + ɒ̄ (long āu diphthong)",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "horn",
@@ -1599,7 +1627,8 @@
       "validated": true,
       "notes": "f + ɛ̄ (long ēi diphthong)",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "tail",
@@ -1615,7 +1644,8 @@
       "validated": true,
       "notes": "w glide + ǣ (long āi diphthong)",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "feather",
@@ -1631,7 +1661,8 @@
       "validated": true,
       "notes": "s + œ̄ (long ōi diphthong)",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "hair",
@@ -1647,7 +1678,8 @@
       "validated": true,
       "notes": "y glide + ə̄ (long ēu diphthong)",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "head",
@@ -1663,7 +1695,8 @@
       "validated": true,
       "notes": "š (ch) + œ̄ (long ōi diphthong)",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "ear",
@@ -1679,7 +1712,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "eye",
@@ -1695,7 +1729,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "nose",
@@ -1711,7 +1746,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "mouth",
@@ -1727,7 +1763,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "tooth",
@@ -1743,7 +1780,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "claw",
@@ -1761,7 +1799,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "foot",
@@ -1777,7 +1816,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "knee",
@@ -1793,7 +1833,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "hand",
@@ -1809,7 +1850,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "belly",
@@ -1827,7 +1869,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "neck",
@@ -1843,7 +1886,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "breast",
@@ -1859,7 +1903,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "heart",
@@ -1875,7 +1920,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "liver",
@@ -1891,7 +1937,8 @@
       "syllable_count": 1,
       "etymology": "",
       "inherent_gender": "flexible",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "drink",
@@ -2072,7 +2119,8 @@
       "validated": true,
       "inherent_gender": "feminine",
       "notes": "n- for water domain; river",
-      "category": "The Physical World"
+      "category": "The Physical World",
+      "gender": "fem"
     },
     {
       "english": "village",
@@ -2088,7 +2136,8 @@
       "validated": true,
       "inherent_gender": "masculine",
       "notes": "pl- for community/village",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "neut"
     },
     {
       "english": "voice",
@@ -2151,7 +2200,8 @@
       "etymology": "Sanskrit आत्मा (ātmā) → alienized",
       "validated": true,
       "inherent_gender": "sacred",
-      "category": "Religion and Belief"
+      "category": "Religion and Belief",
+      "gender": "sacr"
     },
     {
       "english": "fate",
@@ -2214,7 +2264,8 @@
       "etymology": "Onomatopoeia - thunder rumble",
       "validated": true,
       "inherent_gender": "sacred",
-      "category": "The Physical World"
+      "category": "The Physical World",
+      "gender": "sacr"
     },
     {
       "english": "splash",
@@ -2386,7 +2437,8 @@
       "validated": true,
       "notes": "gw- mammal domain; ƨ (ts) affricate ending; flexible gender",
       "inherent_gender": "flexible",
-      "category": "Animals"
+      "category": "Animals",
+      "gender": "flex"
     },
     {
       "english": "man",
@@ -2407,7 +2459,8 @@
         "root": "țræn",
         "affix": "æn",
         "type": "suffix"
-      }
+      },
+      "gender": "masc"
     },
     {
       "english": "woman",
@@ -2428,7 +2481,8 @@
         "root": "țræn",
         "affix": "añī",
         "type": "suffix"
-      }
+      },
+      "gender": "fem"
     },
     {
       "english": "leaf",
@@ -2530,7 +2584,8 @@
       "validated": true,
       "inherent_gender": "flexible",
       "notes": "Generic animal term, gw- onset for mammals",
-      "category": "Animals"
+      "category": "Animals",
+      "gender": "flex"
     },
     {
       "english": "flower",
@@ -2865,7 +2920,8 @@
       "validated": true,
       "inherent_gender": "flexible",
       "notes": "Body part - upper limb",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "leg",
@@ -2883,7 +2939,8 @@
       "validated": true,
       "inherent_gender": "flexible",
       "notes": "[Changed from p^œ for onset alignment] Body part - lower limb; ejective p^",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "face",
@@ -2899,7 +2956,8 @@
       "validated": true,
       "inherent_gender": "flexible",
       "notes": "Body part - m- onset for body domain. Replaced mūr (too similar to mur)",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "finger",
@@ -2917,7 +2975,8 @@
       "validated": true,
       "inherent_gender": "flexible",
       "notes": "[Changed from k^ɛl for onset alignment] Body part - digit; ejective k^",
-      "category": "The Body"
+      "category": "The Body",
+      "gender": "flex"
     },
     {
       "english": "morning",
@@ -3091,7 +3150,8 @@
       "validated": true,
       "notes": "social domain; ț = th",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "subject",
@@ -3107,7 +3167,8 @@
       "validated": true,
       "notes": "social domain; citizen under governance",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "servant",
@@ -3123,7 +3184,8 @@
       "validated": true,
       "notes": "glottal marker indicates bound duty",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "slave",
@@ -3141,7 +3203,8 @@
       "validated": true,
       "notes": "[Changed from ad'æ for onset alignment] spatial domain; the glottal stop marks loss of autonomy",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "stranger",
@@ -3157,7 +3220,8 @@
       "validated": true,
       "notes": "social domain; schwa marker creates distance",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "neighbor",
@@ -3175,7 +3239,8 @@
       "validated": true,
       "notes": "[Changed from ƨom for onset alignment] nature domain; ƨ = ts affricate",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "friend",
@@ -3193,7 +3258,8 @@
       "validated": true,
       "notes": "[Changed from ƨāro for onset alignment] nature domain; long vowel emphasizes depth of bond",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "people",
@@ -3210,7 +3276,8 @@
       "notes": "derived plural form; masculine/mixed group of people",
       "inherent_gender": "masculine",
       "derived_from": "țræn",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "neut"
     },
     {
       "english": "enemy",
@@ -3231,7 +3298,8 @@
         "affix": "za",
         "type": "prefix"
       },
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "guest",
@@ -3249,7 +3317,8 @@
       "validated": true,
       "notes": "[Changed from p^ægon for onset alignment] emotion domain; ejective p^ for respect",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "hero",
@@ -3267,7 +3336,8 @@
       "validated": true,
       "notes": "[Changed from mor'āf for onset alignment] grammar domain; rare z- onset",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "traitor",
@@ -3285,7 +3355,8 @@
       "validated": true,
       "notes": "[Changed from p^es for onset alignment] Emotion domain - betrayer. Updated from p^'īs (violated ^' rule)",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "spy",
@@ -3303,7 +3374,8 @@
       "validated": true,
       "notes": "[Changed from næz for onset alignment] nature domain; compact word for covert agent",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "messenger",
@@ -3321,7 +3393,8 @@
       "validated": true,
       "notes": "[Changed from ț'ɒm for onset alignment] schwa marker creates sacred quality",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "guide",
@@ -3337,7 +3410,8 @@
       "validated": true,
       "notes": "social domain; long vowel for authority",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "prisoner",
@@ -3361,7 +3435,8 @@
         "root": "țōr",
         "affix": "țal",
         "type": "suffix"
-      }
+      },
+      "gender": "flex"
     },
     {
       "english": "again",
@@ -3490,7 +3565,8 @@
         "affix": "añī",
         "type": "suffix"
       },
-      "category": "Animals"
+      "category": "Animals",
+      "gender": "fem"
     },
     {
       "english": "human",
@@ -3506,7 +3582,8 @@
       "validated": true,
       "notes": "shares root with person, like die/death share r'ōk",
       "inherent_gender": "flexible",
-      "category": "Social and Political Relations"
+      "category": "Social and Political Relations",
+      "gender": "flex"
     },
     {
       "english": "emotion",
@@ -3603,7 +3680,8 @@
       "ipa": "/niːm/",
       "pronunciation": "neem",
       "structure": "CVC",
-      "validated": true
+      "validated": true,
+      "gender": "masc"
     },
     {
       "nyrakai": "nef'ōm",
@@ -3613,7 +3691,8 @@
       "syllables": "nef'ōm (CVC'VC)",
       "notes": "Swadesh 207 - hidden water. Replaced țrōm (too similar to drōm/grōm/trōm)",
       "ipa": "/nefəʔoːm/",
-      "pronunciation": "nefuh-ohm"
+      "pronunciation": "nefuh-ohm",
+      "gender": "fem"
     },
     {
       "nyrakai": "nūr",
@@ -3637,7 +3716,8 @@
       "ipa": "/nuːm/",
       "pronunciation": "noom",
       "structure": "CVC",
-      "validated": true
+      "validated": true,
+      "gender": "fem"
     },
     {
       "nyrakai": "næ'ōs",
@@ -3647,7 +3727,8 @@
       "syllables": "næ'ōs (CV'VC)",
       "notes": "Swadesh 207 - hidden depths",
       "ipa": "/naiəʔoːs/",
-      "pronunciation": "naiuh-ohs"
+      "pronunciation": "naiuh-ohs",
+      "gender": "fem"
     },
     {
       "nyrakai": "nīras",
@@ -3657,7 +3738,8 @@
       "syllables": "nī.ras (CV.CVC)",
       "notes": "Swadesh 207 - Tamil நீர் influence",
       "ipa": "/niːras/",
-      "pronunciation": "neeras"
+      "pronunciation": "neeras",
+      "gender": "fem"
     },
     {
       "nyrakai": "hr'œ",
@@ -3667,7 +3749,8 @@
       "syllables": "hr'œ (CC'V)",
       "notes": "Swadesh 207 - celestial h- onset",
       "ipa": "/hrəʔoi/",
-      "pronunciation": "hruh-oi"
+      "pronunciation": "hruh-oi",
+      "gender": "sacr"
     },
     {
       "nyrakai": "nețɒ",
@@ -3677,7 +3760,8 @@
       "syllables": "ne.țɒ (CV.CV)",
       "notes": "Swadesh 207 - gentle drift",
       "ipa": "/neθau/",
-      "pronunciation": "nethau"
+      "pronunciation": "nethau",
+      "gender": "fem"
     },
     {
       "nyrakai": "yæm",
@@ -3687,7 +3771,8 @@
       "syllables": "yæm (CVC)",
       "notes": "Swadesh 207 - simple earthy",
       "ipa": "/jaim/",
-      "pronunciation": "yaim"
+      "pronunciation": "yaim",
+      "gender": "flex"
     },
     {
       "nyrakai": "nāk^",
@@ -3697,7 +3782,8 @@
       "syllables": "nāk^ (CVC)",
       "notes": "Swadesh 207 - Tamil நாகம் nāgam",
       "ipa": "/naːkʼ/",
-      "pronunciation": "naak'"
+      "pronunciation": "naak'",
+      "gender": "flex"
     },
     {
       "nyrakai": "wɒk",
@@ -3707,7 +3793,8 @@
       "syllables": "wɒk (CVC)",
       "notes": "Swadesh 207 - w- onset for body domain",
       "ipa": "/wauk/",
-      "pronunciation": "wauk"
+      "pronunciation": "wauk",
+      "gender": "flex"
     },
     {
       "nyrakai": "sēk",
@@ -3717,7 +3804,8 @@
       "syllables": "sēk (CVC)",
       "notes": "Swadesh 207 - s- onset for body domain",
       "ipa": "/seːk/",
-      "pronunciation": "seek"
+      "pronunciation": "seek",
+      "gender": "flex"
     },
     {
       "nyrakai": "mōl",
@@ -3727,7 +3815,8 @@
       "syllables": "mōl (CVC)",
       "notes": "Swadesh 207 - m- onset for body domain",
       "ipa": "/moːl/",
-      "pronunciation": "mohl"
+      "pronunciation": "mohl",
+      "gender": "flex"
     },
     {
       "nyrakai": "sēr",
@@ -3737,7 +3826,8 @@
       "syllables": "sēr (CVC)",
       "notes": "Swadesh 207 - s- onset for body domain",
       "ipa": "/seːr/",
-      "pronunciation": "seer"
+      "pronunciation": "seer",
+      "gender": "flex"
     },
     {
       "nyrakai": "t'ōr",
@@ -5159,7 +5249,8 @@
       "validated": true,
       "inherent_gender": null,
       "category": "Physical World",
-      "notes": "Sacred/abstract domain (ț'-); the world, realm, universe. Distinct from fœra (earth/ground)"
+      "notes": "Sacred/abstract domain (ț'-); the world, realm, universe. Distinct from fœra (earth/ground)",
+      "gender": "sacr"
     }
   ]
 }
